@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Edx platform使用</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Tulpar Turamat">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css" />
+
+    <link href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+	font-family: 'Oleo Script', 'cursive';
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="/theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png">
+
+    <link href="/" type="application/atom+xml" rel="alternate" title="Dreaming ATOM Feed" />
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/index.html">Dreaming </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                          <li class="divider-vertical"></li>
+                  <li >
+                    <a href="/category/about-me.html">
+						<i class="icon-folder-open icon-large"></i>About Me
+					</a>
+                  </li>
+                  <li class="active">
+                    <a href="/category/it.html">
+						<i class="icon-folder-open icon-large"></i>It
+					</a>
+                  </li>
+
+                          <ul class="nav pull-right">
+                                <li><a href="/archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                          </ul>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to Edx platform使用">
+                                        Edx platform使用
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2014-05-07T00:00:00">
+        <i class="icon-calendar"></i>三 07 五月 2014
+</abbr>
+<span class="label">By</span>
+<a href="/author/tulpar-turamat.html"><i class="icon-user"></i>Tulpar Turamat</a>
+<span class="label">Category</span>
+<a href="/category/it.html"><i class="icon-folder-open"></i>It</a>.
+
+
+<span class="label">Tags</span>
+	<a href="/tag/edx.html"><i class="icon-tag"></i>edx</a>
+</footer><!-- /.post-info -->                </div>
+                <h1>使用Edx-platform</h1>
+<h3>1. create superuser</h3>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">www</span><span class="o">-</span><span class="n">data</span> <span class="o">/</span><span class="n">edx</span><span class="o">/</span>
+<span class="n">bin</span><span class="o">/</span><span class="n">python</span><span class="p">.</span><span class="n">edxapp</span> <span class="p">.</span><span class="o">/</span><span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">lms</span> <span class="o">--</span><span class="n">settings</span> <span class="n">aws</span> <span class="n">create_user</span> <span class="o">-</span><span class="n">e</span> <span class="n">user</span><span class="err">@</span><span class="n">example</span><span class="p">.</span><span class="n">com</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">www</span><span class="o">-</span><span class="n">data</span> <span class="o">/</span><span class="n">edx</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span><span class="p">.</span><span class="n">edxapp</span> <span class="p">.</span><span class="o">/</span><span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">lms</span> <span class="o">--</span><span class="n">settings</span> <span class="n">aws</span> <span class="n">changepassword</span> <span class="n">user</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">www</span><span class="o">-</span><span class="n">data</span> <span class="o">/</span><span class="n">edx</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span><span class="p">.</span><span class="n">edxapp</span> <span class="p">.</span><span class="o">/</span><span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">lms</span> <span class="o">--</span><span class="n">settings</span> <span class="n">aws</span> <span class="n">shell</span>
+
+<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">auth</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">User</span>
+<span class="n">me</span> <span class="o">=</span> <span class="n">User</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s">&quot;user&quot;</span><span class="p">)</span>
+<span class="n">me</span><span class="p">.</span><span class="n">is_superuser</span> <span class="o">=</span> <span class="n">True</span>
+<span class="n">me</span><span class="p">.</span><span class="n">is_staff</span> <span class="o">=</span> <span class="n">True</span>
+<span class="n">me</span><span class="p">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+
+
+<h3>2. 虚拟机配置网桥</h3>
+<h5>(1) 配置vagrant(改Vagrantfile文件)</h5>
+<p>回到项目起始目录，如我的是</p>
+<div class="highlight"><pre><span class="n">pwd</span>
+<span class="o">~/</span><span class="n">workplace</span><span class="o">/</span><span class="n">fullstack</span><span class="err">$</span>
+<span class="n">ls</span> <span class="o">~/</span><span class="n">workplace</span><span class="o">/</span><span class="n">fullstack</span>
+<span class="mi">20140418</span><span class="o">-</span><span class="n">injera</span><span class="o">-</span><span class="n">fullstack</span><span class="p">.</span><span class="n">box</span>  <span class="n">Vagrantfile</span>
+</pre></div>
+
+
+<p>更改Networking方式，默认是host-only模式，如下：</p>
+<div class="highlight"><pre><span class="n">config</span><span class="p">.</span><span class="n">vm</span><span class="p">.</span><span class="n">network</span> <span class="o">:</span><span class="n">private_network</span><span class="p">,</span> <span class="n">ip</span><span class="o">:</span> <span class="s">&quot;192.168.33.10&quot;</span>
+</pre></div>
+
+
+<p>改成：</p>
+<div class="highlight"><pre><span class="n">config</span><span class="p">.</span><span class="n">vm</span><span class="p">.</span><span class="n">network</span> <span class="s">&quot;public_network&quot;</span><span class="p">,</span> <span class="o">:</span><span class="n">bridge</span> <span class="o">=&gt;</span> <span class="err">&#39;</span><span class="n">eth0</span><span class="err">&#39;</span>
+</pre></div>
+
+
+<p>添加IP和Port</p>
+<div class="highlight"><pre><span class="n">config</span><span class="p">.</span><span class="n">ssh</span><span class="p">.</span><span class="n">host</span> <span class="o">=</span> <span class="s">&quot;202.206.221.119&quot;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">ssh</span><span class="p">.</span><span class="n">port</span> <span class="o">=</span> <span class="s">&quot;22&quot;</span>
+</pre></div>
+
+
+<p>以上<code>config.ssh.host</code> 和<code>config.ssh.port</code>默认127.0.0.1：2222和22</p>
+<h5>(2) 更改虚拟机的Networking方式，默认是NAT模式,我用的是virtualbox</h5>
+<p><img alt="virtualbox" src="http://wwjpic.qiniudn.com/1.png" /></p>
+<h5>(3) 登录虚拟机，配置静态IP</h5>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">vim</span>  <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">interfaces</span>
+<span class="k">auto</span> <span class="n">eth0</span> 
+<span class="n">iface</span> <span class="n">eth0</span> <span class="n">inet</span> <span class="k">static</span> 
+<span class="n">address</span> <span class="mf">192.168.1.152</span> 
+<span class="n">gateway</span> <span class="mf">192.168.1.1</span> 
+<span class="n">netmask</span> <span class="mf">255.255.255.0</span> 
+<span class="n">network</span> <span class="mf">192.168.1.0</span> 
+<span class="n">broadcast</span> <span class="mf">192.168.1.255</span>
+</pre></div>
+
+
+<p>这样，IP并没有立即生效,重启网络服务</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">networking</span> <span class="n">restart</span>
+</pre></div>
+
+
+<h3>3.配置edx邮件服务</h3>
+<h5>CMS</h5>
+<div class="highlight"><pre><span class="n">vim</span> <span class="o">/</span><span class="n">edx</span><span class="o">-</span><span class="n">platform</span><span class="o">/</span><span class="n">cms</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">common</span><span class="p">.</span><span class="n">py</span>
+</pre></div>
+
+
+<p>配置#Email的内容，如下：</p>
+<div class="highlight"><pre><span class="n">EMAIL_BACKEND</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">core</span><span class="p">.</span><span class="n">mail</span><span class="p">.</span><span class="n">backends</span><span class="p">.</span><span class="n">smtp</span><span class="p">.</span><span class="n">EmailBackend</span><span class="err">&#39;</span>
+<span class="n">DEFAULT_FROM_EMAIL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">mooc</span><span class="err">@</span><span class="n">iflab</span><span class="p">.</span><span class="n">org</span><span class="err">&#39;</span>
+<span class="n">DEFAULT_FEEDBACK_EMAIL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">mooc</span><span class="err">@</span><span class="n">iflab</span><span class="p">.</span><span class="n">org</span><span class="err">&#39;</span>
+<span class="n">EMAIL_HOST</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">smtp</span><span class="p">.</span><span class="n">exmail</span><span class="p">.</span><span class="n">qq</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span>
+<span class="n">EMAIL_HOST_USER</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">mooc</span><span class="err">@</span><span class="n">iflab</span><span class="p">.</span><span class="n">org</span><span class="err">&#39;</span>
+<span class="n">TECH_SUPPORT_EMAIL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">root</span><span class="err">@</span><span class="n">idefs</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span>
+<span class="n">CONTACT_EMAIL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">mooc</span><span class="err">@</span><span class="n">iflab</span><span class="p">.</span><span class="n">org</span><span class="err">&#39;</span>
+<span class="n">SERVER_EMAIL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">stack</span><span class="err">@</span><span class="n">iflab</span><span class="p">.</span><span class="n">org</span><span class="err">&#39;</span>
+<span class="n">BUGS_EMAIL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">stack</span><span class="err">@</span><span class="n">iflab</span><span class="p">.</span><span class="n">org</span><span class="err">&#39;</span>
+<span class="n">EMAIL_HOST_PASSWORD</span> <span class="o">=</span> <span class="err">&#39;&#39;</span>
+<span class="n">EMAIL_PORT</span> <span class="o">=</span> <span class="mi">465</span>
+<span class="n">EMAIL_USE_TLS</span> <span class="o">=</span> <span class="err">&#39;</span><span class="nb">true</span><span class="err">&#39;</span>
+<span class="n">ADMINS</span> <span class="o">=</span> <span class="p">(</span>
+<span class="p">(</span><span class="err">&#39;</span><span class="n">edX</span> <span class="n">Admins</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">mooc</span><span class="err">&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<h5>Lms也是如此</h5>
+<p>小编提示：配置好后，如果不正常，请检查所用邮箱，有可能会有以下问题：<br />
+1. 国外的邮件服务（如gmail），有可能被抢了<br />
+2. 你用的dns没法解析你所使用的smtp服务器（这种可能性很低，不过小编中了）。如我用的是smtp.qq.com,一直没法用，很不科学，找不到原因，最后抓包看了一下：原来我们学校dns服务器没能解析smtp.qq.com——蛋疼！</p>
+                </div><!-- /.entry-content -->
+        </article>
+</section>
+        </div><!--/span-->
+
+                <div class="span3 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
+    <li><a href="http://izda.com/"><i class="icon-external-link"></i>ئىزدە</a></li>
+    <li><a href="http://www.google.com/"><i class="icon-external-link"></i>Google</a></li>
+    <li><a href="http://www.zhihu.com/"><i class="icon-external-link"></i>知乎</a></li>
+    <li><a href="http://www.douban.com/"><i class="icon-external-link"></i>豆瓣</a></li>
+<li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
+
+    <li><a href="https://github.com/tulpar008"><i class="icon-My Github-sign icon-large"></i>My Github</a></li>
+    <li><a href="#"><i class="icon-tulpar008@gmail.com-sign icon-large"></i>tulpar008@gmail.com</a></li>
+
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="/category/about-me.html">
+    <i class="icon-folder-open icon-large"></i>About Me
+</a>
+</li>
+<li>
+<a href="/category/it.html">
+    <i class="icon-folder-open icon-large"></i>It
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+<li class="tag-4">
+    <a href="/tag/git.html">
+        <i class="icon-tag icon-large"></i>Git
+    </a>
+</li>
+<li class="tag-4">
+    <a href="/tag/life.html">
+        <i class="icon-tag icon-large"></i>Life
+    </a>
+</li>
+<li class="tag-4">
+    <a href="/tag/.html">
+        <i class="icon-tag icon-large"></i>
+    </a>
+</li>
+<li class="tag-4">
+    <a href="/tag/django.html">
+        <i class="icon-tag icon-large"></i>Django
+    </a>
+</li>
+<li class="tag-1">
+    <a href="/tag/edx.html">
+        <i class="icon-tag icon-large"></i>edx
+    </a>
+</li>
+<li class="tag-4">
+    <a href="/tag/qian-tai.html">
+        <i class="icon-tag icon-large"></i>前台
+    </a>
+</li>
+<li class="tag-4">
+    <a href="/tag/writing.html">
+        <i class="icon-tag icon-large"></i>Writing
+    </a>
+</li>
+
+
+</ul>        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Assilammu alaykum,kirindaxlar
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+        </address><!-- /#about -->
+
+        <p>The theme is from <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
+                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="/theme/js/bootstrap.min.js"></script>
+  </body>
+</html>
