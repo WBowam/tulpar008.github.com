@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Fonts From Google</title>
+    <title>Git 入门</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Tulpar Turamat">
@@ -98,8 +98,8 @@
                         <h1>
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to Fonts From Google">
-                                        Fonts From Google
+                                        title="Permalink to Git 入门">
+                                        Git 入门
                                 </a>
                         </h1>
                 </header>
@@ -107,30 +107,94 @@
                 <div class="well">
 <footer class="post-info">
 <span class="label">Date</span>
-<abbr class="published" title="2014-04-29T00:00:00">
-        <i class="icon-calendar"></i>二 29 四月 2014
+<abbr class="published" title="2014-05-08T00:00:00">
+        <i class="icon-calendar"></i>四 08 五月 2014
 </abbr>
 <span class="label">By</span>
 <a href="/author/tulpar-turamat.html"><i class="icon-user"></i>Tulpar Turamat</a>
 <span class="label">Category</span>
-<a href="/category/it.html"><i class="icon-folder-open"></i>IT</a>.
+<a href="/category/it.html"><i class="icon-folder-open"></i>It</a>.
 
 
 <span class="label">Tags</span>
-	<a href="/tag/qian-tai.html"><i class="icon-tag"></i>前台</a>
+	<a href="/tag/git.html"><i class="icon-tag"></i>Git</a>
 </footer><!-- /.post-info -->                </div>
-                <h4>再次感慨Google是个伟大的公司</h4>
-<h5>发现一个特别好用的谷歌资源，<strong> <a href="http://www.google.com/fonts/">google fonts</a> </strong></h5>
-<h3>1.用法</h3>
-<ul>
-<li>Choose the styles you want</li>
-<li>example:Dancing Script</li>
-<li>Add this code to your website: 
-  <code>&lt;link href='http://fonts.googleapis.com/css?family=Dancing+Script:400,700' rel='stylesheet' type='text/css'&gt;</code></li>
-<li>Integrate the fonts into your CSS
-  <code>font-family: 'Dancing Script', 'cursive';</code>
-'</li>
-</ul>
+                <p>之前入门过git，只是入门，不明白原理，不会用建分支，没法完成一些稍有难度的工作。因此，一直想再学学，一直是想，直到......<br />
+好朋友wwj推荐<a href="http://igit.linuxtoy.org/">沉浸式学 Git</a>，看了一下：特别喜欢，再学学，走起！
+感谢<a href="http://igit.linuxtoy.org/">徐小东</a>，感谢<a href="http://wwj718.github.io/">wwj</a>.</p>
+<hr />
+<h3>安装</h3>
+<h5>Linux</h5>
+<p><code>$ apt-get install git</code> <br />
+Or <br />
+<code>$ yum install git-core</code></p>
+<h5>Mac</h5>
+<p>请参阅<a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Mac 安装Git</a></p>
+<h5>windows</h5>
+<p>请参阅 <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Windows 安装Git</a></p>
+<hr />
+<h3>开始使用</h3>
+<h4>1. 创建新仓库</h4>
+<div class="highlight"><pre><span class="n">mkdir</span> <span class="n">hello</span>
+<span class="n">cd</span> <span class="n">hello</span>  
+<span class="n">git</span> <span class="n">init</span>
+</pre></div>
+
+
+<p>添加新内容
+<code>vim hello.rb</code><br />
+<code>git add hello.rb</code>或<code>git add .</code> <br />
+添加注释  </p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&quot;First Commit&quot;</span>
+</pre></div>
+
+
+<p>推送改动<br />
+<code>git push origin master</code> </p>
+<h4>2. 检查仓库状态</h4>
+<p><code>git status</code></p>
+<h4>3. 查看历史（history）</h4>
+<p>本地 <br />
+<code>git log</code><br />
+线上的版本<br />
+<code>git log --pretty=oneline</code>  </p>
+<h4>4.改命令别名</h4>
+<p>这个很有用。以前重复敲很多很长的命令——烦！这下好了'.'</p>
+<h6>找到.gitconfig,记得先备份一下啊</h6>
+<div class="highlight"><pre><span class="k">[alias]</span>
+  <span class="na">co</span> <span class="o">=</span> <span class="s">checkout</span>
+<span class="s">  ci = commit</span>
+<span class="s">  st = status</span>
+<span class="s">  br = branch</span>
+<span class="s">  hist = log --pretty=format:&#39;%h %ad | %s%d [%an]&#39; --graph --date=short</span>
+<span class="s">  type = cat-file -t</span>
+<span class="s">  dump = cat-file -p</span>
+</pre></div>
+
+
+<h4>5.检出仓库</h4>
+<h6>执行如下命令以创建一个本地仓库的克隆版本：</h6>
+<p><code>git clone /path/to/repository</code>  </p>
+<h5>创建一个远程仓库的克隆版本：</h5>
+<p><code>git clone username@host:/path/to/repository</code></p>
+<h3>6.分支</h3>
+<p>分支是用来将特性开发绝缘开来的。在你创建仓库的时候，master 是“默认的”。在其他分支上进行开发，完成后再将它们合并到主分支上。<a href="http://www.bootcss.com/p/git-guide/img/branches.png">原理图</a>  </p>
+<h5>创建一个叫做“feature_x”的分支，并切换过去：</h5>
+<p><code>git checkout -b feature_x</code></p>
+<h6>切换回主分支：</h6>
+<p><code>git checkout master</code></p>
+<h6>再切换到分支feature_x：</h6>
+<p><code>git checkout feature_x</code></p>
+<h5>删除分支</h5>
+<p><code>git branch -d feature_x</code>   </p>
+<h6><strong>所有的操作之后别忘了推送</strong></h6>
+<h4>7.更新与合并</h4>
+<p>更新<br />
+<code>git pull</code>
+合并<br />
+<code>git merge &lt;branch&gt;</code></p>
+<hr />
+<p>先就这些吧，谢谢光顾！</p>
                 </div><!-- /.entry-content -->
         </article>
 </section>
