@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Dreaming - Django</title>
+  <title>Django Media 配置（方法一）</title>
   <meta name="author" content="tulpar">
 
 
@@ -37,18 +37,16 @@
 
 
 <ul class="main-navigation">
-    <li >
+    <li class="active">
     <a href="/category/it.html">It</a>
     </li>
 </ul></nav>
   <div id="main">
     <div id="content">
-<div class="blog-index">
-  		<article>
+<div>
+  <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">
-        <a href="/django-media-pei-zhi-fang-fa-yi.html">Django Media 配置（方法一）</a>
-      </h1>
+      <h1 class="entry-title">Django Media 配置（方法一）</h1>
       <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
 </header>
 
@@ -72,15 +70,26 @@
 
 
 <h3>urls.py</h3>
-<div class="highlight"><pre><span class="err">#</span><span class="vi">#added</span> <span class="k">by</span> <span class="nx">Tulpar ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/django-media-pei-zhi-fang-fa-yi.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-<div class="pagination">
+<div class="highlight"><pre><span class="err">#</span><span class="vi">#added</span> <span class="k">by</span> <span class="nx">Tulpar</span><span class="p">,</span><span class="mi">20140514</span>
+<span class="nb">from</span> <span class="nx">django.conf</span> <span class="k">import</span> <span class="nx">settings</span>
 
-  <br />
-</div></div>
+<span class="nx">urlpatterns</span> <span class="o">+=</span> <span class="nx">patterns</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nb">url</span><span class="p">(</span><span class="nb">r</span><span class="s2">&quot;^media/(?P&lt;path&gt;.*)$&quot;</span><span class="p">,</span><span class="s2">&quot;django.views.static.serve&quot;</span><span class="p">,{</span><span class="s2">&quot;document_root&quot;</span><span class="p">:</span> <span class="nx">settings.MEDIA_ROOT</span><span class="p">,}),</span>
+<span class="p">)</span>
+</pre></div></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">tulpar</span>
+  </span>
+<time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time>  <span class="categories">
+    <a class="category" href="/tag/django.html">Django</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+</div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
