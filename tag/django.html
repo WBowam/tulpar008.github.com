@@ -77,6 +77,43 @@
     <a rel="full-article" href="/django-media-pei-zhi-fang-fa-yi.html">Read On &crarr;</a>
   </footer>
   		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/django-userena-de-shi-yong.html">Django-userena 的使用</a>
+      </h1>
+      <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
+</header>
+
+  <div class="entry-content"><hr />
+<p>先Clone <a href="https://github.com/bread-and-pepper/django-userena.git">Github上的源码</a>，运行Demo看看效果，</p>
+<div class="highlight"><pre><span class="err">进入</span><span class="n">demo</span><span class="err">目录</span>
+ <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+<span class="p">(</span><span class="err">再装一个</span><span class="n">html2text</span><span class="p">)</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">html2text</span>
+<span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">runserver</span>
+</pre></div>
+
+
+<p>然后再自己搭一个，如下步骤</p>
+<hr />
+<h3>安装</h3>
+<p><code>pip install django-userena</code></p>
+<h3>配置</h3>
+<h4>1. add ’userena’, ’guardian’, ’easy_thumbnails’ to your INSTALLED_APPS tuple.</h4>
+<div class="highlight"><pre><span class="err">’</span><span class="n">userena</span><span class="err">’</span><span class="p">,</span>  
+<span class="err">’</span><span class="n">guardian</span><span class="err">’</span><span class="p">,</span>  
+<span class="err">’</span><span class="n">easy_thumbnails</span><span class="err">’</span><span class="p">,</span>
+</pre></div>
+
+
+<h4>2. in your settings.py file, add the following:</h4>
+<div class="highlight"><pre><span class="n">AUTHENTICATION_BACKENDS</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="err">&#39;</span><span class="n">userena ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-userena-de-shi-yong.html">Read On &crarr;</a>
+  </footer>
+  		</article>
 <div class="pagination">
 
   <br />
@@ -87,6 +124,9 @@
     <ul id="recent_posts">
       <li class="post">
           <a href="/django-media-pei-zhi-fang-fa-yi.html">Django Media 配置（方法一）</a>
+      </li>
+      <li class="post">
+          <a href="/django-userena-de-shi-yong.html">Django-userena 的使用</a>
       </li>
     </ul>
   </section>
@@ -101,7 +141,7 @@
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/django.html">Django</a>  </section>
+    <a href="/tag/userena.html">userena</a>,    <a href="/tag/django.html">Django</a>  </section>
 
 
     <section>
