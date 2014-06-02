@@ -54,9 +54,9 @@
       <p class="meta"><time datetime="2013-11-08T00:00:00" pubdate>五 08 十一月 2013</time></p>
 </header>
 
-  <div class="entry-content"><h1>Shell脚本编程30分钟入门</h1>
-<h2>什么是Shell脚本</h2>
-<h3>示例</h3>
+  <div class="entry-content"><p>====================</p>
+<h3>什么是Shell脚本</h3>
+<h4>示例</h4>
 <p>看个例子吧：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -76,7 +76,7 @@ mkdir shell_tut
 </pre></div>
 </td></tr></table>
 
-<h3>示例解释</h3>
+<h4>示例解释</h4>
 <ul>
 <li>第1行：指定脚本解释器，这里是用/bin/sh做解释器的</li>
 <li>第2行：切换到当前用户的home目录</li>
@@ -87,12 +87,12 @@ mkdir shell_tut
 <li>第7行：循环体结束</li>
 </ul>
 <p>cd, mkdir, touch都是系统自带的程序，一般在/bin或者/usr/bin目录下。for, do, done是sh脚本语言的关键字。</p>
-<h3>shell和shell脚本的概念</h3>
+<h4>shell和shell脚本的概念</h4>
 <p>shell是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。Ken Thompson的sh是第一种Unix Shell，Windows Explorer是一个典型的图形界面Shell。</p>
 <p>shell脚本（shell script），是一种为shell编写的脚本程序。业界所说的shell通常都是指shell脚本，但读者朋友要知道，shell和shell script是两个不同的概念。由于习惯的原因，简洁起见，本文出现的“shell编程”都是指shell脚本编程，不是指开发shell自身（如Windows Explorer扩展开发）。</p>
-<h2>环境</h2>
+<h3>环境</h3>
 <p>shell编程跟java、php编程一样，只要有一个能编写代码的文本编辑器和一个能解释执行的脚本解释器就可以了。</p>
-<h3>OS</h3>
+<h4>OS</h4>
 <p>当前主流的操作系统都支持shell编程，本文档所述的shell编程是指Linux下的shell，讲的基本都是POSIX标准下的功能，所以，也适用于Unix及BSD（如Mac OS）。</p>
 <h4>Linux</h4>
 <p>Linux默认安装就带了shell解释器。</p>
