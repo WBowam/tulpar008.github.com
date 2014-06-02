@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
+  <meta charset="utf-8">
+  <title>在真机上部署Edx（在中国）</title>
+  <meta name="author" content="tulpar">
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link href="/favicon.png" rel="icon"> -->
+  <link href="/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="/theme/js/modernizr-2.0.js"></script>
+  <script src="/theme/js/ender.js"></script>
+  <script src="/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dreaming</a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+
+<ul class="main-navigation">
+    <li class="active">
+    <a href="/category/it.html">It</a>
+    </li>
+    <li >
+    <a href="/category/life.html">Life</a>
+    </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">在真机上部署Edx（在中国）</h1>
+      <p class="meta"><time datetime="2014-04-08T00:00:00" pubdate>二 08 四月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h1>1. Update your Ubuntu package sources</h1>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">upgrade</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">reboot</span>
+</pre></div>
+
+
+<h1>2.用sshuttle翻墙</h1>
+<p>(ubuntu下)首先安装它: <br />
+<code>sudo apt-get install sshuttle</code> <br />
+<code>sshuttle -r action@apne1.nitrousbox.com:22411 0.0.0.0/0 -vv</code>  <br />
+搞定 , 就这么简单 注意action@apne1.nitrousbox.com:22411是我的ssh,你可以用你自己的,格式为username@sshserver,
+我把sshserver理解为跳板机,在我的需求中,需要有一个国外的ssh账号,你有国外的vps的话就好办了,没有也没关系,感谢云平台的的兴起,我们只要注册(nitrous)[https://www.nitrous.io],就能有一个免费的ssh账号.</p>
+<p>如果你使用(nitrous)[https://www.nitrous.io]记得每次使用时登录后把它打开.</p>
+<h1>3.One step installation</h1>
+<div class="highlight"><pre><span class="n">wget</span> <span class="n">https</span><span class="o">:</span><span class="c1">//raw.github.com/edx/configuration/master/util/install/vagrant.sh -O - | bash</span>
+</pre></div>
+
+
+<h1>4.防止出错</h1>
+<h6>上一步中，因为自动化脚本涉及到下载nltk包，由于我们翻墙了，网速可能会较慢，长时间下载（很有可能会出错），我们不想等待，如下操作。当然，如果你执意要等，不用做如下的操作</h6>
+<h4>手动下载nltk</h4>
+<div class="highlight"><pre><span class="n">cd</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">tmp</span>
+<span class="n">wget</span> <span class="n">http</span><span class="o">:</span><span class="c1">//edx-static.s3.amazonaws.com/nltk/nltk-data-20131113.tar.gz</span>
+<span class="n">chmod</span> <span class="n">o</span><span class="o">+</span><span class="n">rw</span> <span class="n">nltk</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="mf">20131113.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+</pre></div>
+
+
+<p>修改<code>/var/tmp/configuration/playbooks/edx-east/roles/ora/tasks/ease.yml</code> 中的<code>download and install nltk</code>任务内容为:</p>
+<div class="highlight"><pre><span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">download</span> <span class="n">and</span> <span class="n">install</span> <span class="n">nltk</span>
+  <span class="nl">shell:</span> <span class="o">|</span>
+      <span class="n">set</span> <span class="o">-</span><span class="n">e</span>
+      <span class="n">cp</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">nltk</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="mf">20131113.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span> <span class="p">{{</span> <span class="n">ora_nltk_tmp_file</span> <span class="p">}}</span>
+      <span class="n">tar</span> <span class="n">zxf</span> <span class="p">{{</span> <span class="n">ora_nltk_tmp_file</span> <span class="p">}}</span>
+      <span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="p">{{</span> <span class="n">ora_nltk_tmp_file</span> <span class="p">}}</span>
+      <span class="n">touch</span> <span class="p">{{</span> <span class="n">ora_nltk_download_url</span><span class="o">|</span><span class="n">basename</span> <span class="p">}}</span><span class="o">-</span><span class="n">installed</span>
+        <span class="n">creates</span><span class="o">=</span><span class="p">{{</span> <span class="n">ora_data_dir</span> <span class="p">}}</span><span class="o">/</span><span class="p">{{</span> <span class="n">ora_nltk_download_url</span><span class="o">|</span><span class="n">basename</span> <span class="p">}}</span><span class="o">-</span><span class="n">installed</span>
+        <span class="n">chdir</span><span class="o">=</span><span class="p">{{</span> <span class="n">ora_data_dir</span> <span class="p">}}</span>
+  <span class="nl">sudo_user:</span> <span class="s">&quot;{{ common_web_user }}&quot;</span>
+  <span class="nl">notify:</span>
+    <span class="o">-</span> <span class="n">restart</span> <span class="n">ora</span>
+    <span class="o">-</span> <span class="n">restart</span> <span class="n">ora_celery</span>
+</pre></div>
+
+
+<p>修改<code>/var/tmp/configuration/playbooks/edx-east/roles/discern/tasks/deploy.yml</code> 中的<code>download and install nltk</code>任务内容为</p>
+<div class="highlight"><pre><span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">download</span> <span class="n">and</span> <span class="n">install</span> <span class="n">nltk</span>
+  <span class="nl">shell:</span> <span class="o">|</span>
+      <span class="n">set</span> <span class="o">-</span><span class="n">e</span>
+      <span class="n">cp</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">nltk</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="mf">20131113.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span> <span class="p">{{</span> <span class="n">discern_nltk_tmp_file</span> <span class="p">}}</span>
+      <span class="n">tar</span> <span class="n">zxf</span> <span class="p">{{</span> <span class="n">discern_nltk_tmp_file</span> <span class="p">}}</span>
+      <span class="n">rm</span> <span class="o">-</span><span class="n">f</span> <span class="p">{{</span> <span class="n">discern_nltk_tmp_file</span> <span class="p">}}</span>
+      <span class="n">touch</span> <span class="p">{{</span> <span class="n">discern_nltk_download_url</span><span class="o">|</span><span class="n">basename</span> <span class="p">}}</span><span class="o">-</span><span class="n">installed</span>
+        <span class="n">creates</span><span class="o">=</span><span class="p">{{</span> <span class="n">discern_data_dir</span> <span class="p">}}</span><span class="o">/</span><span class="p">{{</span> <span class="n">discern_nltk_download_url</span><span class="o">|</span><span class="n">basename</span> <span class="p">}}</span><span class="o">-</span><span class="n">installed</span>
+        <span class="n">chdir</span><span class="o">=</span><span class="p">{{</span> <span class="n">discern_data_dir</span> <span class="p">}}</span>
+  <span class="nl">sudo_user:</span> <span class="s">&quot;{{ discern_user }}&quot;</span>
+  <span class="nl">notify:</span>
+    <span class="o">-</span> <span class="n">restart</span> <span class="n">discern</span>
+</pre></div>
+
+
+<h4>手动安装<code>django==1.4.3</code></h4>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="o">/</span><span class="n">edx</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">venvs</span><span class="o">/</span><span class="n">ora</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">pip</span> <span class="n">install</span> <span class="n">django</span><span class="o">==</span><span class="mf">1.4.3</span>
+</pre></div>
+
+
+<p>将<code>/edx/app/ora/ora/requirements.txt</code>里的<code>django==1.4.3</code>注释掉</p>
+<hr />
+<h6>安装的过程中，可能因为各种原因自动化脚本报错而停止，修复完问题后，可用如下命令从出错的位置开始执行</h6>
+<p><code>cd /var/tmp/configuration/playbooks &amp;&amp; sudo ansible-playbook -c local ./edx_sandbox.yml -i "localhost,"</code></p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">tulpar</span>
+  </span>
+<time datetime="2014-04-08T00:00:00" pubdate>二 08 四月 2014</time>  <span class="categories">
+    <a class="category" href="/tag/edx.html">Edx</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+
+
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tlbog"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = 'http://static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+|| document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- Duoshuo Comment END -->
+
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="/edx_errors.html">Edx_errors</a>
+      </li>
+      <li class="post">
+          <a href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">在真机上部署Edx（在中国）</a>
+      </li>
+      <li class="post">
+          <a href="/fan-qiang-zhi-dian-nao-pian.html">翻墙之电脑篇</a>
+      </li>
+      <li class="post">
+          <a href="/shi-yong-ngrokjiang-nei-wang-duan-kou-ying-she-dao-wai-wang.html">使用ngrok将内网端口映射到外网</a>
+      </li>
+      <li class="post">
+          <a href="/yi-hua-edx-platform.html">汉化edx-platform</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="/category/it.html">It</a></li>
+        <li><a href="/category/life.html">Life</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://izda.com" target="_blank">ئىزدە</a></li>
+            <li><a href="http://www.google.com" target="_blank">Google</a></li>
+            <li><a href="http://www.zhihu.com/" target="_blank">知乎</a></li>
+            <li><a href="http://www.douban.com/" target="_blank">豆瓣</a></li>
+        </ul>
+    </section>
+    <section>
+        <h1>Blogroll</h1>
+        <ul>
+            <li><a href="https://github.com/tulpar008" target="_blank">My Github</a></li>
+            <li><a href="#" target="_blank">tulpar008@gmail.com</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2013-2014  - tulpar -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+</body>
+</html>

@@ -5,7 +5,7 @@
 <head>
 <link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
   <meta charset="utf-8">
-  <title>Dreaming</title>
+  <title>Dreaming - Tmux</title>
   <meta name="author" content="tulpar">
 
 
@@ -41,7 +41,7 @@
     <li >
     <a href="/category/it.html">It</a>
     </li>
-    <li class="active">
+    <li >
     <a href="/category/life.html">Life</a>
     </li>
 </ul></nav>
@@ -51,41 +51,34 @@
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="/githubshang-da-bo-ke.html">Github上搭博客</a>
+        <a href="/tmux-ru-men.html">Tmux 入门</a>
       </h1>
-      <p class="meta"><time datetime="2013-11-08T00:00:00" pubdate>五 08 十一月 2013</time></p>
+      <p class="meta"><time datetime="2013-12-08T00:00:00" pubdate>日 08 十二月 2013</time></p>
 </header>
 
-  <div class="entry-content"><p>Github上搭博客</p>
-<hr />
-<h1>1.过程概要</h1>
-<ul>
-<li>在Github上创建工程</li>
-<li>安装配置pelican和git，以及准备工作</li>
-<li>开始写博客</li>
-</ul>
-<h1>2.详细步骤</h1>
-<h3>在GitHub上创建工程</h3>
-<p>注册，配置github的过程略过</p>
-<h5>创建一个tulpar008.github.com的库（tulpar008是用户名必须是用户名）</h5>
-<h3>安装配置pelican，以及准备工作</h3>
-<h4>pelican的安装</h4>
-<p><code>sudo pip install pelican</code>  </p>
-<h4>电脑上创建一个blog目录，用来存放你的博客文件(我这里目录名直接用的“blog”)</h4>
-<div class="highlight"><pre><span class="n">mkdir</span> <span class="n">blog</span>
-<span class="n">cd</span> <span class="n">blog</span>
-<span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
-</pre></div>
-
-
-<p>这个时候你会看到blog目录下多了几个Pelican生成的文件，其中的pelicanconf.py就是配置文件</p>
-<h3>开始写博客</h3>
-<p>现在，就可以用Pelican开始写博客了，具体怎么写可参看Pelican的文档，这里我用Markdown举例。</p>
-<h4>进入content目录，用编辑器创建一个文件，写入博客内容并保存为md文件：</h4>
-<div class="highlight"><pre><span class="n">Date</span><span class="o">:</span> <span class="mi">2013</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">06</span> <span class="err">#日期</span>
-<span class="n">Title ...</span></pre></div></div>
+  <div class="entry-content"><h3>tmux快捷键</h3>
+<p>tmux在会话中使用大量的快捷键来控制多个窗口、多个会话等。</p>
+<div class="highlight"><pre><span class="n">Ctrl</span><span class="o">+</span><span class="n">b</span>  <span class="c1">// 激活控制台；此时以下按键生效   </span>
+<span class="err">系统操作</span>   
+    <span class="o">?</span>   <span class="c1">// 列出所有快捷键；按q返回   </span>
+    <span class="n">d</span>   <span class="c1">// 脱离当前会话；这样可以暂时返回Shell界面，输入tmux attach能够重新进入之前的会话   </span>
+    <span class="n">D</span>   <span class="c1">// 选择要脱离的会话；在同时开启了多个会话时使用   </span>
+    <span class="n">Ctrl</span><span class="o">+</span><span class="n">z</span>  <span class="c1">// 挂起当前会话   </span>
+    <span class="n">r</span>   <span class="c1">// 强制重绘未脱离的会话   </span>
+    <span class="n">s</span>   <span class="c1">// 选择并切换会话；在同时开启了多个会话时使用   </span>
+    <span class="o">:</span>   <span class="c1">// 进入命令行模式；此时可以输入支持的命令，例如kill-server可以关闭服务器   </span>
+    <span class="p">[</span>   <span class="c1">// 进入复制模式；此时的操作与vi/emacs相同，按q/Esc退出   </span>
+    <span class="o">~</span>   <span class="c1">// 列出提示信息缓存；其中包含了之前tmux返回的各种提示信息   </span>
+<span class="err">窗口操作</span>   
+    <span class="n">c</span>   <span class="c1">// 创建新窗口   </span>
+    <span class="o">&amp;</span>   <span class="c1">// 关闭当前窗口   </span>
+    <span class="err">数字键</span> <span class="c1">// 切换至指定窗口   </span>
+    <span class="n">p</span>   <span class="c1">// 切换至上一窗口   </span>
+    <span class="n">n</span>   <span class="c1">// 切换至下一窗口   </span>
+    <span class="n">l</span>   <span class="c1">// 在前后两个窗口间互相切换   </span>
+    <span class="n">w</span>   <span class="c1">// 通过窗口列表切换窗口 ...</span></pre></div></div>
   <footer>
-    <a rel="full-article" href="/githubshang-da-bo-ke.html">Read On &crarr;</a>
+    <a rel="full-article" href="/tmux-ru-men.html">Read On &crarr;</a>
   </footer>
   		</article>
 <div class="pagination">
@@ -97,7 +90,7 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="/githubshang-da-bo-ke.html">Github上搭博客</a>
+          <a href="/tmux-ru-men.html">Tmux 入门</a>
       </li>
     </ul>
   </section>

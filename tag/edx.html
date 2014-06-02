@@ -72,6 +72,82 @@
     <a rel="full-article" href="/edx_errors.html">Read On &crarr;</a>
   </footer>
   		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">在真机上部署Edx（在中国）</a>
+      </h1>
+      <p class="meta"><time datetime="2014-04-08T00:00:00" pubdate>二 08 四月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h1>1. Update your Ubuntu package sources</h1>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">upgrade</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">reboot</span>
+</pre></div>
+
+
+<h1>2.用sshuttle翻墙</h1>
+<p>(ubuntu下)首先安装它: <br />
+<code>sudo apt-get install sshuttle</code> <br />
+<code>sshuttle -r action@apne1.nitrousbox.com:22411 0.0.0.0/0 -vv</code>  <br />
+搞定 , 就这么简单 注意action@apne1.nitrousbox.com:22411是我的ssh,你可以用你自己的,格式为username@sshserver,
+我把sshserver理解为跳板机 ...</p></div>
+  <footer>
+    <a rel="full-article" href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/yi-hua-edx-platform.html">汉化edx-platform</a>
+      </h1>
+      <p class="meta"><time datetime="2014-02-09T00:00:00" pubdate>日 09 二月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h1>汉化edx-platform</h1>
+<h5>搭建好edx-paltform 之后，需要定制：汉化，处理视频存储问题，定制前台。</h5>
+<h5>此文讲解汉化。谢谢<a href="http://d.edustack.org/t/edx-platform/40">fmyzjs</a>，<a href="http://www.idefs.comr/recordsedx-platform-internationalization-i18n.html">竹轩小站</a></h5>
+<h3>1.准备</h3>
+<ul>
+<li>基本的linux运维知识</li>
+<li>部署成功的edx平台（如果没有可以去edustack.org下载我们的测试镜像）</li>
+<li>transifex账号（OpenEdx翻译项目是在transifex.com上，有兴趣的同学可以参与进来）</li>
+<li>耐心
+最后提醒，请不要使用root用户，必要时请使用sudo，如果您执意，GoodBye!</li>
+</ul>
+<hr />
+<h3>2.安装transifex客户端</h3>
+<p><code>sudo apt-get install transifex-client</code></p>
+<h3>3.在用户家目录新建transifex配置文件并编辑</h3>
+<p><code>vi ~/.transifexrc</code></p>
+<h5>写入以下内容</h5>
+<div class="highlight"><pre><span class="k">[https://www.transifex.com]</span>
+<span class="na">hostname</span> <span class="o">=</span> <span class="s">https://www.transifex.com</span>
+<span class="na">username</span> <span class="o">=</span> <span class="s">user</span>
+<span class="na">password ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/yi-hua-edx-platform.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/shi-yong-edx-platform.html">使用Edx platform</a>
+      </h1>
+      <p class="meta"><time datetime="2014-02-08T00:00:00" pubdate>六 08 二月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h1>使用Edx-platform</h1>
+<h3>1. create superuser</h3>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">www</span><span class="o">-</span><span class="n">data</span> <span class="o">/</span><span class="n">edx</span><span class="o">/</span>
+<span class="n">bin</span><span class="o">/</span><span class="n">python</span><span class="p">.</span><span class="n">edxapp</span> <span class="p">.</span><span class="o">/</span><span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">lms</span> <span class="o">--</span><span class="n">settings</span> <span class="n">aws</span> <span class="n">create_user</span> <span class="o">-</span><span class="n">e</span> <span class="n">user</span><span class="err">@</span><span class="n">example</span><span class="p">.</span><span class="n">com</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">www</span><span class="o">-</span><span class="n">data</span> <span class="o">/</span><span class="n">edx</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span><span class="p">.</span><span class="n">edxapp</span> <span class="p">.</span><span class="o">/</span><span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">lms</span> <span class="o">--</span><span class="n">settings</span> <span class="n">aws</span> <span class="n">changepassword</span> <span class="n">user</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">www</span><span class="o">-</span><span class="n">data</span> <span class="o">/</span><span class="n">edx</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span><span class="p">.</span><span class="n">edxapp</span> <span class="p">.</span><span class="o">/</span><span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">lms</span> <span class="o">--</span><span class="n">settings</span> <span class="n">aws ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/shi-yong-edx-platform.html">Read On &crarr;</a>
+  </footer>
+  		</article>
 <div class="pagination">
 
   <br />
@@ -82,6 +158,15 @@
     <ul id="recent_posts">
       <li class="post">
           <a href="/edx_errors.html">Edx_errors</a>
+      </li>
+      <li class="post">
+          <a href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">在真机上部署Edx（在中国）</a>
+      </li>
+      <li class="post">
+          <a href="/yi-hua-edx-platform.html">汉化edx-platform</a>
+      </li>
+      <li class="post">
+          <a href="/shi-yong-edx-platform.html">使用Edx platform</a>
       </li>
     </ul>
   </section>
@@ -97,7 +182,7 @@
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/django.html">Django</a>  </section>
+    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
 
 
     <section>

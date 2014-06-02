@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
+  <meta charset="utf-8">
+  <title>SSH原理</title>
+  <meta name="author" content="tulpar">
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link href="/favicon.png" rel="icon"> -->
+  <link href="/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="/theme/js/modernizr-2.0.js"></script>
+  <script src="/theme/js/ender.js"></script>
+  <script src="/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dreaming</a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+
+<ul class="main-navigation">
+    <li class="active">
+    <a href="/category/it.html">It</a>
+    </li>
+    <li >
+    <a href="/category/life.html">Life</a>
+    </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">SSH原理</h1>
+      <p class="meta"><time datetime="2013-12-08T00:00:00" pubdate>日 08 十二月 2013</time></p>
+</header>
+
+  <div class="entry-content"><p>简单说，SSH是一种网络协议，用于计算机之间的加密登录。</p>
+<hr />
+<h3>一 最基本的用法</h3>
+<p>SSH主要用于远程登录。假定你要以用户名user，登录远程主机host，只要一条简单命令就可以了。
+<code>$ ssh user@host</code>
+如果本地用户名与远程用户名一致，登录时可以省略用户名。
+<code>$ ssh host</code>
+SSH的默认端口是22，也就是说，你的登录请求会送进远程主机的22端口。使用p参数，可以修改这个端口。
+<code>$ ssh -p 2222 user@host</code>
+上面这条命令表示，ssh直接连接远程主机的2222端口。</p>
+<h3>二 SSH原理</h3>
+<p>SSH之所以能够保证安全，原因在于它采用了公钥加密。<br />
+原理如图<img alt="ssh原理图" src="http://softing.qiniudn.com/L%20(1" />.jpg)
+SSH登录整个过程是这样的：<br />
+（1）远程主机收到用户的登录请求，把自己的公钥发给用户。<br />
+（2）用户使用这个公钥，将登录密码加密后，发送回来。<br />
+（3）远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</p>
+<h3>三 密码登录过程</h3>
+<p>如果你是第一次登录对方主机，系统会出现下面的提示：  </p>
+<div class="highlight"><pre><span class="err">　$</span> <span class="n">ssh</span> <span class="n">user</span><span class="err">@</span><span class="n">host</span>
+<span class="err">　　</span><span class="n">The</span> <span class="n">authenticity</span> <span class="n">of</span> <span class="n">host</span> <span class="err">&#39;</span><span class="n">host</span> <span class="p">(</span><span class="mf">12.18.429.21</span><span class="p">)</span><span class="err">&#39;</span> <span class="n">can</span><span class="err">&#39;</span><span class="n">t</span> <span class="n">be</span> <span class="n">established</span><span class="p">.</span>
+<span class="err">　　</span><span class="n">RSA</span> <span class="n">key</span> <span class="n">fingerprint</span> <span class="n">is</span> <span class="mi">98</span><span class="o">:</span><span class="mi">2</span><span class="n">e</span><span class="o">:</span><span class="n">d7</span><span class="o">:</span><span class="n">e0</span><span class="o">:</span><span class="n">de</span><span class="o">:</span><span class="mf">9f</span><span class="o">:</span><span class="n">ac</span><span class="o">:</span><span class="mi">67</span><span class="o">:</span><span class="mi">28</span><span class="o">:</span><span class="n">c2</span><span class="o">:</span><span class="mi">42</span><span class="o">:</span><span class="mi">2</span><span class="n">d</span><span class="o">:</span><span class="mi">37</span><span class="o">:</span><span class="mi">16</span><span class="o">:</span><span class="mi">58</span><span class="o">:</span><span class="mi">4</span><span class="n">d</span><span class="p">.</span>
+<span class="err">　　</span><span class="n">Are</span> <span class="n">you</span> <span class="n">sure</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="k">continue</span> <span class="n">connecting</span> <span class="p">(</span><span class="n">yes</span><span class="o">/</span><span class="n">no</span><span class="p">)</span><span class="o">?</span>
+</pre></div>
+
+
+<p>这段话的意思是，无法确认host主机的真实性，只知道它的公钥指纹，问你还想继续连接吗？
+所谓"公钥指纹"，是指公钥长度较长（这里采用RSA算法，长达1024位），很难比对，所以对其进行MD5计算，将它变成一个128位的指纹。<br />
+上例中是98:2e:d7:e0:de:9f:ac:67:28:c2:42:2d:37:16:58:4d，再进行比较，就容易多了。
+很自然的一个问题就是，用户怎么知道远程主机的公钥指纹应该是多少？回答是没有好办法，远程主机必须在自己的网站上贴出公钥指纹，以便用户自行核对。 <br />
+假定经过风险衡量以后，用户决定接受这个远程主机的公钥。 <br />
+<code>Are you sure you want to continue connecting (yes/no)? yes</code> <br />
+系统会出现一句提示，表示host主机已经得到认可。 <br />
+<code>Warning: Permanently added 'host,12.18.429.21' (RSA) to the list of known hosts.</code>
+然后，会要求输入密码。 <br />
+<code>Password: (enter password)</code> <br />
+如果密码正确，就可以登录了。<br />
+当远程主机的公钥被接受以后，它就会被保存在文件$HOME/.ssh/known_hosts之中。下次再连接这台主机，系统就会认出它的公钥已经保存在本地了，从而跳过警告部分，直接提示输入密码。<br />
+每个SSH用户都有自己的known_hosts文件，此外系统也有一个这样的文件，通常是/etc/ssh/ssh_known_hosts，保存一些对所有用户都可信赖的远程主机的公钥。</p>
+<h3>四 公钥登录</h3>
+<p>使用密码登录，每次都必须输入密码，非常麻烦。好在SSH还提供了公钥登录，可以省去输入密码的步骤。<br />
+所谓"公钥登录"，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。  </p>
+<p>这种方法要求用户必须提供自己的公钥。如果没有现成的，可以直接用ssh-keygen生成一个：<br />
+<code>$ ssh-keygen</code> <br />
+运行上面的命令以后，系统会出现一系列提示，可以一路回车。也可以慢慢看英文，如果你执意。。。     </p>
+<p>运行结束以后，在$HOME/.ssh/目录下，会新生成两个文件：id_rsa.pub和id_rsa。前者是你的公钥，后者是你的私钥。  </p>
+<p>这时再输入下面的命令，将公钥传送到远程主机host上面：<br />
+<code>$ ssh-copy-id user@host</code><br />
+好了，从此你再登录，就不需要输入密码了。   </p>
+<h5>如果还是不行，就打开远程主机的/etc/ssh/sshd_config这个文件，检查下面几行前面"#"注释是否取掉。</h5>
+<div class="highlight"><pre><span class="n">RSAAuthentication</span> <span class="n">yes</span>
+<span class="err">　　</span><span class="n">PubkeyAuthentication</span> <span class="n">yes</span>
+<span class="err">　　</span><span class="n">AuthorizedKeysFile</span> <span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">authorized_keys</span>
+</pre></div>
+
+
+<p>然后，重启远程主机的ssh服务。  </p>
+<div class="highlight"><pre><span class="err">　　</span><span class="c1">// ubuntu系统</span>
+<span class="err">　　</span><span class="n">service</span> <span class="n">ssh</span> <span class="n">restart</span>
+<span class="err">　　</span><span class="c1">// debian系统</span>
+<span class="err">　　</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">ssh</span> <span class="n">restart</span>
+</pre></div>
+
+
+<hr />
+<h3>五 绑定本地端口</h3>
+<p>既然SSH可以传送数据，那么我们可以让那些不加密的网络连接，全部改走SSH连接，从而提高安全性。  </p>
+<p>假定我们要让8080端口的数据，都通过SSH传向远程主机，命令就这样写：<br />
+<code>$ ssh -D 8080 user@host</code>  </p>
+<p>SSH会建立一个socket，去监听本地的8080端口。一旦有数据传向那个端口，就自动把它转移到SSH连接上面，发往远程主机。可以想象，如果8080端口原来是一个不加密端口，现在将变成一个加密端口。  </p>
+<h3>本地端口转发</h3>
+<p>有时，绑定本地端口还不够，还必须指定数据传送的目标主机，从而形成点对点的"端口转发"。为了区别后文的"远程端口转发"，我们把这种情况称为"本地端口转发"（Local forwarding）。  </p>
+<p>假定host1是本地主机，host2是远程主机。由于种种原因，这两台主机之间无法连通。但是，另外还有一台host3，可以同时连通前面两台主机。因此，很自然的想法就是，通过host3，将host1连上host2。   </p>
+<p>我们在host1执行下面的命令：  </p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">ssh</span> <span class="o">-</span><span class="n">L</span> <span class="mi">2121</span><span class="o">:</span><span class="n">host2</span><span class="o">:</span><span class="mi">21</span> <span class="n">host3</span>
+</pre></div>
+
+
+<p>命令中的L参数一共接受三个值，分别是"本地端口:目标主机:目标主机端口"，它们之间用冒号分隔。这条命令的意思，就是指定SSH绑定本地端口2121，然后指定host3将所有的数据，转发到目标主机host2的21端口（假定host2运行FTP，默认端口为21）。   </p>
+<p>这样一来，我们只要连接host1的2121端口，就等于连上了host2的21端口。</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">ftp</span> <span class="n">localhost</span><span class="o">:</span><span class="mi">2121</span>
+</pre></div>
+
+
+<p>"本地端口转发"使得host1和host3之间仿佛形成一个数据传输的秘密隧道，因此又被称为"SSH隧道"。  </p>
+<h3>六 远程端口转发</h3>
+<p>既然"本地端口转发"是指绑定本地端口的转发，那么"远程端口转发"（remote forwarding）当然是指绑定远程端口的转发。   </p>
+<p>还是接着看上面那个例子，host1与host2之间无法连通，必须借助host3转发。但是，特殊情况出现了，host3是一台内网机器，它可以连接外网的host1，但是反过来就不行，外网的host1连不上内网的host3。这时，"本地端口转发"就不能用了，怎么办？   </p>
+<p>解决办法是，既然host3可以连host1，那么就从host3上建立与host1的SSH连接，然后在host1上使用这条连接就可以了。  </p>
+<p>我们在host3执行下面的命令：<br />
+<code>$ ssh -R 2121:host2:21 host1</code> <br />
+R参数也是接受三个值，分别是"远程主机端口:目标主机:目标主机端口"。这条命令的意思，就是让host1监听它自己的2121端口，然后将所有数据经由host3，转发到host2的21端口。由于对于host3来说，host1是远程主机，所以这种情况就被称为"远程端口绑定"。   </p>
+<p>绑定之后，我们在host1就可以连接host2了： <br />
+<code>$ ftp localhost:2121</code> <br />
+这里必须指出，"远程端口转发"的前提条件是，host1和host3两台主机都有sshD和ssh客户端。</p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">tulpar</span>
+  </span>
+<time datetime="2013-12-08T00:00:00" pubdate>日 08 十二月 2013</time>  <span class="categories">
+    <a class="category" href="/tag/ssh.html">ssh</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+
+
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tlbog"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = 'http://static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+|| document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- Duoshuo Comment END -->
+
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="/edx_errors.html">Edx_errors</a>
+      </li>
+      <li class="post">
+          <a href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">在真机上部署Edx（在中国）</a>
+      </li>
+      <li class="post">
+          <a href="/fan-qiang-zhi-dian-nao-pian.html">翻墙之电脑篇</a>
+      </li>
+      <li class="post">
+          <a href="/shi-yong-ngrokjiang-nei-wang-duan-kou-ying-she-dao-wai-wang.html">使用ngrok将内网端口映射到外网</a>
+      </li>
+      <li class="post">
+          <a href="/yi-hua-edx-platform.html">汉化edx-platform</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="/category/it.html">It</a></li>
+        <li><a href="/category/life.html">Life</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://izda.com" target="_blank">ئىزدە</a></li>
+            <li><a href="http://www.google.com" target="_blank">Google</a></li>
+            <li><a href="http://www.zhihu.com/" target="_blank">知乎</a></li>
+            <li><a href="http://www.douban.com/" target="_blank">豆瓣</a></li>
+        </ul>
+    </section>
+    <section>
+        <h1>Blogroll</h1>
+        <ul>
+            <li><a href="https://github.com/tulpar008" target="_blank">My Github</a></li>
+            <li><a href="#" target="_blank">tulpar008@gmail.com</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2013-2014  - tulpar -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+</body>
+</html>

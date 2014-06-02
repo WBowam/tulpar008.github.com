@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
+  <meta charset="utf-8">
+  <title>Dreaming</title>
+  <meta name="author" content="tulpar">
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link href="/favicon.png" rel="icon"> -->
+  <link href="/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="/theme/js/modernizr-2.0.js"></script>
+  <script src="/theme/js/ender.js"></script>
+  <script src="/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dreaming</a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+
+<ul class="main-navigation">
+    <li >
+    <a href="/category/it.html">It</a>
+    </li>
+    <li >
+    <a href="/category/life.html">Life</a>
+    </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div class="blog-index">
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/tmux-ru-men.html">Tmux 入门</a>
+      </h1>
+      <p class="meta"><time datetime="2013-12-08T00:00:00" pubdate>日 08 十二月 2013</time></p>
+</header>
+
+  <div class="entry-content"><h3>tmux快捷键</h3>
+<p>tmux在会话中使用大量的快捷键来控制多个窗口、多个会话等。</p>
+<div class="highlight"><pre><span class="n">Ctrl</span><span class="o">+</span><span class="n">b</span>  <span class="c1">// 激活控制台；此时以下按键生效   </span>
+<span class="err">系统操作</span>   
+    <span class="o">?</span>   <span class="c1">// 列出所有快捷键；按q返回   </span>
+    <span class="n">d</span>   <span class="c1">// 脱离当前会话；这样可以暂时返回Shell界面，输入tmux attach能够重新进入之前的会话   </span>
+    <span class="n">D</span>   <span class="c1">// 选择要脱离的会话；在同时开启了多个会话时使用   </span>
+    <span class="n">Ctrl</span><span class="o">+</span><span class="n">z</span>  <span class="c1">// 挂起当前会话   </span>
+    <span class="n">r</span>   <span class="c1">// 强制重绘未脱离的会话   </span>
+    <span class="n">s</span>   <span class="c1">// 选择并切换会话；在同时开启了多个会话时使用   </span>
+    <span class="o">:</span>   <span class="c1">// 进入命令行模式；此时可以输入支持的命令，例如kill-server可以关闭服务器   </span>
+    <span class="p">[</span>   <span class="c1">// 进入复制模式；此时的操作与vi/emacs相同，按q/Esc退出   </span>
+    <span class="o">~</span>   <span class="c1">// 列出提示信息缓存；其中包含了之前tmux返回的各种提示信息   </span>
+<span class="err">窗口操作</span>   
+    <span class="n">c</span>   <span class="c1">// 创建新窗口   </span>
+    <span class="o">&amp;</span>   <span class="c1">// 关闭当前窗口   </span>
+    <span class="err">数字键</span> <span class="c1">// 切换至指定窗口   </span>
+    <span class="n">p</span>   <span class="c1">// 切换至上一窗口   </span>
+    <span class="n">n</span>   <span class="c1">// 切换至下一窗口   </span>
+    <span class="n">l</span>   <span class="c1">// 在前后两个窗口间互相切换   </span>
+    <span class="n">w</span>   <span class="c1">// 通过窗口列表切换窗口 ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/tmux-ru-men.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/githubshang-da-bo-ke.html">Github上搭博客</a>
+      </h1>
+      <p class="meta"><time datetime="2013-11-08T00:00:00" pubdate>五 08 十一月 2013</time></p>
+</header>
+
+  <div class="entry-content"><p>Github上搭博客</p>
+<hr />
+<h1>1.过程概要</h1>
+<ul>
+<li>在Github上创建工程</li>
+<li>安装配置pelican和git，以及准备工作</li>
+<li>开始写博客</li>
+</ul>
+<h1>2.详细步骤</h1>
+<h3>在GitHub上创建工程</h3>
+<p>注册，配置github的过程略过</p>
+<h5>创建一个tulpar008.github.com的库（tulpar008是用户名必须是用户名）</h5>
+<h3>安装配置pelican，以及准备工作</h3>
+<h4>pelican的安装</h4>
+<p><code>sudo pip install pelican</code>  </p>
+<h4>电脑上创建一个blog目录，用来存放你的博客文件(我这里目录名直接用的“blog”)</h4>
+<div class="highlight"><pre><span class="n">mkdir</span> <span class="n">blog</span>
+<span class="n">cd</span> <span class="n">blog</span>
+<span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
+</pre></div>
+
+
+<p>这个时候你会看到blog目录下多了几个Pelican生成的文件，其中的pelicanconf.py就是配置文件</p>
+<h3>开始写博客</h3>
+<p>现在，就可以用Pelican开始写博客了，具体怎么写可参看Pelican的文档，这里我用Markdown举例。</p>
+<h4>进入content目录，用编辑器创建一个文件，写入博客内容并保存为md文件：</h4>
+<div class="highlight"><pre><span class="n">Date</span><span class="o">:</span> <span class="mi">2013</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">06</span> <span class="err">#日期</span>
+<span class="n">Title ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/githubshang-da-bo-ke.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/linux-xiao-ji-qiao-1.html">linux 小技巧(1)</a>
+      </h1>
+      <p class="meta"><time datetime="2013-11-08T00:00:00" pubdate>五 08 十一月 2013</time></p>
+</header>
+
+  <div class="entry-content"><h3>1.install local deb packages:</h3>
+<p><code>dpkg -i file.deb</code></p>
+<h5>uninstall packages installed with dpkg:</h5>
+<p><code>``dpkg -r appname</code></p>
+<h5>list packages installed with dpkg:</h5>
+<p><code>dpkg --get-selections | grep -v deinstall</code></p></div>
+  <footer>
+    <a rel="full-article" href="/linux-xiao-ji-qiao-1.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/shelljiao-ben-bian-cheng-30fen-zhong-ru-men.html">Shell脚本编程30分钟入门</a>
+      </h1>
+      <p class="meta"><time datetime="2013-11-08T00:00:00" pubdate>五 08 十一月 2013</time></p>
+</header>
+
+  <div class="entry-content"><h1>Shell脚本编程30分钟入门</h1>
+<h2>什么是Shell脚本</h2>
+<h3>示例</h3>
+<p>看个例子吧：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/sh</span>
+<span class="nb">cd</span> ~
+mkdir shell_tut
+<span class="nb">cd </span>shell_tut
+
+<span class="k">for</span> <span class="o">((</span><span class="nv">i</span><span class="o">=</span>0; i&lt;10; i++<span class="o">))</span>; <span class="k">do</span>
+<span class="k">    </span>touch test_<span class="nv">$i</span>.txt
+<span class="k">done</span>
+</pre></div>
+</td></tr></table>
+
+<h3>示例解释</h3>
+<ul>
+<li>第1行：指定脚本解释器，这里是用/bin/sh做解释器的</li>
+<li>第2行：切换到当前用户的home目录</li>
+<li>第3行：创建一个目录shell_tut</li>
+<li>第4行：切换到shell_tut目录</li>
+<li>第5行：循环条件，一共循环10次</li>
+<li>第6行：创建一个test_1…10.txt文件 ...</li></ul></div>
+  <footer>
+    <a rel="full-article" href="/shelljiao-ben-bian-cheng-30fen-zhong-ru-men.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/django-media-pei-zhi-fang-fa-yi.html">Django Media 配置（方法一）</a>
+      </h1>
+      <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
+</header>
+
+  <div class="entry-content"><h5>Env:</h5>
+<ul>
+<li>django==1.4.5</li>
+<li>python==2.7</li>
+<li>ubuntu==13.04</li>
+</ul>
+<hr />
+<h3>django 的Static 和 Media配置之Media</h3>
+<h3>settings.py</h3>
+<div class="highlight"><pre><span class="cp">##added by Tulpar,20140514</span>
+<span class="n">import</span> <span class="n">os</span>
+<span class="n">settings_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
+<span class="n">PROJECT_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">settings_dir</span><span class="p">))</span>
+
+<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">public</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span>
+</pre></div>
+
+
+<h3>urls.py</h3>
+<div class="highlight"><pre><span class="err">#</span><span class="vi">#added</span> <span class="k">by</span> <span class="nx">Tulpar ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-media-pei-zhi-fang-fa-yi.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/django-userena-de-shi-yong.html">Django-userena 的使用</a>
+      </h1>
+      <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
+</header>
+
+  <div class="entry-content"><hr />
+<p>先Clone <a href="https://github.com/bread-and-pepper/django-userena.git">Github上的源码</a>，运行Demo看看效果，</p>
+<div class="highlight"><pre><span class="err">进入</span><span class="n">demo</span><span class="err">目录</span>
+ <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+<span class="p">(</span><span class="err">再装一个</span><span class="n">html2text</span><span class="p">)</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">html2text</span>
+<span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">runserver</span>
+</pre></div>
+
+
+<p>然后再自己搭一个，如下步骤</p>
+<hr />
+<h3>安装</h3>
+<p><code>pip install django-userena</code></p>
+<h3>配置</h3>
+<h4>1. add ’userena’, ’guardian’, ’easy_thumbnails’ to your INSTALLED_APPS tuple.</h4>
+<div class="highlight"><pre><span class="err">’</span><span class="n">userena</span><span class="err">’</span><span class="p">,</span>  
+<span class="err">’</span><span class="n">guardian</span><span class="err">’</span><span class="p">,</span>  
+<span class="err">’</span><span class="n">easy_thumbnails</span><span class="err">’</span><span class="p">,</span>
+</pre></div>
+
+
+<h4>2. in your settings.py file, add the following:</h4>
+<div class="highlight"><pre><span class="n">AUTHENTICATION_BACKENDS</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="err">&#39;</span><span class="n">userena ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-userena-de-shi-yong.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/git-ru-men.html">Git 入门</a>
+      </h1>
+      <p class="meta"><time datetime="2013-09-08T00:00:00" pubdate>日 08 九月 2013</time></p>
+</header>
+
+  <div class="entry-content"><p>之前入门过git，只是入门，不明白原理，不会用建分支，没法完成一些稍有难度的工作。因此，一直想再学学，一直是想，直到......<br />
+好朋友wwj推荐<a href="http://igit.linuxtoy.org/">沉浸式学 Git</a>，看了一下：特别喜欢，再学学，走起！
+感谢<a href="http://igit.linuxtoy.org/">徐小东</a>，感谢<a href="http://wwj718.github.io/">wwj</a>.</p>
+<hr />
+<h3>安装</h3>
+<h5>Linux</h5>
+<p><code>$ apt-get install git</code> <br />
+Or <br />
+<code>$ yum install git-core</code></p>
+<h5>Mac</h5>
+<p>请参阅<a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Mac 安装Git</a></p>
+<h5>windows</h5>
+<p>请参阅 <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Windows 安装Git</a></p>
+<hr />
+<h3>开始使用</h3>
+<h4>1. 创建新仓库</h4>
+<div class="highlight"><pre><span class="n">mkdir</span> <span class="n">hello</span>
+<span class="n">cd</span> <span class="n">hello</span>  
+<span class="n">git</span> <span class="n">init</span>
+</pre></div>
+
+
+<p>添加新内容
+<code>vim hello.rb ...</code></p></div>
+  <footer>
+    <a rel="full-article" href="/git-ru-men.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+<div class="pagination">
+
+    <a class="next" href="/index.html">Newer &rarr;</a>
+  <br />
+</div></div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="/edx_errors.html">Edx_errors</a>
+      </li>
+      <li class="post">
+          <a href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">在真机上部署Edx（在中国）</a>
+      </li>
+      <li class="post">
+          <a href="/fan-qiang-zhi-dian-nao-pian.html">翻墙之电脑篇</a>
+      </li>
+      <li class="post">
+          <a href="/shi-yong-ngrokjiang-nei-wang-duan-kou-ying-she-dao-wai-wang.html">使用ngrok将内网端口映射到外网</a>
+      </li>
+      <li class="post">
+          <a href="/yi-hua-edx-platform.html">汉化edx-platform</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="/category/it.html">It</a></li>
+        <li><a href="/category/life.html">Life</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://izda.com" target="_blank">ئىزدە</a></li>
+            <li><a href="http://www.google.com" target="_blank">Google</a></li>
+            <li><a href="http://www.zhihu.com/" target="_blank">知乎</a></li>
+            <li><a href="http://www.douban.com/" target="_blank">豆瓣</a></li>
+        </ul>
+    </section>
+    <section>
+        <h1>Blogroll</h1>
+        <ul>
+            <li><a href="https://github.com/tulpar008" target="_blank">My Github</a></li>
+            <li><a href="#" target="_blank">tulpar008@gmail.com</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2013-2014  - tulpar -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+</body>
+</html>

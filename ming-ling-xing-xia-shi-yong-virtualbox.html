@@ -5,7 +5,7 @@
 <head>
 <link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
   <meta charset="utf-8">
-  <title>Git 入门</title>
+  <title>命令行下使用VirtualBox</title>
   <meta name="author" content="tulpar">
 
 
@@ -50,93 +50,53 @@
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">Git 入门</h1>
-      <p class="meta"><time datetime="2013-09-08T00:00:00" pubdate>日 08 九月 2013</time></p>
+      <h1 class="entry-title">命令行下使用VirtualBox</h1>
+      <p class="meta"><time datetime="2014-01-08T00:00:00" pubdate>三 08 一月 2014</time></p>
 </header>
 
-  <div class="entry-content"><p>之前入门过git，只是入门，不明白原理，不会用建分支，没法完成一些稍有难度的工作。因此，一直想再学学，一直是想，直到......<br />
-好朋友wwj推荐<a href="http://igit.linuxtoy.org/">沉浸式学 Git</a>，看了一下：特别喜欢，再学学，走起！
-感谢<a href="http://igit.linuxtoy.org/">徐小东</a>，感谢<a href="http://wwj718.github.io/">wwj</a>.</p>
+  <div class="entry-content"><p>有个小小的需求：ssh登录的远程服务器上，开启poweroff状态的VirtualBox虚拟机.......</p>
+<p>需要学会在命令行下管理及使用VirtualBox， <br />
+下面只是一些基本的用法，只供入门。当然，如果你执意，也可以去看<a href="http://www.virtualbox.org/manual/ch08.html#idp6268864">VirtualBox文档</a></p>
+<h3>走起</h3>
 <hr />
-<h3>安装</h3>
-<h5>Linux</h5>
-<p><code>$ apt-get install git</code> <br />
-Or <br />
-<code>$ yum install git-core</code></p>
-<h5>Mac</h5>
-<p>请参阅<a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Mac 安装Git</a></p>
-<h5>windows</h5>
-<p>请参阅 <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Windows 安装Git</a></p>
-<hr />
-<h3>开始使用</h3>
-<h4>1. 创建新仓库</h4>
-<div class="highlight"><pre><span class="n">mkdir</span> <span class="n">hello</span>
-<span class="n">cd</span> <span class="n">hello</span>  
-<span class="n">git</span> <span class="n">init</span>
+<h5>一个命令可以满足我的需求，即VBoxManage</h5>
+<h3>1. VBoxManage startvm子命令可以开启一台状态为关闭或者保存的虚拟机。该命令的语法为:</h3>
+<div class="highlight"><pre><span class="n">VBoxManage</span> <span class="n">startvm</span>  <span class="n">uuid</span><span class="o">&gt;|</span><span class="n">name</span><span class="p">...</span> <span class="p">[</span><span class="o">--</span><span class="n">type</span> <span class="n">gui</span><span class="o">|</span><span class="n">sdl</span><span class="o">|</span><span class="n">headless</span><span class="p">]</span>
 </pre></div>
 
 
-<p>添加新内容
-<code>vim hello.rb</code><br />
-<code>git add hello.rb</code>或<code>git add .</code> <br />
-添加注释  </p>
-<div class="highlight"><pre><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&quot;First Commit&quot;</span>
+<h3>2. 可以通过虚拟机的uuid或者name来指定某台虚拟机，可以通过另外一个子命令list列出系统已有的虚拟机：</h3>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">VBoxManage</span> <span class="n">list</span> <span class="n">vms</span>
+<span class="s">&quot;XP&quot;</span> <span class="p">{</span><span class="mi">8842</span><span class="n">d793</span><span class="o">-</span><span class="mi">228</span><span class="n">c</span><span class="o">-</span><span class="mi">458</span><span class="n">e</span><span class="o">-</span><span class="n">a880</span><span class="o">-</span><span class="mf">8051193f</span><span class="n">d2db</span><span class="p">}</span>
 </pre></div>
 
 
-<p>推送改动<br />
-<code>git push origin master</code> </p>
-<h4>2. 检查仓库状态</h4>
-<p><code>git status</code></p>
-<h4>3. 查看历史（history）</h4>
-<p>本地 <br />
-<code>git log</code><br />
-线上的版本<br />
-<code>git log --pretty=oneline</code>  </p>
-<h4>4.改命令别名</h4>
-<p>这个很有用。以前重复敲很多很长的命令——烦！这下好了'.'</p>
-<h6>找到.gitconfig,记得先备份一下啊</h6>
-<div class="highlight"><pre><span class="k">[alias]</span>
-  <span class="na">co</span> <span class="o">=</span> <span class="s">checkout</span>
-<span class="s">  ci = commit</span>
-<span class="s">  st = status</span>
-<span class="s">  br = branch</span>
-<span class="s">  hist = log --pretty=format:&#39;%h %ad | %s%d [%an]&#39; --graph --date=short</span>
-<span class="s">  type = cat-file -t</span>
-<span class="s">  dump = cat-file -p</span>
+<p>我系统上已经安装了一台名为XP的虚拟机，后面括号内部的是它的UUID。</p>
+<h3>3.VBoxManage startvm子命令可以通过--type参数指定启动的方式</h3>
+<h4>gui:图形化界面</h4>
+<h4>sdl也是图形化界面，但是少掉了部分功能，比如没有菜单等，一般用于调试过程。</h4>
+<h4>headless:后台运行，并且默认开启vrdp服务，可以通过远程桌面工具来访问。</h4>
+<h5>如：</h5>
+<h6>gui类型启动虚拟机：</h6>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">VBoxManage</span> <span class="n">startvm</span> <span class="n">XP</span> <span class="o">--</span><span class="n">type</span> <span class="n">gui</span>
 </pre></div>
 
 
-<h4>5.检出仓库</h4>
-<h6>执行如下命令以创建一个本地仓库的克隆版本：</h6>
-<p><code>git clone /path/to/repository</code>  </p>
-<h5>创建一个远程仓库的克隆版本：</h5>
-<p><code>git clone username@host:/path/to/repository</code></p>
-<h3>6.分支</h3>
-<p>分支是用来将特性开发绝缘开来的。在你创建仓库的时候，master 是“默认的”。在其他分支上进行开发，完成后再将它们合并到主分支上。<a href="http://www.bootcss.com/p/git-guide/img/branches.png">原理图</a>  </p>
-<h5>创建一个叫做“feature_x”的分支，并切换过去：</h5>
-<p><code>git checkout -b feature_x</code></p>
-<h6>切换回主分支：</h6>
-<p><code>git checkout master</code></p>
-<h6>再切换到分支feature_x：</h6>
-<p><code>git checkout feature_x</code></p>
-<h5>删除分支</h5>
-<p><code>git branch -d feature_x</code>   </p>
-<h6><strong>所有的操作之后别忘了推送</strong></h6>
-<h4>7.更新与合并</h4>
-<p>更新<br />
-<code>git pull</code>
-合并<br />
-<code>git merge &lt;branch&gt;</code></p>
-<hr />
-<p>先就这些吧，谢谢光顾！</p></div>
+<h6>使用headless类型启动虚拟机:</h6>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">VBoxManage</span> <span class="n">startvm</span> <span class="s">&quot;XP&quot;</span> <span class="o">--</span><span class="n">type</span> <span class="n">headless</span>
+</pre></div>
+
+
+<p>或者</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">VBoxHeadless</span> <span class="o">--</span><span class="n">startvm</span> <span class="s">&quot;XP&quot;</span>
+</pre></div></div>
     <footer>
 <p class="meta">
   <span class="byline author vcard">
     Posted by <span class="fn">tulpar</span>
   </span>
-<time datetime="2013-09-08T00:00:00" pubdate>日 08 九月 2013</time>  <span class="categories">
-    <a class="category" href="/tag/git.html">Git</a>
+<time datetime="2014-01-08T00:00:00" pubdate>三 08 一月 2014</time>  <span class="categories">
+    <a class="category" href="/tag/virtualbox.html">VirtualBox</a>
   </span>
 </p><div class="sharing">
 </div>    </footer>

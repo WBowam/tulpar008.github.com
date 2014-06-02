@@ -75,110 +75,244 @@
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="/django-media-pei-zhi-fang-fa-yi.html">Django Media 配置（方法一）</a>
+        <a href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">在真机上部署Edx（在中国）</a>
       </h1>
-      <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
+      <p class="meta"><time datetime="2014-04-08T00:00:00" pubdate>二 08 四月 2014</time></p>
 </header>
 
-  <div class="entry-content"><h5>Env:</h5>
+  <div class="entry-content"><h1>1. Update your Ubuntu package sources</h1>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">upgrade</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">reboot</span>
+</pre></div>
+
+
+<h1>2.用sshuttle翻墙</h1>
+<p>(ubuntu下)首先安装它: <br />
+<code>sudo apt-get install sshuttle</code> <br />
+<code>sshuttle -r action@apne1.nitrousbox.com:22411 0.0.0.0/0 -vv</code>  <br />
+搞定 , 就这么简单 注意action@apne1.nitrousbox.com:22411是我的ssh,你可以用你自己的,格式为username@sshserver,
+我把sshserver理解为跳板机 ...</p></div>
+  <footer>
+    <a rel="full-article" href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/fan-qiang-zhi-dian-nao-pian.html">翻墙之电脑篇</a>
+      </h1>
+      <p class="meta"><time datetime="2014-03-08T00:00:00" pubdate>六 08 三月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>之前用过Goagent代理翻墙，很好用，再次感叹Google是个伟大的公司，，，
+相比用Goagent，下面的成Chrome插件更加简便。</p>
+<hr />
+<h1>1. <a href="https://chrome.google.com/webstore/search/%E7%BF%BB%E5%A2%99?hl=zh-CN">红杏</a></h1>
+<p>到google应用商店，装上即可，不过非VIP只能翻有限的网站。。。。。</p>
+<h1>2. sshuttle</h1>
+<p>闲逛github时看到基于 python 的 sshuttle</p>
+<p>sshuttle被称为穷人的VPN.就是说它是免费的.</p>
+<p>仅仅免费其实不够诱人,让我动心的是它的简单,而且可以在纯命令行下使用.</p>
+<p>理论上vpn也是可以在纯命令行下使用的,我先后按照几个教程,都未成功.当然图形界面配置vpn很简单.</p>
+<p>可问题是我必须在远程服务器上使用vpn(当然是用ssh登陆), 更新部署代码 , 需要连接国外服务器.</p>
+<h4>如何使用</h4>
+<p>(ubuntu下)首先安装它: 
+<code>sudo apt-get install sshuttle</code><br />
+<code>sshuttle -r action@apne1.nitrousbox.com:22411 0.0.0.0/0 -vv</code>  </p>
+<p>搞定 ...</p></div>
+  <footer>
+    <a rel="full-article" href="/fan-qiang-zhi-dian-nao-pian.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/shi-yong-ngrokjiang-nei-wang-duan-kou-ying-she-dao-wai-wang.html">使用ngrok将内网端口映射到外网</a>
+      </h1>
+      <p class="meta"><time datetime="2014-03-08T00:00:00" pubdate>六 08 三月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h1>1.用法一：</h1>
+<p><code>./ngrok 80</code><br />
+这样会随机生成域名，若想定制域名看看方法二</p>
+<h1>2.用法二：</h1>
+<h6>登录ngrok官网，注册（可以直接用github帐号登录），获取<code>auth token</code>,如下面的<code>7FsiQIIGllGctZbUcERV</code>是我的，共享给大家使用</h6>
+<h5>第一次使用时，本地用如下指令specify your auth token</h5>
+<p><code>ngrok -authtoken 7FsiQIIGllGctZbUcERV 80</code>  <br />
+生成后可以取消</p>
+<h5>如下命令：映射80端口，使用二级域名：http://tulpar.ngrok.com</h5>
+<p><code>./ngrok --subdomain tulpar 80</code></p></div>
+  <footer>
+    <a rel="full-article" href="/shi-yong-ngrokjiang-nei-wang-duan-kou-ying-she-dao-wai-wang.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/yi-hua-edx-platform.html">汉化edx-platform</a>
+      </h1>
+      <p class="meta"><time datetime="2014-02-09T00:00:00" pubdate>日 09 二月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h1>汉化edx-platform</h1>
+<h5>搭建好edx-paltform 之后，需要定制：汉化，处理视频存储问题，定制前台。</h5>
+<h5>此文讲解汉化。谢谢<a href="http://d.edustack.org/t/edx-platform/40">fmyzjs</a>，<a href="http://www.idefs.comr/recordsedx-platform-internationalization-i18n.html">竹轩小站</a></h5>
+<h3>1.准备</h3>
 <ul>
-<li>django==1.4.5</li>
-<li>python==2.7</li>
-<li>ubuntu==13.04</li>
+<li>基本的linux运维知识</li>
+<li>部署成功的edx平台（如果没有可以去edustack.org下载我们的测试镜像）</li>
+<li>transifex账号（OpenEdx翻译项目是在transifex.com上，有兴趣的同学可以参与进来）</li>
+<li>耐心
+最后提醒，请不要使用root用户，必要时请使用sudo，如果您执意，GoodBye!</li>
 </ul>
 <hr />
-<h3>django 的Static 和 Media配置之Media</h3>
-<h3>settings.py</h3>
-<div class="highlight"><pre><span class="cp">##added by Tulpar,20140514</span>
-<span class="n">import</span> <span class="n">os</span>
-<span class="n">settings_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
-<span class="n">PROJECT_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">settings_dir</span><span class="p">))</span>
-
-<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">public</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span><span class="p">)</span>
-<span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span>
-</pre></div>
-
-
-<h3>urls.py</h3>
-<div class="highlight"><pre><span class="err">#</span><span class="vi">#added</span> <span class="k">by</span> <span class="nx">Tulpar ...</span></pre></div></div>
+<h3>2.安装transifex客户端</h3>
+<p><code>sudo apt-get install transifex-client</code></p>
+<h3>3.在用户家目录新建transifex配置文件并编辑</h3>
+<p><code>vi ~/.transifexrc</code></p>
+<h5>写入以下内容</h5>
+<div class="highlight"><pre><span class="k">[https://www.transifex.com]</span>
+<span class="na">hostname</span> <span class="o">=</span> <span class="s">https://www.transifex.com</span>
+<span class="na">username</span> <span class="o">=</span> <span class="s">user</span>
+<span class="na">password ...</span></pre></div></div>
   <footer>
-    <a rel="full-article" href="/django-media-pei-zhi-fang-fa-yi.html">Read On &crarr;</a>
+    <a rel="full-article" href="/yi-hua-edx-platform.html">Read On &crarr;</a>
   </footer>
   		</article>
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="/django-userena-de-shi-yong.html">Django-userena 的使用</a>
+        <a href="/shi-yong-edx-platform.html">使用Edx platform</a>
       </h1>
-      <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
+      <p class="meta"><time datetime="2014-02-08T00:00:00" pubdate>六 08 二月 2014</time></p>
 </header>
 
-  <div class="entry-content"><hr />
-<p>先Clone <a href="https://github.com/bread-and-pepper/django-userena.git">Github上的源码</a>，运行Demo看看效果，</p>
-<div class="highlight"><pre><span class="err">进入</span><span class="n">demo</span><span class="err">目录</span>
- <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
-<span class="p">(</span><span class="err">再装一个</span><span class="n">html2text</span><span class="p">)</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">html2text</span>
-<span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">runserver</span>
-</pre></div>
-
-
-<p>然后再自己搭一个，如下步骤</p>
-<hr />
-<h3>安装</h3>
-<p><code>pip install django-userena</code></p>
-<h3>配置</h3>
-<h4>1. add ’userena’, ’guardian’, ’easy_thumbnails’ to your INSTALLED_APPS tuple.</h4>
-<div class="highlight"><pre><span class="err">’</span><span class="n">userena</span><span class="err">’</span><span class="p">,</span>  
-<span class="err">’</span><span class="n">guardian</span><span class="err">’</span><span class="p">,</span>  
-<span class="err">’</span><span class="n">easy_thumbnails</span><span class="err">’</span><span class="p">,</span>
-</pre></div>
-
-
-<h4>2. in your settings.py file, add the following:</h4>
-<div class="highlight"><pre><span class="n">AUTHENTICATION_BACKENDS</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="err">&#39;</span><span class="n">userena ...</span></pre></div></div>
+  <div class="entry-content"><h1>使用Edx-platform</h1>
+<h3>1. create superuser</h3>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">www</span><span class="o">-</span><span class="n">data</span> <span class="o">/</span><span class="n">edx</span><span class="o">/</span>
+<span class="n">bin</span><span class="o">/</span><span class="n">python</span><span class="p">.</span><span class="n">edxapp</span> <span class="p">.</span><span class="o">/</span><span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">lms</span> <span class="o">--</span><span class="n">settings</span> <span class="n">aws</span> <span class="n">create_user</span> <span class="o">-</span><span class="n">e</span> <span class="n">user</span><span class="err">@</span><span class="n">example</span><span class="p">.</span><span class="n">com</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">www</span><span class="o">-</span><span class="n">data</span> <span class="o">/</span><span class="n">edx</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span><span class="p">.</span><span class="n">edxapp</span> <span class="p">.</span><span class="o">/</span><span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">lms</span> <span class="o">--</span><span class="n">settings</span> <span class="n">aws</span> <span class="n">changepassword</span> <span class="n">user</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">www</span><span class="o">-</span><span class="n">data</span> <span class="o">/</span><span class="n">edx</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span><span class="p">.</span><span class="n">edxapp</span> <span class="p">.</span><span class="o">/</span><span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">lms</span> <span class="o">--</span><span class="n">settings</span> <span class="n">aws ...</span></pre></div></div>
   <footer>
-    <a rel="full-article" href="/django-userena-de-shi-yong.html">Read On &crarr;</a>
+    <a rel="full-article" href="/shi-yong-edx-platform.html">Read On &crarr;</a>
   </footer>
   		</article>
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="/git-ru-men.html">Git 入门</a>
+        <a href="/ming-ling-xing-xia-shi-yong-virtualbox.html">命令行下使用VirtualBox</a>
       </h1>
-      <p class="meta"><time datetime="2013-09-08T00:00:00" pubdate>日 08 九月 2013</time></p>
+      <p class="meta"><time datetime="2014-01-08T00:00:00" pubdate>三 08 一月 2014</time></p>
 </header>
 
-  <div class="entry-content"><p>之前入门过git，只是入门，不明白原理，不会用建分支，没法完成一些稍有难度的工作。因此，一直想再学学，一直是想，直到......<br />
-好朋友wwj推荐<a href="http://igit.linuxtoy.org/">沉浸式学 Git</a>，看了一下：特别喜欢，再学学，走起！
-感谢<a href="http://igit.linuxtoy.org/">徐小东</a>，感谢<a href="http://wwj718.github.io/">wwj</a>.</p>
+  <div class="entry-content"><p>有个小小的需求：ssh登录的远程服务器上，开启poweroff状态的VirtualBox虚拟机.......</p>
+<p>需要学会在命令行下管理及使用VirtualBox， <br />
+下面只是一些基本的用法，只供入门。当然，如果你执意，也可以去看<a href="http://www.virtualbox.org/manual/ch08.html#idp6268864">VirtualBox文档</a></p>
+<h3>走起</h3>
 <hr />
-<h3>安装</h3>
-<h5>Linux</h5>
-<p><code>$ apt-get install git</code> <br />
-Or <br />
-<code>$ yum install git-core</code></p>
-<h5>Mac</h5>
-<p>请参阅<a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Mac 安装Git</a></p>
-<h5>windows</h5>
-<p>请参阅 <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Windows 安装Git</a></p>
-<hr />
-<h3>开始使用</h3>
-<h4>1. 创建新仓库</h4>
-<div class="highlight"><pre><span class="n">mkdir</span> <span class="n">hello</span>
-<span class="n">cd</span> <span class="n">hello</span>  
-<span class="n">git</span> <span class="n">init</span>
+<h5>一个命令可以满足我的需求，即VBoxManage</h5>
+<h3>1. VBoxManage startvm子命令可以开启一台状态为关闭或者保存的虚拟机。该命令的语法为:</h3>
+<div class="highlight"><pre><span class="n">VBoxManage</span> <span class="n">startvm</span>  <span class="n">uuid</span><span class="o">&gt;|</span><span class="n">name</span><span class="p">...</span> <span class="p">[</span><span class="o">--</span><span class="n">type</span> <span class="n">gui</span><span class="o">|</span><span class="n">sdl</span><span class="o">|</span><span class="n">headless</span><span class="p">]</span>
 </pre></div>
 
 
-<p>添加新内容
-<code>vim hello.rb ...</code></p></div>
+<h3>2. 可以通过虚拟机的uuid或者name来指定某台虚拟机，可以通过另外一个子命令list列出系统已有的虚拟机：</h3>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">VBoxManage</span> <span class="n">list</span> <span class="n">vms</span>
+<span class="s">&quot;XP&quot;</span> <span class="p">{</span><span class="mi">8842</span><span class="n">d793</span><span class="o">-</span><span class="mi">228</span><span class="n">c</span><span class="o">-</span><span class="mi">458</span><span class="n">e</span><span class="o">-</span><span class="n">a880</span><span class="o">-</span><span class="mf">8051193f</span><span class="n">d2db</span><span class="p">}</span>
+</pre></div>
+
+
+<p>我系统上已经安装了一台名为XP的虚拟机，后面括号内部的是它的UUID。</p>
+<h3>3.VBoxManage startvm子命令可以通过--type参数指定启动的方式</h3>
+<h4>gui:图形化界面</h4>
+<h4>sdl也是图形化界面，但是少掉了部分功能 ...</h4></div>
   <footer>
-    <a rel="full-article" href="/git-ru-men.html">Read On &crarr;</a>
+    <a rel="full-article" href="/ming-ling-xing-xia-shi-yong-virtualbox.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/ubuntu-yong-hu-yong-ming-ling-an-zhuang-virtualbox-438.html">Ubuntu 用户用命令安装 VirtualBox 4.3.8</a>
+      </h1>
+      <p class="meta"><time datetime="2014-01-08T00:00:00" pubdate>三 08 一月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>今天在阿里云上安装virtualbox,发现阿里的源里只有4.1版本，可我需要4.3。 <br />
+换了国内其他的源发现太慢了，，，，于是，，，，， <br />
+wget deb 包本地安装，发现依赖很多东西，，，，<br />
+于是，，，，，，</p>
+<hr />
+<h3>1.添加源</h3>
+<p><code>vim /etc/apt/sources.list</code><br />
+添加：  </p>
+<div class="highlight"><pre><span class="k">deb</span> <span class="s">http://download.virtualbox.org/virtualbox/debian</span> <span class="kp">precise</span> <span class="kp">contrib</span>
+</pre></div>
+
+
+<h3>2.添加钥匙：(这一步很关键)</h3>
+<div class="highlight"><pre><span class="n">wget</span> <span class="o">-</span><span class="n">q</span> <span class="n">http</span><span class="o">:</span><span class="c1">//download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -</span>
+</pre></div>
+
+
+<h3>3.更新源列表：</h3>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/ubuntu-yong-hu-yong-ming-ling-an-zhuang-virtualbox-438.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/sshd_configpei-zhi.html">sshd_config配置</a>
+      </h1>
+      <p class="meta"><time datetime="2013-12-08T00:00:00" pubdate>日 08 十二月 2013</time></p>
+</header>
+
+  <div class="entry-content"><p>基本上，在您的系统中，『除非有必要，否则请不要更改 /etc/ssh/sshd_config 这个档案的设定值！』因为预设的情况下通常都是最严密的 SSH 保护了，因此，可以不需要更动他！上面的说明仅是在让大家了解每个细项的一些基本内容而已！需要注意的是最后一项，如果您不愿意开放 SFTP 的话，将最后一行批注掉即可！  </p>
+<hr />
+<div class="highlight"><pre><span class="cp"># 1. 关于 SSH Server 的整体设定，包含使用的 port 啦，以及使用的密码演算方式</span>
+<span class="n">Port</span> <span class="mi">22</span><span class="err">　　　　　　　　　　#</span> <span class="n">SSH</span> <span class="err">预设使用</span> <span class="mi">22</span> <span class="err">这个</span> <span class="n">port</span><span class="err">，您也可以使用多的</span> <span class="n">port</span> <span class="err">！</span>
+<span class="err">　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">亦即重复使用</span> <span class="n">port</span> <span class="err">这个设定项目即可！</span>
+<span class="n">Protocol</span> <span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="err">　　　　　　　</span> <span class="err">#</span> <span class="err">选择的</span> <span class="n">SSH</span> <span class="err">协议版本，可以是</span> <span class="mi">1</span> <span class="err">也可以是</span> <span class="mi">2 ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/sshd_configpei-zhi.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/sshyuan-li.html">SSH原理</a>
+      </h1>
+      <p class="meta"><time datetime="2013-12-08T00:00:00" pubdate>日 08 十二月 2013</time></p>
+</header>
+
+  <div class="entry-content"><p>简单说，SSH是一种网络协议，用于计算机之间的加密登录。</p>
+<hr />
+<h3>一 最基本的用法</h3>
+<p>SSH主要用于远程登录。假定你要以用户名user，登录远程主机host，只要一条简单命令就可以了。
+<code>$ ssh user@host</code>
+如果本地用户名与远程用户名一致，登录时可以省略用户名。
+<code>$ ssh host</code>
+SSH的默认端口是22，也就是说，你的登录请求会送进远程主机的22端口。使用p参数，可以修改这个端口。
+<code>$ ssh -p 2222 user@host</code>
+上面这条命令表示，ssh直接连接远程主机的2222端口。</p>
+<h3>二 SSH原理</h3>
+<p>SSH之所以能够保证安全，原因在于它采用了公钥加密。<br />
+原理如图<img alt="ssh原理图" src="http://softing.qiniudn.com/L%20(1" />.jpg)
+SSH登录整个过程是这样的：<br />
+（1）远程主机收到用户的登录请求，把自己的公钥发给用户。<br />
+（2）用户使用这个公钥，将登录密码加密后，发送回来。<br />
+（3）远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</p>
+<h3>三 密码登录过程</h3>
+<p>如果你是第一次登录对方主机 ...</p></div>
+  <footer>
+    <a rel="full-article" href="/sshyuan-li.html">Read On &crarr;</a>
   </footer>
   		</article>
 <div class="pagination">
+    <a class="prev" href="/category/it2.html">&larr; Older</a>
 
   <br />
 </div></div>
@@ -190,13 +324,16 @@ Or <br />
           <a href="/edx_errors.html">Edx_errors</a>
       </li>
       <li class="post">
-          <a href="/django-media-pei-zhi-fang-fa-yi.html">Django Media 配置（方法一）</a>
+          <a href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">在真机上部署Edx（在中国）</a>
       </li>
       <li class="post">
-          <a href="/django-userena-de-shi-yong.html">Django-userena 的使用</a>
+          <a href="/fan-qiang-zhi-dian-nao-pian.html">翻墙之电脑篇</a>
       </li>
       <li class="post">
-          <a href="/git-ru-men.html">Git 入门</a>
+          <a href="/shi-yong-ngrokjiang-nei-wang-duan-kou-ying-she-dao-wai-wang.html">使用ngrok将内网端口映射到外网</a>
+      </li>
+      <li class="post">
+          <a href="/yi-hua-edx-platform.html">汉化edx-platform</a>
       </li>
     </ul>
   </section>
@@ -212,7 +349,7 @@ Or <br />
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/django.html">Django</a>  </section>
+    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
 
 
     <section>

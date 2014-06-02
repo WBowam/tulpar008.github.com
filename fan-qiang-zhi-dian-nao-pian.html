@@ -5,7 +5,7 @@
 <head>
 <link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
   <meta charset="utf-8">
-  <title>Dreaming</title>
+  <title>翻墙之电脑篇</title>
   <meta name="author" content="tulpar">
 
 
@@ -38,66 +38,88 @@
 
 
 <ul class="main-navigation">
-    <li >
+    <li class="active">
     <a href="/category/it.html">It</a>
     </li>
-    <li class="active">
+    <li >
     <a href="/category/life.html">Life</a>
     </li>
 </ul></nav>
   <div id="main">
     <div id="content">
-<div class="blog-index">
-  		<article>
+<div>
+  <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">
-        <a href="/githubshang-da-bo-ke.html">Github上搭博客</a>
-      </h1>
-      <p class="meta"><time datetime="2013-11-08T00:00:00" pubdate>五 08 十一月 2013</time></p>
+      <h1 class="entry-title">翻墙之电脑篇</h1>
+      <p class="meta"><time datetime="2014-03-08T00:00:00" pubdate>六 08 三月 2014</time></p>
 </header>
 
-  <div class="entry-content"><p>Github上搭博客</p>
+  <div class="entry-content"><p>之前用过Goagent代理翻墙，很好用，再次感叹Google是个伟大的公司，，，
+相比用Goagent，下面的成Chrome插件更加简便。</p>
 <hr />
-<h1>1.过程概要</h1>
-<ul>
-<li>在Github上创建工程</li>
-<li>安装配置pelican和git，以及准备工作</li>
-<li>开始写博客</li>
-</ul>
-<h1>2.详细步骤</h1>
-<h3>在GitHub上创建工程</h3>
-<p>注册，配置github的过程略过</p>
-<h5>创建一个tulpar008.github.com的库（tulpar008是用户名必须是用户名）</h5>
-<h3>安装配置pelican，以及准备工作</h3>
-<h4>pelican的安装</h4>
-<p><code>sudo pip install pelican</code>  </p>
-<h4>电脑上创建一个blog目录，用来存放你的博客文件(我这里目录名直接用的“blog”)</h4>
-<div class="highlight"><pre><span class="n">mkdir</span> <span class="n">blog</span>
-<span class="n">cd</span> <span class="n">blog</span>
-<span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
-</pre></div>
+<h1>1. <a href="https://chrome.google.com/webstore/search/%E7%BF%BB%E5%A2%99?hl=zh-CN">红杏</a></h1>
+<p>到google应用商店，装上即可，不过非VIP只能翻有限的网站。。。。。</p>
+<h1>2. sshuttle</h1>
+<p>闲逛github时看到基于 python 的 sshuttle</p>
+<p>sshuttle被称为穷人的VPN.就是说它是免费的.</p>
+<p>仅仅免费其实不够诱人,让我动心的是它的简单,而且可以在纯命令行下使用.</p>
+<p>理论上vpn也是可以在纯命令行下使用的,我先后按照几个教程,都未成功.当然图形界面配置vpn很简单.</p>
+<p>可问题是我必须在远程服务器上使用vpn(当然是用ssh登陆), 更新部署代码 , 需要连接国外服务器.</p>
+<h4>如何使用</h4>
+<p>(ubuntu下)首先安装它: 
+<code>sudo apt-get install sshuttle</code><br />
+<code>sshuttle -r action@apne1.nitrousbox.com:22411 0.0.0.0/0 -vv</code>  </p>
+<p>搞定 , 就这么简单 注意action@apne1.nitrousbox.com:22411是我的ssh,你可以用你自己的,格式为username@sshserver,
+我把sshserver理解为跳板机,在我的需求中,需要有一个国外的ssh账号,你有国外的vps的话就好办了,没有也没关系,感谢云平台的的兴起,我们只要注册(nitrous)[https://www.nitrous.io],就能有一个免费的ssh账号.</p>
+<p>如果你使用(nitrous)[https://www.nitrous.io]记得每次使用时登录后把它打开.</p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">tulpar</span>
+  </span>
+<time datetime="2014-03-08T00:00:00" pubdate>六 08 三月 2014</time>  <span class="categories">
+    <a class="category" href="/tag/fan-qiang.html">翻墙</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
 
 
-<p>这个时候你会看到blog目录下多了几个Pelican生成的文件，其中的pelicanconf.py就是配置文件</p>
-<h3>开始写博客</h3>
-<p>现在，就可以用Pelican开始写博客了，具体怎么写可参看Pelican的文档，这里我用Markdown举例。</p>
-<h4>进入content目录，用编辑器创建一个文件，写入博客内容并保存为md文件：</h4>
-<div class="highlight"><pre><span class="n">Date</span><span class="o">:</span> <span class="mi">2013</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">06</span> <span class="err">#日期</span>
-<span class="n">Title ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/githubshang-da-bo-ke.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-<div class="pagination">
 
-  <br />
-</div></div>
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tlbog"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = 'http://static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+|| document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- Duoshuo Comment END -->
+
+</div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="/githubshang-da-bo-ke.html">Github上搭博客</a>
+          <a href="/edx_errors.html">Edx_errors</a>
+      </li>
+      <li class="post">
+          <a href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">在真机上部署Edx（在中国）</a>
+      </li>
+      <li class="post">
+          <a href="/fan-qiang-zhi-dian-nao-pian.html">翻墙之电脑篇</a>
+      </li>
+      <li class="post">
+          <a href="/shi-yong-ngrokjiang-nei-wang-duan-kou-ying-she-dao-wai-wang.html">使用ngrok将内网端口映射到外网</a>
+      </li>
+      <li class="post">
+          <a href="/yi-hua-edx-platform.html">汉化edx-platform</a>
       </li>
     </ul>
   </section>
@@ -136,7 +158,7 @@
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2013  - tulpar -
+    Copyright &copy;  2013-2014  - tulpar -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
 </body>
