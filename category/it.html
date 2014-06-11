@@ -51,6 +51,41 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/bu-shu-socketio-de-demo.html">部署Socket.io 的demo</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-11T00:00:00" pubdate>三 11 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h1>1.安装nvm</h1>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">wget</span> <span class="o">-</span><span class="n">qO</span><span class="o">-</span> <span class="n">https</span><span class="o">:</span><span class="c1">//raw.github.com/creationix/nvm/v0.4.0/install.sh | sh</span>
+</pre></div>
+
+
+<h1>2.安装node</h1>
+<div class="highlight"><pre><span class="n">nvm</span> <span class="n">install</span> <span class="mf">0.1</span>
+</pre></div>
+
+
+<h6>若过程中如果报错，说：创建目录/usr/sbin/src 权限不够</h6>
+<p>我用了个极端的方法来解决此问题，不推荐</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">chmod</span> <span class="mi">777</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span>
+</pre></div>
+
+
+<h1>3. 跑起</h1>
+<div class="highlight"><pre><span class="n">cd</span> <span class="n">socket</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">example</span><span class="o">/</span><span class="n">chat</span><span class="o">/</span>
+<span class="n">node</span> <span class="n">index</span><span class="p">.</span><span class="n">js</span>
+</pre></div>
+
+
+<h6>日如果报错误说，缺某某moudle，就一个个安装那些插件即可，如 ...</h6></div>
+  <footer>
+    <a rel="full-article" href="/bu-shu-socketio-de-demo.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/edx_errors.html">Edx_errors</a>
       </h1>
       <p class="meta"><time datetime="2014-04-14T00:00:00" pubdate>一 14 四月 2014</time></p>
@@ -278,37 +313,6 @@ wget deb 包本地安装，发现依赖很多东西，，，，<br />
     <a rel="full-article" href="/sshd_configpei-zhi.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/sshyuan-li.html">SSH原理</a>
-      </h1>
-      <p class="meta"><time datetime="2013-12-08T00:00:00" pubdate>日 08 十二月 2013</time></p>
-</header>
-
-  <div class="entry-content"><p>简单说，SSH是一种网络协议，用于计算机之间的加密登录。</p>
-<hr />
-<h3>一 最基本的用法</h3>
-<p>SSH主要用于远程登录。假定你要以用户名user，登录远程主机host，只要一条简单命令就可以了。
-<code>$ ssh user@host</code>
-如果本地用户名与远程用户名一致，登录时可以省略用户名。
-<code>$ ssh host</code>
-SSH的默认端口是22，也就是说，你的登录请求会送进远程主机的22端口。使用p参数，可以修改这个端口。
-<code>$ ssh -p 2222 user@host</code>
-上面这条命令表示，ssh直接连接远程主机的2222端口。</p>
-<h3>二 SSH原理</h3>
-<p>SSH之所以能够保证安全，原因在于它采用了公钥加密。<br />
-原理如图<img alt="ssh原理图" src="http://softing.qiniudn.com/L%20(1" />.jpg)
-SSH登录整个过程是这样的：<br />
-（1）远程主机收到用户的登录请求，把自己的公钥发给用户。<br />
-（2）用户使用这个公钥，将登录密码加密后，发送回来。<br />
-（3）远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</p>
-<h3>三 密码登录过程</h3>
-<p>如果你是第一次登录对方主机 ...</p></div>
-  <footer>
-    <a rel="full-article" href="/sshyuan-li.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it2.html">&larr; Older</a>
 
@@ -318,6 +322,9 @@ SSH登录整个过程是这样的：<br />
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
+      <li class="post">
+          <a href="/bu-shu-socketio-de-demo.html">部署Socket.io 的demo</a>
+      </li>
       <li class="post">
           <a href="/edx_errors.html">Edx_errors</a>
       </li>
@@ -329,9 +336,6 @@ SSH登录整个过程是这样的：<br />
       </li>
       <li class="post">
           <a href="/shi-yong-ngrokjiang-nei-wang-duan-kou-ying-she-dao-wai-wang.html">使用ngrok将内网端口映射到外网</a>
-      </li>
-      <li class="post">
-          <a href="/yi-hua-edx-platform.html">汉化edx-platform</a>
       </li>
     </ul>
   </section>
@@ -347,7 +351,7 @@ SSH登录整个过程是这样的：<br />
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
+    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
 
 
     <section>

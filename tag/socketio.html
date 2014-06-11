@@ -5,7 +5,7 @@
 <head>
 <link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
   <meta charset="utf-8">
-  <title>使用ngrok将内网端口映射到外网</title>
+  <title>Dreaming - Socket.io</title>
   <meta name="author" content="tulpar">
 
 
@@ -38,7 +38,7 @@
 
 
 <ul class="main-navigation">
-    <li class="active">
+    <li >
     <a href="/category/it.html">It</a>
     </li>
     <li >
@@ -47,71 +47,52 @@
 </ul></nav>
   <div id="main">
     <div id="content">
-<div>
-  <article class="hentry" role="article">
+<div class="blog-index">
+  		<article>
 <header>
-      <h1 class="entry-title">使用ngrok将内网端口映射到外网</h1>
-      <p class="meta"><time datetime="2014-03-08T00:00:00" pubdate>六 08 三月 2014</time></p>
+      <h1 class="entry-title">
+        <a href="/bu-shu-socketio-de-demo.html">部署Socket.io 的demo</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-11T00:00:00" pubdate>三 11 六月 2014</time></p>
 </header>
 
-  <div class="entry-content"><h3>1.用法一：</h3>
-<p><code>./ngrok 80</code><br />
-这样会随机生成域名，若想定制域名看看方法二</p>
-<h3>2.用法二：</h3>
-<h6>登录ngrok官网，注册（可以直接用github帐号登录），获取<code>auth token</code>,如下面的<code>7FsiQIIGllGctZbUcERV</code>是我的，共享给大家使用</h6>
-<h5>第一次使用时，本地用如下指令specify your auth token</h5>
-<p><code>ngrok -authtoken 7FsiQIIGllGctZbUcERV 80</code>  <br />
-生成后可以取消</p>
-<h5>如下命令：映射80端口，使用二级域名：http://tulpar.ngrok.com</h5>
-<p><code>./ngrok --subdomain tulpar 80</code></p></div>
-    <footer>
-<p class="meta">
-  <span class="byline author vcard">
-    Posted by <span class="fn">tulpar</span>
-  </span>
-<time datetime="2014-03-08T00:00:00" pubdate>六 08 三月 2014</time>  <span class="categories">
-    <a class="category" href="/tag/ngrok.html">ngrok</a>
-  </span>
-</p><div class="sharing">
-</div>    </footer>
-  </article>
+  <div class="entry-content"><h1>1.安装nvm</h1>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">wget</span> <span class="o">-</span><span class="n">qO</span><span class="o">-</span> <span class="n">https</span><span class="o">:</span><span class="c1">//raw.github.com/creationix/nvm/v0.4.0/install.sh | sh</span>
+</pre></div>
 
 
+<h1>2.安装node</h1>
+<div class="highlight"><pre><span class="n">nvm</span> <span class="n">install</span> <span class="mf">0.1</span>
+</pre></div>
 
-<!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"tlbog"};
-(function() {
-var ds = document.createElement('script');
-ds.type = 'text/javascript';ds.async = true;
-ds.src = 'http://static.duoshuo.com/embed.js';
-ds.charset = 'UTF-8';
-(document.getElementsByTagName('head')[0] 
-|| document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- Duoshuo Comment END -->
 
-</div>
+<h6>若过程中如果报错，说：创建目录/usr/sbin/src 权限不够</h6>
+<p>我用了个极端的方法来解决此问题，不推荐</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">chmod</span> <span class="mi">777</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span>
+</pre></div>
+
+
+<h1>3. 跑起</h1>
+<div class="highlight"><pre><span class="n">cd</span> <span class="n">socket</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">example</span><span class="o">/</span><span class="n">chat</span><span class="o">/</span>
+<span class="n">node</span> <span class="n">index</span><span class="p">.</span><span class="n">js</span>
+</pre></div>
+
+
+<h6>日如果报错误说，缺某某moudle，就一个个安装那些插件即可，如 ...</h6></div>
+  <footer>
+    <a rel="full-article" href="/bu-shu-socketio-de-demo.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+<div class="pagination">
+
+  <br />
+</div></div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
           <a href="/bu-shu-socketio-de-demo.html">部署Socket.io 的demo</a>
-      </li>
-      <li class="post">
-          <a href="/edx_errors.html">Edx_errors</a>
-      </li>
-      <li class="post">
-          <a href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">在真机上部署Edx（在中国）</a>
-      </li>
-      <li class="post">
-          <a href="/fan-qiang-zhi-dian-nao-pian.html">翻墙之电脑篇</a>
-      </li>
-      <li class="post">
-          <a href="/shi-yong-ngrokjiang-nei-wang-duan-kou-ying-she-dao-wai-wang.html">使用ngrok将内网端口映射到外网</a>
       </li>
     </ul>
   </section>
@@ -150,7 +131,7 @@ ds.charset = 'UTF-8';
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2013-2014  - tulpar -
+    Copyright &copy;  2014  - tulpar -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
 </body>
