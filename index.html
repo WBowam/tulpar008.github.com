@@ -86,6 +86,30 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/linux-xiao-ji-qiao-1.html">linux 小技巧（1）</a>
+      </h1>
+      <p class="meta"><time datetime="2014-05-28T00:00:00" pubdate>三 28 五月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>1.install local deb packages:</h3>
+<p><code>dpkg -i file.deb</code></p>
+<h5>uninstall packages installed with dpkg:</h5>
+<p><code>``dpkg -r appname</code></p>
+<h5>list packages installed with dpkg:</h5>
+<p><code>dpkg --get-selections | grep -v deinstall</code></p>
+<h3>2.纯命令行下用鼠标</h3>
+<h1>gpm</h1>
+<h5>安装gpm服务</h5>
+<p><code>sudo apt-get install gpm</code></p>
+<h5>使用</h5>
+<p><code>serviece gpm start</code></p></div>
+  <footer>
+    <a rel="full-article" href="/linux-xiao-ji-qiao-1.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/edx_errors.html">Edx_errors</a>
       </h1>
       <p class="meta"><time datetime="2014-04-14T00:00:00" pubdate>一 14 四月 2014</time></p>
@@ -295,24 +319,6 @@ wget deb 包本地安装，发现依赖很多东西，，，，<br />
     <a rel="full-article" href="/ubuntu-yong-hu-yong-ming-ling-an-zhuang-virtualbox-438.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/sshd_configpei-zhi.html">sshd_config配置</a>
-      </h1>
-      <p class="meta"><time datetime="2013-12-08T00:00:00" pubdate>日 08 十二月 2013</time></p>
-</header>
-
-  <div class="entry-content"><p>基本上，在您的系统中，『除非有必要，否则请不要更改 /etc/ssh/sshd_config 这个档案的设定值！』因为预设的情况下通常都是最严密的 SSH 保护了，因此，可以不需要更动他！上面的说明仅是在让大家了解每个细项的一些基本内容而已！需要注意的是最后一项，如果您不愿意开放 SFTP 的话，将最后一行批注掉即可！  </p>
-<hr />
-<div class="highlight"><pre><span class="cp">### 1. 关于 SSH Server 的整体设定，包含使用的 port 啦，以及使用的密码演算方式</span>
-<span class="n">Port</span> <span class="mi">22</span><span class="err">　　　　　　　　　　#</span> <span class="n">SSH</span> <span class="err">预设使用</span> <span class="mi">22</span> <span class="err">这个</span> <span class="n">port</span><span class="err">，您也可以使用多的</span> <span class="n">port</span> <span class="err">！</span>
-<span class="err">　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">亦即重复使用</span> <span class="n">port</span> <span class="err">这个设定项目即可！</span>
-<span class="n">Protocol</span> <span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="err">　　　　　　　</span> <span class="err">#</span> <span class="err">选择的</span> <span class="n">SSH</span> <span class="err">协议版本，可以是</span> <span class="mi">1</span> <span class="err">也可以是</span> <span class="mi">2 ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/sshd_configpei-zhi.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/index2.html">&larr; Older</a>
 
@@ -326,6 +332,9 @@ wget deb 包本地安装，发现依赖很多东西，，，，<br />
           <a href="/bu-shu-socketio-de-demo.html">部署Socket.io 的demo</a>
       </li>
       <li class="post">
+          <a href="/linux-xiao-ji-qiao-1.html">linux 小技巧（1）</a>
+      </li>
+      <li class="post">
           <a href="/edx_errors.html">Edx_errors</a>
       </li>
       <li class="post">
@@ -333,9 +342,6 @@ wget deb 包本地安装，发现依赖很多东西，，，，<br />
       </li>
       <li class="post">
           <a href="/fan-qiang-zhi-dian-nao-pian.html">翻墙之电脑篇</a>
-      </li>
-      <li class="post">
-          <a href="/shi-yong-ngrokjiang-nei-wang-duan-kou-ying-she-dao-wai-wang.html">使用ngrok将内网端口映射到外网</a>
       </li>
     </ul>
   </section>
@@ -351,7 +357,7 @@ wget deb 包本地安装，发现依赖很多东西，，，，<br />
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
+    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
 
 
     <section>
