@@ -5,7 +5,7 @@
 <head>
 <link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
   <meta charset="utf-8">
-  <title>linux 小技巧（1）</title>
+  <title>Dreaming - Xadmin</title>
   <meta name="author" content="tulpar">
 
 
@@ -38,7 +38,7 @@
 
 
 <ul class="main-navigation">
-    <li class="active">
+    <li >
     <a href="/category/it.html">It</a>
     </li>
     <li >
@@ -50,67 +50,45 @@
 </ul></nav>
   <div id="main">
     <div id="content">
-<div>
-  <article class="hentry" role="article">
+<div class="blog-index">
+  		<article>
 <header>
-      <h1 class="entry-title">linux 小技巧（1）</h1>
-      <p class="meta"><time datetime="2014-05-28T00:00:00" pubdate>三 28 五月 2014</time></p>
+      <h1 class="entry-title">
+        <a href="/xadminru-men.html">Xadmin入门</a>
+      </h1>
+      <p class="meta"><time datetime="2014-03-05T00:00:00" pubdate>三 05 三月 2014</time></p>
 </header>
 
-  <div class="entry-content"><h3>1.install local deb packages:</h3>
-<p><code>dpkg -i file.deb</code></p>
-<h5>uninstall packages installed with dpkg:</h5>
-<p><code>``dpkg -r appname</code></p>
-<h5>list packages installed with dpkg:</h5>
-<p><code>dpkg --get-selections | grep -v deinstall</code></p></div>
-    <footer>
-<p class="meta">
-  <span class="byline author vcard">
-    Posted by <span class="fn">tulpar</span>
-  </span>
-<time datetime="2014-05-28T00:00:00" pubdate>三 28 五月 2014</time>  <span class="categories">
-    <a class="category" href="/tag/linux.html">Linux</a>
-  </span>
-</p><div class="sharing">
-</div>    </footer>
-  </article>
+  <div class="entry-content"><p>之前用过一次Xadmin，很好。这一次又想用，竟然忘了怎么用，又得重头入门。之前写过印象笔记，如今翻来翻去，很杂，很乱，想当初真该写个博文的。这一次一定!     </p>
+<p>ENV:<br />
+python 2.7.3<br />
+Django 1.4.5<br />
+virtualenv 1.11.4  </p>
+<hr />
+<h2>.安装配置</h2>
+<h4>1. install xadmin</h4>
+<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">django</span><span class="o">-</span><span class="n">xadmin</span>
+</pre></div>
 
 
+<h4>2.检查下列依赖包有没有都被安装</h4>
+<div class="highlight"><pre><span class="n">django</span> <span class="o">&gt;=</span><span class="mf">1.4</span>
+<span class="n">django</span><span class="o">-</span><span class="n">crispy</span><span class="o">-</span><span class="n">forms</span> <span class="o">&gt;=</span><span class="mf">1.2.3</span> <span class="p">(</span><span class="n">For</span> <span class="n">xadmin</span> <span class="n">crispy</span> <span class="n">forms</span><span class="p">)</span>
+<span class="n">django</span><span class="o">-</span><span class="n">reversion</span> <span class="p">([</span><span class="n">OPTION ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/xadminru-men.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+<div class="pagination">
 
-<!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"tlbog"};
-(function() {
-var ds = document.createElement('script');
-ds.type = 'text/javascript';ds.async = true;
-ds.src = 'http://static.duoshuo.com/embed.js';
-ds.charset = 'UTF-8';
-(document.getElementsByTagName('head')[0] 
-|| document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- Duoshuo Comment END -->
-
-</div>
+  <br />
+</div></div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-1.html">把时间当作朋友读后感（1）</a>
-      </li>
-      <li class="post">
-          <a href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-2.html">把时间当作朋友读后感（2）</a>
-      </li>
-      <li class="post">
-          <a href="/bu-shu-socketio-de-demo.html">部署Socket.io 的demo</a>
-      </li>
-      <li class="post">
-          <a href="/linux-xiao-ji-qiao-1.html">linux 小技巧（1）</a>
-      </li>
-      <li class="post">
-          <a href="/edx_errors.html">Edx_errors</a>
+          <a href="/xadminru-men.html">Xadmin入门</a>
       </li>
     </ul>
   </section>
@@ -150,7 +128,7 @@ ds.charset = 'UTF-8';
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2013-2014  - tulpar -
+    Copyright &copy;  2014  - tulpar -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
 </body>
