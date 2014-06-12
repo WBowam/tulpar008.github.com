@@ -5,7 +5,7 @@
 <head>
 <link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
   <meta charset="utf-8">
-  <title>命令行下使用VirtualBox</title>
+  <title>把时间当作朋友读后感（1）</title>
   <meta name="author" content="tulpar">
 
 
@@ -38,13 +38,13 @@
 
 
 <ul class="main-navigation">
-    <li class="active">
+    <li >
     <a href="/category/it.html">It</a>
     </li>
     <li >
     <a href="/category/life.html">Life</a>
     </li>
-    <li >
+    <li class="active">
     <a href="/category/misc.html">Misc</a>
     </li>
 </ul></nav>
@@ -53,55 +53,27 @@
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">命令行下使用VirtualBox</h1>
-      <p class="meta"><time datetime="2014-01-08T00:00:00" pubdate>三 08 一月 2014</time></p>
+      <h1 class="entry-title">把时间当作朋友读后感（1）</h1>
+      <p class="meta"><time datetime="2014-06-12T00:00:00" pubdate>四 12 六月 2014</time></p>
 </header>
 
-  <div class="entry-content"><p>有个小小的需求：ssh登录的远程服务器上，开启poweroff状态的VirtualBox虚拟机.......</p>
-<p>需要学会在命令行下管理及使用VirtualBox， <br />
-下面只是一些基本的用法，只供入门。当然，如果你执意，也可以去看<a href="http://www.virtualbox.org/manual/ch08.html#idp6268864">VirtualBox文档</a></p>
-<h3>走起</h3>
+  <div class="entry-content"><p>Tags：把世界当作朋友
+Catogery:Life</p>
+<p>读书最大的快乐莫过于共鸣。</p>
 <hr />
-<h5>一个命令可以满足我的需求，即VBoxManage</h5>
-<h3>1. VBoxManage startvm子命令可以开启一台状态为关闭或者保存的虚拟机。该命令的语法为:</h3>
-<div class="highlight"><pre><span class="n">VBoxManage</span> <span class="n">startvm</span>  <span class="n">uuid</span><span class="o">&gt;|</span><span class="n">name</span><span class="p">...</span> <span class="p">[</span><span class="o">--</span><span class="n">type</span> <span class="n">gui</span><span class="o">|</span><span class="n">sdl</span><span class="o">|</span><span class="n">headless</span><span class="p">]</span>
-</pre></div>
-
-
-<h3>2. 可以通过虚拟机的uuid或者name来指定某台虚拟机，可以通过另外一个子命令list列出系统已有的虚拟机：</h3>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">VBoxManage</span> <span class="n">list</span> <span class="n">vms</span>
-<span class="s">&quot;XP&quot;</span> <span class="p">{</span><span class="mi">8842</span><span class="n">d793</span><span class="o">-</span><span class="mi">228</span><span class="n">c</span><span class="o">-</span><span class="mi">458</span><span class="n">e</span><span class="o">-</span><span class="n">a880</span><span class="o">-</span><span class="mf">8051193f</span><span class="n">d2db</span><span class="p">}</span>
-</pre></div>
-
-
-<p>我系统上已经安装了一台名为XP的虚拟机，后面括号内部的是它的UUID。</p>
-<h3>3.VBoxManage startvm子命令可以通过--type参数指定启动的方式</h3>
-<h4>gui:图形化界面</h4>
-<h4>sdl也是图形化界面，但是少掉了部分功能，比如没有菜单等，一般用于调试过程。</h4>
-<h4>headless:后台运行，并且默认开启vrdp服务，可以通过远程桌面工具来访问。</h4>
-<h5>如：</h5>
-<h6>gui类型启动虚拟机：</h6>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">VBoxManage</span> <span class="n">startvm</span> <span class="n">XP</span> <span class="o">--</span><span class="n">type</span> <span class="n">gui</span>
-</pre></div>
-
-
-<h6>使用headless类型启动虚拟机:</h6>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">VBoxManage</span> <span class="n">startvm</span> <span class="s">&quot;XP&quot;</span> <span class="o">--</span><span class="n">type</span> <span class="n">headless</span>
-</pre></div>
-
-
-<p>或者</p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">VBoxHeadless</span> <span class="o">--</span><span class="n">startvm</span> <span class="s">&quot;XP&quot;</span>
-</pre></div></div>
+<h3>我们都生活在同一个世界里，可都在自己的版本里。</h3>
+<p>改变自己意味着，属于自己的版本的世界随着改变。当你的能力够大，你也能改变他人的版本，或多或少取决于你的影响力。——带来了以下问题</p>
+<hr />
+<p>以上的版本这个概念来自李笑来的《把时间当作朋友》，<strong>感觉措辞不够合理</strong>。我们作为程序员，用过版本号，深有体会。就像那句名言（不记得原话怎么说的）：如果你觉得写的软件不够好，那就称它为1.0版本吧。每一个版本号互相之间是独立的，没有交集的。如果1.0版本出了问题，2.0版本可以是照样跑；如果3.0版本崩了，10.0版本可以是好好的</p>
+<h5>世界：假设世界上有60亿人，每个人的世界都有一个版本号，我的是1.0，牛顿的是2.0，你的是3.0，罗斯福的是4.0，爱因斯坦的是5.0，乔布斯的是6.0，他的是7.0.............版本号意味着我们的世界都是独立的。很显然，我活着（2014年6月12号），但我不应该在这里看着《把时间当作朋友》，上着网，而应该坐在椅子上想着：这个苹果为什么会掉在我的头上呢？很显然牛顿影响了我的世界，他的版本影响到我的版本了，在IT世界里，我会说：凭什么？我是1.0啊！...........而你不应该对着Iphone咪咪笑，罗斯福不应该对日本人这么残忍。。。。。。。。。。。</h5>
+<p>@李笑来   </p>
+<h4>很显然，假设不成立，措辞不够合理。</h4></div>
     <footer>
 <p class="meta">
   <span class="byline author vcard">
     Posted by <span class="fn">tulpar</span>
   </span>
-<time datetime="2014-01-08T00:00:00" pubdate>三 08 一月 2014</time>  <span class="categories">
-    <a class="category" href="/tag/virtualbox.html">VirtualBox</a>
-  </span>
-</p><div class="sharing">
+<time datetime="2014-06-12T00:00:00" pubdate>四 12 六月 2014</time></p><div class="sharing">
 </div>    </footer>
   </article>
 

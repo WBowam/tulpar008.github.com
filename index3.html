@@ -5,7 +5,7 @@
 <head>
 <link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
   <meta charset="utf-8">
-  <title>Dreaming - Linux</title>
+  <title>Dreaming</title>
   <meta name="author" content="tulpar">
 
 
@@ -54,45 +54,74 @@
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="/linux-xiao-ji-qiao-1.html">linux 小技巧（1）</a>
+        <a href="/django-userena-de-shi-yong.html">Django-userena 的使用</a>
       </h1>
-      <p class="meta"><time datetime="2014-05-28T00:00:00" pubdate>三 28 五月 2014</time></p>
+      <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
 </header>
 
-  <div class="entry-content"><h3>1.install local deb packages:</h3>
-<p><code>dpkg -i file.deb</code></p>
-<h5>uninstall packages installed with dpkg:</h5>
-<p><code>``dpkg -r appname</code></p>
-<h5>list packages installed with dpkg:</h5>
-<p><code>dpkg --get-selections | grep -v deinstall</code></p></div>
+  <div class="entry-content"><hr />
+<p>先Clone <a href="https://github.com/bread-and-pepper/django-userena.git">Github上的源码</a>，运行Demo看看效果，</p>
+<div class="highlight"><pre><span class="err">进入</span><span class="n">demo</span><span class="err">目录</span>
+ <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+<span class="p">(</span><span class="err">再装一个</span><span class="n">html2text</span><span class="p">)</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">html2text</span>
+<span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">runserver</span>
+</pre></div>
+
+
+<p>然后再自己搭一个，如下步骤</p>
+<hr />
+<h3>安装</h3>
+<p><code>pip install django-userena</code></p>
+<h3>配置</h3>
+<h4>1. add ’userena’, ’guardian’, ’easy_thumbnails’ to your INSTALLED_APPS tuple.</h4>
+<div class="highlight"><pre><span class="err">’</span><span class="n">userena</span><span class="err">’</span><span class="p">,</span>  
+<span class="err">’</span><span class="n">guardian</span><span class="err">’</span><span class="p">,</span>  
+<span class="err">’</span><span class="n">easy_thumbnails</span><span class="err">’</span><span class="p">,</span>
+</pre></div>
+
+
+<h4>2. in your settings.py file, add the following:</h4>
+<div class="highlight"><pre><span class="n">AUTHENTICATION_BACKENDS</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="err">&#39;</span><span class="n">userena ...</span></pre></div></div>
   <footer>
-    <a rel="full-article" href="/linux-xiao-ji-qiao-1.html">Read On &crarr;</a>
+    <a rel="full-article" href="/django-userena-de-shi-yong.html">Read On &crarr;</a>
   </footer>
   		</article>
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="/linuxte-bie-qiang-da-he-ling-huo-de-ming-ling-xing-gong-ju-1.html">Linux特别强大和灵活的命令行工具 (1)</a>
+        <a href="/git-ru-men.html">Git 入门</a>
       </h1>
-      <p class="meta"><time datetime="2014-02-08T00:00:00" pubdate>六 08 二月 2014</time></p>
+      <p class="meta"><time datetime="2013-09-08T00:00:00" pubdate>日 08 九月 2013</time></p>
 </header>
 
-  <div class="entry-content"><h4>! ياخشى   نەرسە   سېسىپ   قالمىسۇن</h4>
+  <div class="entry-content"><p>之前入门过git，只是入门，不明白原理，不会用建分支，没法完成一些稍有难度的工作。因此，一直想再学学，一直是想，直到......<br />
+好朋友wwj推荐<a href="http://igit.linuxtoy.org/">沉浸式学 Git</a>，看了一下：特别喜欢，再学学，走起！
+感谢<a href="http://igit.linuxtoy.org/">徐小东</a>，感谢<a href="http://wwj718.github.io/">wwj</a>.</p>
 <hr />
-<h3>Curl</h3>
-<p>Curl是一个网络传输工具，这是非常类似wget的，主要的区别在于，默认情况下，Wget的保存到一个文件，和curl的命令行输出。这使得它可以很简单，看一个网站的内容。这里举个例子，我们可以得到我们当前的IP从ifconfig.me网站：</p>
-<div class="highlight"><pre><span class="n">curl</span> <span class="n">ifconfig</span><span class="p">.</span><span class="n">me</span>
-<span class="mf">93.96.141.93</span>
+<h3>安装</h3>
+<h5>Linux</h5>
+<p><code>$ apt-get install git</code> <br />
+Or <br />
+<code>$ yum install git-core</code></p>
+<h5>Mac</h5>
+<p>请参阅<a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Mac 安装Git</a></p>
+<h5>windows</h5>
+<p>请参阅 <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Windows 安装Git</a></p>
+<hr />
+<h3>开始使用</h3>
+<h4>1. 创建新仓库</h4>
+<div class="highlight"><pre><span class="n">mkdir</span> <span class="n">hello</span>
+<span class="n">cd</span> <span class="n">hello</span>  
+<span class="n">git</span> <span class="n">init</span>
 </pre></div>
 
 
-<p>Curl的-i（显示标题）和-I（只显示头）选项使其成为一个伟大的工具，调试HTTP响应，并找出到底什么是服务器发送到你的：</p>
-<div class="highlight"><pre><span class="n">curl</span> <span class="o">-</span><span class="n">I</span> <span class="n">news</span><span class="p">.</span><span class="n">ycombinator</span><span class="p">.</span><span class="n">com</span>
-<span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
-<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="o">:</span> <span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span>
-<span class="n">Cache</span><span class="o">-</span><span class="n">Control</span><span class="o">:</span> <span class="n">private ...</span></pre></div></div>
+<p>添加新内容
+<code>vim hello.rb ...</code></p></div>
   <footer>
-    <a rel="full-article" href="/linuxte-bie-qiang-da-he-ling-huo-de-ming-ling-xing-gong-ju-1.html">Read On &crarr;</a>
+    <a rel="full-article" href="/git-ru-men.html">Read On &crarr;</a>
   </footer>
   		</article>
   		<article>
@@ -115,6 +144,7 @@
   		</article>
 <div class="pagination">
 
+    <a class="next" href="/index2.html">Newer &rarr;</a>
   <br />
 </div></div>
 <aside class="sidebar">
@@ -122,13 +152,19 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-1.html">把时间当作朋友读后感（1）</a>
+      </li>
+      <li class="post">
+          <a href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-2.html">把时间当作朋友读后感（2）</a>
+      </li>
+      <li class="post">
+          <a href="/bu-shu-socketio-de-demo.html">部署Socket.io 的demo</a>
+      </li>
+      <li class="post">
           <a href="/linux-xiao-ji-qiao-1.html">linux 小技巧（1）</a>
       </li>
       <li class="post">
-          <a href="/linuxte-bie-qiang-da-he-ling-huo-de-ming-ling-xing-gong-ju-1.html">Linux特别强大和灵活的命令行工具 (1)</a>
-      </li>
-      <li class="post">
-          <a href="/linux-xiao-ji-qiao-2.html">linux 小技巧（2）</a>
+          <a href="/edx_errors.html">Edx_errors</a>
       </li>
     </ul>
   </section>
