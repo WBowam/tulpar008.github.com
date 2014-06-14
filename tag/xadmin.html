@@ -54,6 +54,29 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/xadminru-men-2.html">Xadmin入门（2）</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-13T00:00:00" pubdate>五 13 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h2>Xadmin 的插件介绍</h2>
+<p>(本来想自己总结一遍的，可太喜欢Xadmin的文档了，言简意赅，排版精美，就直接搬了，望大侠们勿喷）</p>
+<h3>1. Action</h3>
+<h4>功能</h4>
+<p>Action 插件在数据列表页面提供了数据选择功能, 选择后的数据可以经过 Action 做特殊的处理. 默认提供的 Action 为批量删除功能.</p>
+<h4>截图</h4>
+<p><img alt="Action" src="http://xadmin.readthedocs.org/en/docs-chinese/_images/action.png" /></p>
+<h4>使用</h4>
+<p>开发者可以设置 Model OptionClass 的 actions 属性, 该属性是一个列表, 包含您想启用的 Action 的类. 系统已经默认内置了删除数据的 Action, 当然您可以自己制作 Action 来实现特定的功能, 制作 Action 的实例如下.</p>
+<p>首先要创建一个 Action 类, 该类需要继承 BaseActionView. BaseActionView 是 ModelAdminView 的子类:</p>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">xadmin ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/xadminru-men-2.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/xadminru-men.html">Xadmin入门</a>
       </h1>
       <p class="meta"><time datetime="2014-03-05T00:00:00" pubdate>三 05 三月 2014</time></p>
@@ -87,6 +110,9 @@ virtualenv 1.11.4  </p>
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
+      <li class="post">
+          <a href="/xadminru-men-2.html">Xadmin入门（2）</a>
+      </li>
       <li class="post">
           <a href="/xadminru-men.html">Xadmin入门</a>
       </li>

@@ -54,6 +54,29 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/xadminru-men-2.html">Xadmin入门（2）</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-13T00:00:00" pubdate>五 13 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h2>Xadmin 的插件介绍</h2>
+<p>(本来想自己总结一遍的，可太喜欢Xadmin的文档了，言简意赅，排版精美，就直接搬了，望大侠们勿喷）</p>
+<h3>1. Action</h3>
+<h4>功能</h4>
+<p>Action 插件在数据列表页面提供了数据选择功能, 选择后的数据可以经过 Action 做特殊的处理. 默认提供的 Action 为批量删除功能.</p>
+<h4>截图</h4>
+<p><img alt="Action" src="http://xadmin.readthedocs.org/en/docs-chinese/_images/action.png" /></p>
+<h4>使用</h4>
+<p>开发者可以设置 Model OptionClass 的 actions 属性, 该属性是一个列表, 包含您想启用的 Action 的类. 系统已经默认内置了删除数据的 Action, 当然您可以自己制作 Action 来实现特定的功能, 制作 Action 的实例如下.</p>
+<p>首先要创建一个 Action 类, 该类需要继承 BaseActionView. BaseActionView 是 ModelAdminView 的子类:</p>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">xadmin ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/xadminru-men-2.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/bu-shu-socketio-de-demo.html">部署Socket.io 的demo</a>
       </h1>
       <p class="meta"><time datetime="2014-06-11T00:00:00" pubdate>三 11 六月 2014</time></p>
@@ -289,23 +312,6 @@ virtualenv 1.11.4  </p>
     <a rel="full-article" href="/linuxte-bie-qiang-da-he-ling-huo-de-ming-ling-xing-gong-ju-1.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/shi-yong-edx-platform.html">使用Edx platform</a>
-      </h1>
-      <p class="meta"><time datetime="2014-02-08T00:00:00" pubdate>六 08 二月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>1. create superuser</h3>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">www</span><span class="o">-</span><span class="n">data</span> <span class="o">/</span><span class="n">edx</span><span class="o">/</span>
-<span class="n">bin</span><span class="o">/</span><span class="n">python</span><span class="p">.</span><span class="n">edxapp</span> <span class="p">.</span><span class="o">/</span><span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">lms</span> <span class="o">--</span><span class="n">settings</span> <span class="n">aws</span> <span class="n">create_user</span> <span class="o">-</span><span class="n">e</span> <span class="n">user</span><span class="err">@</span><span class="n">example</span><span class="p">.</span><span class="n">com</span>
-<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">www</span><span class="o">-</span><span class="n">data</span> <span class="o">/</span><span class="n">edx</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span><span class="p">.</span><span class="n">edxapp</span> <span class="p">.</span><span class="o">/</span><span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">lms</span> <span class="o">--</span><span class="n">settings</span> <span class="n">aws</span> <span class="n">changepassword</span> <span class="n">user</span>
-<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">www</span><span class="o">-</span><span class="n">data</span> <span class="o">/</span><span class="n">edx</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span><span class="p">.</span><span class="n">edxapp</span> <span class="p">.</span><span class="o">/</span><span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">lms</span> <span class="o">--</span><span class="n">settings</span> <span class="n">aws</span> <span class="n">shell ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/shi-yong-edx-platform.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it2.html">&larr; Older</a>
 
@@ -315,6 +321,9 @@ virtualenv 1.11.4  </p>
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
+      <li class="post">
+          <a href="/xadminru-men-2.html">Xadmin入门（2）</a>
+      </li>
       <li class="post">
           <a href="/bu-shu-socketio-de-demo.html">部署Socket.io 的demo</a>
       </li>
@@ -326,9 +335,6 @@ virtualenv 1.11.4  </p>
       </li>
       <li class="post">
           <a href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">在真机上部署Edx（在中国）</a>
-      </li>
-      <li class="post">
-          <a href="/fan-qiang-zhi-dian-nao-pian.html">翻墙之电脑篇</a>
       </li>
     </ul>
   </section>
