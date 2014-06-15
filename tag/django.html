@@ -127,6 +127,39 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/yong-django-mptthou-tai-zhong-sheng-cheng-shu-zhuang-shu-ju-jie-gou.html">用Django mptt后台中生成树状数据结构</a>
+      </h1>
+      <p class="meta"><time datetime="2014-04-16T00:00:00" pubdate>三 16 四月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>背景说明：</h3>
+<p>昨天跟客户谈需求时，客户要求做一个数状数据结构，类似于：<br />
+<img alt="树状数据" src="http://tulparblog.qiniudn.com/mpttsitepoint_tree.jpg" /></p>
+<h5>不仅要在前台这么显示，后台也要这么显示。</h5>
+<p>一番google之后 ，感谢Stack Overflow让我找到了Django mptt，感谢<a href="http://qinxuye.me/article/introduction-and-usage-of-django-mptt/">残阳似血</a>血写了如此华丽的博客，小生很喜欢添加趣点功能</p>
+<hr />
+<h3>解决方案</h3>
+<h5>用django mptt改变数据结构</h5>
+<h5>用django-mptt-admin改变数状结构在django后台的显示方式</h5>
+<h3>具体操作</h3>
+<h4>1. 安装django mptt</h4>
+<p>下载源码 <code>https://github.com/django-mptt/django-mptt</code>
+<em>或</em>
+<code>pip install django-mptt</code></p>
+<h4>2. 配置django mptt</h4>
+<p>在settings文件下的INSTALLED_APPS中添加'mptt'<br />
+<em>就这么简单，安装配置结束了</em></p>
+<h4>3. 使用django mptt</h4>
+<h5>写model，继承MPTTModel</h5>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">mptt</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">MPTTModel</span>
+<span class="n">class ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/yong-django-mptthou-tai-zhong-sheng-cheng-shu-zhuang-shu-ju-jie-gou.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/django-media-pei-zhi-fang-fa-yi.html">Django Media 配置（方法一）</a>
       </h1>
       <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
@@ -207,6 +240,9 @@
       </li>
       <li class="post">
           <a href="/django-dir-pei-zhi-fang-fa-yi.html">Django Dir 配置（方法一）</a>
+      </li>
+      <li class="post">
+          <a href="/yong-django-mptthou-tai-zhong-sheng-cheng-shu-zhuang-shu-ju-jie-gou.html">用Django mptt后台中生成树状数据结构</a>
       </li>
       <li class="post">
           <a href="/django-media-pei-zhi-fang-fa-yi.html">Django Media 配置（方法一）</a>

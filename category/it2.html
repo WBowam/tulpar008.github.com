@@ -54,6 +54,34 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/xadminru-men.html">Xadmin入门</a>
+      </h1>
+      <p class="meta"><time datetime="2014-03-05T00:00:00" pubdate>三 05 三月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>之前用过一次Xadmin，很好。这一次又想用，竟然忘了怎么用，又得重头入门。之前写过印象笔记，如今翻来翻去，很杂，很乱，想当初真该写个博文的。这一次一定!     </p>
+<p>ENV:<br />
+python 2.7.3<br />
+Django 1.4.5<br />
+virtualenv 1.11.4  </p>
+<hr />
+<h2>.安装配置</h2>
+<h4>1. install xadmin</h4>
+<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">django</span><span class="o">-</span><span class="n">xadmin</span>
+</pre></div>
+
+
+<h4>2.检查下列依赖包有没有都被安装</h4>
+<div class="highlight"><pre><span class="n">django</span> <span class="o">&gt;=</span><span class="mf">1.4</span>
+<span class="n">django</span><span class="o">-</span><span class="n">crispy</span><span class="o">-</span><span class="n">forms</span> <span class="o">&gt;=</span><span class="mf">1.2.3</span> <span class="p">(</span><span class="n">For</span> <span class="n">xadmin</span> <span class="n">crispy</span> <span class="n">forms</span><span class="p">)</span>
+<span class="n">django</span><span class="o">-</span><span class="n">reversion</span> <span class="p">([</span><span class="n">OPTION ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/xadminru-men.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/yi-hua-edx-platform.html">汉化edx-platform</a>
       </h1>
       <p class="meta"><time datetime="2014-02-09T00:00:00" pubdate>日 09 二月 2014</time></p>
@@ -313,39 +341,6 @@ mkdir shell_tut
 <li>第7行 ...</li></ul></div>
   <footer>
     <a rel="full-article" href="/shelljiao-ben-bian-cheng-30fen-zhong-ru-men.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/django-media-pei-zhi-fang-fa-yi.html">Django Media 配置（方法一）</a>
-      </h1>
-      <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
-</header>
-
-  <div class="entry-content"><h5>Env:</h5>
-<ul>
-<li>django==1.4.5</li>
-<li>python==2.7</li>
-<li>ubuntu==13.04</li>
-</ul>
-<hr />
-<h3>django 的Static 和 Media配置之Media</h3>
-<h3>settings.py</h3>
-<div class="highlight"><pre><span class="cp">##added by Tulpar,20140514</span>
-<span class="n">import</span> <span class="n">os</span>
-<span class="n">settings_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
-<span class="n">PROJECT_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">settings_dir</span><span class="p">))</span>
-
-<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">public</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span><span class="p">)</span>
-<span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span>
-</pre></div>
-
-
-<h3>urls.py</h3>
-<div class="highlight"><pre><span class="err">#</span><span class="vi">#added</span> <span class="k">by</span> <span class="nx">Tulpar ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/django-media-pei-zhi-fang-fa-yi.html">Read On &crarr;</a>
   </footer>
   		</article>
 <div class="pagination">

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
+  <meta charset="utf-8">
+  <title>用Django mptt后台中生成树状数据结构</title>
+  <meta name="author" content="tulpar">
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link href="/favicon.png" rel="icon"> -->
+  <link href="/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="/theme/js/modernizr-2.0.js"></script>
+  <script src="/theme/js/ender.js"></script>
+  <script src="/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dreaming</a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+
+<ul class="main-navigation">
+    <li class="active">
+    <a href="/category/it.html">It</a>
+    </li>
+    <li >
+    <a href="/category/life.html">Life</a>
+    </li>
+    <li >
+    <a href="/category/misc.html">Misc</a>
+    </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">用Django mptt后台中生成树状数据结构</h1>
+      <p class="meta"><time datetime="2014-04-16T00:00:00" pubdate>三 16 四月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>背景说明：</h3>
+<p>昨天跟客户谈需求时，客户要求做一个数状数据结构，类似于：<br />
+<img alt="树状数据" src="http://tulparblog.qiniudn.com/mpttsitepoint_tree.jpg" /></p>
+<h5>不仅要在前台这么显示，后台也要这么显示。</h5>
+<p>一番google之后 ，感谢Stack Overflow让我找到了Django mptt，感谢<a href="http://qinxuye.me/article/introduction-and-usage-of-django-mptt/">残阳似血</a>血写了如此华丽的博客，小生很喜欢添加趣点功能</p>
+<hr />
+<h3>解决方案</h3>
+<h5>用django mptt改变数据结构</h5>
+<h5>用django-mptt-admin改变数状结构在django后台的显示方式</h5>
+<h3>具体操作</h3>
+<h4>1. 安装django mptt</h4>
+<p>下载源码 <code>https://github.com/django-mptt/django-mptt</code>
+<em>或</em>
+<code>pip install django-mptt</code></p>
+<h4>2. 配置django mptt</h4>
+<p>在settings文件下的INSTALLED_APPS中添加'mptt'<br />
+<em>就这么简单，安装配置结束了</em></p>
+<h4>3. 使用django mptt</h4>
+<h5>写model，继承MPTTModel</h5>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">mptt</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">MPTTModel</span>
+<span class="n">class</span> <span class="n">MPTTFood</span><span class="p">(</span><span class="n">MPTTModel</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">TreeForeignKey</span><span class="p">(</span><span class="s">&quot;self&quot;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="n">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="n">True</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s">&quot;children&quot;</span><span class="p">)</span>
+
+    <span class="n">def</span> <span class="n">__unicode__</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">title</span>
+</pre></div>
+
+
+<h6>注：理论上，不一定用“parent“去跟字段的名字，MPTT元类中指明即可，如</h6>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">mptt</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">MPTTModel</span>
+
+<span class="n">class</span> <span class="n">MPTTFood</span><span class="p">(</span><span class="n">MPTTModel</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">parent_food</span> <span class="o">=</span> <span class="n">TreeForeignKey</span><span class="p">(</span><span class="s">&quot;self&quot;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="n">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="n">True</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s">&quot;children&quot;</span><span class="p">)</span>
+
+    <span class="n">class</span> <span class="n">MPTTMeta</span><span class="o">:</span>
+        <span class="n">parent_attr</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">parent_food</span><span class="err">&#39;</span>
+
+    <span class="n">def</span> <span class="n">__unicode__</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">title</span>
+</pre></div>
+
+
+<h6>但强烈建议，如果能用就用“parent”</h6>
+<h5>写admin.py，注册</h5>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">contrib</span> <span class="n">import</span> <span class="n">admin</span>
+<span class="n">from</span> <span class="n">models</span> <span class="n">import</span> <span class="n">MPTTFood</span>
+
+
+<span class="n">class</span> <span class="n">MPTTFoodAdmin</span><span class="p">(</span><span class="n">admin</span><span class="p">.</span><span class="n">ModelAdmin</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">tree_auto_open</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">title</span><span class="err">&#39;</span><span class="p">,)</span>
+    <span class="n">ordering</span> <span class="o">=</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">title</span><span class="err">&#39;</span><span class="p">,)</span>
+
+
+
+<span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="k">register</span><span class="p">(</span><span class="n">MPTTFood</span><span class="p">,</span><span class="n">MPTTFoodAdmin</span><span class="p">)</span>
+</pre></div>
+
+
+<p><em>有关mptt已经结束，关于在前台怎么用数状数据，请看官方文档</em></p>
+<h4>4. 安装django-mptt-admin</h4>
+<p><code>pip install django_mptt_admin</code>
+或 <br />
+下载源码<code>https://github.com/leukeleu/django-mptt-admin</code></p>
+<h4>5.配置 django-mptt-admin</h4>
+<p>Add django_mptt_admin to your installed apps in settings.py</p>
+<h5>6.使用 django-mptt-admin</h5>
+<p>只要在admin.py里继承DjangoMpttAdmin即可</p>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">contrib</span> <span class="n">import</span> <span class="n">admin</span>
+<span class="n">from</span> <span class="n">models</span> <span class="n">import</span> <span class="n">MPTTFood</span>
+<span class="n">from</span> <span class="n">django_mptt_admin</span><span class="p">.</span><span class="n">admin</span> <span class="n">import</span> <span class="n">DjangoMpttAdmin</span>
+
+
+<span class="n">class</span> <span class="n">MPTTFoodAdmin</span><span class="p">(</span><span class="n">DjangoMpttAdmin</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">tree_auto_open</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">title</span><span class="err">&#39;</span><span class="p">,)</span>
+    <span class="n">ordering</span> <span class="o">=</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">title</span><span class="err">&#39;</span><span class="p">,)</span>
+
+<span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="k">register</span><span class="p">(</span><span class="n">MPTTFood</span><span class="p">,</span><span class="n">MPTTFoodAdmin</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<p>That's All</p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">tulpar</span>
+  </span>
+<time datetime="2014-04-16T00:00:00" pubdate>三 16 四月 2014</time>  <span class="categories">
+    <a class="category" href="/tag/django.html">Django</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+
+
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tlbog"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = 'http://static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+|| document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- Duoshuo Comment END -->
+
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="/ueditorzai-djangozhong-de-shi-yong.html">Ueditor在Django中的使用</a>
+      </li>
+      <li class="post">
+          <a href="/xadminru-men-2.html">Xadmin入门（2）</a>
+      </li>
+      <li class="post">
+          <a href="/yu-men-de-fa-xian-yi-ge-shuang-bao-tai-shi-xiong.html">郁闷的发现一个双胞胎师兄</a>
+      </li>
+      <li class="post">
+          <a href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-1.html">把时间当作朋友读后感（1）</a>
+      </li>
+      <li class="post">
+          <a href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-2.html">把时间当作朋友读后感（2）</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="/category/it.html">It</a></li>
+        <li><a href="/category/life.html">Life</a></li>
+        <li><a href="/category/misc.html">misc</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://izda.com" target="_blank">ئىزدە</a></li>
+            <li><a href="http://www.google.com" target="_blank">Google</a></li>
+            <li><a href="http://www.zhihu.com/" target="_blank">知乎</a></li>
+            <li><a href="http://www.douban.com/" target="_blank">豆瓣</a></li>
+        </ul>
+    </section>
+    <section>
+        <h1>Blogroll</h1>
+        <ul>
+            <li><a href="https://github.com/tulpar008" target="_blank">My Github</a></li>
+            <li><a href="#" target="_blank">tulpar008@gmail.com</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2013-2014  - tulpar -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+</body>
+</html>
