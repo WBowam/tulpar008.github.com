@@ -54,6 +54,42 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/ueditorzai-djangozhong-de-shi-yong.html">Ueditor在Django中的使用</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-14T00:00:00" pubdate>六 14 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>以前写过Ueditor在Django中的使用方法（虽然跟着上一个博客一起丢了），在此不赘述了。想学可以看看这位朋友的分享：
+<a href="https://github.com/zhangfisher/DjangoUeditor">Django中使用Ueditor</a></p>
+<p><a href="http://mushapi.sinaapp.com/using-ueditor-in-django-with-xadmin.html">http://mushapi.sinaapp.com/using-ueditor-in-django-with-xadmin.html</a></p>
+<h3>1.安装</h3>
+<p><code>pip install DjangoUeditor</code></p>
+<h3>2.启用</h3>
+<h5>在<code>INSTALL_APPS</code>里面增加DjangoUeditor app，如下：</h5>
+<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="err">#</span><span class="p">........</span>
+            <span class="err">&#39;</span><span class="n">DjangoUeditor</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+</pre></div>
+
+
+<h5>在urls.py中增加：</h5>
+<div class="highlight"><pre>    <span class="n">url</span><span class="p">(</span><span class="n">r</span><span class="err">&#39;</span><span class="o">^</span><span class="n">ueditor</span><span class="o">/</span><span class="err">&#39;</span><span class="p">,</span><span class="n">include</span><span class="p">(</span><span class="err">&#39;</span><span class="n">DjangoUeditor</span><span class="p">.</span><span class="n">urls</span><span class="err">&#39;</span> <span class="p">)),</span>
+</pre></div>
+
+
+<h3>3.使用</h3>
+<h5>在<code>models</code>中这样使用：</h5>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">DjangoUeditor</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">UEditorField</span>
+    <span class="n">class</span> <span class="n">Blog</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">Name</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">CharField ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/ueditorzai-djangozhong-de-shi-yong.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/xadminru-men-2.html">Xadmin入门（2）</a>
       </h1>
       <p class="meta"><time datetime="2014-06-13T00:00:00" pubdate>五 13 六月 2014</time></p>
@@ -189,6 +225,43 @@ Category:Life  </p>
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/django-dir-pei-zhi-fang-fa-yi.html">Django Dir 配置（方法一）</a>
+      </h1>
+      <p class="meta"><time datetime="2014-05-14T00:00:00" pubdate>三 14 五月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h5>Env:</h5>
+<ul>
+<li>django==1.4.5</li>
+<li>python==2.7</li>
+<li>ubuntu==13.04</li>
+</ul>
+<hr />
+<h3>公用部分</h3>
+<p>settings.py</p>
+<div class="highlight"><pre><span class="cp">##added by Tulpar,20140514</span>
+<span class="n">import</span> <span class="n">os</span>
+<span class="n">settings_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
+<span class="n">PROJECT_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">settings_dir</span><span class="p">))</span>
+</pre></div>
+
+
+<h3>MEDIA</h3>
+<p>settings.py</p>
+<div class="highlight"><pre><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span>
+</pre></div>
+
+
+<p>urls.py</p>
+<div class="highlight"><pre><span class="err">#</span><span class="vi">#added</span> <span class="k">by</span> <span class="nx">Tulpar</span><span class="p">,</span><span class="mi">20140514 ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-dir-pei-zhi-fang-fa-yi.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/edx_errors.html">Edx_errors</a>
       </h1>
       <p class="meta"><time datetime="2014-04-14T00:00:00" pubdate>一 14 四月 2014</time></p>
@@ -235,56 +308,6 @@ Category:Life  </p>
     <a rel="full-article" href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/fan-qiang-zhi-dian-nao-pian.html">翻墙之电脑篇</a>
-      </h1>
-      <p class="meta"><time datetime="2014-03-08T00:00:00" pubdate>六 08 三月 2014</time></p>
-</header>
-
-  <div class="entry-content"><p>之前用过Goagent代理翻墙，很好用，再次感叹Google是个伟大的公司，，，
-相比用Goagent，下面的成Chrome插件更加简便。</p>
-<hr />
-<h3>1. <a href="https://chrome.google.com/webstore/search/%E7%BF%BB%E5%A2%99?hl=zh-CN">红杏</a></h3>
-<p>到google应用商店，装上即可，不过非VIP只能翻有限的网站。。。。。</p>
-<h3>2. sshuttle</h3>
-<p>闲逛github时看到基于 python 的 sshuttle</p>
-<p>sshuttle被称为穷人的VPN.就是说它是免费的.</p>
-<p>仅仅免费其实不够诱人,让我动心的是它的简单,而且可以在纯命令行下使用.</p>
-<p>理论上vpn也是可以在纯命令行下使用的,我先后按照几个教程,都未成功.当然图形界面配置vpn很简单.</p>
-<p>可问题是我必须在远程服务器上使用vpn(当然是用ssh登陆), 更新部署代码 , 需要连接国外服务器.</p>
-<h5>如何使用</h5>
-<p>(ubuntu下)首先安装它: 
-<code>sudo apt-get install sshuttle</code><br />
-<code>sshuttle -r action@apne1.nitrousbox.com:22411 0.0.0.0/0 -vv</code>  </p>
-<p>搞定 ...</p></div>
-  <footer>
-    <a rel="full-article" href="/fan-qiang-zhi-dian-nao-pian.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/shi-yong-ngrokjiang-nei-wang-duan-kou-ying-she-dao-wai-wang.html">使用ngrok将内网端口映射到外网</a>
-      </h1>
-      <p class="meta"><time datetime="2014-03-08T00:00:00" pubdate>六 08 三月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>1.用法一：</h3>
-<p><code>./ngrok 80</code><br />
-这样会随机生成域名，若想定制域名看看方法二</p>
-<h3>2.用法二：</h3>
-<h6>登录ngrok官网，注册（可以直接用github帐号登录），获取<code>auth token</code>,如下面的<code>7FsiQIIGllGctZbUcERV</code>是我的，共享给大家使用</h6>
-<h5>第一次使用时，本地用如下指令specify your auth token</h5>
-<p><code>ngrok -authtoken 7FsiQIIGllGctZbUcERV 80</code>  <br />
-生成后可以取消</p>
-<h5>如下命令：映射80端口，使用二级域名：http://tulpar.ngrok.com</h5>
-<p><code>./ngrok --subdomain tulpar 80</code></p></div>
-  <footer>
-    <a rel="full-article" href="/shi-yong-ngrokjiang-nei-wang-duan-kou-ying-she-dao-wai-wang.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/index2.html">&larr; Older</a>
 
@@ -294,6 +317,9 @@ Category:Life  </p>
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
+      <li class="post">
+          <a href="/ueditorzai-djangozhong-de-shi-yong.html">Ueditor在Django中的使用</a>
+      </li>
       <li class="post">
           <a href="/xadminru-men-2.html">Xadmin入门（2）</a>
       </li>
@@ -305,9 +331,6 @@ Category:Life  </p>
       </li>
       <li class="post">
           <a href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-2.html">把时间当作朋友读后感（2）</a>
-      </li>
-      <li class="post">
-          <a href="/bu-shu-socketio-de-demo.html">部署Socket.io 的demo</a>
       </li>
     </ul>
   </section>
@@ -324,7 +347,7 @@ Category:Life  </p>
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
+    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
 
 
     <section>

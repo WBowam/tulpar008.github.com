@@ -54,6 +54,79 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/ueditorzai-djangozhong-de-shi-yong.html">Ueditor在Django中的使用</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-14T00:00:00" pubdate>六 14 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>以前写过Ueditor在Django中的使用方法（虽然跟着上一个博客一起丢了），在此不赘述了。想学可以看看这位朋友的分享：
+<a href="https://github.com/zhangfisher/DjangoUeditor">Django中使用Ueditor</a></p>
+<p><a href="http://mushapi.sinaapp.com/using-ueditor-in-django-with-xadmin.html">http://mushapi.sinaapp.com/using-ueditor-in-django-with-xadmin.html</a></p>
+<h3>1.安装</h3>
+<p><code>pip install DjangoUeditor</code></p>
+<h3>2.启用</h3>
+<h5>在<code>INSTALL_APPS</code>里面增加DjangoUeditor app，如下：</h5>
+<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="err">#</span><span class="p">........</span>
+            <span class="err">&#39;</span><span class="n">DjangoUeditor</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+</pre></div>
+
+
+<h5>在urls.py中增加：</h5>
+<div class="highlight"><pre>    <span class="n">url</span><span class="p">(</span><span class="n">r</span><span class="err">&#39;</span><span class="o">^</span><span class="n">ueditor</span><span class="o">/</span><span class="err">&#39;</span><span class="p">,</span><span class="n">include</span><span class="p">(</span><span class="err">&#39;</span><span class="n">DjangoUeditor</span><span class="p">.</span><span class="n">urls</span><span class="err">&#39;</span> <span class="p">)),</span>
+</pre></div>
+
+
+<h3>3.使用</h3>
+<h5>在<code>models</code>中这样使用：</h5>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">DjangoUeditor</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">UEditorField</span>
+    <span class="n">class</span> <span class="n">Blog</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">Name</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">CharField ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/ueditorzai-djangozhong-de-shi-yong.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/django-dir-pei-zhi-fang-fa-yi.html">Django Dir 配置（方法一）</a>
+      </h1>
+      <p class="meta"><time datetime="2014-05-14T00:00:00" pubdate>三 14 五月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h5>Env:</h5>
+<ul>
+<li>django==1.4.5</li>
+<li>python==2.7</li>
+<li>ubuntu==13.04</li>
+</ul>
+<hr />
+<h3>公用部分</h3>
+<p>settings.py</p>
+<div class="highlight"><pre><span class="cp">##added by Tulpar,20140514</span>
+<span class="n">import</span> <span class="n">os</span>
+<span class="n">settings_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
+<span class="n">PROJECT_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">settings_dir</span><span class="p">))</span>
+</pre></div>
+
+
+<h3>MEDIA</h3>
+<p>settings.py</p>
+<div class="highlight"><pre><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span>
+</pre></div>
+
+
+<p>urls.py</p>
+<div class="highlight"><pre><span class="err">#</span><span class="vi">#added</span> <span class="k">by</span> <span class="nx">Tulpar</span><span class="p">,</span><span class="mi">20140514 ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-dir-pei-zhi-fang-fa-yi.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/django-media-pei-zhi-fang-fa-yi.html">Django Media 配置（方法一）</a>
       </h1>
       <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
@@ -130,6 +203,12 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/ueditorzai-djangozhong-de-shi-yong.html">Ueditor在Django中的使用</a>
+      </li>
+      <li class="post">
+          <a href="/django-dir-pei-zhi-fang-fa-yi.html">Django Dir 配置（方法一）</a>
+      </li>
+      <li class="post">
           <a href="/django-media-pei-zhi-fang-fa-yi.html">Django Media 配置（方法一）</a>
       </li>
       <li class="post">
@@ -150,7 +229,7 @@
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
+    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
 
 
     <section>
@@ -173,7 +252,7 @@
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2013  - tulpar -
+    Copyright &copy;  2013-2014  - tulpar -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
 </body>

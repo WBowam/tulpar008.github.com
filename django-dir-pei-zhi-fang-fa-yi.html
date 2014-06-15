@@ -5,7 +5,7 @@
 <head>
 <link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
   <meta charset="utf-8">
-  <title>Django Media 配置（方法一）</title>
+  <title>Django Dir 配置（方法一）</title>
   <meta name="author" content="tulpar">
 
 
@@ -53,8 +53,8 @@
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">Django Media 配置（方法一）</h1>
-      <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
+      <h1 class="entry-title">Django Dir 配置（方法一）</h1>
+      <p class="meta"><time datetime="2014-05-14T00:00:00" pubdate>三 14 五月 2014</time></p>
 </header>
 
   <div class="entry-content"><h5>Env:</h5>
@@ -64,24 +64,55 @@
 <li>ubuntu==13.04</li>
 </ul>
 <hr />
-<h3>django 的Static 和 Media配置之Media</h3>
-<h3>settings.py</h3>
+<h3>公用部分</h3>
+<p>settings.py</p>
 <div class="highlight"><pre><span class="cp">##added by Tulpar,20140514</span>
 <span class="n">import</span> <span class="n">os</span>
 <span class="n">settings_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
 <span class="n">PROJECT_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">settings_dir</span><span class="p">))</span>
+</pre></div>
 
-<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">public</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span><span class="p">)</span>
+
+<h3>MEDIA</h3>
+<p>settings.py</p>
+<div class="highlight"><pre><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span><span class="p">)</span>
 <span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span>
 </pre></div>
 
 
-<h3>urls.py</h3>
+<p>urls.py</p>
 <div class="highlight"><pre><span class="err">#</span><span class="vi">#added</span> <span class="k">by</span> <span class="nx">Tulpar</span><span class="p">,</span><span class="mi">20140514</span>
 <span class="nb">from</span> <span class="nx">django.conf</span> <span class="k">import</span> <span class="nx">settings</span>
 
 <span class="nx">urlpatterns</span> <span class="o">+=</span> <span class="nx">patterns</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
     <span class="nb">url</span><span class="p">(</span><span class="nb">r</span><span class="s2">&quot;^media/(?P&lt;path&gt;.*)$&quot;</span><span class="p">,</span><span class="s2">&quot;django.views.static.serve&quot;</span><span class="p">,{</span><span class="s2">&quot;document_root&quot;</span><span class="p">:</span> <span class="nx">settings.MEDIA_ROOT</span><span class="p">,}),</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<h3>STATIC</h3>
+<p>Settings.py</p>
+<div class="highlight"><pre><span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="k">static</span><span class="o">/</span><span class="err">&#39;</span><span class="p">)</span>
+
+<span class="n">STATIC_URL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="o">/</span><span class="k">static</span><span class="o">/</span><span class="err">&#39;</span>
+
+<span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="err">#</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="k">static</span><span class="o">/</span><span class="err">&#39;</span><span class="p">),</span>
+    <span class="p">)</span>
+</pre></div>
+
+
+<p>url.py</p>
+<div class="highlight"><pre><span class="nb">from</span> <span class="nx">django.conf</span> <span class="k">import</span> <span class="nx">settings</span>
+<span class="nx">urlpatterns</span> <span class="o">+=</span> <span class="nx">patterns</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nb">url</span><span class="p">(</span><span class="nb">r</span><span class="s2">&quot;^static/(?P&lt;path&gt;.*)$&quot;</span><span class="p">,</span><span class="s2">&quot;django.views.static.serve&quot;</span><span class="p">,{</span><span class="s2">&quot;document_root&quot;</span><span class="p">:</span> <span class="nx">settings.STATIC_ROOT</span><span class="p">,}),</span>
+    <span class="p">)</span>
+</pre></div>
+
+
+<h3>TEMPLATE</h3>
+<div class="highlight"><pre><span class="n">TEMPLATE_DIRS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">templates</span><span class="o">/</span><span class="err">&#39;</span><span class="p">),</span>
 <span class="p">)</span>
 </pre></div></div>
     <footer>
@@ -89,7 +120,7 @@
   <span class="byline author vcard">
     Posted by <span class="fn">tulpar</span>
   </span>
-<time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time>  <span class="categories">
+<time datetime="2014-05-14T00:00:00" pubdate>三 14 五月 2014</time>  <span class="categories">
     <a class="category" href="/tag/django.html">Django</a>
   </span>
 </p><div class="sharing">
