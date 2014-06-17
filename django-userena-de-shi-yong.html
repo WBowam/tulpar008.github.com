@@ -183,6 +183,38 @@
 
 <span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">public</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span><span class="p">)</span>
 <span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span>
+</pre></div>
+
+
+<hr />
+<h3>后台使用django默认的admin时，userena已经默认给你register好了</h3>
+<h3>后台如果是使用Xadmin，就得自行register一下，如：</h3>
+<p><code>adminx.py</code>   </p>
+<div class="highlight"><pre><span class="cp">#-*- coding: UTF-8 -*- </span>
+<span class="cp">#from django.contrib import admin</span>
+
+<span class="cp"># Register your models here.</span>
+<span class="n">import</span> <span class="n">xadmin</span>
+
+<span class="n">from</span> <span class="n">models</span> <span class="n">import</span> <span class="n">MyProfile</span>
+
+<span class="n">class</span> <span class="n">MyProfileAdmin</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
+    <span class="err">#</span><span class="n">search_fields</span><span class="o">=</span><span class="p">(</span><span class="err">&#39;</span><span class="n">name</span><span class="sc">&#39;,&#39;</span><span class="n">category</span><span class="sc">&#39;,&#39;</span><span class="n">content</span><span class="err">&#39;</span><span class="p">)</span>
+    <span class="err">#</span><span class="n">prepopulated_fields</span> <span class="o">=</span> <span class="p">{</span> <span class="err">&#39;</span><span class="n">message</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">name</span><span class="err">&#39;</span><span class="p">]</span> <span class="p">}</span><span class="err">##</span><span class="n">learned</span> <span class="n">at</span>  <span class="n">http</span><span class="o">:</span><span class="c1">//www.b-list.org/weblog/2008/dec/24/admin/</span>
+    <span class="err">#</span><span class="n">exclude</span> <span class="o">=</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">created_by</span><span class="err">&#39;</span><span class="p">,)</span>
+    <span class="err">#</span><span class="n">actions</span> <span class="o">=</span> <span class="p">[</span><span class="n">Songda</span><span class="p">,</span> <span class="p">]</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">user</span><span class="sc">&#39;,&#39;</span><span class="n">favourite_snack</span><span class="err">&#39;</span><span class="p">)</span>
+    <span class="n">list_display_links</span> <span class="o">=</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">user</span><span class="err">&#39;</span><span class="p">,)</span>
+    <span class="n">ordering</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;-user&quot;</span><span class="p">,)</span>
+    <span class="n">list_filter</span><span class="o">=</span><span class="p">(</span><span class="err">&#39;</span><span class="n">user</span><span class="err">&#39;</span><span class="p">,)</span><span class="err">#该属性指定可以过滤的列的名字</span><span class="p">,</span> <span class="err">系统会自动生成搜索器</span>
+    <span class="n">search_fields</span><span class="o">=</span><span class="p">(</span><span class="err">&#39;</span><span class="n">user</span><span class="err">&#39;</span><span class="p">,)</span><span class="err">#属性指定可以通过搜索框搜索的数据列的名字</span><span class="p">,</span> <span class="err">搜索框搜索使用的是模糊查找的方式</span><span class="p">,</span> <span class="err">一般用来搜素名字等字符串字段</span>
+    <span class="n">list_export</span> <span class="o">=</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">xls</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">xml</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">json</span><span class="err">&#39;</span><span class="p">)</span><span class="err">#该插件在数据列表页面提供了数据导出功能</span><span class="p">,</span> <span class="err">可以导出</span> <span class="n">Excel</span><span class="p">,</span> <span class="n">CSV</span><span class="p">,</span> <span class="n">XML</span><span class="p">,</span> <span class="n">json</span> <span class="err">格式</span><span class="p">.</span>
+    <span class="err">#</span> <span class="err">这会显示一个下拉列表</span><span class="p">,</span> <span class="err">用户可以选择</span><span class="mi">3</span><span class="err">秒或</span><span class="mi">5</span><span class="err">秒刷新一次页面</span><span class="p">.</span>
+    <span class="n">refresh_times</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+    <span class="n">list_editable</span> <span class="o">=</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">favourite_snack</span><span class="err">&#39;</span><span class="p">)</span>
+    <span class="n">show_detail_fields</span> <span class="o">=</span> <span class="p">[</span><span class="err">&#39;</span><span class="n">user</span><span class="err">&#39;</span><span class="p">,]</span><span class="err">#该插件可以在列表页中显示相关字段的详细信息</span><span class="p">,</span> <span class="err">使用</span> <span class="n">Ajax</span> <span class="err">在列表页中显示</span><span class="p">.</span>
+
+<span class="n">xadmin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="k">register</span><span class="p">(</span><span class="n">MyProfile</span><span class="p">,</span><span class="n">MyProfileAdmin</span><span class="p">)</span>
 </pre></div></div>
     <footer>
 <p class="meta">
