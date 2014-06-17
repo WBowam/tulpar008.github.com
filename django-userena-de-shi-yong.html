@@ -151,14 +151,14 @@
 <hr />
 <p>That's All</p>
 <h2>Errors</h2>
-<p>1.<code>IOError at /admin/account/myprofile/add/
-decoder jpeg not available</code></p>
-<h5>错误原因是Pilow的jpg图片支持组件没有安装</h5>
-<p>1、先卸载安装的Pillow
-<code>pip uninstall Pillow</code>
-2、安装JPEG和FREETYPE2库</p>
-<div class="highlight"><pre><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libjpeg</span><span class="o">-</span><span class="n">dev</span>  
-<span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libfreetype6</span><span class="o">-</span><span class="n">dev</span>
+<h4>1.```IOError at /admin/account/myprofile/add/</h4>
+<p>decoder jpeg not available```</p>
+<h6>错误原因是Pilow的jpg图片支持组件没有安装</h6>
+<p>1、先卸载安装的Pillow<br />
+<code>pip uninstall Pillow</code><br />
+2、安装JPEG和FREETYPE2库  </p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libjpeg</span><span class="o">-</span><span class="n">dev</span>  
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libfreetype6</span><span class="o">-</span><span class="n">dev</span>
 </pre></div>
 
 
@@ -168,8 +168,8 @@ decoder jpeg not available</code></p>
 
 
 <h4>2.<code>no such table: easy thumbnails source</code></h4>
-<p>解决方法：
-1.installed app里加</p>
+<h5>解决方法：</h5>
+<p>1.installed app里加</p>
 <div class="highlight"><pre>    <span class="err">#</span><span class="n">added</span> <span class="n">by</span> <span class="n">Tulpar</span><span class="p">,</span><span class="mi">20140601</span>
     <span class="err">&#39;</span><span class="n">easy_thumbnails</span><span class="err">&#39;</span>
 </pre></div>
