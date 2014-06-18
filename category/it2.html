@@ -54,6 +54,31 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">在真机上部署Edx（在中国）</a>
+      </h1>
+      <p class="meta"><time datetime="2014-04-08T00:00:00" pubdate>二 08 四月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>1. Update your Ubuntu package sources</h3>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">upgrade</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">reboot</span>
+</pre></div>
+
+
+<h3>2.用sshuttle翻墙</h3>
+<p>(ubuntu下)首先安装它: <br />
+<code>sudo apt-get install sshuttle</code> <br />
+<code>sshuttle -r action@apne1.nitrousbox.com:22411 0.0.0.0/0 -vv</code>  <br />
+搞定 , 就这么简单 注意action@apne1.nitrousbox.com:22411是我的ssh,你可以用你自己的,格式为username@sshserver,
+我把sshserver理解为跳板机 ...</p></div>
+  <footer>
+    <a rel="full-article" href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/fan-qiang-zhi-dian-nao-pian.html">翻墙之电脑篇</a>
       </h1>
       <p class="meta"><time datetime="2014-03-08T00:00:00" pubdate>六 08 三月 2014</time></p>
@@ -286,37 +311,6 @@ wget deb 包本地安装，发现依赖很多东西，，，，<br />
     <a rel="full-article" href="/sshd_configpei-zhi.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/sshyuan-li.html">SSH原理</a>
-      </h1>
-      <p class="meta"><time datetime="2013-12-08T00:00:00" pubdate>日 08 十二月 2013</time></p>
-</header>
-
-  <div class="entry-content"><p>简单说，SSH是一种网络协议，用于计算机之间的加密登录。</p>
-<hr />
-<h3>一 最基本的用法</h3>
-<p>SSH主要用于远程登录。假定你要以用户名user，登录远程主机host，只要一条简单命令就可以了。
-<code>$ ssh user@host</code>
-如果本地用户名与远程用户名一致，登录时可以省略用户名。
-<code>$ ssh host</code>
-SSH的默认端口是22，也就是说，你的登录请求会送进远程主机的22端口。使用p参数，可以修改这个端口。
-<code>$ ssh -p 2222 user@host</code>
-上面这条命令表示，ssh直接连接远程主机的2222端口。</p>
-<h3>二 SSH原理</h3>
-<p>SSH之所以能够保证安全，原因在于它采用了公钥加密。<br />
-原理如图<img alt="ssh原理图" src="http://softing.qiniudn.com/L%20(1" />.jpg)
-SSH登录整个过程是这样的：<br />
-（1）远程主机收到用户的登录请求，把自己的公钥发给用户。<br />
-（2）用户使用这个公钥，将登录密码加密后，发送回来。<br />
-（3）远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</p>
-<h3>三 密码登录过程</h3>
-<p>如果你是第一次登录对方主机 ...</p></div>
-  <footer>
-    <a rel="full-article" href="/sshyuan-li.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it3.html">&larr; Older</a>
 
@@ -331,6 +325,9 @@ SSH登录整个过程是这样的：<br />
           <a href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Django中使用mysql数据库</a>
       </li>
       <li class="post">
+          <a href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Xadmin List_display中显示缩略图</a>
+      </li>
+      <li class="post">
           <a href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Xadmin中自动预填某个字段</a>
       </li>
       <li class="post">
@@ -338,9 +335,6 @@ SSH登录整个过程是这样的：<br />
       </li>
       <li class="post">
           <a href="/xadminru-men-2.html">Xadmin入门（2）</a>
-      </li>
-      <li class="post">
-          <a href="/bu-shu-socketio-de-demo.html">部署Socket.io 的demo</a>
       </li>
     </ul>
   </section>
@@ -357,7 +351,7 @@ SSH登录整个过程是这样的：<br />
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
+    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/xadmindjango.html">Xadmin，Django</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
 
 
     <section>

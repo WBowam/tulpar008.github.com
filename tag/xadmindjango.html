@@ -5,7 +5,7 @@
 <head>
 <link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
   <meta charset="utf-8">
-  <title>Ubuntu 用户用命令安装 VirtualBox 4.3.8</title>
+  <title>Dreaming - Xadmin，Django</title>
   <meta name="author" content="tulpar">
 
 
@@ -38,7 +38,7 @@
 
 
 <ul class="main-navigation">
-    <li class="active">
+    <li >
     <a href="/category/it.html">It</a>
     </li>
     <li >
@@ -50,86 +50,42 @@
 </ul></nav>
   <div id="main">
     <div id="content">
-<div>
-  <article class="hentry" role="article">
+<div class="blog-index">
+  		<article>
 <header>
-      <h1 class="entry-title">Ubuntu 用户用命令安装 VirtualBox 4.3.8</h1>
-      <p class="meta"><time datetime="2014-01-08T00:00:00" pubdate>三 08 一月 2014</time></p>
+      <h1 class="entry-title">
+        <a href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Xadmin List_display中显示缩略图</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
 </header>
 
-  <div class="entry-content"><p>今天在阿里云上安装virtualbox,发现阿里的源里只有4.1版本，可我需要4.3。 <br />
-换了国内其他的源发现太慢了，，，，于是，，，，， <br />
-wget deb 包本地安装，发现依赖很多东西，，，，<br />
-于是，，，，，，</p>
-<hr />
-<h3>1.添加源</h3>
-<p><code>vim /etc/apt/sources.list</code><br />
-添加：  </p>
-<div class="highlight"><pre><span class="k">deb</span> <span class="s">http://download.virtualbox.org/virtualbox/debian</span> <span class="kp">precise</span> <span class="kp">contrib</span>
-</pre></div>
+  <div class="entry-content"><h3>需求如图：</h3>
+<p><img alt="Xadmin环境中" src="http://tulparblog.qiniudn.com/%E7%BC%A9%E7%95%A5%E5%9B%BE.png" /></p>
+<h3>方法：</h3>
+<p><code>models.py</code>   </p>
+<div class="highlight"><pre><span class="cp">#-*- coding: UTF-8 -*- </span>
+<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">db</span> <span class="n">import</span> <span class="n">models</span>
+<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">auth</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">User</span>
+<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">translation</span> <span class="n">import</span> <span class="n">ugettext</span> <span class="n">as</span> <span class="n">_</span>
+<span class="n">from</span> <span class="n">userena</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">UserenaBaseProfile</span>
 
+<span class="n">class</span> <span class="n">MyProfile</span><span class="p">(</span><span class="n">UserenaBaseProfile</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">User</span><span class="p">,</span><span class="n">unique</span><span class="o">=</span><span class="n">True</span><span class="p">,</span><span class="n">verbose_name</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">user</span><span class="err">&#39;</span><span class="p">),</span><span class="n">related_name</span><span class="o">=</span><span class="err">&#39;</span><span class="n">my_profile</span><span class="err">&#39;</span><span class="p">)</span>
+    <span class="n">one_card</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">FileField</span><span class="p">(</span><span class="n">u</span><span class="err">&#39;一卡通 ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+<div class="pagination">
 
-<h3>2.添加钥匙：(这一步很关键)</h3>
-<div class="highlight"><pre><span class="n">wget</span> <span class="o">-</span><span class="n">q</span> <span class="n">http</span><span class="o">:</span><span class="c1">//download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -</span>
-</pre></div>
-
-
-<h3>3.更新源列表：</h3>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
-</pre></div>
-
-
-<h3>4.安装 virtualbox</h3>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">virtualbox</span><span class="o">-</span><span class="mf">4.3</span>
-</pre></div></div>
-    <footer>
-<p class="meta">
-  <span class="byline author vcard">
-    Posted by <span class="fn">tulpar</span>
-  </span>
-<time datetime="2014-01-08T00:00:00" pubdate>三 08 一月 2014</time>  <span class="categories">
-    <a class="category" href="/tag/virtualbox.html">VirtualBox</a>
-  </span>
-</p><div class="sharing">
-</div>    </footer>
-  </article>
-
-
-
-<!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"tlbog"};
-(function() {
-var ds = document.createElement('script');
-ds.type = 'text/javascript';ds.async = true;
-ds.src = 'http://static.duoshuo.com/embed.js';
-ds.charset = 'UTF-8';
-(document.getElementsByTagName('head')[0] 
-|| document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- Duoshuo Comment END -->
-
-</div>
+  <br />
+</div></div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
-      </li>
-      <li class="post">
-          <a href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Django中使用mysql数据库</a>
-      </li>
-      <li class="post">
           <a href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Xadmin List_display中显示缩略图</a>
-      </li>
-      <li class="post">
-          <a href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Xadmin中自动预填某个字段</a>
-      </li>
-      <li class="post">
-          <a href="/ueditorzai-djangozhong-de-shi-yong.html">Ueditor在Django中的使用</a>
       </li>
     </ul>
   </section>
@@ -169,7 +125,7 @@ ds.charset = 'UTF-8';
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2013-2014  - tulpar -
+    Copyright &copy;  2014  - tulpar -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
 </body>
