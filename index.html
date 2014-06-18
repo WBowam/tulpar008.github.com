@@ -54,6 +54,36 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Django中使用mysql数据库</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>安装Mysql</h3>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">mysql</span><span class="o">-</span><span class="n">server</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">mysqldb</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libmysqlclient</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+
+
+<h3>安装<code>mysql-python</code>模块</h3>
+<p><code>pip install mysql-python</code>   </p>
+<h3>创建并设置Database</h3>
+<div class="highlight"><pre><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span>
+<span class="n">Enter</span> <span class="n">password</span><span class="o">:</span> 
+
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">tulpar_db</span><span class="p">;</span>
+
+
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">GRANT</span> <span class="n">ALL</span> <span class="n">ON</span> <span class="n">tulpar_db</span><span class="p">.</span><span class="o">*</span> <span class="n">TO</span> <span class="err">&#39;</span><span class="n">tulpar</span><span class="sc">&#39;@&#39;</span><span class="n">localhost</span><span class="err">&#39;</span> <span class="n">IDENTIFIED</span> <span class="n">BY</span> <span class="err">&#39;</span><span class="n">mypassword</span><span class="err">&#39;</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0 ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Xadmin中自动预填某个字段</a>
       </h1>
       <p class="meta"><time datetime="2014-06-16T00:00:00" pubdate>一 16 六月 2014</time></p>
@@ -283,39 +313,6 @@ Category:Life  </p>
     <a rel="full-article" href="/django-dir-pei-zhi-fang-fa-yi.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/yong-django-mptthou-tai-zhong-sheng-cheng-shu-zhuang-shu-ju-jie-gou.html">用Django mptt后台中生成树状数据结构</a>
-      </h1>
-      <p class="meta"><time datetime="2014-04-16T00:00:00" pubdate>三 16 四月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>背景说明：</h3>
-<p>昨天跟客户谈需求时，客户要求做一个数状数据结构，类似于：<br />
-<img alt="树状数据" src="http://tulparblog.qiniudn.com/mpttsitepoint_tree.jpg" /></p>
-<h5>不仅要在前台这么显示，后台也要这么显示。</h5>
-<p>一番google之后 ，感谢Stack Overflow让我找到了Django mptt，感谢<a href="http://qinxuye.me/article/introduction-and-usage-of-django-mptt/">残阳似血</a>血写了如此华丽的博客，小生很喜欢添加趣点功能</p>
-<hr />
-<h3>解决方案</h3>
-<h5>用django mptt改变数据结构</h5>
-<h5>用django-mptt-admin改变数状结构在django后台的显示方式</h5>
-<h3>具体操作</h3>
-<h4>1. 安装django mptt</h4>
-<p>下载源码 <code>https://github.com/django-mptt/django-mptt</code>
-<em>或</em>
-<code>pip install django-mptt</code></p>
-<h4>2. 配置django mptt</h4>
-<p>在settings文件下的INSTALLED_APPS中添加'mptt'<br />
-<em>就这么简单，安装配置结束了</em></p>
-<h4>3. 使用django mptt</h4>
-<h5>写model，继承MPTTModel</h5>
-<div class="highlight"><pre><span class="n">from</span> <span class="n">mptt</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">MPTTModel</span>
-<span class="n">class ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/yong-django-mptthou-tai-zhong-sheng-cheng-shu-zhuang-shu-ju-jie-gou.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/index2.html">&larr; Older</a>
 
@@ -325,6 +322,9 @@ Category:Life  </p>
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
+      <li class="post">
+          <a href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Django中使用mysql数据库</a>
+      </li>
       <li class="post">
           <a href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Xadmin中自动预填某个字段</a>
       </li>
@@ -336,9 +336,6 @@ Category:Life  </p>
       </li>
       <li class="post">
           <a href="/yu-men-de-fa-xian-yi-ge-shuang-bao-tai-shi-xiong.html">郁闷的发现一个双胞胎师兄</a>
-      </li>
-      <li class="post">
-          <a href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-1.html">把时间当作朋友读后感（1）</a>
       </li>
     </ul>
   </section>
@@ -355,7 +352,7 @@ Category:Life  </p>
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
+    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
 
 
     <section>
