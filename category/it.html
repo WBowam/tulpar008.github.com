@@ -54,6 +54,23 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>如下方法：</h3>
+<div class="highlight"><pre><span class="nx">python</span> <span class="nx">manage.py</span> <span class="nx">dumpdata</span> <span class="o">&lt;</span><span class="nx">your_app</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="nx">temp_data.json</span>
+<span class="err">##做一些毁数据的活儿</span>
+<span class="nx">python</span> <span class="nx">manage.py</span> <span class="nx">loaddata</span> <span class="nx">temp_data.json</span>
+</pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-bei-fen-shu-ju-fang-fa-1.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Django中使用mysql数据库</a>
       </h1>
       <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
@@ -312,30 +329,6 @@
     <a rel="full-article" href="/yong-django-mptthou-tai-zhong-sheng-cheng-shu-zhuang-shu-ju-jie-gou.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/edx_errors.html">Edx_errors</a>
-      </h1>
-      <p class="meta"><time datetime="2014-04-14T00:00:00" pubdate>一 14 四月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>1. 用Vagrant+Virtualbox+Ubuntu搭好Edx—paltform，执行启动命令：</h3>
-<p><code>vagrant up</code></p>
-<h4>错误：</h4>
-<div class="highlight"><pre><span class="s">&quot;The guest machine entered an invalid state while waiting for it to boot.  </span>
-<span class="n">Valid</span> <span class="n">states</span> <span class="n">are</span>   <span class="err">&#39;</span><span class="n">starting</span><span class="p">,</span> <span class="n">running</span><span class="err">&#39;</span><span class="p">.</span> <span class="n">The</span> <span class="n">machine</span> <span class="n">is</span> <span class="n">in</span> <span class="n">the</span> <span class="err">&#39;</span><span class="n">poweroff</span><span class="err">&#39;</span> <span class="n">state</span><span class="p">.</span>   
- <span class="n">Please</span> <span class="n">verify</span> <span class="n">everything</span> <span class="n">is</span> <span class="n">configured</span> <span class="n">properly</span> <span class="n">and</span> <span class="n">try</span> <span class="n">again</span><span class="p">.</span><span class="s">&quot; </span>
-</pre></div>
-
-
-<h4>原因：</h4>
-<p><strong>这是因为CPU不支持VT-X技术或者VT-X技术被锁定。</strong>  </p>
-<p>如果不打开虚拟化支持，是不能在虚拟机装<strong>64位操作系统</strong>或者安装操作系统设置<strong>多个CPU ...</strong></p></div>
-  <footer>
-    <a rel="full-article" href="/edx_errors.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it2.html">&larr; Older</a>
 
@@ -345,6 +338,9 @@
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
+      <li class="post">
+          <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
+      </li>
       <li class="post">
           <a href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Django中使用mysql数据库</a>
       </li>
@@ -356,9 +352,6 @@
       </li>
       <li class="post">
           <a href="/ueditorzai-djangozhong-de-shi-yong.html">Ueditor在Django中的使用</a>
-      </li>
-      <li class="post">
-          <a href="/xadminru-men-2.html">Xadmin入门（2）</a>
       </li>
     </ul>
   </section>
