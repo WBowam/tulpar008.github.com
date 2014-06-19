@@ -84,6 +84,31 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Xadmin List_display中显示缩略图</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>需求如图：</h3>
+<p><img alt="Xadmin环境中" src="http://tulparblog.qiniudn.com/%E7%BC%A9%E7%95%A5%E5%9B%BE.png" /></p>
+<h3>方法：</h3>
+<p><code>models.py</code>   </p>
+<div class="highlight"><pre><span class="cp">#-*- coding: UTF-8 -*- </span>
+<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">db</span> <span class="n">import</span> <span class="n">models</span>
+<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">auth</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">User</span>
+<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">translation</span> <span class="n">import</span> <span class="n">ugettext</span> <span class="n">as</span> <span class="n">_</span>
+<span class="n">from</span> <span class="n">userena</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">UserenaBaseProfile</span>
+
+<span class="n">class</span> <span class="n">MyProfile</span><span class="p">(</span><span class="n">UserenaBaseProfile</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">User</span><span class="p">,</span><span class="n">unique</span><span class="o">=</span><span class="n">True</span><span class="p">,</span><span class="n">verbose_name</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">user</span><span class="err">&#39;</span><span class="p">),</span><span class="n">related_name</span><span class="o">=</span><span class="err">&#39;</span><span class="n">my_profile</span><span class="err">&#39;</span><span class="p">)</span>
+    <span class="n">one_card</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">FileField</span><span class="p">(</span><span class="n">u</span><span class="err">&#39;一卡通 ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Xadmin中自动预填某个字段</a>
       </h1>
       <p class="meta"><time datetime="2014-06-16T00:00:00" pubdate>一 16 六月 2014</time></p>
@@ -293,6 +318,9 @@
           <a href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Django中使用mysql数据库</a>
       </li>
       <li class="post">
+          <a href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Xadmin List_display中显示缩略图</a>
+      </li>
+      <li class="post">
           <a href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Xadmin中自动预填某个字段</a>
       </li>
       <li class="post">
@@ -300,9 +328,6 @@
       </li>
       <li class="post">
           <a href="/django-dir-pei-zhi-fang-fa-yi.html">Django Dir 配置（方法一）</a>
-      </li>
-      <li class="post">
-          <a href="/yong-django-mptthou-tai-zhong-sheng-cheng-shu-zhuang-shu-ju-jie-gou.html">用Django mptt后台中生成树状数据结构</a>
       </li>
     </ul>
   </section>
@@ -319,7 +344,7 @@
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/xadmindjango.html">Xadmin，Django</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
+    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
 
 
     <section>
