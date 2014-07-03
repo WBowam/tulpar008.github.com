@@ -5,7 +5,7 @@
 <head>
 <link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
   <meta charset="utf-8">
-  <title>linux 小技巧（1）</title>
+  <title>str()与repr()的区别</title>
   <meta name="author" content="tulpar">
 
 
@@ -50,23 +50,44 @@
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">linux 小技巧（1）</h1>
-      <p class="meta"><time datetime="2014-05-28T00:00:00" pubdate>三 28 五月 2014</time></p>
+      <h1 class="entry-title">str()与repr()的区别</h1>
+      <p class="meta"><time datetime="2014-07-01T00:00:00" pubdate>二 01 七月 2014</time></p>
 </header>
 
-  <div class="entry-content"><h3>1.install local deb packages:</h3>
-<p><code>dpkg -i file.deb</code></p>
-<h5>uninstall packages installed with dpkg:</h5>
-<p><code>``dpkg -r appname</code></p>
-<h5>list packages installed with dpkg:</h5>
-<p><code>dpkg --get-selections | grep -v deinstall</code></p></div>
+  <div class="entry-content"><p>一</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">word</span><span class="o">=</span><span class="s">&quot;hello</span><span class="se">\t</span><span class="s"> world!</span><span class="se">\n</span><span class="s">hello motto!&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">str</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="err">&#39;</span><span class="n">hello</span><span class="err">\</span><span class="n">t</span> <span class="n">world</span><span class="o">!</span><span class="err">\</span><span class="n">nhello</span> <span class="n">motto</span><span class="o">!</span><span class="err">&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">repr</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="s">&quot;&#39;hello</span><span class="se">\\</span><span class="s">t world!</span><span class="se">\\</span><span class="s">nhello motto!&#39;&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">str</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="n">hello</span>    <span class="n">world</span><span class="o">!</span>
+<span class="n">hello</span> <span class="n">motto</span><span class="o">!</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">repr</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="err">&#39;</span><span class="n">hello</span><span class="err">\</span><span class="n">t</span> <span class="n">world</span><span class="o">!</span><span class="err">\</span><span class="n">nhello</span> <span class="n">motto</span><span class="o">!</span><span class="err">&#39;</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+
+
+<p>二
+```</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>str(0.1)
+'0.1'
+repr(0.1)
+'0.10000000000000001'</p>
+</blockquote>
+</blockquote>
+</blockquote></div>
     <footer>
 <p class="meta">
   <span class="byline author vcard">
     Posted by <span class="fn">tulpar</span>
   </span>
-<time datetime="2014-05-28T00:00:00" pubdate>三 28 五月 2014</time>  <span class="categories">
-    <a class="category" href="/tag/linux.html">Linux</a>
+<time datetime="2014-07-01T00:00:00" pubdate>二 01 七月 2014</time>  <span class="categories">
+    <a class="category" href="/tag/python.html">Python</a>
   </span>
 </p><div class="sharing">
 </div>    </footer>

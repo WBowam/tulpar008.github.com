@@ -5,7 +5,7 @@
 <head>
 <link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
   <meta charset="utf-8">
-  <title>linux 小技巧（1）</title>
+  <title>python exec和eval语句</title>
   <meta name="author" content="tulpar">
 
 
@@ -50,23 +50,27 @@
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">linux 小技巧（1）</h1>
-      <p class="meta"><time datetime="2014-05-28T00:00:00" pubdate>三 28 五月 2014</time></p>
+      <h1 class="entry-title">python exec和eval语句</h1>
+      <p class="meta"><time datetime="2014-07-02T00:00:00" pubdate>三 02 七月 2014</time></p>
 </header>
 
-  <div class="entry-content"><h3>1.install local deb packages:</h3>
-<p><code>dpkg -i file.deb</code></p>
-<h5>uninstall packages installed with dpkg:</h5>
-<p><code>``dpkg -r appname</code></p>
-<h5>list packages installed with dpkg:</h5>
-<p><code>dpkg --get-selections | grep -v deinstall</code></p></div>
+  <div class="entry-content"><h5>exec语句用来执行储存在字符串或文件中的Python语句。例如，我们可以在运行时生成一个包含Python代码的字符串，然后使用exec语句执行这些语句。下面是一个简单的例子。</h5>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">exec</span> <span class="err">&#39;</span><span class="n">print</span> <span class="s">&quot;Hello World&quot;</span><span class="err">&#39;</span>
+<span class="n">Hello</span> <span class="n">World</span>
+</pre></div>
+
+
+<h6>eval语句用来计算存储在字符串中的有效Python表达式。下面是一个简单的例子。</h6>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">eval</span><span class="p">(</span><span class="err">&#39;</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="mi">6</span>
+</pre></div></div>
     <footer>
 <p class="meta">
   <span class="byline author vcard">
     Posted by <span class="fn">tulpar</span>
   </span>
-<time datetime="2014-05-28T00:00:00" pubdate>三 28 五月 2014</time>  <span class="categories">
-    <a class="category" href="/tag/linux.html">Linux</a>
+<time datetime="2014-07-02T00:00:00" pubdate>三 02 七月 2014</time>  <span class="categories">
+    <a class="category" href="/tag/python.html">Python</a>
   </span>
 </p><div class="sharing">
 </div>    </footer>

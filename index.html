@@ -51,6 +51,139 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/python-withyu-ju.html">Python with语句</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-03T00:00:00" pubdate>四 03 七月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>感谢<a href="http://sdqali.in/blog/2012/07/09/understanding-pythons-with/">Sadique Ali</a>的总结分享</p>
+<h3>With语句是什么？</h3>
+<p>有一些任务，可能事先需要设置，事后做清理工作。对于这种场景，Python的with语句提供了一种非常方便的处理方式。  <br />
+一个很好的例子是文件处理，你需要获取一个文件句柄，从文件中读取数据，然后关闭文件句柄。</p>
+<p>如果不用with语句，代码如下：</p>
+<div class="highlight"><pre><span class="n">file</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">&quot;/tmp/foo.txt&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<p>这里有两个问题。一是可能忘记关闭文件句柄；二是文件读取数据发生异常，没有进行任何处理。下面是处理异常的加强版本：</p>
+<div class="highlight"><pre><span class="n">file</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">&quot;/tmp/foo.txt&quot;</span><span class="p">)</span>
+<span class="nl">try:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nl">finally:</span>
+    <span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<p>虽然这段代码运行良好，但是太冗长了。这时候就是with一展身手的时候了。除了有更优雅的语法，with还可以很好的处理上下文环境产生的异常。下面是with版本的代码：</p>
+<div class="highlight"><pre><span class="n">with ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/python-withyu-ju.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/python-exeche-evalyu-ju.html">python exec和eval语句</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-02T00:00:00" pubdate>三 02 七月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h5>exec语句用来执行储存在字符串或文件中的Python语句。例如，我们可以在运行时生成一个包含Python代码的字符串，然后使用exec语句执行这些语句。下面是一个简单的例子。</h5>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">exec</span> <span class="err">&#39;</span><span class="n">print</span> <span class="s">&quot;Hello World&quot;</span><span class="err">&#39;</span>
+<span class="n">Hello</span> <span class="n">World</span>
+</pre></div>
+
+
+<h6>eval语句用来计算存储在字符串中的有效Python表达式。下面是一个简单的例子。</h6>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">eval</span><span class="p">(</span><span class="err">&#39;</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="mi">6</span>
+</pre></div></div>
+  <footer>
+    <a rel="full-article" href="/python-exeche-evalyu-ju.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/stryu-reprde-qu-bie.html">str()与repr()的区别</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-01T00:00:00" pubdate>二 01 七月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>一</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">word</span><span class="o">=</span><span class="s">&quot;hello</span><span class="se">\t</span><span class="s"> world!</span><span class="se">\n</span><span class="s">hello motto!&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">str</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="err">&#39;</span><span class="n">hello</span><span class="err">\</span><span class="n">t</span> <span class="n">world</span><span class="o">!</span><span class="err">\</span><span class="n">nhello</span> <span class="n">motto</span><span class="o">!</span><span class="err">&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">repr</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="s">&quot;&#39;hello</span><span class="se">\\</span><span class="s">t world!</span><span class="se">\\</span><span class="s">nhello motto!&#39;&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">str</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="n">hello</span>    <span class="n">world</span><span class="o">!</span>
+<span class="n">hello</span> <span class="n">motto</span><span class="o">!</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">repr</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="err">&#39;</span><span class="n">hello</span><span class="err">\</span><span class="n">t</span> <span class="n">world</span><span class="o">!</span><span class="err">\</span><span class="n">nhello</span> <span class="n">motto</span><span class="o">!</span><span class="err">&#39;</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+
+
+<p>二
+```</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>str(0.1)
+'0.1'
+repr(0.1)
+'0.10000000000000001'</p>
+</blockquote>
+</blockquote>
+</blockquote></div>
+  <footer>
+    <a rel="full-article" href="/stryu-reprde-qu-bie.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/ben-ban-fa-xue-python.html">笨办法学python</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-30T00:00:00" pubdate>一 30 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>总有一天你会听到有程序员建议你使用 Mac OSX 或者 Linux。如果他喜欢字体美观，他会告诉你让你弄台 Mac OSX 计算机，如果他们喜欢操作控制而且留了一部大胡子，他会让你安装 Linux。这里再次向你说明，只要是一台手上能用的电脑就可以了。</h3>
+<h3>01 print</h3>
+<h5>字符串涉及换行时，行尾得用'\'</h5>
+<div class="highlight"><pre><span class="n">s1</span><span class="o">=</span><span class="s">&quot;some very long string.....\   </span>
+<span class="p">...</span>\
+<span class="p">....</span><span class="s">&quot;</span>
+<span class="n">print</span> <span class="n">s1</span>
+</pre></div>
+
+
+<h5>记得加<code>#-*- coding: UTF-8 -*-</code></h5>
+<div class="highlight"><pre><span class="cp">#-*- coding: UTF-8 -*- </span>
+<span class="n">print</span> <span class="err">&#39;</span><span class="n">hello</span><span class="err">&#39;</span>
+
+<span class="cp">#print hello ##wrong </span>
+
+
+<span class="n">a</span><span class="o">=</span><span class="err">&#39;</span><span class="n">hello</span> <span class="n">a</span><span class="err">&#39;</span>
+<span class="n">print</span> <span class="n">a</span>
+
+<span class="n">print</span> <span class="s">&quot;I like typing this&quot;</span>
+
+
+
+
+<span class="n">print</span> <span class="s">&quot;iacoding: utf-8 --这样你就在脚本中使用aap ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/ben-ban-fa-xue-python.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
       </h1>
       <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
@@ -203,94 +336,6 @@
     <a rel="full-article" href="/xadminru-men-2.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/yu-men-de-fa-xian-yi-ge-shuang-bao-tai-shi-xiong.html">郁闷的发现一个双胞胎师兄</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-13T00:00:00" pubdate>五 13 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><p>今天google markdown，进了一个博客。<br />
-奇迹出现了。
-<a href="http://sargeraswang.github.io/">程序员小刚</a>
-小刚前辈用的博客主题跟我的一模一样，也是用多说评论系统，出奇的相似。<br />
-可见这个主题的确很好看，(<em>^__^</em>) 嘻嘻…… <br />
-大概逛了一下，小刚前辈也是做IT的，(<em>^__^</em>) 嘻嘻……  </p></div>
-  <footer>
-    <a rel="full-article" href="/yu-men-de-fa-xian-yi-ge-shuang-bao-tai-shi-xiong.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-1.html">把时间当作朋友读后感（1）</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-12T00:00:00" pubdate>四 12 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><p>读书最大的快乐莫过于共鸣。</p>
-<hr />
-<h3>我们都生活在同一个世界里，可都在自己的版本里。</h3>
-<p>改变自己意味着，属于自己的版本的世界随着改变。当你的能力够大，你也能改变他人的版本，或多或少取决于你的影响力。——带来了以下问题</p>
-<hr />
-<p>以上的版本这个概念来自李笑来的《把时间当作朋友》，<strong>感觉措辞不够合理</strong>。我们作为程序员，用过版本号，深有体会。就像那句名言（不记得原话怎么说的）：如果你觉得写的软件不够好，那就称它为1.0版本吧。每一个版本号互相之间是独立的，没有交集的。如果1.0版本出了问题，2.0版本可以是照样跑；如果3.0版本崩了，10.0版本可以是好好的</p>
-<h5>世界：假设世界上有60亿人，每个人的世界都有一个版本号，我的是1.0，牛顿的是2.0，你的是3.0，罗斯福的是4.0，爱因斯坦的是5.0，乔布斯的是6.0，他的是7.0.............版本号意味着我们的世界都是独立的。很显然，我活着 ...</h5></div>
-  <footer>
-    <a rel="full-article" href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-1.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-2.html">把时间当作朋友读后感（2）</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-12T00:00:00" pubdate>四 12 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>用正确方式做正确的事情，时间无需管理。</h3>
-<h3>管理焦点不应该是时间，而是自己。</h3>
-<h4>时间只是个工具，它用于把我们的生命划分成无数个块。</h4>
-<p>生命就像一条高速公路，我们就像一辆不到终点不会停车的长途汽车，有时候看着路边的风景，有时候闭着眼睛养神，但无论何时我们一直在走。路标会告诉我们自己走在哪一路段，会走向哪里。而这路标就是时间</p></div>
-  <footer>
-    <a rel="full-article" href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-2.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/bu-shu-socketio-de-demo.html">部署Socket.io 的demo</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-11T00:00:00" pubdate>三 11 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h1>1.安装nvm</h1>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">wget</span> <span class="o">-</span><span class="n">qO</span><span class="o">-</span> <span class="n">https</span><span class="o">:</span><span class="c1">//raw.github.com/creationix/nvm/v0.4.0/install.sh | sh</span>
-</pre></div>
-
-
-<h1>2.安装node</h1>
-<div class="highlight"><pre><span class="n">nvm</span> <span class="n">install</span> <span class="mf">0.1</span>
-</pre></div>
-
-
-<h6>若过程中如果报错，说：创建目录/usr/sbin/src 权限不够</h6>
-<p>我用了个极端的方法来解决此问题，不推荐</p>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">chmod</span> <span class="mi">777</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span>
-</pre></div>
-
-
-<h1>3. 跑起</h1>
-<div class="highlight"><pre><span class="n">cd</span> <span class="n">socket</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">example</span><span class="o">/</span><span class="n">chat</span><span class="o">/</span>
-<span class="n">node</span> <span class="n">index</span><span class="p">.</span><span class="n">js</span>
-</pre></div>
-
-
-<h6>日如果报错误说，缺某某moudle，就一个个安装那些插件即可，如 ...</h6></div>
-  <footer>
-    <a rel="full-article" href="/bu-shu-socketio-de-demo.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/index2.html">&larr; Older</a>
 
@@ -301,19 +346,19 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/python-withyu-ju.html">Python with语句</a>
+      </li>
+      <li class="post">
+          <a href="/python-exeche-evalyu-ju.html">python exec和eval语句</a>
+      </li>
+      <li class="post">
+          <a href="/stryu-reprde-qu-bie.html">str()与repr()的区别</a>
+      </li>
+      <li class="post">
+          <a href="/ben-ban-fa-xue-python.html">笨办法学python</a>
+      </li>
+      <li class="post">
           <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
-      </li>
-      <li class="post">
-          <a href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Django中使用mysql数据库</a>
-      </li>
-      <li class="post">
-          <a href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Xadmin List_display中显示缩略图</a>
-      </li>
-      <li class="post">
-          <a href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Xadmin中自动预填某个字段</a>
-      </li>
-      <li class="post">
-          <a href="/ueditorzai-djangozhong-de-shi-yong.html">Ueditor在Django中的使用</a>
       </li>
     </ul>
   </section>
@@ -329,7 +374,7 @@
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
+    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
 
 
     <section>
