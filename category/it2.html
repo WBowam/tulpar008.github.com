@@ -51,6 +51,29 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/xadminru-men-2.html">Xadmin入门（2）</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-13T00:00:00" pubdate>五 13 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h2>Xadmin 的插件介绍</h2>
+<p>(本来想自己总结一遍的，可太喜欢Xadmin的文档了，言简意赅，排版精美，就直接搬了，望大侠们勿喷）</p>
+<h3>1. Action</h3>
+<h4>功能</h4>
+<p>Action 插件在数据列表页面提供了数据选择功能, 选择后的数据可以经过 Action 做特殊的处理. 默认提供的 Action 为批量删除功能.</p>
+<h4>截图</h4>
+<p><img alt="Action" src="http://xadmin.readthedocs.org/en/docs-chinese/_images/action.png" /></p>
+<h4>使用</h4>
+<p>开发者可以设置 Model OptionClass 的 actions 属性, 该属性是一个列表, 包含您想启用的 Action 的类. 系统已经默认内置了删除数据的 Action, 当然您可以自己制作 Action 来实现特定的功能, 制作 Action 的实例如下.</p>
+<p>首先要创建一个 Action 类, 该类需要继承 BaseActionView. BaseActionView 是 ModelAdminView 的子类:</p>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">xadmin ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/xadminru-men-2.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/bu-shu-socketio-de-demo.html">部署Socket.io 的demo</a>
       </h1>
       <p class="meta"><time datetime="2014-06-11T00:00:00" pubdate>三 11 六月 2014</time></p>
@@ -298,38 +321,6 @@ virtualenv 1.11.4  </p>
     <a rel="full-article" href="/xadminru-men.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/yi-hua-edx-platform.html">汉化edx-platform</a>
-      </h1>
-      <p class="meta"><time datetime="2014-02-09T00:00:00" pubdate>日 09 二月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h5>搭建好edx-paltform 之后，需要定制：汉化，处理视频存储问题，定制前台。</h5>
-<h5>此文讲解汉化。谢谢<a href="http://d.edustack.org/t/edx-platform/40">fmyzjs</a>，<a href="http://www.idefs.comr/recordsedx-platform-internationalization-i18n.html">竹轩小站</a></h5>
-<h3>1.准备</h3>
-<ul>
-<li>基本的linux运维知识</li>
-<li>部署成功的edx平台（如果没有可以去edustack.org下载我们的测试镜像）</li>
-<li>transifex账号（OpenEdx翻译项目是在transifex.com上，有兴趣的同学可以参与进来）</li>
-<li>耐心
-最后提醒，请不要使用root用户，必要时请使用sudo，如果您执意，GoodBye!</li>
-</ul>
-<hr />
-<h3>2.安装transifex客户端</h3>
-<p><code>sudo apt-get install transifex-client</code></p>
-<h3>3.在用户家目录新建transifex配置文件并编辑</h3>
-<p><code>vi ~/.transifexrc</code></p>
-<h5>写入以下内容</h5>
-<div class="highlight"><pre><span class="k">[https://www.transifex.com]</span>
-<span class="na">hostname</span> <span class="o">=</span> <span class="s">https://www.transifex.com</span>
-<span class="na">username</span> <span class="o">=</span> <span class="s">user</span>
-<span class="na">password</span> <span class="o">=</span> <span class="s">pass ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/yi-hua-edx-platform.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it3.html">&larr; Older</a>
 
@@ -353,7 +344,7 @@ virtualenv 1.11.4  </p>
           <a href="/ben-ban-fa-xue-python.html">笨办法学python</a>
       </li>
       <li class="post">
-          <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
+          <a href="/mysqlyu-ju-ru-men-1.html">Mysql语句入门（1）</a>
       </li>
     </ul>
   </section>

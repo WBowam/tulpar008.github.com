@@ -178,6 +178,44 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/mysqlyu-ju-ru-men-1.html">Mysql语句入门（1）</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-19T00:00:00" pubdate>四 19 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>进入退出</h3>
+<div class="highlight"><pre><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span>
+<span class="n">Enter</span> <span class="n">password</span><span class="o">:</span> 
+
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">quit</span>
+</pre></div>
+
+
+<h3>创建数据库</h3>
+<div class="highlight"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">tulpar_db</span> <span class="n">CHARACTER</span> <span class="n">SET</span> <span class="n">utf8</span> <span class="n">COLLATE</span> <span class="n">utf8_general_ci</span><span class="p">;</span>
+
+
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">GRANT</span> <span class="n">ALL</span> <span class="n">ON</span> <span class="n">tulpar_db</span><span class="p">.</span><span class="o">*</span> <span class="n">TO</span> <span class="err">&#39;</span><span class="n">tulpar</span><span class="sc">&#39;@&#39;</span><span class="n">localhost</span><span class="err">&#39;</span> <span class="n">IDENTIFIED</span> <span class="n">BY</span> <span class="err">&#39;</span><span class="n">mypassword</span><span class="err">&#39;</span><span class="p">;</span>
+</pre></div>
+
+
+<h3>导入数据库</h3>
+<h5>常用source 命令</h5>
+<div class="highlight"><pre><span class="n">mysql</span><span class="o">&gt;</span><span class="n">use</span> <span class="n">tulpar_db</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="n">source</span> <span class="p">..</span><span class="o">/</span><span class="n">wcnc_db</span><span class="p">.</span><span class="n">sql</span>
+</pre></div>
+
+
+<h3>导出整个数据库</h3>
+<p>mysqldump -u 用户名 -p 数据库名 &gt; 导出的文件名</p>
+<div class="highlight"><pre><span class="n">mysqldump</span> <span class="o">-</span><span class="n">u</span> <span class="n">tulpar ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/mysqlyu-ju-ru-men-1.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
       </h1>
       <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
@@ -307,29 +345,6 @@
     <a rel="full-article" href="/ueditorzai-djangozhong-de-shi-yong.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/xadminru-men-2.html">Xadmin入门（2）</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-13T00:00:00" pubdate>五 13 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h2>Xadmin 的插件介绍</h2>
-<p>(本来想自己总结一遍的，可太喜欢Xadmin的文档了，言简意赅，排版精美，就直接搬了，望大侠们勿喷）</p>
-<h3>1. Action</h3>
-<h4>功能</h4>
-<p>Action 插件在数据列表页面提供了数据选择功能, 选择后的数据可以经过 Action 做特殊的处理. 默认提供的 Action 为批量删除功能.</p>
-<h4>截图</h4>
-<p><img alt="Action" src="http://xadmin.readthedocs.org/en/docs-chinese/_images/action.png" /></p>
-<h4>使用</h4>
-<p>开发者可以设置 Model OptionClass 的 actions 属性, 该属性是一个列表, 包含您想启用的 Action 的类. 系统已经默认内置了删除数据的 Action, 当然您可以自己制作 Action 来实现特定的功能, 制作 Action 的实例如下.</p>
-<p>首先要创建一个 Action 类, 该类需要继承 BaseActionView. BaseActionView 是 ModelAdminView 的子类:</p>
-<div class="highlight"><pre><span class="n">from</span> <span class="n">xadmin ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/xadminru-men-2.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it2.html">&larr; Older</a>
 
@@ -352,7 +367,7 @@
           <a href="/ben-ban-fa-xue-python.html">笨办法学python</a>
       </li>
       <li class="post">
-          <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
+          <a href="/mysqlyu-ju-ru-men-1.html">Mysql语句入门（1）</a>
       </li>
     </ul>
   </section>
