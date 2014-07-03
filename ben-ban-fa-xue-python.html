@@ -359,89 +359,77 @@
 <span class="n">f</span><span class="p">.</span><span class="n">seek</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="err">#</span> <span class="n">Go</span> <span class="n">to</span> <span class="n">the</span> <span class="mi">3</span><span class="n">rd</span> <span class="n">byte</span> <span class="n">before</span> <span class="n">the</span> <span class="n">end</span>  
 <span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="sc">&#39;d&#39;</span>
- <span class="err">```</span>
-<span class="cp">#### 五、关闭文件释放资源</span>
-
-<span class="err">文件操作完毕，一定要记得关闭文件`</span><span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span><span class="err">`，可以释放资源供其他程序使用</span>
-
-
-
-
-
-<span class="cp">### 24 Return</span>
 </pre></div>
 
 
-<p>def test_return(point):
-        point_one=point*2
-        point_two=point+23
-        point_three=point-34</p>
-<div class="highlight"><pre>    <span class="k">return</span> <span class="n">point_one</span><span class="p">,</span><span class="n">point_two</span><span class="p">,</span><span class="n">point_three</span>
+<h4>五、关闭文件释放资源</h4>
+<p>文件操作完毕，一定要记得关闭文件<code>f.close()</code>，可以释放资源供其他程序使用</p>
+<h3>24 Return</h3>
+<div class="highlight"><pre><span class="n">def</span> <span class="n">test_return</span><span class="p">(</span><span class="n">point</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">point_one</span><span class="o">=</span><span class="n">point</span><span class="o">*</span><span class="mi">2</span>
+        <span class="n">point_two</span><span class="o">=</span><span class="n">point</span><span class="o">+</span><span class="mi">23</span>
+        <span class="n">point_three</span><span class="o">=</span><span class="n">point</span><span class="o">-</span><span class="mi">34</span>
+
+        <span class="k">return</span> <span class="n">point_one</span><span class="p">,</span><span class="n">point_two</span><span class="p">,</span><span class="n">point_three</span>
+
+
+<span class="n">point</span><span class="o">=</span><span class="mi">1000</span>
+
+<span class="n">one</span><span class="p">,</span><span class="n">two</span><span class="p">,</span><span class="n">three</span><span class="o">=</span><span class="n">test_return</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+
+
+<span class="n">print</span> <span class="n">one</span><span class="p">,</span><span class="n">two</span><span class="p">,</span><span class="n">three</span>
 </pre></div>
 
 
-<p>point=1000</p>
-<p>one,two,three=test_return(point)</p>
-<p>print one,two,three</p>
-<div class="highlight"><pre><span class="c">### 25</span>
+<h3>25</h3>
+<div class="highlight"><pre><span class="n">def</span> <span class="n">split_sentences</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">words</span><span class="o">=</span><span class="n">s</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">words</span>
+
+<span class="n">print</span> <span class="n">split_sentences</span><span class="p">(</span><span class="err">&#39;</span><span class="n">hello</span> <span class="n">world</span><span class="err">&#39;</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">w</span> <span class="n">in</span> <span class="n">split_sentences</span><span class="p">(</span><span class="err">&#39;</span><span class="n">hello</span> <span class="n">world</span><span class="err">&#39;</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">print</span> <span class="n">w</span>
 </pre></div>
 
 
-<p>def split_sentences(s):
-        words=s.split(' ')
-        return words</p>
-<p>print split_sentences('hello world')</p>
-<p>for w in split_sentences('hello world'):
-        print w</p>
-<div class="highlight"><pre><span class="err">执行</span><span class="n">help</span><span class="p">(</span><span class="n">ex25</span><span class="p">)</span><span class="err">可以看</span><span class="n">ex25</span><span class="err">的帮助文档，类似</span><span class="n">help</span><span class="p">(</span><span class="n">ex25</span><span class="p">.</span><span class="n">split_sentences</span><span class="p">)</span><span class="err">可以看函数的文档</span>  
-<span class="err">可以用如下方法添加函数文档</span>
+<p>执行help(ex25)可以看ex25的帮助文档，类似help(ex25.split_sentences)可以看函数的文档<br />
+可以用如下方法添加函数文档</p>
+<div class="highlight"><pre><span class="n">def</span> <span class="n">first_word</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">:</span>
+
+        <span class="s">&quot;&quot;&quot;</span>
+        <span class="n">This</span> <span class="n">is</span> <span class="n">my</span> <span class="n">document</span>
+
+        <span class="s">&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
 
-<p>def first_word(s):</p>
-<div class="highlight"><pre>    <span class="s">&quot;&quot;&quot;</span>
-    <span class="n">This</span> <span class="n">is</span> <span class="n">my</span> <span class="n">document</span>
-
-    <span class="s">&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<p>即，"""<em>这是文档内容</em>"""</p>
+<h3>34 ordinal number（序数）,cardinal number(基数)</h3>
+<h3>37</h3>
+<h5>del</h5>
+<div class="highlight"><pre><span class="n">del</span> <span class="n">list_item</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">del</span> <span class="n">dictionary</span><span class="p">[</span><span class="s">&quot;alpha&quot;</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="err">即，</span><span class="s">&quot;&quot;&quot;*这是文档内容*&quot;&quot;&quot;</span>
-
-
-<span class="cp">### 34 ordinal number（序数）,cardinal number(基数)</span>
-
-
-<span class="cp">### 37 </span>
-<span class="cp">##### del</span>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">aa</span><span class="err">&#39;</span><span class="p">,</span> <span class="mi">85</span><span class="p">]</span> <span class="err">#</span> <span class="err">定义一个</span><span class="n">list</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">aa</span><span class="err">&#39;</span><span class="p">,</span> <span class="mi">85</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="err">#</span> <span class="err">删除第</span><span class="mi">0</span><span class="err">个元素</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">aa</span><span class="err">&#39;</span><span class="p">,</span> <span class="mi">85</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="mi">4</span><span class="p">]</span> <span class="err">#</span> <span class="err">删除从第</span><span class="mi">2</span><span class="err">个元素开始，到第</span><span class="mi">4</span><span class="err">个为止的元素。包括头不包括尾</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">aa</span><span class="err">&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">del</span> <span class="n">a</span> <span class="err">#</span> <span class="err">删除整个</span><span class="n">list</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
 </pre></div>
 
 
-<p>del list_item[4]
-del dictionary["alpha"]</p>
-<div class="highlight"><pre>
-</pre></div>
-
-
-<p>a = [-1, 3, 'aa', 85] # 定义一个list</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>a
-[-1, 3, 'aa', 85]
-del a[0] # 删除第0个元素
-a
-[3, 'aa', 85]
-del a[2:4] # 删除从第2个元素开始，到第4个为止的元素。包括头不包括尾
-a
-[3, 'aa']
-del a # 删除整个list
-a
-```</p>
-</blockquote>
-</blockquote>
-</blockquote>
 <h5>with</h5></div>
     <footer>
 <p class="meta">
