@@ -51,6 +51,37 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/python-lei-shi-li-fang-fa-class-methodstatic-method.html">python 类实例方法，class method,static method</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>实例方法（@郭叔）</h3>
+<p>字面意思：实例的方法，即只有实例能使用的方法，相对于类方法和静态方法。</p>
+<h5>实例方法的第一个参数默认为self，代指实例。</h5>
+<p>如：</p>
+<div class="highlight"><pre><span class="n">class</span> <span class="n">Foo</span><span class="o">:</span>
+    <span class="err">##</span><span class="n">init</span><span class="p">()</span><span class="err">是生成实例时默认调用的实例方法</span><span class="p">,</span><span class="err">用于初始化详细见</span><span class="p">[</span><span class="n">__init__</span><span class="err">方法</span><span class="p">](</span><span class="err">#</span><span class="p">)</span>
+    <span class="err">###第一个参数默认为</span><span class="n">self</span>
+    <span class="n">def</span> <span class="n">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">author</span><span class="o">=</span><span class="s">&quot;Tulpar&quot;</span>
+    <span class="err">##又一个实例方法</span>
+    <span class="n">def</span> <span class="n">hi</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">print</span> <span class="n">self</span><span class="p">.</span><span class="n">name</span>
+        <span class="n">print</span> <span class="s">&quot;Created by %s&quot;</span><span class="o">%</span><span class="n">self</span><span class="p">.</span><span class="n">author</span>
+</pre></div>
+
+
+<h5>self不是一个关键字，而是约定的写法。也可以换成任意字符串，如'guoshu'</h5>
+<div class="highlight"><pre>    <span class="err">###第一个参数默认为</span><span class="n">guoshu</span><span class="p">,</span><span class="err">作用和</span><span class="n">self ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/python-lei-shi-li-fang-fa-class-methodstatic-method.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/python-withyu-ju.html">Python with语句</a>
       </h1>
       <p class="meta"><time datetime="2014-07-03T00:00:00" pubdate>四 03 七月 2014</time></p>
@@ -183,6 +214,9 @@
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
+      <li class="post">
+          <a href="/python-lei-shi-li-fang-fa-class-methodstatic-method.html">python 类实例方法，class method,static method</a>
+      </li>
       <li class="post">
           <a href="/python-withyu-ju.html">Python with语句</a>
       </li>

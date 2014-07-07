@@ -51,6 +51,37 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/python-lei-shi-li-fang-fa-class-methodstatic-method.html">python 类实例方法，class method,static method</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>实例方法（@郭叔）</h3>
+<p>字面意思：实例的方法，即只有实例能使用的方法，相对于类方法和静态方法。</p>
+<h5>实例方法的第一个参数默认为self，代指实例。</h5>
+<p>如：</p>
+<div class="highlight"><pre><span class="n">class</span> <span class="n">Foo</span><span class="o">:</span>
+    <span class="err">##</span><span class="n">init</span><span class="p">()</span><span class="err">是生成实例时默认调用的实例方法</span><span class="p">,</span><span class="err">用于初始化详细见</span><span class="p">[</span><span class="n">__init__</span><span class="err">方法</span><span class="p">](</span><span class="err">#</span><span class="p">)</span>
+    <span class="err">###第一个参数默认为</span><span class="n">self</span>
+    <span class="n">def</span> <span class="n">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">author</span><span class="o">=</span><span class="s">&quot;Tulpar&quot;</span>
+    <span class="err">##又一个实例方法</span>
+    <span class="n">def</span> <span class="n">hi</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">print</span> <span class="n">self</span><span class="p">.</span><span class="n">name</span>
+        <span class="n">print</span> <span class="s">&quot;Created by %s&quot;</span><span class="o">%</span><span class="n">self</span><span class="p">.</span><span class="n">author</span>
+</pre></div>
+
+
+<h5>self不是一个关键字，而是约定的写法。也可以换成任意字符串，如'guoshu'</h5>
+<div class="highlight"><pre>    <span class="err">###第一个参数默认为</span><span class="n">guoshu</span><span class="p">,</span><span class="err">作用和</span><span class="n">self ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/python-lei-shi-li-fang-fa-class-methodstatic-method.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/python-withyu-ju.html">Python with语句</a>
       </h1>
       <p class="meta"><time datetime="2014-07-03T00:00:00" pubdate>四 03 七月 2014</time></p>
@@ -309,42 +340,6 @@
     <a rel="full-article" href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/ueditorzai-djangozhong-de-shi-yong.html">Ueditor在Django中的使用</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-14T00:00:00" pubdate>六 14 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><p>以前写过Ueditor在Django中的使用方法（虽然跟着上一个博客一起丢了），在此不赘述了。想学可以看看这位朋友的分享：
-<a href="https://github.com/zhangfisher/DjangoUeditor">Django中使用Ueditor</a></p>
-<p><a href="http://mushapi.sinaapp.com/using-ueditor-in-django-with-xadmin.html">http://mushapi.sinaapp.com/using-ueditor-in-django-with-xadmin.html</a></p>
-<h3>1.安装</h3>
-<p><code>pip install DjangoUeditor</code></p>
-<h3>2.启用</h3>
-<h5>在<code>INSTALL_APPS</code>里面增加DjangoUeditor app，如下：</h5>
-<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="err">#</span><span class="p">........</span>
-            <span class="err">&#39;</span><span class="n">DjangoUeditor</span><span class="err">&#39;</span><span class="p">,</span>
-        <span class="p">)</span>
-</pre></div>
-
-
-<h5>在urls.py中增加：</h5>
-<div class="highlight"><pre>    <span class="n">url</span><span class="p">(</span><span class="n">r</span><span class="err">&#39;</span><span class="o">^</span><span class="n">ueditor</span><span class="o">/</span><span class="err">&#39;</span><span class="p">,</span><span class="n">include</span><span class="p">(</span><span class="err">&#39;</span><span class="n">DjangoUeditor</span><span class="p">.</span><span class="n">urls</span><span class="err">&#39;</span> <span class="p">)),</span>
-</pre></div>
-
-
-<h3>3.使用</h3>
-<h5>在<code>models</code>中这样使用：</h5>
-<div class="highlight"><pre><span class="n">from</span> <span class="n">DjangoUeditor</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">UEditorField</span>
-    <span class="n">class</span> <span class="n">Blog</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
-        <span class="n">Name</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">CharField ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/ueditorzai-djangozhong-de-shi-yong.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/index2.html">&larr; Older</a>
 
@@ -354,6 +349,9 @@
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
+      <li class="post">
+          <a href="/python-lei-shi-li-fang-fa-class-methodstatic-method.html">python 类实例方法，class method,static method</a>
+      </li>
       <li class="post">
           <a href="/python-withyu-ju.html">Python with语句</a>
       </li>
@@ -365,9 +363,6 @@
       </li>
       <li class="post">
           <a href="/ben-ban-fa-xue-python.html">笨办法学python</a>
-      </li>
-      <li class="post">
-          <a href="/mysqlyu-ju-ru-men-1.html">Mysql语句入门（1）</a>
       </li>
     </ul>
   </section>
