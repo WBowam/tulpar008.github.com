@@ -51,6 +51,30 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Xadmin中自动预填某个字段</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-16T00:00:00" pubdate>一 16 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>需求：</h3>
+<p>今天写一个model时写了个字段<code>create_by=models.ForeignKey(User)</code>。 <br />
+想给它预填入当前的已登录用户。需求类似如下（当然不可能那样写）： <br />
+<code>created_by = models.ForeignKey(User, default=request.user)</code><br />
+如果以上需求在<code>View</code>里，很好解决的。可现在在AdminModel里，而且在Xadmin环境下。<br />
+于是，Google,得<a href="http://stackoverflow.com/questions/937954/how-do-you-specify-a-default-for-a-django-foreignkey-model-or-adminmodel-field">StackOverFlow</a>，找到了<a href="http://www.b-list.org/weblog/2008/dec/24/admin/">参考资料1</a>。感谢Google，感谢StackOverFlowx，感谢<a href="http://www.b-list.org/weblog/2008/dec/24/admin/">参考资料1</a>。<a href="https://github.com/sshwsfc/django-xadmin/issues/96">参考资料2</a></p>
+<h3>解决方案</h3>
+<h4>在默认的django admin环境下</h4>
+<h5><code>models.py</code></h5>
+<div class="highlight"><pre><span class="cp">#-*- coding: UTF-8 -*- </span>
+<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">db</span> <span class="n">import</span> <span class="n">models</span>
+<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">auth</span><span class="p">.</span><span class="n">models ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/ueditorzai-djangozhong-de-shi-yong.html">Ueditor在Django中的使用</a>
       </h1>
       <p class="meta"><time datetime="2014-06-14T00:00:00" pubdate>六 14 六月 2014</time></p>
@@ -283,30 +307,6 @@
     <a rel="full-article" href="/yong-django-mptthou-tai-zhong-sheng-cheng-shu-zhuang-shu-ju-jie-gou.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/edx_errors.html">Edx_errors</a>
-      </h1>
-      <p class="meta"><time datetime="2014-04-14T00:00:00" pubdate>一 14 四月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>1. 用Vagrant+Virtualbox+Ubuntu搭好Edx—paltform，执行启动命令：</h3>
-<p><code>vagrant up</code></p>
-<h4>错误：</h4>
-<div class="highlight"><pre><span class="s">&quot;The guest machine entered an invalid state while waiting for it to boot.  </span>
-<span class="n">Valid</span> <span class="n">states</span> <span class="n">are</span>   <span class="err">&#39;</span><span class="n">starting</span><span class="p">,</span> <span class="n">running</span><span class="err">&#39;</span><span class="p">.</span> <span class="n">The</span> <span class="n">machine</span> <span class="n">is</span> <span class="n">in</span> <span class="n">the</span> <span class="err">&#39;</span><span class="n">poweroff</span><span class="err">&#39;</span> <span class="n">state</span><span class="p">.</span>   
- <span class="n">Please</span> <span class="n">verify</span> <span class="n">everything</span> <span class="n">is</span> <span class="n">configured</span> <span class="n">properly</span> <span class="n">and</span> <span class="n">try</span> <span class="n">again</span><span class="p">.</span><span class="s">&quot; </span>
-</pre></div>
-
-
-<h4>原因：</h4>
-<p><strong>这是因为CPU不支持VT-X技术或者VT-X技术被锁定。</strong>  </p>
-<p>如果不打开虚拟化支持，是不能在虚拟机装<strong>64位操作系统</strong>或者安装操作系统设置<strong>多个CPU ...</strong></p></div>
-  <footer>
-    <a rel="full-article" href="/edx_errors.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/index3.html">&larr; Older</a>
 
@@ -321,6 +321,9 @@
           <a href="/python-shi-li-fang-fa-jing-tai-fang-fa-lei-fang-fa.html">python 实例方法，静态方法，类方法</a>
       </li>
       <li class="post">
+          <a href="/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">python中 __（双下划线）的作用</a>
+      </li>
+      <li class="post">
           <a href="/python-withyu-ju.html">Python with语句</a>
       </li>
       <li class="post">
@@ -328,9 +331,6 @@
       </li>
       <li class="post">
           <a href="/stryu-reprde-qu-bie.html">str()与repr()的区别</a>
-      </li>
-      <li class="post">
-          <a href="/ben-ban-fa-xue-python.html">笨办法学python</a>
       </li>
     </ul>
   </section>

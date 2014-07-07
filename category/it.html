@@ -82,6 +82,54 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">python中 __（双下划线）的作用</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
+</header>
+
+  <div class="entry-content"><ul>
+<li>
+<p>Python中默认的成员函数，成员变量都是公开的(public),而且python中没有类似public,private等关键词来修饰成员函数，成员变量。   </p>
+</li>
+<li>
+<p>可有时候需要用到私有变量，因此诞生了__。    </p>
+</li>
+<li>
+<p>变量名或函数名前加上 ”__“两个下划线，那么这个函数或变量就会为私有的了。</p>
+</li>
+<li>
+<p>私有意味着只有内部能使用，对外部隐藏。       </p>
+</li>
+<li>
+<p>在内部，python使用一种 name mangling 技术，将 __membername替换成 _classname__membername来使用。  <br />
+在外部，使用原来的私有成员的名字时，会提示找不到。（达到了隐藏的效果）    </p>
+</li>
+</ul>
+<hr />
+<div class="highlight"><pre><span class="n">class</span> <span class="n">Tester</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">__foo</span> <span class="o">=</span> <span class="s">&quot;hi&quot;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="n">Tester</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">.</span><span class="n">_Tester__foo</span>
+<span class="err">&#39;</span><span class="n">hi</span><span class="err">&#39;</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="n">class</span> <span class="n">Tester</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
+<span class="p">...</span>     <span class="n">def</span> <span class="n">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+<span class="p">...</span>         <span class="n">self</span><span class="p">.</span><span class="n">__foo</span> <span class="o">=</span> <span class="s">&quot;hi&quot;</span>
+<span class="p">...</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="o">=</span><span class="n">Tester</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">t</span><span class="p">.</span><span class="n">_Tester__foo</span>
+<span class="err">&#39;</span><span class="n">hi</span><span class="err">&#39;</span>
+</pre></div></div>
+  <footer>
+    <a rel="full-article" href="/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/python-withyu-ju.html">Python with语句</a>
       </h1>
       <p class="meta"><time datetime="2014-07-03T00:00:00" pubdate>四 03 七月 2014</time></p>
@@ -316,30 +364,6 @@
     <a rel="full-article" href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Xadmin中自动预填某个字段</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-16T00:00:00" pubdate>一 16 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>需求：</h3>
-<p>今天写一个model时写了个字段<code>create_by=models.ForeignKey(User)</code>。 <br />
-想给它预填入当前的已登录用户。需求类似如下（当然不可能那样写）： <br />
-<code>created_by = models.ForeignKey(User, default=request.user)</code><br />
-如果以上需求在<code>View</code>里，很好解决的。可现在在AdminModel里，而且在Xadmin环境下。<br />
-于是，Google,得<a href="http://stackoverflow.com/questions/937954/how-do-you-specify-a-default-for-a-django-foreignkey-model-or-adminmodel-field">StackOverFlow</a>，找到了<a href="http://www.b-list.org/weblog/2008/dec/24/admin/">参考资料1</a>。感谢Google，感谢StackOverFlowx，感谢<a href="http://www.b-list.org/weblog/2008/dec/24/admin/">参考资料1</a>。<a href="https://github.com/sshwsfc/django-xadmin/issues/96">参考资料2</a></p>
-<h3>解决方案</h3>
-<h4>在默认的django admin环境下</h4>
-<h5><code>models.py</code></h5>
-<div class="highlight"><pre><span class="cp">#-*- coding: UTF-8 -*- </span>
-<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">db</span> <span class="n">import</span> <span class="n">models</span>
-<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">auth</span><span class="p">.</span><span class="n">models ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it2.html">&larr; Older</a>
 
@@ -353,6 +377,9 @@
           <a href="/python-shi-li-fang-fa-jing-tai-fang-fa-lei-fang-fa.html">python 实例方法，静态方法，类方法</a>
       </li>
       <li class="post">
+          <a href="/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">python中 __（双下划线）的作用</a>
+      </li>
+      <li class="post">
           <a href="/python-withyu-ju.html">Python with语句</a>
       </li>
       <li class="post">
@@ -360,9 +387,6 @@
       </li>
       <li class="post">
           <a href="/stryu-reprde-qu-bie.html">str()与repr()的区别</a>
-      </li>
-      <li class="post">
-          <a href="/ben-ban-fa-xue-python.html">笨办法学python</a>
       </li>
     </ul>
   </section>
