@@ -5,7 +5,7 @@
 <head>
 <link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
   <meta charset="utf-8">
-  <title>Ubuntu 用户用命令安装 VirtualBox 4.3.8</title>
+  <title>__init__()方法</title>
   <meta name="author" content="tulpar">
 
 
@@ -50,42 +50,40 @@
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">Ubuntu 用户用命令安装 VirtualBox 4.3.8</h1>
-      <p class="meta"><time datetime="2014-01-08T00:00:00" pubdate>三 08 一月 2014</time></p>
+      <h1 class="entry-title">__init__()方法</h1>
+      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
 </header>
 
-  <div class="entry-content"><p>今天在阿里云上安装virtualbox,发现阿里的源里只有4.1版本，可我需要4.3。 <br />
-换了国内其他的源发现太慢了，，，，于是，，，，， <br />
-wget deb 包本地安装，发现依赖很多东西，，，，<br />
-于是，，，，，，</p>
+  <div class="entry-content"><h3>首先复习一下,<a href="http://tulpar008.github.io/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">__（双下划线）的作用</a></h3>
+<ul>
+<li>
+<p>Python中默认的成员函数，成员变量都是公开的(public),而且python中没有类似public,private等关键词来修饰成员函数，成员变量。   </p>
+</li>
+<li>
+<p>可有时候需要用到私有变量，因此诞生了__。    </p>
+</li>
+<li>
+<p>变量名或函数名前加上 ”__“两个下划线，那么这个函数或变量就会为私有的了。</p>
+</li>
+<li>
+<p>私有意味着只有内部能使用，对外部隐藏。       </p>
+</li>
+<li>
+<p>在内部，python使用一种 name mangling 技术，将 __membername替换成 _classname__membername来使用。  <br />
+在外部，使用原来的私有成员的名字时，会提示找不到。（达到了隐藏的效果）    </p>
+</li>
+</ul>
 <hr />
-<h3>1.添加源</h3>
-<p><code>vim /etc/apt/sources.list</code><br />
-添加：  </p>
-<div class="highlight"><pre><span class="k">deb</span> <span class="s">http://download.virtualbox.org/virtualbox/debian</span> <span class="kp">precise</span> <span class="kp">contrib</span>
-</pre></div>
-
-
-<h3>2.添加钥匙：(这一步很关键)</h3>
-<div class="highlight"><pre><span class="n">wget</span> <span class="o">-</span><span class="n">q</span> <span class="n">http</span><span class="o">:</span><span class="c1">//download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -</span>
-</pre></div>
-
-
-<h3>3.更新源列表：</h3>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
-</pre></div>
-
-
-<h3>4.安装 virtualbox</h3>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">virtualbox</span><span class="o">-</span><span class="mf">4.3</span>
-</pre></div></div>
+<p>很显然，__init__是个私有函数</p>
+<h5>__init__方法在类的一个对象被建立时，马上运行。这个方法可以用来对你的对象做一些你希望的 初始化 。</h5>
+<h6>注意，这个名称的开始和结尾都是双下划线。</h6></div>
     <footer>
 <p class="meta">
   <span class="byline author vcard">
     Posted by <span class="fn">tulpar</span>
   </span>
-<time datetime="2014-01-08T00:00:00" pubdate>三 08 一月 2014</time>  <span class="categories">
-    <a class="category" href="/tag/virtualbox.html">VirtualBox</a>
+<time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time>  <span class="categories">
+    <a class="category" href="/tag/python.html">Python</a>
   </span>
 </p><div class="sharing">
 </div>    </footer>

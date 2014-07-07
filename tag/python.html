@@ -51,6 +51,41 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/__init__fang-fa.html">__init__()方法</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>首先复习一下,<a href="http://tulpar008.github.io/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">__（双下划线）的作用</a></h3>
+<ul>
+<li>
+<p>Python中默认的成员函数，成员变量都是公开的(public),而且python中没有类似public,private等关键词来修饰成员函数，成员变量。   </p>
+</li>
+<li>
+<p>可有时候需要用到私有变量，因此诞生了__。    </p>
+</li>
+<li>
+<p>变量名或函数名前加上 ”__“两个下划线，那么这个函数或变量就会为私有的了。</p>
+</li>
+<li>
+<p>私有意味着只有内部能使用，对外部隐藏。       </p>
+</li>
+<li>
+<p>在内部，python使用一种 name mangling 技术，将 __membername替换成 _classname__membername来使用。  <br />
+在外部，使用原来的私有成员的名字时，会提示找不到。（达到了隐藏的效果）    </p>
+</li>
+</ul>
+<hr />
+<p>很显然，__init__是个私有函数</p>
+<h5>__init__方法在类的一个对象被建立时，马上运行。这个方法可以用来对你的对象做一些你希望的 初始化 。</h5>
+<h6>注意，这个名称的开始和结尾都是双下划线。</h6></div>
+  <footer>
+    <a rel="full-article" href="/__init__fang-fa.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/python-shi-li-fang-fa-jing-tai-fang-fa-lei-fang-fa.html">python 实例方法，静态方法，类方法</a>
       </h1>
       <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
@@ -263,6 +298,9 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/__init__fang-fa.html">__init__()方法</a>
+      </li>
+      <li class="post">
           <a href="/python-shi-li-fang-fa-jing-tai-fang-fa-lei-fang-fa.html">python 实例方法，静态方法，类方法</a>
       </li>
       <li class="post">
@@ -273,9 +311,6 @@
       </li>
       <li class="post">
           <a href="/python-exeche-evalyu-ju.html">python exec和eval语句</a>
-      </li>
-      <li class="post">
-          <a href="/stryu-reprde-qu-bie.html">str()与repr()的区别</a>
       </li>
     </ul>
   </section>
