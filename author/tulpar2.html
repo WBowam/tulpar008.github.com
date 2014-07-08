@@ -51,6 +51,23 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>如下方法：</h3>
+<div class="highlight"><pre><span class="nx">python</span> <span class="nx">manage.py</span> <span class="nx">dumpdata</span> <span class="o">&lt;</span><span class="nx">your_app</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="nx">temp_data.json</span>
+<span class="err">##做一些毁数据的活儿</span>
+<span class="nx">python</span> <span class="nx">manage.py</span> <span class="nx">loaddata</span> <span class="nx">temp_data.json</span>
+</pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-bei-fen-shu-ju-fang-fa-1.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Django中使用mysql数据库</a>
       </h1>
       <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
@@ -274,24 +291,6 @@
     <a rel="full-article" href="/bu-shu-socketio-de-demo.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/linux-xiao-ji-qiao-1.html">linux 小技巧（1）</a>
-      </h1>
-      <p class="meta"><time datetime="2014-05-28T00:00:00" pubdate>三 28 五月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>1.install local deb packages:</h3>
-<p><code>dpkg -i file.deb</code></p>
-<h5>uninstall packages installed with dpkg:</h5>
-<p><code>``dpkg -r appname</code></p>
-<h5>list packages installed with dpkg:</h5>
-<p><code>dpkg --get-selections | grep -v deinstall</code></p></div>
-  <footer>
-    <a rel="full-article" href="/linux-xiao-ji-qiao-1.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/author/tulpar3.html">&larr; Older</a>
 
@@ -303,6 +302,9 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/ge-shi-hua-zi-fu-chuan-shi-jian.html">格式化字符串——时间</a>
+      </li>
+      <li class="post">
           <a href="/pythonzhong-raw_inputhe-inputde-yi-tong-dian.html">Python中raw_input和input的异同点</a>
       </li>
       <li class="post">
@@ -313,9 +315,6 @@
       </li>
       <li class="post">
           <a href="/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">python中 __（双下划线）的作用</a>
-      </li>
-      <li class="post">
-          <a href="/python-withyu-ju.html">Python with语句</a>
       </li>
     </ul>
   </section>
