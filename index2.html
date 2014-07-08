@@ -51,6 +51,44 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/mysqlyu-ju-ru-men-1.html">Mysql语句入门（1）</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-19T00:00:00" pubdate>四 19 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>进入退出</h3>
+<div class="highlight"><pre><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span>
+<span class="n">Enter</span> <span class="n">password</span><span class="o">:</span> 
+
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">quit</span>
+</pre></div>
+
+
+<h3>创建数据库</h3>
+<div class="highlight"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">tulpar_db</span> <span class="n">CHARACTER</span> <span class="n">SET</span> <span class="n">utf8</span> <span class="n">COLLATE</span> <span class="n">utf8_general_ci</span><span class="p">;</span>
+
+
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">GRANT</span> <span class="n">ALL</span> <span class="n">ON</span> <span class="n">tulpar_db</span><span class="p">.</span><span class="o">*</span> <span class="n">TO</span> <span class="err">&#39;</span><span class="n">tulpar</span><span class="sc">&#39;@&#39;</span><span class="n">localhost</span><span class="err">&#39;</span> <span class="n">IDENTIFIED</span> <span class="n">BY</span> <span class="err">&#39;</span><span class="n">mypassword</span><span class="err">&#39;</span><span class="p">;</span>
+</pre></div>
+
+
+<h3>导入数据库</h3>
+<h5>常用source 命令</h5>
+<div class="highlight"><pre><span class="n">mysql</span><span class="o">&gt;</span><span class="n">use</span> <span class="n">tulpar_db</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="n">source</span> <span class="p">..</span><span class="o">/</span><span class="n">wcnc_db</span><span class="p">.</span><span class="n">sql</span>
+</pre></div>
+
+
+<h3>导出整个数据库</h3>
+<p>mysqldump -u 用户名 -p 数据库名 &gt; 导出的文件名</p>
+<div class="highlight"><pre><span class="n">mysqldump</span> <span class="o">-</span><span class="n">u</span> <span class="n">tulpar ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/mysqlyu-ju-ru-men-1.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
       </h1>
       <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
@@ -256,41 +294,6 @@
     <a rel="full-article" href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-2.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/bu-shu-socketio-de-demo.html">部署Socket.io 的demo</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-11T00:00:00" pubdate>三 11 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h1>1.安装nvm</h1>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">wget</span> <span class="o">-</span><span class="n">qO</span><span class="o">-</span> <span class="n">https</span><span class="o">:</span><span class="c1">//raw.github.com/creationix/nvm/v0.4.0/install.sh | sh</span>
-</pre></div>
-
-
-<h1>2.安装node</h1>
-<div class="highlight"><pre><span class="n">nvm</span> <span class="n">install</span> <span class="mf">0.1</span>
-</pre></div>
-
-
-<h6>若过程中如果报错，说：创建目录/usr/sbin/src 权限不够</h6>
-<p>我用了个极端的方法来解决此问题，不推荐</p>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">chmod</span> <span class="mi">777</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span>
-</pre></div>
-
-
-<h1>3. 跑起</h1>
-<div class="highlight"><pre><span class="n">cd</span> <span class="n">socket</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">example</span><span class="o">/</span><span class="n">chat</span><span class="o">/</span>
-<span class="n">node</span> <span class="n">index</span><span class="p">.</span><span class="n">js</span>
-</pre></div>
-
-
-<h6>日如果报错误说，缺某某moudle，就一个个安装那些插件即可，如 ...</h6></div>
-  <footer>
-    <a rel="full-article" href="/bu-shu-socketio-de-demo.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/index3.html">&larr; Older</a>
 
@@ -305,6 +308,9 @@
           <a href="/ge-shi-hua-zi-fu-chuan-shi-jian.html">格式化字符串——时间</a>
       </li>
       <li class="post">
+          <a href="/pythonshi-jian-cao-zuo.html">Python时间操作</a>
+      </li>
+      <li class="post">
           <a href="/pythonzhong-raw_inputhe-inputde-yi-tong-dian.html">Python中raw_input和input的异同点</a>
       </li>
       <li class="post">
@@ -312,9 +318,6 @@
       </li>
       <li class="post">
           <a href="/python-shi-li-fang-fa-jing-tai-fang-fa-lei-fang-fa.html">python 实例方法，静态方法，类方法</a>
-      </li>
-      <li class="post">
-          <a href="/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">python中 __（双下划线）的作用</a>
       </li>
     </ul>
   </section>

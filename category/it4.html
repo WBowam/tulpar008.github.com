@@ -51,6 +51,37 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/ubuntu-yong-hu-yong-ming-ling-an-zhuang-virtualbox-438.html">Ubuntu 用户用命令安装 VirtualBox 4.3.8</a>
+      </h1>
+      <p class="meta"><time datetime="2014-01-08T00:00:00" pubdate>三 08 一月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>今天在阿里云上安装virtualbox,发现阿里的源里只有4.1版本，可我需要4.3。 <br />
+换了国内其他的源发现太慢了，，，，于是，，，，， <br />
+wget deb 包本地安装，发现依赖很多东西，，，，<br />
+于是，，，，，，</p>
+<hr />
+<h3>1.添加源</h3>
+<p><code>vim /etc/apt/sources.list</code><br />
+添加：  </p>
+<div class="highlight"><pre><span class="k">deb</span> <span class="s">http://download.virtualbox.org/virtualbox/debian</span> <span class="kp">precise</span> <span class="kp">contrib</span>
+</pre></div>
+
+
+<h3>2.添加钥匙：(这一步很关键)</h3>
+<div class="highlight"><pre><span class="n">wget</span> <span class="o">-</span><span class="n">q</span> <span class="n">http</span><span class="o">:</span><span class="c1">//download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -</span>
+</pre></div>
+
+
+<h3>3.更新源列表：</h3>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/ubuntu-yong-hu-yong-ming-ling-an-zhuang-virtualbox-438.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/sshd_configpei-zhi.html">sshd_config配置</a>
       </h1>
       <p class="meta"><time datetime="2013-12-08T00:00:00" pubdate>日 08 十二月 2013</time></p>
@@ -310,6 +341,9 @@ Or <br />
           <a href="/ge-shi-hua-zi-fu-chuan-shi-jian.html">格式化字符串——时间</a>
       </li>
       <li class="post">
+          <a href="/pythonshi-jian-cao-zuo.html">Python时间操作</a>
+      </li>
+      <li class="post">
           <a href="/pythonzhong-raw_inputhe-inputde-yi-tong-dian.html">Python中raw_input和input的异同点</a>
       </li>
       <li class="post">
@@ -317,9 +351,6 @@ Or <br />
       </li>
       <li class="post">
           <a href="/python-shi-li-fang-fa-jing-tai-fang-fa-lei-fang-fa.html">python 实例方法，静态方法，类方法</a>
-      </li>
-      <li class="post">
-          <a href="/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">python中 __（双下划线）的作用</a>
       </li>
     </ul>
   </section>

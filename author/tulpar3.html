@@ -51,6 +51,41 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/bu-shu-socketio-de-demo.html">部署Socket.io 的demo</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-11T00:00:00" pubdate>三 11 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h1>1.安装nvm</h1>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">wget</span> <span class="o">-</span><span class="n">qO</span><span class="o">-</span> <span class="n">https</span><span class="o">:</span><span class="c1">//raw.github.com/creationix/nvm/v0.4.0/install.sh | sh</span>
+</pre></div>
+
+
+<h1>2.安装node</h1>
+<div class="highlight"><pre><span class="n">nvm</span> <span class="n">install</span> <span class="mf">0.1</span>
+</pre></div>
+
+
+<h6>若过程中如果报错，说：创建目录/usr/sbin/src 权限不够</h6>
+<p>我用了个极端的方法来解决此问题，不推荐</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">chmod</span> <span class="mi">777</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span>
+</pre></div>
+
+
+<h1>3. 跑起</h1>
+<div class="highlight"><pre><span class="n">cd</span> <span class="n">socket</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">example</span><span class="o">/</span><span class="n">chat</span><span class="o">/</span>
+<span class="n">node</span> <span class="n">index</span><span class="p">.</span><span class="n">js</span>
+</pre></div>
+
+
+<h6>日如果报错误说，缺某某moudle，就一个个安装那些插件即可，如 ...</h6></div>
+  <footer>
+    <a rel="full-article" href="/bu-shu-socketio-de-demo.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/linux-xiao-ji-qiao-1.html">linux 小技巧（1）</a>
       </h1>
       <p class="meta"><time datetime="2014-05-28T00:00:00" pubdate>三 28 五月 2014</time></p>
@@ -295,32 +330,6 @@ virtualenv 1.11.4  </p>
     <a rel="full-article" href="/yi-hua-edx-platform.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/linuxte-bie-qiang-da-he-ling-huo-de-ming-ling-xing-gong-ju-1.html">Linux特别强大和灵活的命令行工具 (1)</a>
-      </h1>
-      <p class="meta"><time datetime="2014-02-08T00:00:00" pubdate>六 08 二月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h4>! ياخشى   نەرسە   سېسىپ   قالمىسۇن</h4>
-<hr />
-<h3>Curl</h3>
-<p>Curl是一个网络传输工具，这是非常类似wget的，主要的区别在于，默认情况下，Wget的保存到一个文件，和curl的命令行输出。这使得它可以很简单，看一个网站的内容。这里举个例子，我们可以得到我们当前的IP从ifconfig.me网站：</p>
-<div class="highlight"><pre><span class="n">curl</span> <span class="n">ifconfig</span><span class="p">.</span><span class="n">me</span>
-<span class="mf">93.96.141.93</span>
-</pre></div>
-
-
-<p>Curl的-i（显示标题）和-I（只显示头）选项使其成为一个伟大的工具，调试HTTP响应，并找出到底什么是服务器发送到你的：</p>
-<div class="highlight"><pre><span class="n">curl</span> <span class="o">-</span><span class="n">I</span> <span class="n">news</span><span class="p">.</span><span class="n">ycombinator</span><span class="p">.</span><span class="n">com</span>
-<span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
-<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="o">:</span> <span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span>
-<span class="n">Cache</span><span class="o">-</span><span class="n">Control</span><span class="o">:</span> <span class="n">private ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/linuxte-bie-qiang-da-he-ling-huo-de-ming-ling-xing-gong-ju-1.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/author/tulpar4.html">&larr; Older</a>
 
@@ -335,6 +344,9 @@ virtualenv 1.11.4  </p>
           <a href="/ge-shi-hua-zi-fu-chuan-shi-jian.html">格式化字符串——时间</a>
       </li>
       <li class="post">
+          <a href="/pythonshi-jian-cao-zuo.html">Python时间操作</a>
+      </li>
+      <li class="post">
           <a href="/pythonzhong-raw_inputhe-inputde-yi-tong-dian.html">Python中raw_input和input的异同点</a>
       </li>
       <li class="post">
@@ -342,9 +354,6 @@ virtualenv 1.11.4  </p>
       </li>
       <li class="post">
           <a href="/python-shi-li-fang-fa-jing-tai-fang-fa-lei-fang-fa.html">python 实例方法，静态方法，类方法</a>
-      </li>
-      <li class="post">
-          <a href="/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">python中 __（双下划线）的作用</a>
       </li>
     </ul>
   </section>
