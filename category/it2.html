@@ -51,6 +51,36 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Django中使用mysql数据库</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>安装Mysql</h3>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">mysql</span><span class="o">-</span><span class="n">server</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">mysqldb</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libmysqlclient</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+
+
+<h3>安装<code>mysql-python</code>模块</h3>
+<p><code>pip install mysql-python</code>   </p>
+<h3>创建并设置Database</h3>
+<div class="highlight"><pre><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span>
+<span class="n">Enter</span> <span class="n">password</span><span class="o">:</span> 
+
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">tulpar_db</span><span class="p">;</span>
+
+
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">GRANT</span> <span class="n">ALL</span> <span class="n">ON</span> <span class="n">tulpar_db</span><span class="p">.</span><span class="o">*</span> <span class="n">TO</span> <span class="err">&#39;</span><span class="n">tulpar</span><span class="sc">&#39;@&#39;</span><span class="n">localhost</span><span class="err">&#39;</span> <span class="n">IDENTIFIED</span> <span class="n">BY</span> <span class="err">&#39;</span><span class="n">mypassword</span><span class="err">&#39;</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0 ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Xadmin List_display中显示缩略图</a>
       </h1>
       <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
@@ -303,31 +333,6 @@
     <a rel="full-article" href="/edx_errors.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">在真机上部署Edx（在中国）</a>
-      </h1>
-      <p class="meta"><time datetime="2014-04-08T00:00:00" pubdate>二 08 四月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>1. Update your Ubuntu package sources</h3>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">upgrade</span> <span class="o">-</span><span class="n">y</span>
-<span class="n">sudo</span> <span class="n">reboot</span>
-</pre></div>
-
-
-<h3>2.用sshuttle翻墙</h3>
-<p>(ubuntu下)首先安装它: <br />
-<code>sudo apt-get install sshuttle</code> <br />
-<code>sshuttle -r action@apne1.nitrousbox.com:22411 0.0.0.0/0 -vv</code>  <br />
-搞定 , 就这么简单 注意action@apne1.nitrousbox.com:22411是我的ssh,你可以用你自己的,格式为username@sshserver,
-我把sshserver理解为跳板机 ...</p></div>
-  <footer>
-    <a rel="full-article" href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it3.html">&larr; Older</a>
 
@@ -339,6 +344,9 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/pythonzhong-raw_inputhe-inputde-yi-tong-dian.html">Python中raw_input和input的异同点</a>
+      </li>
+      <li class="post">
           <a href="/__init__fang-fa.html">__init__()方法</a>
       </li>
       <li class="post">
@@ -349,9 +357,6 @@
       </li>
       <li class="post">
           <a href="/python-withyu-ju.html">Python with语句</a>
-      </li>
-      <li class="post">
-          <a href="/python-exeche-evalyu-ju.html">python exec和eval语句</a>
       </li>
     </ul>
   </section>

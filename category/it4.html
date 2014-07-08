@@ -51,6 +51,37 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/sshyuan-li.html">SSH原理</a>
+      </h1>
+      <p class="meta"><time datetime="2013-12-08T00:00:00" pubdate>日 08 十二月 2013</time></p>
+</header>
+
+  <div class="entry-content"><p>简单说，SSH是一种网络协议，用于计算机之间的加密登录。</p>
+<hr />
+<h3>一 最基本的用法</h3>
+<p>SSH主要用于远程登录。假定你要以用户名user，登录远程主机host，只要一条简单命令就可以了。
+<code>$ ssh user@host</code>
+如果本地用户名与远程用户名一致，登录时可以省略用户名。
+<code>$ ssh host</code>
+SSH的默认端口是22，也就是说，你的登录请求会送进远程主机的22端口。使用p参数，可以修改这个端口。
+<code>$ ssh -p 2222 user@host</code>
+上面这条命令表示，ssh直接连接远程主机的2222端口。</p>
+<h3>二 SSH原理</h3>
+<p>SSH之所以能够保证安全，原因在于它采用了公钥加密。<br />
+原理如图<img alt="ssh原理图" src="http://softing.qiniudn.com/L%20(1" />.jpg)
+SSH登录整个过程是这样的：<br />
+（1）远程主机收到用户的登录请求，把自己的公钥发给用户。<br />
+（2）用户使用这个公钥，将登录密码加密后，发送回来。<br />
+（3）远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</p>
+<h3>三 密码登录过程</h3>
+<p>如果你是第一次登录对方主机 ...</p></div>
+  <footer>
+    <a rel="full-article" href="/sshyuan-li.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/tmux-ru-men.html">Tmux 入门</a>
       </h1>
       <p class="meta"><time datetime="2013-12-08T00:00:00" pubdate>日 08 十二月 2013</time></p>
@@ -258,6 +289,9 @@ Or <br />
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/pythonzhong-raw_inputhe-inputde-yi-tong-dian.html">Python中raw_input和input的异同点</a>
+      </li>
+      <li class="post">
           <a href="/__init__fang-fa.html">__init__()方法</a>
       </li>
       <li class="post">
@@ -268,9 +302,6 @@ Or <br />
       </li>
       <li class="post">
           <a href="/python-withyu-ju.html">Python with语句</a>
-      </li>
-      <li class="post">
-          <a href="/python-exeche-evalyu-ju.html">python exec和eval语句</a>
       </li>
     </ul>
   </section>
