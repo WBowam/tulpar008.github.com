@@ -5,7 +5,7 @@
 <head>
 <link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
   <meta charset="utf-8">
-  <title>Dreaming - Tmux</title>
+  <title>Dreaming - Github</title>
   <meta name="author" content="tulpar">
 
 
@@ -51,34 +51,28 @@
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="/tmux-ru-men.html">Tmux 入门</a>
+        <a href="/git-qu-xiao-cuo-wu-de-shang-chuan.html">git 取消错误的上传</a>
       </h1>
-      <p class="meta"><time datetime="2013-12-08T00:00:00" pubdate>日 08 十二月 2013</time></p>
+      <p class="meta"><time datetime="2013-07-23T00:00:00" pubdate>二 23 七月 2013</time></p>
 </header>
 
-  <div class="entry-content"><h3>tmux快捷键</h3>
-<p>tmux在会话中使用大量的快捷键来控制多个窗口、多个会话等。</p>
-<div class="highlight"><pre><span class="n">Ctrl</span><span class="o">+</span><span class="n">b</span>  <span class="c1">// 激活控制台；此时以下按键生效   </span>
-<span class="err">系统操作</span>   
-    <span class="o">?</span>   <span class="c1">// 列出所有快捷键；按q返回   </span>
-    <span class="n">d</span>   <span class="c1">// 脱离当前会话；这样可以暂时返回Shell界面，输入tmux attach能够重新进入之前的会话   </span>
-    <span class="n">D</span>   <span class="c1">// 选择要脱离的会话；在同时开启了多个会话时使用   </span>
-    <span class="n">Ctrl</span><span class="o">+</span><span class="n">z</span>  <span class="c1">// 挂起当前会话   </span>
-    <span class="n">r</span>   <span class="c1">// 强制重绘未脱离的会话   </span>
-    <span class="n">s</span>   <span class="c1">// 选择并切换会话；在同时开启了多个会话时使用   </span>
-    <span class="o">:</span>   <span class="c1">// 进入命令行模式；此时可以输入支持的命令，例如kill-server可以关闭服务器   </span>
-    <span class="p">[</span>   <span class="c1">// 进入复制模式；此时的操作与vi/emacs相同，按q/Esc退出   </span>
-    <span class="o">~</span>   <span class="c1">// 列出提示信息缓存；其中包含了之前tmux返回的各种提示信息   </span>
-<span class="err">窗口操作</span>   
-    <span class="n">c</span>   <span class="c1">// 创建新窗口   </span>
-    <span class="o">&amp;</span>   <span class="c1">// 关闭当前窗口   </span>
-    <span class="err">数字键</span> <span class="c1">// 切换至指定窗口   </span>
-    <span class="n">p</span>   <span class="c1">// 切换至上一窗口   </span>
-    <span class="n">n</span>   <span class="c1">// 切换至下一窗口   </span>
-    <span class="n">l</span>   <span class="c1">// 在前后两个窗口间互相切换   </span>
-    <span class="n">w</span>   <span class="c1">// 通过窗口列表切换窗口 ...</span></pre></div></div>
+  <div class="entry-content"><h5>参考<a href="http://stackoverflow.com/questions/448919/how-can-i-remove-a-commit-on-github">Stackoverflow</a></h5>
+<h4>通过如下命令显示最近的上传情况</h4>
+<p><code>git rebase -i HEAD~3</code>    </p>
+<h6>将会显示最近的2个上传，也可以显示任意个，如<code>HEAD~10</code></h6>
+<div class="highlight"><pre><span class="n">pick</span> <span class="n">d877e57</span> <span class="o">%</span><span class="n">s</span>
+<span class="n">pick</span> <span class="n">f032eda</span> <span class="o">%</span><span class="n">s</span>
+<span class="n">pick</span> <span class="n">e545efa</span> <span class="n">jiali</span>
+
+<span class="cp"># Rebase eb78f1f..f032eda onto eb78f1f</span>
+<span class="cp">#</span>
+<span class="cp"># Commands:</span>
+<span class="cp">#  p, pick = use commit</span>
+<span class="cp">#  r, reword = use commit, but edit the commit message</span>
+<span class="cp">#  e, edit = use commit, but stop for amending</span>
+<span class="cp">#  s ...</span></pre></div></div>
   <footer>
-    <a rel="full-article" href="/tmux-ru-men.html">Read On &crarr;</a>
+    <a rel="full-article" href="/git-qu-xiao-cuo-wu-de-shang-chuan.html">Read On &crarr;</a>
   </footer>
   		</article>
 <div class="pagination">
@@ -90,7 +84,7 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="/tmux-ru-men.html">Tmux 入门</a>
+          <a href="/git-qu-xiao-cuo-wu-de-shang-chuan.html">git 取消错误的上传</a>
       </li>
     </ul>
   </section>
