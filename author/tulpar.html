@@ -51,85 +51,6 @@
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="/hui-jia-lu.html">回家路</a>
-      </h1>
-      <p class="meta"><time datetime="2014-07-16T00:00:00" pubdate>三 16 七月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>就这么又一次开始了回家的旅途</h3>
-<p><img alt="就这样开始" src="http://tulparblog.qiniudn.com/lifeIMG_20140711_110306.jpg" /></p>
-<h3>在北京转车，得等3个小时，吃了吨开心午餐</h3>
-<p><img alt="开心午餐，磨的是时间" src="http://tulparblog.qiniudn.com/lifeIMG_20140711_130640.jpg" /></p>
-<h3>两天后的驴友，醒醒吧，还有两天</h3>
-<p><img alt="是的，的确很累！！！" src="http://tulparblog.qiniudn.com/lifeIMG_20140713_095127.jpg" /></p>
-<h3>吐鲁番，转车，很累，吃到家乡的拉面，很开心</h3>
-<p><img alt="虽然，做的不怎么好吃" src="http://tulparblog.qiniudn.com/lifeIMG_20140713_073856.jpg" /></p>
-<h3>终于，到家了</h3>
-<p><img alt="我家后面" src="http://tulparblog.qiniudn.com/lifeIMG_20140717_135705.jpg" />
-<img alt="嗯，就是的" src="http://tulparblog.qiniudn.com/lifeIMG_20140717_135934.jpg" /></p></div>
-  <footer>
-    <a rel="full-article" href="/hui-jia-lu.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/ge-shi-hua-zi-fu-chuan-shi-jian.html">格式化字符串——时间</a>
-      </h1>
-      <p class="meta"><time datetime="2014-07-08T00:00:00" pubdate>二 08 七月 2014</time></p>
-</header>
-
-  <div class="entry-content"><p>之前介绍过<a href="http://tulpar008.github.io/ben-ban-fa-xue-python.html">格式化字符串</a>  <br />
-本篇专门介绍格式化字符串——时间    </p>
-<hr />
-<p>所有日期、时间的api都在datetime模块内。</p>
-<h5>1. datetime =&gt; string</h5>
-<div class="highlight"><pre><span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">()</span>
-<span class="n">now</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="err">&#39;</span><span class="o">%</span><span class="n">Y</span><span class="o">-%</span><span class="n">m</span><span class="o">-%</span><span class="n">d</span> <span class="o">%</span><span class="n">H</span><span class="o">:%</span><span class="n">M</span><span class="o">:%</span><span class="n">S</span><span class="err">&#39;</span><span class="p">)</span>
-<span class="err">输出</span><span class="mi">2012</span><span class="o">-</span><span class="mo">03</span><span class="o">-</span><span class="mo">05</span> <span class="mi">16</span><span class="o">:</span><span class="mi">26</span><span class="o">:</span><span class="mf">23.870105</span>
-</pre></div>
-
-
-<p>strftime是datetime类的实例方法。</p>
-<h5>2. string =&gt; datetime</h5>
-<div class="highlight"><pre><span class="n">t_str</span> <span class="o">=</span> <span class="err">&#39;</span><span class="mi">2012</span><span class="o">-</span><span class="mo">03</span><span class="o">-</span><span class="mo">05</span> <span class="mi">16</span><span class="o">:</span><span class="mi">26</span><span class="o">:</span><span class="mi">23</span><span class="err">&#39;</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">t_str</span><span class="p">,</span> <span class="err">&#39;</span><span class="o">%</span><span class="n">Y</span><span class="o">-%</span><span class="n">m</span><span class="o">-%</span><span class="n">d</span> <span class="o">%</span><span class="n">H</span><span class="o">:%</span><span class="n">M ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/ge-shi-hua-zi-fu-chuan-shi-jian.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/pythonshi-jian-cao-zuo.html">Python时间操作</a>
-      </h1>
-      <p class="meta"><time datetime="2014-07-08T00:00:00" pubdate>二 08 七月 2014</time></p>
-</header>
-
-  <div class="entry-content"><p>所有日期、时间的api都在datetime模块内。 <br />
-参考<a href="http://tulpar008.github.io/ge-shi-hua-zi-fu-chuan-shi-jian.html">时间格式化字符串</a></p>
-<h3>1. datetime =&gt; string</h3>
-<div class="highlight"><pre><span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">()</span>
-<span class="n">now</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="err">&#39;</span><span class="o">%</span><span class="n">Y</span><span class="o">-%</span><span class="n">m</span><span class="o">-%</span><span class="n">d</span> <span class="o">%</span><span class="n">H</span><span class="o">:%</span><span class="n">M</span><span class="o">:%</span><span class="n">S</span><span class="err">&#39;</span><span class="p">)</span>
-<span class="err">输出</span><span class="mi">2012</span><span class="o">-</span><span class="mo">03</span><span class="o">-</span><span class="mo">05</span> <span class="mi">16</span><span class="o">:</span><span class="mi">26</span><span class="o">:</span><span class="mf">23.870105</span>
-</pre></div>
-
-
-<p>strftime是datetime类的实例方法。</p>
-<h3>2. string =&gt; datetime</h3>
-<div class="highlight"><pre><span class="n">t_str</span> <span class="o">=</span> <span class="err">&#39;</span><span class="mi">2012</span><span class="o">-</span><span class="mo">03</span><span class="o">-</span><span class="mo">05</span> <span class="mi">16</span><span class="o">:</span><span class="mi">26</span><span class="o">:</span><span class="mi">23</span><span class="err">&#39;</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">t_str</span><span class="p">,</span> <span class="err">&#39;</span><span class="o">%</span><span class="n">Y</span><span class="o">-%</span><span class="n">m</span><span class="o">-%</span><span class="n">d</span> <span class="o">%</span><span class="n">H</span><span class="o">:%</span><span class="n">M</span><span class="o">:%</span><span class="n">S</span><span class="err">&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<p>strptime是datetime类的静态方法 ...</p></div>
-  <footer>
-    <a rel="full-article" href="/pythonshi-jian-cao-zuo.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
         <a href="/pythonzhong-raw_inputhe-inputde-yi-tong-dian.html">Python中raw_input和input的异同点</a>
       </h1>
       <p class="meta"><time datetime="2014-07-08T00:00:00" pubdate>二 08 七月 2014</time></p>
@@ -161,7 +82,7 @@
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="/init__fang-fa.html">init__()方法</a>
+        <a href="/init__fang-fa.html">__init__()方法</a>
       </h1>
       <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
 </header>
@@ -361,6 +282,99 @@
     <a rel="full-article" href="/stryu-reprde-qu-bie.html">Read On &crarr;</a>
   </footer>
   		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/ben-ban-fa-xue-python.html">笨办法学python</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-30T00:00:00" pubdate>一 30 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>总有一天你会听到有程序员建议你使用 Mac OSX 或者 Linux。如果他喜欢字体美观，他会告诉你让你弄台 Mac OSX 计算机，如果他们喜欢操作控制而且留了一部大胡子，他会让你安装 Linux。这里再次向你说明，只要是一台手上能用的电脑就可以了。</h3>
+<h3>01 print</h3>
+<h5>字符串涉及换行时，行尾得用'\'</h5>
+<div class="highlight"><pre><span class="n">s1</span><span class="o">=</span><span class="s">&quot;some very long string.....\   </span>
+<span class="p">...</span>\
+<span class="p">....</span><span class="s">&quot;</span>
+<span class="n">print</span> <span class="n">s1</span>
+</pre></div>
+
+
+<h5>记得加<code>#-*- coding: UTF-8 -*-</code></h5>
+<div class="highlight"><pre><span class="cp">#-*- coding: UTF-8 -*- </span>
+<span class="n">print</span> <span class="err">&#39;</span><span class="n">hello</span><span class="err">&#39;</span>
+
+<span class="cp">#print hello ##wrong </span>
+
+
+<span class="n">a</span><span class="o">=</span><span class="err">&#39;</span><span class="n">hello</span> <span class="n">a</span><span class="err">&#39;</span>
+<span class="n">print</span> <span class="n">a</span>
+
+<span class="n">print</span> <span class="s">&quot;I like typing this&quot;</span>
+
+
+
+
+<span class="n">print</span> <span class="s">&quot;iacoding: utf-8 --这样你就在脚本中使用aap ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/ben-ban-fa-xue-python.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/mysqlyu-ju-ru-men-1.html">Mysql语句入门（1）</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-19T00:00:00" pubdate>四 19 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>进入退出</h3>
+<div class="highlight"><pre><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span>
+<span class="n">Enter</span> <span class="n">password</span><span class="o">:</span> 
+
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">quit</span>
+</pre></div>
+
+
+<h3>创建数据库</h3>
+<div class="highlight"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">tulpar_db</span> <span class="n">CHARACTER</span> <span class="n">SET</span> <span class="n">utf8</span> <span class="n">COLLATE</span> <span class="n">utf8_general_ci</span><span class="p">;</span>
+
+
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">GRANT</span> <span class="n">ALL</span> <span class="n">ON</span> <span class="n">tulpar_db</span><span class="p">.</span><span class="o">*</span> <span class="n">TO</span> <span class="err">&#39;</span><span class="n">tulpar</span><span class="sc">&#39;@&#39;</span><span class="n">localhost</span><span class="err">&#39;</span> <span class="n">IDENTIFIED</span> <span class="n">BY</span> <span class="err">&#39;</span><span class="n">mypassword</span><span class="err">&#39;</span><span class="p">;</span>
+</pre></div>
+
+
+<h3>导入数据库</h3>
+<h5>常用source 命令</h5>
+<div class="highlight"><pre><span class="n">mysql</span><span class="o">&gt;</span><span class="n">use</span> <span class="n">tulpar_db</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="n">source</span> <span class="p">..</span><span class="o">/</span><span class="n">wcnc_db</span><span class="p">.</span><span class="n">sql</span>
+</pre></div>
+
+
+<h3>导出整个数据库</h3>
+<p>mysqldump -u 用户名 -p 数据库名 &gt; 导出的文件名</p>
+<div class="highlight"><pre><span class="n">mysqldump</span> <span class="o">-</span><span class="n">u</span> <span class="n">tulpar ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/mysqlyu-ju-ru-men-1.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>如下方法：</h3>
+<div class="highlight"><pre><span class="nx">python</span> <span class="nx">manage.py</span> <span class="nx">dumpdata</span> <span class="o">&lt;</span><span class="nx">your_app</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="nx">temp_data.json</span>
+<span class="err">##做一些毁数据的活儿</span>
+<span class="nx">python</span> <span class="nx">manage.py</span> <span class="nx">loaddata</span> <span class="nx">temp_data.json</span>
+</pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-bei-fen-shu-ju-fang-fa-1.html">Read On &crarr;</a>
+  </footer>
+  		</article>
 <div class="pagination">
     <a class="prev" href="/author/tulpar2.html">&larr; Older</a>
 
@@ -371,19 +385,19 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="/hui-jia-lu.html">回家路</a>
-      </li>
-      <li class="post">
-          <a href="/ge-shi-hua-zi-fu-chuan-shi-jian.html">格式化字符串——时间</a>
-      </li>
-      <li class="post">
-          <a href="/pythonshi-jian-cao-zuo.html">Python时间操作</a>
-      </li>
-      <li class="post">
           <a href="/pythonzhong-raw_inputhe-inputde-yi-tong-dian.html">Python中raw_input和input的异同点</a>
       </li>
       <li class="post">
-          <a href="/init__fang-fa.html">init__()方法</a>
+          <a href="/init__fang-fa.html">__init__()方法</a>
+      </li>
+      <li class="post">
+          <a href="/python-shi-li-fang-fa-jing-tai-fang-fa-lei-fang-fa.html">python 实例方法，静态方法，类方法</a>
+      </li>
+      <li class="post">
+          <a href="/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">python中 __（双下划线）的作用</a>
+      </li>
+      <li class="post">
+          <a href="/python-withyu-ju.html">Python with语句</a>
       </li>
     </ul>
   </section>
@@ -399,7 +413,7 @@
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>  </section>
+    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
 
 
     <section>

@@ -51,99 +51,6 @@
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="/ben-ban-fa-xue-python.html">笨办法学python</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-30T00:00:00" pubdate>一 30 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>总有一天你会听到有程序员建议你使用 Mac OSX 或者 Linux。如果他喜欢字体美观，他会告诉你让你弄台 Mac OSX 计算机，如果他们喜欢操作控制而且留了一部大胡子，他会让你安装 Linux。这里再次向你说明，只要是一台手上能用的电脑就可以了。</h3>
-<h3>01 print</h3>
-<h5>字符串涉及换行时，行尾得用'\'</h5>
-<div class="highlight"><pre><span class="n">s1</span><span class="o">=</span><span class="s">&quot;some very long string.....\   </span>
-<span class="p">...</span>\
-<span class="p">....</span><span class="s">&quot;</span>
-<span class="n">print</span> <span class="n">s1</span>
-</pre></div>
-
-
-<h5>记得加<code>#-*- coding: UTF-8 -*-</code></h5>
-<div class="highlight"><pre><span class="cp">#-*- coding: UTF-8 -*- </span>
-<span class="n">print</span> <span class="err">&#39;</span><span class="n">hello</span><span class="err">&#39;</span>
-
-<span class="cp">#print hello ##wrong </span>
-
-
-<span class="n">a</span><span class="o">=</span><span class="err">&#39;</span><span class="n">hello</span> <span class="n">a</span><span class="err">&#39;</span>
-<span class="n">print</span> <span class="n">a</span>
-
-<span class="n">print</span> <span class="s">&quot;I like typing this&quot;</span>
-
-
-
-
-<span class="n">print</span> <span class="s">&quot;iacoding: utf-8 --这样你就在脚本中使用aap ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/ben-ban-fa-xue-python.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/mysqlyu-ju-ru-men-1.html">Mysql语句入门（1）</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-19T00:00:00" pubdate>四 19 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>进入退出</h3>
-<div class="highlight"><pre><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span>
-<span class="n">Enter</span> <span class="n">password</span><span class="o">:</span> 
-
-<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">quit</span>
-</pre></div>
-
-
-<h3>创建数据库</h3>
-<div class="highlight"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">tulpar_db</span> <span class="n">CHARACTER</span> <span class="n">SET</span> <span class="n">utf8</span> <span class="n">COLLATE</span> <span class="n">utf8_general_ci</span><span class="p">;</span>
-
-
-<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">GRANT</span> <span class="n">ALL</span> <span class="n">ON</span> <span class="n">tulpar_db</span><span class="p">.</span><span class="o">*</span> <span class="n">TO</span> <span class="err">&#39;</span><span class="n">tulpar</span><span class="sc">&#39;@&#39;</span><span class="n">localhost</span><span class="err">&#39;</span> <span class="n">IDENTIFIED</span> <span class="n">BY</span> <span class="err">&#39;</span><span class="n">mypassword</span><span class="err">&#39;</span><span class="p">;</span>
-</pre></div>
-
-
-<h3>导入数据库</h3>
-<h5>常用source 命令</h5>
-<div class="highlight"><pre><span class="n">mysql</span><span class="o">&gt;</span><span class="n">use</span> <span class="n">tulpar_db</span>
-<span class="n">mysql</span><span class="o">&gt;</span><span class="n">source</span> <span class="p">..</span><span class="o">/</span><span class="n">wcnc_db</span><span class="p">.</span><span class="n">sql</span>
-</pre></div>
-
-
-<h3>导出整个数据库</h3>
-<p>mysqldump -u 用户名 -p 数据库名 &gt; 导出的文件名</p>
-<div class="highlight"><pre><span class="n">mysqldump</span> <span class="o">-</span><span class="n">u</span> <span class="n">tulpar ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/mysqlyu-ju-ru-men-1.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>如下方法：</h3>
-<div class="highlight"><pre><span class="nx">python</span> <span class="nx">manage.py</span> <span class="nx">dumpdata</span> <span class="o">&lt;</span><span class="nx">your_app</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="nx">temp_data.json</span>
-<span class="err">##做一些毁数据的活儿</span>
-<span class="nx">python</span> <span class="nx">manage.py</span> <span class="nx">loaddata</span> <span class="nx">temp_data.json</span>
-</pre></div></div>
-  <footer>
-    <a rel="full-article" href="/django-bei-fen-shu-ju-fang-fa-1.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
         <a href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Django中使用mysql数据库</a>
       </h1>
       <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
@@ -316,6 +223,75 @@
     <a rel="full-article" href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-1.html">Read On &crarr;</a>
   </footer>
   		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-2.html">把时间当作朋友读后感（2）</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-12T00:00:00" pubdate>四 12 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>用正确方式做正确的事情，时间无需管理。</h3>
+<h3>管理焦点不应该是时间，而是自己。</h3>
+<h4>时间只是个工具，它用于把我们的生命划分成无数个块。</h4>
+<p>生命就像一条高速公路，我们就像一辆不到终点不会停车的长途汽车，有时候看着路边的风景，有时候闭着眼睛养神，但无论何时我们一直在走。路标会告诉我们自己走在哪一路段，会走向哪里。而这路标就是时间</p></div>
+  <footer>
+    <a rel="full-article" href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-2.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/bu-shu-socketio-de-demo.html">部署Socket.io 的demo</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-11T00:00:00" pubdate>三 11 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h1>1.安装nvm</h1>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">wget</span> <span class="o">-</span><span class="n">qO</span><span class="o">-</span> <span class="n">https</span><span class="o">:</span><span class="c1">//raw.github.com/creationix/nvm/v0.4.0/install.sh | sh</span>
+</pre></div>
+
+
+<h1>2.安装node</h1>
+<div class="highlight"><pre><span class="n">nvm</span> <span class="n">install</span> <span class="mf">0.1</span>
+</pre></div>
+
+
+<h6>若过程中如果报错，说：创建目录/usr/sbin/src 权限不够</h6>
+<p>我用了个极端的方法来解决此问题，不推荐</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">chmod</span> <span class="mi">777</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span>
+</pre></div>
+
+
+<h1>3. 跑起</h1>
+<div class="highlight"><pre><span class="n">cd</span> <span class="n">socket</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">example</span><span class="o">/</span><span class="n">chat</span><span class="o">/</span>
+<span class="n">node</span> <span class="n">index</span><span class="p">.</span><span class="n">js</span>
+</pre></div>
+
+
+<h6>日如果报错误说，缺某某moudle，就一个个安装那些插件即可，如 ...</h6></div>
+  <footer>
+    <a rel="full-article" href="/bu-shu-socketio-de-demo.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/linux-xiao-ji-qiao-1.html">linux 小技巧（1）</a>
+      </h1>
+      <p class="meta"><time datetime="2014-05-28T00:00:00" pubdate>三 28 五月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>1.install local deb packages:</h3>
+<p><code>dpkg -i file.deb</code></p>
+<h5>uninstall packages installed with dpkg:</h5>
+<p><code>``dpkg -r appname</code></p>
+<h5>list packages installed with dpkg:</h5>
+<p><code>dpkg --get-selections | grep -v deinstall</code></p></div>
+  <footer>
+    <a rel="full-article" href="/linux-xiao-ji-qiao-1.html">Read On &crarr;</a>
+  </footer>
+  		</article>
 <div class="pagination">
     <a class="prev" href="/index3.html">&larr; Older</a>
 
@@ -327,19 +303,19 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="/hui-jia-lu.html">回家路</a>
-      </li>
-      <li class="post">
-          <a href="/ge-shi-hua-zi-fu-chuan-shi-jian.html">格式化字符串——时间</a>
-      </li>
-      <li class="post">
-          <a href="/pythonshi-jian-cao-zuo.html">Python时间操作</a>
-      </li>
-      <li class="post">
           <a href="/pythonzhong-raw_inputhe-inputde-yi-tong-dian.html">Python中raw_input和input的异同点</a>
       </li>
       <li class="post">
-          <a href="/init__fang-fa.html">init__()方法</a>
+          <a href="/init__fang-fa.html">__init__()方法</a>
+      </li>
+      <li class="post">
+          <a href="/python-shi-li-fang-fa-jing-tai-fang-fa-lei-fang-fa.html">python 实例方法，静态方法，类方法</a>
+      </li>
+      <li class="post">
+          <a href="/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">python中 __（双下划线）的作用</a>
+      </li>
+      <li class="post">
+          <a href="/python-withyu-ju.html">Python with语句</a>
       </li>
     </ul>
   </section>
@@ -355,7 +331,7 @@
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>  </section>
+    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
 
 
     <section>

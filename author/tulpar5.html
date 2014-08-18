@@ -51,139 +51,6 @@
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="/django-media-pei-zhi-fang-fa-yi.html">Django Media 配置（方法一）</a>
-      </h1>
-      <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
-</header>
-
-  <div class="entry-content"><h5>Env:</h5>
-<ul>
-<li>django==1.4.5</li>
-<li>python==2.7</li>
-<li>ubuntu==13.04</li>
-</ul>
-<hr />
-<h3>django 的Static 和 Media配置之Media</h3>
-<h3>settings.py</h3>
-<div class="highlight"><pre><span class="cp">##added by Tulpar,20140514</span>
-<span class="n">import</span> <span class="n">os</span>
-<span class="n">settings_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
-<span class="n">PROJECT_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">settings_dir</span><span class="p">))</span>
-
-<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">public</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span><span class="p">)</span>
-<span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span>
-</pre></div>
-
-
-<h3>urls.py</h3>
-<div class="highlight"><pre><span class="err">#</span><span class="vi">#added</span> <span class="k">by</span> <span class="nx">Tulpar ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/django-media-pei-zhi-fang-fa-yi.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/django-userena-de-shi-yong.html">Django-userena 的使用</a>
-      </h1>
-      <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
-</header>
-
-  <div class="entry-content"><hr />
-<p>先Clone <a href="https://github.com/bread-and-pepper/django-userena.git">Github上的源码</a>，运行Demo看看效果，</p>
-<div class="highlight"><pre><span class="err">进入</span><span class="n">demo</span><span class="err">目录</span>
- <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
-<span class="p">(</span><span class="err">再装一个</span><span class="n">html2text</span><span class="p">)</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">html2text</span>
-<span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">runserver</span>
-</pre></div>
-
-
-<p>然后再自己搭一个，如下步骤</p>
-<hr />
-<h3>安装</h3>
-<p><code>pip install django-userena</code></p>
-<h3>配置</h3>
-<h4>1. add ’userena’, ’guardian’, ’easy_thumbnails’ to your INSTALLED_APPS tuple.</h4>
-<div class="highlight"><pre><span class="err">’</span><span class="n">userena</span><span class="err">’</span><span class="p">,</span>  
-<span class="err">’</span><span class="n">guardian</span><span class="err">’</span><span class="p">,</span>  
-<span class="err">’</span><span class="n">easy_thumbnails</span><span class="err">’</span><span class="p">,</span>
-</pre></div>
-
-
-<h4>2. in your settings.py file, add the following:</h4>
-<div class="highlight"><pre><span class="n">AUTHENTICATION_BACKENDS</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="err">&#39;</span><span class="n">userena ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/django-userena-de-shi-yong.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/git-ru-men.html">Git 入门</a>
-      </h1>
-      <p class="meta"><time datetime="2013-09-08T00:00:00" pubdate>日 08 九月 2013</time></p>
-</header>
-
-  <div class="entry-content"><p>之前入门过git，只是入门，不明白原理，不会用建分支，没法完成一些稍有难度的工作。因此，一直想再学学，一直是想，直到......<br />
-好朋友wwj推荐<a href="http://igit.linuxtoy.org/">沉浸式学 Git</a>，看了一下：特别喜欢，再学学，走起！
-感谢<a href="http://igit.linuxtoy.org/">徐小东</a>，感谢<a href="http://wwj718.github.io/">wwj</a>.</p>
-<hr />
-<h3>安装</h3>
-<h5>Linux</h5>
-<p><code>$ apt-get install git</code> <br />
-Or <br />
-<code>$ yum install git-core</code></p>
-<h5>Mac</h5>
-<p>请参阅<a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Mac 安装Git</a></p>
-<h5>windows</h5>
-<p>请参阅 <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Windows 安装Git</a></p>
-<hr />
-<h3>开始使用</h3>
-<h4>1. 创建新仓库</h4>
-<div class="highlight"><pre><span class="n">mkdir</span> <span class="n">hello</span>
-<span class="n">cd</span> <span class="n">hello</span>  
-<span class="n">git</span> <span class="n">init</span>
-</pre></div>
-
-
-<p>添加新内容
-<code>vim hello.rb ...</code></p></div>
-  <footer>
-    <a rel="full-article" href="/git-ru-men.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/git-qu-xiao-cuo-wu-de-shang-chuan.html">git 取消错误的上传</a>
-      </h1>
-      <p class="meta"><time datetime="2013-07-23T00:00:00" pubdate>二 23 七月 2013</time></p>
-</header>
-
-  <div class="entry-content"><h5>参考<a href="http://stackoverflow.com/questions/448919/how-can-i-remove-a-commit-on-github">Stackoverflow</a></h5>
-<h4>通过如下命令显示最近的上传情况</h4>
-<p><code>git rebase -i HEAD~3</code>    </p>
-<h6>将会显示最近的2个上传，也可以显示任意个，如<code>HEAD~10</code></h6>
-<div class="highlight"><pre><span class="n">pick</span> <span class="n">d877e57</span> <span class="o">%</span><span class="n">s</span>
-<span class="n">pick</span> <span class="n">f032eda</span> <span class="o">%</span><span class="n">s</span>
-<span class="n">pick</span> <span class="n">e545efa</span> <span class="n">jiali</span>
-
-<span class="cp"># Rebase eb78f1f..f032eda onto eb78f1f</span>
-<span class="cp">#</span>
-<span class="cp"># Commands:</span>
-<span class="cp">#  p, pick = use commit</span>
-<span class="cp">#  r, reword = use commit, but edit the commit message</span>
-<span class="cp">#  e, edit = use commit, but stop for amending</span>
-<span class="cp">#  s ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/git-qu-xiao-cuo-wu-de-shang-chuan.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
         <a href="/linux-xiao-ji-qiao-2.html">linux 小技巧（2）</a>
       </h1>
       <p class="meta"><time datetime="2013-05-29T00:00:00" pubdate>三 29 五月 2013</time></p>
@@ -209,19 +76,19 @@ Or <br />
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="/hui-jia-lu.html">回家路</a>
-      </li>
-      <li class="post">
-          <a href="/ge-shi-hua-zi-fu-chuan-shi-jian.html">格式化字符串——时间</a>
-      </li>
-      <li class="post">
-          <a href="/pythonshi-jian-cao-zuo.html">Python时间操作</a>
-      </li>
-      <li class="post">
           <a href="/pythonzhong-raw_inputhe-inputde-yi-tong-dian.html">Python中raw_input和input的异同点</a>
       </li>
       <li class="post">
-          <a href="/init__fang-fa.html">init__()方法</a>
+          <a href="/init__fang-fa.html">__init__()方法</a>
+      </li>
+      <li class="post">
+          <a href="/python-shi-li-fang-fa-jing-tai-fang-fa-lei-fang-fa.html">python 实例方法，静态方法，类方法</a>
+      </li>
+      <li class="post">
+          <a href="/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">python中 __（双下划线）的作用</a>
+      </li>
+      <li class="post">
+          <a href="/python-withyu-ju.html">Python with语句</a>
       </li>
     </ul>
   </section>
@@ -237,7 +104,7 @@ Or <br />
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>  </section>
+    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/ssh.html">ssh</a>  </section>
 
 
     <section>
