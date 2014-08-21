@@ -51,6 +51,39 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/ming-ling-xing-xia-shi-yong-virtualbox.html">命令行下使用VirtualBox</a>
+      </h1>
+      <p class="meta"><time datetime="2014-01-08T00:00:00" pubdate>三 08 一月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>有个小小的需求：ssh登录的远程服务器上，开启poweroff状态的VirtualBox虚拟机.......</p>
+<p>需要学会在命令行下管理及使用VirtualBox， <br />
+下面只是一些基本的用法，只供入门。当然，如果你执意，也可以去看<a href="http://www.virtualbox.org/manual/ch08.html#idp6268864">VirtualBox文档</a></p>
+<h3>走起</h3>
+<hr />
+<h5>一个命令可以满足我的需求，即VBoxManage</h5>
+<h3>1. VBoxManage startvm子命令可以开启一台状态为关闭或者保存的虚拟机。该命令的语法为:</h3>
+<div class="highlight"><pre><span class="n">VBoxManage</span> <span class="n">startvm</span>  <span class="n">uuid</span><span class="o">&gt;|</span><span class="n">name</span><span class="p">...</span> <span class="p">[</span><span class="o">--</span><span class="n">type</span> <span class="n">gui</span><span class="o">|</span><span class="n">sdl</span><span class="o">|</span><span class="n">headless</span><span class="p">]</span>
+</pre></div>
+
+
+<h3>2. 可以通过虚拟机的uuid或者name来指定某台虚拟机，可以通过另外一个子命令list列出系统已有的虚拟机：</h3>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">VBoxManage</span> <span class="n">list</span> <span class="n">vms</span>
+<span class="s">&quot;XP&quot;</span> <span class="p">{</span><span class="mi">8842</span><span class="n">d793</span><span class="o">-</span><span class="mi">228</span><span class="n">c</span><span class="o">-</span><span class="mi">458</span><span class="n">e</span><span class="o">-</span><span class="n">a880</span><span class="o">-</span><span class="mf">8051193f</span><span class="n">d2db</span><span class="p">}</span>
+</pre></div>
+
+
+<p>我系统上已经安装了一台名为XP的虚拟机，后面括号内部的是它的UUID。</p>
+<h3>3.VBoxManage startvm子命令可以通过--type参数指定启动的方式</h3>
+<h4>gui:图形化界面</h4>
+<h4>sdl也是图形化界面，但是少掉了部分功能 ...</h4></div>
+  <footer>
+    <a rel="full-article" href="/ming-ling-xing-xia-shi-yong-virtualbox.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/ubuntu-yong-hu-yong-ming-ling-an-zhuang-virtualbox-438.html">Ubuntu 用户用命令安装 VirtualBox 4.3.8</a>
       </h1>
       <p class="meta"><time datetime="2014-01-08T00:00:00" pubdate>三 08 一月 2014</time></p>
@@ -337,25 +370,8 @@ Or <br />
     <a rel="full-article" href="/git-qu-xiao-cuo-wu-de-shang-chuan.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/linux-xiao-ji-qiao-2.html">linux 小技巧（2）</a>
-      </h1>
-      <p class="meta"><time datetime="2013-05-29T00:00:00" pubdate>三 29 五月 2013</time></p>
-</header>
-
-  <div class="entry-content"><h3>1.纯命令行下用鼠标</h3>
-<h1>gpm</h1>
-<h5>安装gpm服务</h5>
-<p><code>sudo apt-get install gpm</code></p>
-<h5>使用</h5>
-<p><code>serviece gpm start</code></p></div>
-  <footer>
-    <a rel="full-article" href="/linux-xiao-ji-qiao-2.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
+    <a class="prev" href="/category/it5.html">&larr; Older</a>
 
     <a class="next" href="/category/it3.html">Newer &rarr;</a>
   <br />
@@ -364,6 +380,9 @@ Or <br />
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
+      <li class="post">
+          <a href="/ubuntu-1204zhong-wen-shu-ru-fa-de-an-zhuang.html">Ubuntu 12.04中文输入法的安装</a>
+      </li>
       <li class="post">
           <a href="/ge-shi-hua-zi-fu-chuan-shi-jian.html">格式化字符串——时间</a>
       </li>
@@ -375,9 +394,6 @@ Or <br />
       </li>
       <li class="post">
           <a href="/init__fang-fa.html">init__()方法</a>
-      </li>
-      <li class="post">
-          <a href="/python-shi-li-fang-fa-jing-tai-fang-fa-lei-fang-fa.html">python 实例方法，静态方法，类方法</a>
       </li>
     </ul>
   </section>
@@ -393,7 +409,7 @@ Or <br />
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>  </section>
+    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>  </section>
 
 
     <section>
