@@ -51,6 +51,38 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/ubuntu-1204zhong-wen-shu-ru-fa-de-an-zhuang.html">Ubuntu 12.04中文输入法的安装</a>
+      </h1>
+      <p class="meta"><time datetime="2014-08-21T00:00:00" pubdate>四 21 八月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>Ubuntu上的输入法主要有小小输入平台（支持拼音/二笔/五笔等），Fcitx，Ibus，Scim等。  <br />
+其中Scim和Ibus是输入法框架。  <br />
+在Ubuntu的中文系统中自带了中文输入法，通过Ctrl+Space可切换中英文输入法。  <br />
+假设我们装了Ubuntu英文系统，或系统自带输入法损坏，，，，，，，   </p>
+<hr />
+<h4>1.安装语言包</h4>
+<p>System Settings--&gt;Language Support--&gt;Install/Remove Languages<br />
+<img alt="Install /Remove Languages" src="http://tulparblog.qiniudn.com/ubuntu20120728104525690.png" /></p>
+<h4>2.安装并启动IBus框架</h4>
+<p>安装Ibus框架：</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">ibus</span> <span class="n">ibus</span><span class="o">-</span><span class="n">clutter</span> <span class="n">ibus</span><span class="o">-</span><span class="n">gtk</span> <span class="n">ibus</span><span class="o">-</span><span class="n">gtk3</span> <span class="n">ibus</span><span class="o">-</span><span class="n">qt4</span>
+</pre></div>
+
+
+<p>启动IBus框架：
+<code>im-switch -s ibus</code>    <br />
+注销系统，保证更改立即生效。  </p>
+<h4>3.安装拼音引擎</h4>
+<p>有下面几种常用选择：  <br />
+IBus拼音：<code>sudo apt-get ...</code></p></div>
+  <footer>
+    <a rel="full-article" href="/ubuntu-1204zhong-wen-shu-ru-fa-de-an-zhuang.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/linux-xiao-ji-qiao-1.html">linux 小技巧（1）</a>
       </h1>
       <p class="meta"><time datetime="2014-05-28T00:00:00" pubdate>三 28 五月 2014</time></p>
@@ -118,6 +150,9 @@
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
+      <li class="post">
+          <a href="/ubuntu-1204zhong-wen-shu-ru-fa-de-an-zhuang.html">Ubuntu 12.04中文输入法的安装</a>
+      </li>
       <li class="post">
           <a href="/linux-xiao-ji-qiao-1.html">linux 小技巧（1）</a>
       </li>
