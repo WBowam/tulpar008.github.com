@@ -98,6 +98,35 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/django-guo-ji-hua.html">django 国际化</a>
+      </h1>
+      <p class="meta"><time datetime="2014-09-07T00:00:00" pubdate>日 07 九月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h2>第一步：在你的Python代码和模板中嵌入待翻译的字符串。</h2>
+<p>我选择用如下方式：  <br />
+models   </p>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">translation</span> <span class="n">import</span> <span class="n">ugettext_lazy</span> <span class="n">as</span> <span class="n">_</span>
+
+<span class="n">class</span> <span class="n">MyThing</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">name</span><span class="err">&#39;</span><span class="p">),</span> <span class="n">help_text</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">This</span> <span class="n">is</span> <span class="n">the</span> <span class="n">help</span> <span class="n">text</span><span class="err">&#39;</span><span class="p">))</span>
+    <span class="n">class</span> <span class="n">Meta</span><span class="o">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">my</span> <span class="n">thing</span><span class="err">&#39;</span><span class="p">)</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">mythings</span><span class="err">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>template   </p>
+<div class="highlight"><pre><span class="cp">{%</span> <span class="k">load</span> <span class="nv">i18n</span> <span class="cp">%}</span> 放在模板最前面。  
+###翻译一个常量字符串 (括以单或双引号) 或 可变内容：
+<span class="nt">&lt;title&gt;</span><span class="cp">{%</span> <span class="k">trans</span> <span class="s2">&quot;This is the ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-guo-ji-hua.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
       </h1>
       <p class="meta"><time datetime="2014-09-07T00:00:00" pubdate>日 07 九月 2014</time></p>
@@ -335,54 +364,6 @@ IBus拼音：<code>sudo apt-get ...</code></p></div>
     <a rel="full-article" href="/python-shi-li-fang-fa-jing-tai-fang-fa-lei-fang-fa.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">python中 __（双下划线）的作用</a>
-      </h1>
-      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
-</header>
-
-  <div class="entry-content"><ul>
-<li>
-<p>Python中默认的成员函数，成员变量都是公开的(public),而且python中没有类似public,private等关键词来修饰成员函数，成员变量。   </p>
-</li>
-<li>
-<p>可有时候需要用到私有变量，因此诞生了__。    </p>
-</li>
-<li>
-<p>变量名或函数名前加上 ”__“两个下划线，那么这个函数或变量就会为私有的了。</p>
-</li>
-<li>
-<p>私有意味着只有内部能使用，对外部隐藏。       </p>
-</li>
-<li>
-<p>在内部，python使用一种 name mangling 技术，将 __membername替换成 _classname__membername来使用。  <br />
-在外部，使用原来的私有成员的名字时，会提示找不到。（达到了隐藏的效果）    </p>
-</li>
-</ul>
-<hr />
-<div class="highlight"><pre><span class="n">class</span> <span class="n">Tester</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
-    <span class="n">__foo</span> <span class="o">=</span> <span class="s">&quot;hi&quot;</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="n">Tester</span><span class="p">()</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">.</span><span class="n">_Tester__foo</span>
-<span class="err">&#39;</span><span class="n">hi</span><span class="err">&#39;</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span class="n">class</span> <span class="n">Tester</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
-<span class="p">...</span>     <span class="n">def</span> <span class="n">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
-<span class="p">...</span>         <span class="n">self</span><span class="p">.</span><span class="n">__foo</span> <span class="o">=</span> <span class="s">&quot;hi&quot;</span>
-<span class="p">...</span> 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="o">=</span><span class="n">Tester</span><span class="p">()</span>
-<span class="o">&gt;&gt;&gt;</span><span class="n">t</span><span class="p">.</span><span class="n">_Tester__foo</span>
-<span class="err">&#39;</span><span class="n">hi</span><span class="err">&#39;</span>
-</pre></div></div>
-  <footer>
-    <a rel="full-article" href="/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/index2.html">&larr; Older</a>
 
@@ -396,6 +377,9 @@ IBus拼音：<code>sudo apt-get ...</code></p></div>
           <a href="/django-17shi-yong.html">Django 1.7试用</a>
       </li>
       <li class="post">
+          <a href="/django-guo-ji-hua.html">django 国际化</a>
+      </li>
+      <li class="post">
           <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
       </li>
       <li class="post">
@@ -403,9 +387,6 @@ IBus拼音：<code>sudo apt-get ...</code></p></div>
       </li>
       <li class="post">
           <a href="/hui-jia-lu.html">回家路</a>
-      </li>
-      <li class="post">
-          <a href="/ge-shi-hua-zi-fu-chuan-shi-jian.html">格式化字符串——时间</a>
       </li>
     </ul>
   </section>

@@ -98,6 +98,35 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/django-guo-ji-hua.html">django 国际化</a>
+      </h1>
+      <p class="meta"><time datetime="2014-09-07T00:00:00" pubdate>日 07 九月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h2>第一步：在你的Python代码和模板中嵌入待翻译的字符串。</h2>
+<p>我选择用如下方式：  <br />
+models   </p>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">translation</span> <span class="n">import</span> <span class="n">ugettext_lazy</span> <span class="n">as</span> <span class="n">_</span>
+
+<span class="n">class</span> <span class="n">MyThing</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">name</span><span class="err">&#39;</span><span class="p">),</span> <span class="n">help_text</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">This</span> <span class="n">is</span> <span class="n">the</span> <span class="n">help</span> <span class="n">text</span><span class="err">&#39;</span><span class="p">))</span>
+    <span class="n">class</span> <span class="n">Meta</span><span class="o">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">my</span> <span class="n">thing</span><span class="err">&#39;</span><span class="p">)</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">mythings</span><span class="err">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>template   </p>
+<div class="highlight"><pre><span class="cp">{%</span> <span class="k">load</span> <span class="nv">i18n</span> <span class="cp">%}</span> 放在模板最前面。  
+###翻译一个常量字符串 (括以单或双引号) 或 可变内容：
+<span class="nt">&lt;title&gt;</span><span class="cp">{%</span> <span class="k">trans</span> <span class="s2">&quot;This is the ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-guo-ji-hua.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
       </h1>
       <p class="meta"><time datetime="2014-09-07T00:00:00" pubdate>日 07 九月 2014</time></p>
@@ -328,39 +357,6 @@
     <a rel="full-article" href="/yong-django-mptthou-tai-zhong-sheng-cheng-shu-zhuang-shu-ju-jie-gou.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/django-media-pei-zhi-fang-fa-yi.html">Django Media 配置（方法一）</a>
-      </h1>
-      <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
-</header>
-
-  <div class="entry-content"><h5>Env:</h5>
-<ul>
-<li>django==1.4.5</li>
-<li>python==2.7</li>
-<li>ubuntu==13.04</li>
-</ul>
-<hr />
-<h3>django 的Static 和 Media配置之Media</h3>
-<h3>settings.py</h3>
-<div class="highlight"><pre><span class="cp">##added by Tulpar,20140514</span>
-<span class="n">import</span> <span class="n">os</span>
-<span class="n">settings_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
-<span class="n">PROJECT_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">settings_dir</span><span class="p">))</span>
-
-<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">public</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span><span class="p">)</span>
-<span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span>
-</pre></div>
-
-
-<h3>urls.py</h3>
-<div class="highlight"><pre><span class="err">#</span><span class="vi">#added</span> <span class="k">by</span> <span class="nx">Tulpar ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/django-media-pei-zhi-fang-fa-yi.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/tag/django2.html">&larr; Older</a>
 
@@ -374,6 +370,9 @@
           <a href="/django-17shi-yong.html">Django 1.7试用</a>
       </li>
       <li class="post">
+          <a href="/django-guo-ji-hua.html">django 国际化</a>
+      </li>
+      <li class="post">
           <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
       </li>
       <li class="post">
@@ -381,9 +380,6 @@
       </li>
       <li class="post">
           <a href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Django中使用mysql数据库</a>
-      </li>
-      <li class="post">
-          <a href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Xadmin List_display中显示缩略图</a>
       </li>
     </ul>
   </section>

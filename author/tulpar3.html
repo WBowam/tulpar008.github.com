@@ -51,6 +51,42 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/ueditorzai-djangozhong-de-shi-yong.html">Ueditor在Django中的使用</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-14T00:00:00" pubdate>六 14 六月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>以前写过Ueditor在Django中的使用方法（虽然跟着上一个博客一起丢了），在此不赘述了。想学可以看看这位朋友的分享：
+<a href="https://github.com/zhangfisher/DjangoUeditor">Django中使用Ueditor</a></p>
+<p><a href="http://mushapi.sinaapp.com/using-ueditor-in-django-with-xadmin.html">http://mushapi.sinaapp.com/using-ueditor-in-django-with-xadmin.html</a></p>
+<h3>1.安装</h3>
+<p><code>pip install DjangoUeditor</code></p>
+<h3>2.启用</h3>
+<h5>在<code>INSTALL_APPS</code>里面增加DjangoUeditor app，如下：</h5>
+<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="err">#</span><span class="p">........</span>
+            <span class="err">&#39;</span><span class="n">DjangoUeditor</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+</pre></div>
+
+
+<h5>在urls.py中增加：</h5>
+<div class="highlight"><pre>    <span class="n">url</span><span class="p">(</span><span class="n">r</span><span class="err">&#39;</span><span class="o">^</span><span class="n">ueditor</span><span class="o">/</span><span class="err">&#39;</span><span class="p">,</span><span class="n">include</span><span class="p">(</span><span class="err">&#39;</span><span class="n">DjangoUeditor</span><span class="p">.</span><span class="n">urls</span><span class="err">&#39;</span> <span class="p">)),</span>
+</pre></div>
+
+
+<h3>3.使用</h3>
+<h5>在<code>models</code>中这样使用：</h5>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">DjangoUeditor</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">UEditorField</span>
+    <span class="n">class</span> <span class="n">Blog</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">Name</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">CharField ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/ueditorzai-djangozhong-de-shi-yong.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/xadminru-men-2.html">Xadmin入门（2）</a>
       </h1>
       <p class="meta"><time datetime="2014-06-13T00:00:00" pubdate>五 13 六月 2014</time></p>
@@ -271,31 +307,6 @@
     <a rel="full-article" href="/edx_errors.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">在真机上部署Edx（在中国）</a>
-      </h1>
-      <p class="meta"><time datetime="2014-04-08T00:00:00" pubdate>二 08 四月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>1. Update your Ubuntu package sources</h3>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">upgrade</span> <span class="o">-</span><span class="n">y</span>
-<span class="n">sudo</span> <span class="n">reboot</span>
-</pre></div>
-
-
-<h3>2.用sshuttle翻墙</h3>
-<p>(ubuntu下)首先安装它: <br />
-<code>sudo apt-get install sshuttle</code> <br />
-<code>sshuttle -r action@apne1.nitrousbox.com:22411 0.0.0.0/0 -vv</code>  <br />
-搞定 , 就这么简单 注意action@apne1.nitrousbox.com:22411是我的ssh,你可以用你自己的,格式为username@sshserver,
-我把sshserver理解为跳板机 ...</p></div>
-  <footer>
-    <a rel="full-article" href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/author/tulpar4.html">&larr; Older</a>
 
@@ -310,6 +321,9 @@
           <a href="/django-17shi-yong.html">Django 1.7试用</a>
       </li>
       <li class="post">
+          <a href="/django-guo-ji-hua.html">django 国际化</a>
+      </li>
+      <li class="post">
           <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
       </li>
       <li class="post">
@@ -317,9 +331,6 @@
       </li>
       <li class="post">
           <a href="/hui-jia-lu.html">回家路</a>
-      </li>
-      <li class="post">
-          <a href="/ge-shi-hua-zi-fu-chuan-shi-jian.html">格式化字符串——时间</a>
       </li>
     </ul>
   </section>

@@ -51,6 +51,38 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/yi-hua-edx-platform.html">汉化edx-platform</a>
+      </h1>
+      <p class="meta"><time datetime="2014-02-09T00:00:00" pubdate>日 09 二月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h5>搭建好edx-paltform 之后，需要定制：汉化，处理视频存储问题，定制前台。</h5>
+<h5>此文讲解汉化。谢谢<a href="http://d.edustack.org/t/edx-platform/40">fmyzjs</a>，<a href="http://www.idefs.comr/recordsedx-platform-internationalization-i18n.html">竹轩小站</a></h5>
+<h3>1.准备</h3>
+<ul>
+<li>基本的linux运维知识</li>
+<li>部署成功的edx平台（如果没有可以去edustack.org下载我们的测试镜像）</li>
+<li>transifex账号（OpenEdx翻译项目是在transifex.com上，有兴趣的同学可以参与进来）</li>
+<li>耐心
+最后提醒，请不要使用root用户，必要时请使用sudo，如果您执意，GoodBye!</li>
+</ul>
+<hr />
+<h3>2.安装transifex客户端</h3>
+<p><code>sudo apt-get install transifex-client</code></p>
+<h3>3.在用户家目录新建transifex配置文件并编辑</h3>
+<p><code>vi ~/.transifexrc</code></p>
+<h5>写入以下内容</h5>
+<div class="highlight"><pre><span class="k">[https://www.transifex.com]</span>
+<span class="na">hostname</span> <span class="o">=</span> <span class="s">https://www.transifex.com</span>
+<span class="na">username</span> <span class="o">=</span> <span class="s">user</span>
+<span class="na">password</span> <span class="o">=</span> <span class="s">pass ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/yi-hua-edx-platform.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/linuxte-bie-qiang-da-he-ling-huo-de-ming-ling-xing-gong-ju-1.html">Linux特别强大和灵活的命令行工具 (1)</a>
       </h1>
       <p class="meta"><time datetime="2014-02-08T00:00:00" pubdate>六 08 二月 2014</time></p>
@@ -313,43 +345,6 @@ mkdir shell_tut
     <a rel="full-article" href="/django-media-pei-zhi-fang-fa-yi.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/django-userena-de-shi-yong.html">Django-userena 的使用</a>
-      </h1>
-      <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
-</header>
-
-  <div class="entry-content"><hr />
-<p>先Clone <a href="https://github.com/bread-and-pepper/django-userena.git">Github上的源码</a>，运行Demo看看效果，</p>
-<div class="highlight"><pre><span class="err">进入</span><span class="n">demo</span><span class="err">目录</span>
- <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
-<span class="p">(</span><span class="err">再装一个</span><span class="n">html2text</span><span class="p">)</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">html2text</span>
-<span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">runserver</span>
-</pre></div>
-
-
-<p>然后再自己搭一个，如下步骤</p>
-<hr />
-<h3>安装</h3>
-<p><code>pip install django-userena</code></p>
-<h3>配置</h3>
-<h4>1. add ’userena’, ’guardian’, ’easy_thumbnails’ to your INSTALLED_APPS tuple.</h4>
-<div class="highlight"><pre><span class="err">’</span><span class="n">userena</span><span class="err">’</span><span class="p">,</span>  
-<span class="err">’</span><span class="n">guardian</span><span class="err">’</span><span class="p">,</span>  
-<span class="err">’</span><span class="n">easy_thumbnails</span><span class="err">’</span><span class="p">,</span>
-</pre></div>
-
-
-<h4>2. in your settings.py file, add the following:</h4>
-<div class="highlight"><pre><span class="n">AUTHENTICATION_BACKENDS</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="err">&#39;</span><span class="n">userena ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/django-userena-de-shi-yong.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it5.html">&larr; Older</a>
 
@@ -364,6 +359,9 @@ mkdir shell_tut
           <a href="/django-17shi-yong.html">Django 1.7试用</a>
       </li>
       <li class="post">
+          <a href="/django-guo-ji-hua.html">django 国际化</a>
+      </li>
+      <li class="post">
           <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
       </li>
       <li class="post">
@@ -371,9 +369,6 @@ mkdir shell_tut
       </li>
       <li class="post">
           <a href="/ge-shi-hua-zi-fu-chuan-shi-jian.html">格式化字符串——时间</a>
-      </li>
-      <li class="post">
-          <a href="/pythonshi-jian-cao-zuo.html">Python时间操作</a>
       </li>
     </ul>
   </section>

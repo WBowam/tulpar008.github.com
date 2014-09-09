@@ -51,6 +51,40 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/python-withyu-ju.html">Python with语句</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-03T00:00:00" pubdate>四 03 七月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>感谢<a href="http://sdqali.in/blog/2012/07/09/understanding-pythons-with/">Sadique Ali</a>的总结分享</p>
+<h3>With语句是什么？</h3>
+<p>有一些任务，可能事先需要设置，事后做清理工作。对于这种场景，Python的with语句提供了一种非常方便的处理方式。  <br />
+一个很好的例子是文件处理，你需要获取一个文件句柄，从文件中读取数据，然后关闭文件句柄。</p>
+<p>如果不用with语句，代码如下：</p>
+<div class="highlight"><pre><span class="n">file</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">&quot;/tmp/foo.txt&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<p>这里有两个问题。一是可能忘记关闭文件句柄；二是文件读取数据发生异常，没有进行任何处理。下面是处理异常的加强版本：</p>
+<div class="highlight"><pre><span class="n">file</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">&quot;/tmp/foo.txt&quot;</span><span class="p">)</span>
+<span class="nl">try:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nl">finally:</span>
+    <span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<p>虽然这段代码运行良好，但是太冗长了。这时候就是with一展身手的时候了。除了有更优雅的语法，with还可以很好的处理上下文环境产生的异常。下面是with版本的代码：</p>
+<div class="highlight"><pre><span class="n">with ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/python-withyu-ju.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/python-exeche-evalyu-ju.html">python exec和eval语句</a>
       </h1>
       <p class="meta"><time datetime="2014-07-02T00:00:00" pubdate>三 02 七月 2014</time></p>
@@ -310,29 +344,6 @@
     <a rel="full-article" href="/ueditorzai-djangozhong-de-shi-yong.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/xadminru-men-2.html">Xadmin入门（2）</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-13T00:00:00" pubdate>五 13 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h2>Xadmin 的插件介绍</h2>
-<p>(本来想自己总结一遍的，可太喜欢Xadmin的文档了，言简意赅，排版精美，就直接搬了，望大侠们勿喷）</p>
-<h3>1. Action</h3>
-<h4>功能</h4>
-<p>Action 插件在数据列表页面提供了数据选择功能, 选择后的数据可以经过 Action 做特殊的处理. 默认提供的 Action 为批量删除功能.</p>
-<h4>截图</h4>
-<p><img alt="Action" src="http://xadmin.readthedocs.org/en/docs-chinese/_images/action.png" /></p>
-<h4>使用</h4>
-<p>开发者可以设置 Model OptionClass 的 actions 属性, 该属性是一个列表, 包含您想启用的 Action 的类. 系统已经默认内置了删除数据的 Action, 当然您可以自己制作 Action 来实现特定的功能, 制作 Action 的实例如下.</p>
-<p>首先要创建一个 Action 类, 该类需要继承 BaseActionView. BaseActionView 是 ModelAdminView 的子类:</p>
-<div class="highlight"><pre><span class="n">from</span> <span class="n">xadmin ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/xadminru-men-2.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it3.html">&larr; Older</a>
 
@@ -347,6 +358,9 @@
           <a href="/django-17shi-yong.html">Django 1.7试用</a>
       </li>
       <li class="post">
+          <a href="/django-guo-ji-hua.html">django 国际化</a>
+      </li>
+      <li class="post">
           <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
       </li>
       <li class="post">
@@ -354,9 +368,6 @@
       </li>
       <li class="post">
           <a href="/ge-shi-hua-zi-fu-chuan-shi-jian.html">格式化字符串——时间</a>
-      </li>
-      <li class="post">
-          <a href="/pythonshi-jian-cao-zuo.html">Python时间操作</a>
       </li>
     </ul>
   </section>
