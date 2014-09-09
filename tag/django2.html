@@ -5,7 +5,7 @@
 <head>
 <link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
   <meta charset="utf-8">
-  <title>郁闷的发现一个双胞胎师兄</title>
+  <title>Dreaming - Django</title>
   <meta name="author" content="tulpar">
 
 
@@ -41,55 +41,55 @@
     <li >
     <a href="/category/it.html">It</a>
     </li>
-    <li class="active">
+    <li >
     <a href="/category/life.html">Life</a>
     </li>
 </ul></nav>
   <div id="main">
     <div id="content">
-<div>
-  <article class="hentry" role="article">
+<div class="blog-index">
+  		<article>
 <header>
-      <h1 class="entry-title">郁闷的发现一个双胞胎师兄</h1>
-      <p class="meta"><time datetime="2014-06-13T00:00:00" pubdate>五 13 六月 2014</time></p>
+      <h1 class="entry-title">
+        <a href="/django-userena-de-shi-yong.html">Django-userena 的使用</a>
+      </h1>
+      <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
 </header>
 
-  <div class="entry-content"><p>今天google markdown，进了一个博客。<br />
-奇迹出现了。
-<a href="http://sargeraswang.github.io/">程序员小刚</a>
-小刚前辈用的博客主题跟我的一模一样，也是用多说评论系统，出奇的相似。<br />
-可见这个主题的确很好看，(<em>^__^</em>) 嘻嘻…… <br />
-大概逛了一下，小刚前辈也是做IT的，(<em>^__^</em>) 嘻嘻……  </p></div>
-    <footer>
-<p class="meta">
-  <span class="byline author vcard">
-    Posted by <span class="fn">tulpar</span>
-  </span>
-<time datetime="2014-06-13T00:00:00" pubdate>五 13 六月 2014</time>  <span class="categories">
-    <a class="category" href="/tag/bo-ke.html">博客</a>
-  </span>
-</p><div class="sharing">
-</div>    </footer>
-  </article>
+  <div class="entry-content"><hr />
+<p>先Clone <a href="https://github.com/bread-and-pepper/django-userena.git">Github上的源码</a>，运行Demo看看效果，</p>
+<div class="highlight"><pre><span class="err">进入</span><span class="n">demo</span><span class="err">目录</span>
+ <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+<span class="p">(</span><span class="err">再装一个</span><span class="n">html2text</span><span class="p">)</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">html2text</span>
+<span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">runserver</span>
+</pre></div>
 
 
+<p>然后再自己搭一个，如下步骤</p>
+<hr />
+<h3>安装</h3>
+<p><code>pip install django-userena</code></p>
+<h3>配置</h3>
+<h4>1. add ’userena’, ’guardian’, ’easy_thumbnails’ to your INSTALLED_APPS tuple.</h4>
+<div class="highlight"><pre><span class="err">’</span><span class="n">userena</span><span class="err">’</span><span class="p">,</span>  
+<span class="err">’</span><span class="n">guardian</span><span class="err">’</span><span class="p">,</span>  
+<span class="err">’</span><span class="n">easy_thumbnails</span><span class="err">’</span><span class="p">,</span>
+</pre></div>
 
-<!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"tlbog"};
-(function() {
-var ds = document.createElement('script');
-ds.type = 'text/javascript';ds.async = true;
-ds.src = 'http://static.duoshuo.com/embed.js';
-ds.charset = 'UTF-8';
-(document.getElementsByTagName('head')[0] 
-|| document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- Duoshuo Comment END -->
 
-</div>
+<h4>2. in your settings.py file, add the following:</h4>
+<div class="highlight"><pre><span class="n">AUTHENTICATION_BACKENDS</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="err">&#39;</span><span class="n">userena ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-userena-de-shi-yong.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+<div class="pagination">
+
+    <a class="next" href="/tag/django.html">Newer &rarr;</a>
+  <br />
+</div></div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
@@ -101,13 +101,13 @@ ds.charset = 'UTF-8';
           <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
       </li>
       <li class="post">
-          <a href="/ubuntu-1204zhong-wen-shu-ru-fa-de-an-zhuang.html">Ubuntu 12.04中文输入法的安装</a>
+          <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
       </li>
       <li class="post">
-          <a href="/hui-jia-lu.html">回家路</a>
+          <a href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Django中使用mysql数据库</a>
       </li>
       <li class="post">
-          <a href="/ge-shi-hua-zi-fu-chuan-shi-jian.html">格式化字符串——时间</a>
+          <a href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Xadmin List_display中显示缩略图</a>
       </li>
     </ul>
   </section>

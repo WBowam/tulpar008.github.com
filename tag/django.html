@@ -98,6 +98,38 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
+      </h1>
+      <p class="meta"><time datetime="2014-09-07T00:00:00" pubdate>日 07 九月 2014</time></p>
+</header>
+
+  <div class="entry-content"><div class="highlight"><pre><span class="n">class</span> <span class="n">Poll</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">slug</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">SlugField</span><span class="p">(</span><span class="n">unique_for_month</span><span class="o">=</span><span class="err">&#39;</span><span class="n">pub_date</span><span class="err">&#39;</span><span class="p">)</span>
+    <span class="n">question</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">maxlength</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+    <span class="n">pub_date</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">DateTimeField</span><span class="p">()</span>
+    <span class="n">expire_date</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">DateTimeField</span><span class="p">()</span>
+
+    <span class="n">def</span> <span class="n">__repr__</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">question</span>
+
+    <span class="n">class</span> <span class="n">Meta</span><span class="o">:</span>
+    <span class="n">get_latest_by</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">pub_date</span><span class="err">&#39;</span>
+
+
+
+
+
+<span class="n">class</span> <span class="n">Choice</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">poll</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Poll</span><span class="p">,</span> <span class="n">edit_inline</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">TABULAR</span><span class="p">,</span>
+    <span class="n">num_in_admin</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">min_num_in_admin</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">choice</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">maxlength</span><span class="o">=</span><span class="mi">255 ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-shu-ju-cha-xun.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
       </h1>
       <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
@@ -329,44 +361,8 @@
     <a rel="full-article" href="/django-media-pei-zhi-fang-fa-yi.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/django-userena-de-shi-yong.html">Django-userena 的使用</a>
-      </h1>
-      <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
-</header>
-
-  <div class="entry-content"><hr />
-<p>先Clone <a href="https://github.com/bread-and-pepper/django-userena.git">Github上的源码</a>，运行Demo看看效果，</p>
-<div class="highlight"><pre><span class="err">进入</span><span class="n">demo</span><span class="err">目录</span>
- <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
-<span class="p">(</span><span class="err">再装一个</span><span class="n">html2text</span><span class="p">)</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">html2text</span>
-<span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">runserver</span>
-</pre></div>
-
-
-<p>然后再自己搭一个，如下步骤</p>
-<hr />
-<h3>安装</h3>
-<p><code>pip install django-userena</code></p>
-<h3>配置</h3>
-<h4>1. add ’userena’, ’guardian’, ’easy_thumbnails’ to your INSTALLED_APPS tuple.</h4>
-<div class="highlight"><pre><span class="err">’</span><span class="n">userena</span><span class="err">’</span><span class="p">,</span>  
-<span class="err">’</span><span class="n">guardian</span><span class="err">’</span><span class="p">,</span>  
-<span class="err">’</span><span class="n">easy_thumbnails</span><span class="err">’</span><span class="p">,</span>
-</pre></div>
-
-
-<h4>2. in your settings.py file, add the following:</h4>
-<div class="highlight"><pre><span class="n">AUTHENTICATION_BACKENDS</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="err">&#39;</span><span class="n">userena ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/django-userena-de-shi-yong.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
+    <a class="prev" href="/tag/django2.html">&larr; Older</a>
 
   <br />
 </div></div>
@@ -378,6 +374,9 @@
           <a href="/django-17shi-yong.html">Django 1.7试用</a>
       </li>
       <li class="post">
+          <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
+      </li>
+      <li class="post">
           <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
       </li>
       <li class="post">
@@ -385,9 +384,6 @@
       </li>
       <li class="post">
           <a href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Xadmin List_display中显示缩略图</a>
-      </li>
-      <li class="post">
-          <a href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Xadmin中自动预填某个字段</a>
       </li>
     </ul>
   </section>

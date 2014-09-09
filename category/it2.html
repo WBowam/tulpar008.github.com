@@ -51,6 +51,28 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/python-exeche-evalyu-ju.html">python exec和eval语句</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-02T00:00:00" pubdate>三 02 七月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h5>exec语句用来执行储存在字符串或文件中的Python语句。例如，我们可以在运行时生成一个包含Python代码的字符串，然后使用exec语句执行这些语句。下面是一个简单的例子。</h5>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">exec</span> <span class="err">&#39;</span><span class="n">print</span> <span class="s">&quot;Hello World&quot;</span><span class="err">&#39;</span>
+<span class="n">Hello</span> <span class="n">World</span>
+</pre></div>
+
+
+<h6>eval语句用来计算存储在字符串中的有效Python表达式。下面是一个简单的例子。</h6>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">eval</span><span class="p">(</span><span class="err">&#39;</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="mi">6</span>
+</pre></div></div>
+  <footer>
+    <a rel="full-article" href="/python-exeche-evalyu-ju.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/stryu-reprde-qu-bie.html">str()与repr()的区别</a>
       </h1>
       <p class="meta"><time datetime="2014-07-01T00:00:00" pubdate>二 01 七月 2014</time></p>
@@ -311,41 +333,6 @@
     <a rel="full-article" href="/xadminru-men-2.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/bu-shu-socketio-de-demo.html">部署Socket.io 的demo</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-11T00:00:00" pubdate>三 11 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h1>1.安装nvm</h1>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">wget</span> <span class="o">-</span><span class="n">qO</span><span class="o">-</span> <span class="n">https</span><span class="o">:</span><span class="c1">//raw.github.com/creationix/nvm/v0.4.0/install.sh | sh</span>
-</pre></div>
-
-
-<h1>2.安装node</h1>
-<div class="highlight"><pre><span class="n">nvm</span> <span class="n">install</span> <span class="mf">0.1</span>
-</pre></div>
-
-
-<h6>若过程中如果报错，说：创建目录/usr/sbin/src 权限不够</h6>
-<p>我用了个极端的方法来解决此问题，不推荐</p>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">chmod</span> <span class="mi">777</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span>
-</pre></div>
-
-
-<h1>3. 跑起</h1>
-<div class="highlight"><pre><span class="n">cd</span> <span class="n">socket</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">example</span><span class="o">/</span><span class="n">chat</span><span class="o">/</span>
-<span class="n">node</span> <span class="n">index</span><span class="p">.</span><span class="n">js</span>
-</pre></div>
-
-
-<h6>日如果报错误说，缺某某moudle，就一个个安装那些插件即可，如 ...</h6></div>
-  <footer>
-    <a rel="full-article" href="/bu-shu-socketio-de-demo.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it3.html">&larr; Older</a>
 
@@ -360,6 +347,9 @@
           <a href="/django-17shi-yong.html">Django 1.7试用</a>
       </li>
       <li class="post">
+          <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
+      </li>
+      <li class="post">
           <a href="/ubuntu-1204zhong-wen-shu-ru-fa-de-an-zhuang.html">Ubuntu 12.04中文输入法的安装</a>
       </li>
       <li class="post">
@@ -367,9 +357,6 @@
       </li>
       <li class="post">
           <a href="/pythonshi-jian-cao-zuo.html">Python时间操作</a>
-      </li>
-      <li class="post">
-          <a href="/pythonzhong-raw_inputhe-inputde-yi-tong-dian.html">Python中raw_input和input的异同点</a>
       </li>
     </ul>
   </section>

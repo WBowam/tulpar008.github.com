@@ -98,6 +98,38 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
+      </h1>
+      <p class="meta"><time datetime="2014-09-07T00:00:00" pubdate>日 07 九月 2014</time></p>
+</header>
+
+  <div class="entry-content"><div class="highlight"><pre><span class="n">class</span> <span class="n">Poll</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">slug</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">SlugField</span><span class="p">(</span><span class="n">unique_for_month</span><span class="o">=</span><span class="err">&#39;</span><span class="n">pub_date</span><span class="err">&#39;</span><span class="p">)</span>
+    <span class="n">question</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">maxlength</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+    <span class="n">pub_date</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">DateTimeField</span><span class="p">()</span>
+    <span class="n">expire_date</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">DateTimeField</span><span class="p">()</span>
+
+    <span class="n">def</span> <span class="n">__repr__</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">question</span>
+
+    <span class="n">class</span> <span class="n">Meta</span><span class="o">:</span>
+    <span class="n">get_latest_by</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">pub_date</span><span class="err">&#39;</span>
+
+
+
+
+
+<span class="n">class</span> <span class="n">Choice</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">poll</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Poll</span><span class="p">,</span> <span class="n">edit_inline</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">TABULAR</span><span class="p">,</span>
+    <span class="n">num_in_admin</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">min_num_in_admin</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">choice</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">maxlength</span><span class="o">=</span><span class="mi">255 ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-shu-ju-cha-xun.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/ubuntu-1204zhong-wen-shu-ru-fa-de-an-zhuang.html">Ubuntu 12.04中文输入法的安装</a>
       </h1>
       <p class="meta"><time datetime="2014-08-21T00:00:00" pubdate>四 21 八月 2014</time></p>
@@ -362,28 +394,6 @@ IBus拼音：<code>sudo apt-get ...</code></p></div>
     <a rel="full-article" href="/python-withyu-ju.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/python-exeche-evalyu-ju.html">python exec和eval语句</a>
-      </h1>
-      <p class="meta"><time datetime="2014-07-02T00:00:00" pubdate>三 02 七月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h5>exec语句用来执行储存在字符串或文件中的Python语句。例如，我们可以在运行时生成一个包含Python代码的字符串，然后使用exec语句执行这些语句。下面是一个简单的例子。</h5>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">exec</span> <span class="err">&#39;</span><span class="n">print</span> <span class="s">&quot;Hello World&quot;</span><span class="err">&#39;</span>
-<span class="n">Hello</span> <span class="n">World</span>
-</pre></div>
-
-
-<h6>eval语句用来计算存储在字符串中的有效Python表达式。下面是一个简单的例子。</h6>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">eval</span><span class="p">(</span><span class="err">&#39;</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="err">&#39;</span><span class="p">)</span>
-<span class="mi">6</span>
-</pre></div></div>
-  <footer>
-    <a rel="full-article" href="/python-exeche-evalyu-ju.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it2.html">&larr; Older</a>
 
@@ -397,6 +407,9 @@ IBus拼音：<code>sudo apt-get ...</code></p></div>
           <a href="/django-17shi-yong.html">Django 1.7试用</a>
       </li>
       <li class="post">
+          <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
+      </li>
+      <li class="post">
           <a href="/ubuntu-1204zhong-wen-shu-ru-fa-de-an-zhuang.html">Ubuntu 12.04中文输入法的安装</a>
       </li>
       <li class="post">
@@ -404,9 +417,6 @@ IBus拼音：<code>sudo apt-get ...</code></p></div>
       </li>
       <li class="post">
           <a href="/pythonshi-jian-cao-zuo.html">Python时间操作</a>
-      </li>
-      <li class="post">
-          <a href="/pythonzhong-raw_inputhe-inputde-yi-tong-dian.html">Python中raw_input和input的异同点</a>
       </li>
     </ul>
   </section>
