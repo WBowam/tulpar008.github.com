@@ -301,6 +301,34 @@ IBus拼音：<code>sudo apt-get ...</code></p></div>
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/django-shi-yong-you-jian-fu-wu.html">Django 使用邮件服务</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>我个人使用gmail的邮件服务器，不过经常会被墙，因此下面讲解使用qq邮箱服务器。</p>
+<hr />
+<h3>django settings.py</h3>
+<div class="highlight"><pre><span class="n">DEFAULT_FROM_EMAIL</span><span class="o">=</span><span class="err">&#39;</span><span class="mi">49244564</span><span class="err">@</span><span class="n">qq</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span>
+<span class="cp">#django 要求这里的“发送者”邮箱必须和超级管理员的邮箱一致，而且不能为空</span>
+<span class="n">EMAIL_USE_TLS</span> <span class="o">=</span> <span class="n">True</span>
+<span class="n">EMAIL_HOST</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">smtp</span><span class="p">.</span><span class="n">qq</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span>
+<span class="n">EMAIL_PORT</span> <span class="o">=</span> <span class="mi">587</span>
+<span class="cp">##此处用的是SMTP的SSL加密方式，所以使用587或465端口号，不然可以用25端口。</span>
+<span class="n">EMAIL_HOST_USER</span> <span class="o">=</span> <span class="err">&#39;</span><span class="mi">49244564</span><span class="err">@</span><span class="n">qq</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span>
+<span class="n">EMAIL_HOST_PASSWORD</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">wodeqqyouxiangmima</span><span class="err">&#39;</span>
+</pre></div>
+
+
+<h3>开启qq邮箱SMTP服务</h3>
+<p>设置——账户——开启服务————打勾“POP3/SMTP服务和IMAP/SMTP服务“  </p></div>
+  <footer>
+    <a rel="full-article" href="/django-shi-yong-you-jian-fu-wu.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/init__fang-fa.html">init__()方法</a>
       </h1>
       <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
@@ -331,37 +359,6 @@ IBus拼音：<code>sudo apt-get ...</code></p></div>
 <h6>注意，这个名称的开始和结尾都是双下划线。</h6></div>
   <footer>
     <a rel="full-article" href="/init__fang-fa.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/python-shi-li-fang-fa-jing-tai-fang-fa-lei-fang-fa.html">python 实例方法，静态方法，类方法</a>
-      </h1>
-      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>实例方法（@郭叔）</h3>
-<p>字面意思：实例的方法，即只有实例能使用的方法，相对于类方法和静态方法。</p>
-<h5>实例方法的第一个参数默认为self，代指实例。</h5>
-<p>如：</p>
-<div class="highlight"><pre><span class="n">class</span> <span class="n">Foo</span><span class="o">:</span>
-    <span class="err">##</span><span class="n">init</span><span class="p">()</span><span class="err">是生成实例时默认调用的实例方法</span><span class="p">,</span><span class="err">用于初始化详细见</span><span class="p">[</span><span class="n">__init__</span><span class="err">方法</span><span class="p">](</span><span class="err">#</span><span class="p">)</span>
-    <span class="err">###第一个参数默认为</span><span class="n">self</span>
-    <span class="n">def</span> <span class="n">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span><span class="o">:</span>
-        <span class="n">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="n">self</span><span class="p">.</span><span class="n">author</span><span class="o">=</span><span class="s">&quot;Tulpar&quot;</span>
-    <span class="err">##又一个实例方法</span>
-    <span class="n">def</span> <span class="n">hi</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
-        <span class="n">print</span> <span class="n">self</span><span class="p">.</span><span class="n">name</span>
-        <span class="n">print</span> <span class="s">&quot;Created by %s&quot;</span><span class="o">%</span><span class="n">self</span><span class="p">.</span><span class="n">author</span>
-</pre></div>
-
-
-<h5>self不是一个关键字，而是约定的写法。也可以换成任意字符串，如'guoshu'</h5>
-<div class="highlight"><pre>    <span class="err">###第一个参数默认为</span><span class="n">guoshu</span><span class="p">,</span><span class="err">作用和</span><span class="n">self ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/python-shi-li-fang-fa-jing-tai-fang-fa-lei-fang-fa.html">Read On &crarr;</a>
   </footer>
   		</article>
 <div class="pagination">

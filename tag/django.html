@@ -159,6 +159,34 @@ models   </p>
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/django-shi-yong-you-jian-fu-wu.html">Django 使用邮件服务</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>我个人使用gmail的邮件服务器，不过经常会被墙，因此下面讲解使用qq邮箱服务器。</p>
+<hr />
+<h3>django settings.py</h3>
+<div class="highlight"><pre><span class="n">DEFAULT_FROM_EMAIL</span><span class="o">=</span><span class="err">&#39;</span><span class="mi">49244564</span><span class="err">@</span><span class="n">qq</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span>
+<span class="cp">#django 要求这里的“发送者”邮箱必须和超级管理员的邮箱一致，而且不能为空</span>
+<span class="n">EMAIL_USE_TLS</span> <span class="o">=</span> <span class="n">True</span>
+<span class="n">EMAIL_HOST</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">smtp</span><span class="p">.</span><span class="n">qq</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span>
+<span class="n">EMAIL_PORT</span> <span class="o">=</span> <span class="mi">587</span>
+<span class="cp">##此处用的是SMTP的SSL加密方式，所以使用587或465端口号，不然可以用25端口。</span>
+<span class="n">EMAIL_HOST_USER</span> <span class="o">=</span> <span class="err">&#39;</span><span class="mi">49244564</span><span class="err">@</span><span class="n">qq</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span>
+<span class="n">EMAIL_HOST_PASSWORD</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">wodeqqyouxiangmima</span><span class="err">&#39;</span>
+</pre></div>
+
+
+<h3>开启qq邮箱SMTP服务</h3>
+<p>设置——账户——开启服务————打勾“POP3/SMTP服务和IMAP/SMTP服务“  </p></div>
+  <footer>
+    <a rel="full-article" href="/django-shi-yong-you-jian-fu-wu.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
       </h1>
       <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
@@ -324,39 +352,6 @@ models   </p>
     <a rel="full-article" href="/django-dir-pei-zhi-fang-fa-yi.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/yong-django-mptthou-tai-zhong-sheng-cheng-shu-zhuang-shu-ju-jie-gou.html">用Django mptt后台中生成树状数据结构</a>
-      </h1>
-      <p class="meta"><time datetime="2014-04-16T00:00:00" pubdate>三 16 四月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>背景说明：</h3>
-<p>昨天跟客户谈需求时，客户要求做一个数状数据结构，类似于：<br />
-<img alt="树状数据" src="http://tulparblog.qiniudn.com/mpttsitepoint_tree.jpg" /></p>
-<h5>不仅要在前台这么显示，后台也要这么显示。</h5>
-<p>一番google之后 ，感谢Stack Overflow让我找到了Django mptt，感谢<a href="http://qinxuye.me/article/introduction-and-usage-of-django-mptt/">残阳似血</a>血写了如此华丽的博客，小生很喜欢添加趣点功能</p>
-<hr />
-<h3>解决方案</h3>
-<h5>用django mptt改变数据结构</h5>
-<h5>用django-mptt-admin改变数状结构在django后台的显示方式</h5>
-<h3>具体操作</h3>
-<h4>1. 安装django mptt</h4>
-<p>下载源码 <code>https://github.com/django-mptt/django-mptt</code>
-<em>或</em>
-<code>pip install django-mptt</code></p>
-<h4>2. 配置django mptt</h4>
-<p>在settings文件下的INSTALLED_APPS中添加'mptt'<br />
-<em>就这么简单，安装配置结束了</em></p>
-<h4>3. 使用django mptt</h4>
-<h5>写model，继承MPTTModel</h5>
-<div class="highlight"><pre><span class="n">from</span> <span class="n">mptt</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">MPTTModel</span>
-<span class="n">class ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/yong-django-mptthou-tai-zhong-sheng-cheng-shu-zhuang-shu-ju-jie-gou.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/tag/django2.html">&larr; Older</a>
 
@@ -376,10 +371,10 @@ models   </p>
           <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
       </li>
       <li class="post">
-          <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
+          <a href="/django-shi-yong-you-jian-fu-wu.html">Django 使用邮件服务</a>
       </li>
       <li class="post">
-          <a href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Django中使用mysql数据库</a>
+          <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
       </li>
     </ul>
   </section>
