@@ -51,6 +51,53 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/django-17shi-yong.html">Django 1.7试用</a>
+      </h1>
+      <p class="meta"><time datetime="2014-09-07T00:00:00" pubdate>日 07 九月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>首先感谢django团队，在这一版本里django自身提供了数据迁移功能——migration</p>
+<h3>数据迁移</h3>
+<p>修改Model后可以在不影响现有数据的前提下重建表结构。   </p>
+<h6>以往的解决方案是South（于是South成为了django必备的，最受欢迎的应用。）</h6>
+<h4>原理</h4>
+<p>django的migration功能，类似与South的migration功能。    </p>
+<h5>首先，创建app:</h5>
+<div class="highlight"><pre><span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">startapp</span> <span class="n">myblog</span>
+<span class="cp">##1.7版django这一步时会创建一个migrations/目录</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="cp">##settings.py</span>
+<span class="n">INSTALLED_APPS</span> <span class="o">=</span><span class="p">(</span>
+    <span class="err">####</span>
+    <span class="err">&#39;</span><span class="n">myblog</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="p">)</span>  
+</pre></div>
+
+
+<div class="highlight"><pre><span class="cp">##models.py</span>
+<span class="n">class</span> <span class="n">Article</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="n">True</span><span class="p">)</span>
+</pre></div>
+
+
+<h5>生成数据表</h5>
+<p>（不再有syncdb）    </p>
+<div class="highlight"><pre><span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">makemigrations</span> <span class="n">myblog</span>
+</pre></div>
+
+
+<p>运行结果如下</p>
+<div class="highlight"><pre><span class="n">Migrations</span> <span class="k">for</span> <span class="err">‘</span><span class="n">myblog</span><span class="err">’</span><span class="o">:</span>
+  <span class="mo">0001 ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-17shi-yong.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
       </h1>
       <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
@@ -328,6 +375,9 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/django-17shi-yong.html">Django 1.7试用</a>
+      </li>
+      <li class="post">
           <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
       </li>
       <li class="post">
@@ -338,9 +388,6 @@
       </li>
       <li class="post">
           <a href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Xadmin中自动预填某个字段</a>
-      </li>
-      <li class="post">
-          <a href="/ueditorzai-djangozhong-de-shi-yong.html">Ueditor在Django中的使用</a>
       </li>
     </ul>
   </section>
