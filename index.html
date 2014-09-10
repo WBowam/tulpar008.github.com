@@ -62,34 +62,23 @@
 <h6>以往的解决方案是South（于是South成为了django必备的，最受欢迎的应用。）</h6>
 <h4>原理</h4>
 <p>django的migration功能，类似与South的migration功能。    </p>
-<h5>首先，创建app:</h5>
+<h5>开始一个新的项目</h5>
+<div class="highlight"><pre><span class="n">django</span><span class="o">-</span><span class="n">admin</span><span class="p">.</span><span class="n">py</span> <span class="n">startproject</span> <span class="n">mysite</span>
+<span class="cp">## Create the tables in the database before we can use them.</span>
+<span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">migrate</span>
+<span class="cp">## Create superuser.</span>
+<span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">createsuperuser</span>
+</pre></div>
+
+
+<h5>创建app:</h5>
 <div class="highlight"><pre><span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">startapp</span> <span class="n">myblog</span>
 <span class="cp">##1.7版django这一步时会创建一个migrations/目录</span>
 </pre></div>
 
 
 <div class="highlight"><pre><span class="cp">##settings.py</span>
-<span class="n">INSTALLED_APPS</span> <span class="o">=</span><span class="p">(</span>
-    <span class="err">####</span>
-    <span class="err">&#39;</span><span class="n">myblog</span><span class="err">&#39;</span><span class="p">,</span>
-<span class="p">)</span>  
-</pre></div>
-
-
-<div class="highlight"><pre><span class="cp">##models.py</span>
-<span class="n">class</span> <span class="n">Article</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
-    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="n">True</span><span class="p">)</span>
-</pre></div>
-
-
-<h5>生成数据表</h5>
-<p>（覆盖了syncdb功能，不过别担心，syncdb仍然还有～）    </p>
-<div class="highlight"><pre><span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">makemigrations</span> <span class="n">myblog</span>
-</pre></div>
-
-
-<p>运行结果如下</p>
-<div class="highlight"><pre><span class="n">Migrations</span> <span class="k">for ...</span></pre></div></div>
+<span class="n">INSTALLED_APPS ...</span></pre></div></div>
   <footer>
     <a rel="full-article" href="/django-17shi-yong.html">Read On &crarr;</a>
   </footer>
