@@ -51,6 +51,100 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/django-fen-ye.html">django 分页</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>我个人使用gmail的邮件服务器，不过经常会被墙，因此下面讲解使用qq邮箱服务器。</p>
+<ol>
+<li>首先看看django-pagination</li>
+</ol>
+<hr />
+<h4>settings.py</h4>
+<div class="highlight"><pre><span class="n">TEMPLATE_CONTEXT_PROCESSORS</span> <span class="o">=</span> <span class="p">(</span>
+<span class="s">&quot;django.contrib.auth.context_processors.auth&quot;</span><span class="p">,</span>
+<span class="s">&quot;django.core.context_processors.debug&quot;</span><span class="p">,</span>
+<span class="s">&quot;django.core.context_processors.i18n&quot;</span><span class="p">,</span>
+<span class="s">&quot;django.core.context_processors.media&quot;</span><span class="p">,</span>
+<span class="s">&quot;django.core.context_processors.static&quot;</span><span class="p">,</span>
+<span class="s">&quot;django.core.context_processors.tz&quot;</span><span class="p">,</span>
+<span class="s">&quot;django.core.context_processors.request&quot;</span><span class="p">,)</span>
+
+<span class="n">MIDDLEWARE_CLASSES</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">middleware</span><span class="p">.</span><span class="n">common</span><span class="p">.</span><span class="n">CommonMiddleware</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">sessions</span><span class="p">.</span><span class="n">middleware</span><span class="p">.</span><span class="n">SessionMiddleware</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">middleware</span><span class="p">.</span><span class="n">csrf</span><span class="p">.</span><span class="n">CsrfViewMiddleware ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-fen-ye.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/django-shi-yong-you-jian-fu-wu.html">Django 使用邮件服务</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>我个人使用gmail的邮件服务器，不过经常会被墙，因此下面讲解使用qq邮箱服务器。</p>
+<hr />
+<h3>django settings.py</h3>
+<div class="highlight"><pre><span class="n">DEFAULT_FROM_EMAIL</span><span class="o">=</span><span class="err">&#39;</span><span class="mi">49244564</span><span class="err">@</span><span class="n">qq</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span>
+<span class="cp">#django 要求这里的“发送者”邮箱必须和超级管理员的邮箱一致，而且不能为空</span>
+<span class="n">EMAIL_USE_TLS</span> <span class="o">=</span> <span class="n">True</span>
+<span class="n">EMAIL_HOST</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">smtp</span><span class="p">.</span><span class="n">qq</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span>
+<span class="n">EMAIL_PORT</span> <span class="o">=</span> <span class="mi">587</span>
+<span class="cp">##此处用的是SMTP的SSL加密方式，所以使用587或465端口号，不然可以用25端口。</span>
+<span class="n">EMAIL_HOST_USER</span> <span class="o">=</span> <span class="err">&#39;</span><span class="mi">49244564</span><span class="err">@</span><span class="n">qq</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span>
+<span class="n">EMAIL_HOST_PASSWORD</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">wodeqqyouxiangmima</span><span class="err">&#39;</span>
+</pre></div>
+
+
+<h3>开启qq邮箱SMTP服务</h3>
+<p>设置——账户——开启服务————打勾“POP3/SMTP服务和IMAP/SMTP服务“  </p></div>
+  <footer>
+    <a rel="full-article" href="/django-shi-yong-you-jian-fu-wu.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/init__fang-fa.html">init__()方法</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>首先复习一下,<a href="http://tulpar008.github.io/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">__（双下划线）的作用</a></h3>
+<ul>
+<li>
+<p>Python中默认的成员函数，成员变量都是公开的(public),而且python中没有类似public,private等关键词来修饰成员函数，成员变量。   </p>
+</li>
+<li>
+<p>可有时候需要用到私有变量，因此诞生了__。    </p>
+</li>
+<li>
+<p>变量名或函数名前加上 ”__“两个下划线，那么这个函数或变量就会为私有的了。</p>
+</li>
+<li>
+<p>私有意味着只有内部能使用，对外部隐藏。       </p>
+</li>
+<li>
+<p>在内部，python使用一种 name mangling 技术，将 __membername替换成 _classname__membername来使用。  <br />
+在外部，使用原来的私有成员的名字时，会提示找不到。（达到了隐藏的效果）    </p>
+</li>
+</ul>
+<hr />
+<p>很显然，__init__是个私有函数</p>
+<h5>__init__方法在类的一个对象被建立时，马上运行。这个方法可以用来对你的对象做一些你希望的 初始化 。</h5>
+<h6>注意，这个名称的开始和结尾都是双下划线。</h6></div>
+  <footer>
+    <a rel="full-article" href="/init__fang-fa.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/python-shi-li-fang-fa-jing-tai-fang-fa-lei-fang-fa.html">python 实例方法，静态方法，类方法</a>
       </h1>
       <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
@@ -292,77 +386,6 @@
     <a rel="full-article" href="/mysqlyu-ju-ru-men-1.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>如下方法：</h3>
-<div class="highlight"><pre><span class="nx">python</span> <span class="nx">manage.py</span> <span class="nx">dumpdata</span> <span class="o">&lt;</span><span class="nx">your_app</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="nx">temp_data.json</span>
-<span class="err">##做一些毁数据的活儿</span>
-<span class="nx">python</span> <span class="nx">manage.py</span> <span class="nx">loaddata</span> <span class="nx">temp_data.json</span>
-</pre></div></div>
-  <footer>
-    <a rel="full-article" href="/django-bei-fen-shu-ju-fang-fa-1.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Django中使用mysql数据库</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>安装Mysql</h3>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">mysql</span><span class="o">-</span><span class="n">server</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">mysqldb</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libmysqlclient</span><span class="o">-</span><span class="n">dev</span>
-</pre></div>
-
-
-<h3>安装<code>mysql-python</code>模块</h3>
-<p><code>pip install mysql-python</code>   </p>
-<h3>创建并设置Database</h3>
-<div class="highlight"><pre><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span>
-<span class="n">Enter</span> <span class="n">password</span><span class="o">:</span> 
-
-<span class="cp">###mysql&gt; CREATE DATABASE tulpar_db;(最好用下面的方法，创建数据库时指定编码，免得不识别汉字</span>
-<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">tulpar_db</span> <span class="n">CHARACTER</span> <span class="n">SET</span> <span class="n">utf8</span> <span class="n">COLLATE</span> <span class="n">utf8_general_ci</span><span class="p">;</span>
-
-<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">GRANT ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Xadmin List_display中显示缩略图</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>需求如图：</h3>
-<p><img alt="Xadmin环境中" src="http://tulparblog.qiniudn.com/%E7%BC%A9%E7%95%A5%E5%9B%BE.png" /></p>
-<h3>方法：</h3>
-<p><code>models.py</code>   </p>
-<div class="highlight"><pre><span class="cp">#-*- coding: UTF-8 -*- </span>
-<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">db</span> <span class="n">import</span> <span class="n">models</span>
-<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">auth</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">User</span>
-<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">translation</span> <span class="n">import</span> <span class="n">ugettext</span> <span class="n">as</span> <span class="n">_</span>
-<span class="n">from</span> <span class="n">userena</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">UserenaBaseProfile</span>
-
-<span class="n">class</span> <span class="n">MyProfile</span><span class="p">(</span><span class="n">UserenaBaseProfile</span><span class="p">)</span><span class="o">:</span>
-    <span class="n">user</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">User</span><span class="p">,</span><span class="n">unique</span><span class="o">=</span><span class="n">True</span><span class="p">,</span><span class="n">verbose_name</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">user</span><span class="err">&#39;</span><span class="p">),</span><span class="n">related_name</span><span class="o">=</span><span class="err">&#39;</span><span class="n">my_profile</span><span class="err">&#39;</span><span class="p">)</span>
-    <span class="n">one_card</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">FileField</span><span class="p">(</span><span class="n">u</span><span class="err">&#39;一卡通 ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it3.html">&larr; Older</a>
 
@@ -386,7 +409,7 @@
           <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
       </li>
       <li class="post">
-          <a href="/ubuntu-1204zhong-wen-shu-ru-fa-de-an-zhuang.html">Ubuntu 12.04中文输入法的安装</a>
+          <a href="/django-validators.html">Django Validators</a>
       </li>
     </ul>
   </section>

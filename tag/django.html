@@ -172,6 +172,95 @@ models   </p>
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/django-validators.html">Django Validators</a>
+      </h1>
+      <p class="meta"><time datetime="2014-09-07T00:00:00" pubdate>日 07 九月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>之前没用过Validators <br />
+这回入了门，用了一下，很爽～～    </p>
+<hr />
+<p><a href="https://docs.djangoproject.com/en/dev/ref/validators/">Django Validators</a>   </p>
+<h5>正如django文档所说：我们可以自己新建各种Validators，如：</h5>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">core</span><span class="p">.</span><span class="n">exceptions</span> <span class="n">import</span> <span class="n">ValidationError</span>
+
+<span class="n">def</span> <span class="n">validate_even</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">:</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">:</span>
+        <span class="n">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="err">&#39;</span><span class="o">%</span><span class="n">s</span> <span class="n">is</span> <span class="n">not</span> <span class="n">an</span> <span class="n">even</span> <span class="n">number</span><span class="err">&#39;</span> <span class="o">%</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+
+
+<p>You can add this to a model field via the field’s validators argument:   </p>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">db</span> <span class="n">import</span> <span class="n">models ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-validators.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/related-field-has-invalid-lookup-icontains-jie-jue-fang-fa.html">related Field has invalid lookup: icontains 解决方法</a>
+      </h1>
+      <p class="meta"><time datetime="2014-09-07T00:00:00" pubdate>日 07 九月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>这种错误常见于：    </p>
+<h5>1. 后台查询部分，如：</h5>
+<div class="highlight"><pre><span class="cp"># 有一个表Category是表Article的category外键，Category有属性叫name，</span>
+<span class="n">class</span> <span class="n">ArticleAdmin</span><span class="p">(</span><span class="n">admin</span><span class="p">.</span><span class="n">ModelAdmin</span><span class="p">)</span><span class="o">:</span>
+
+    <span class="s">&quot;&quot;&quot;</span>
+    <span class="n">A</span> <span class="n">simple</span> <span class="n">AdminModel</span> <span class="k">for</span> <span class="n">Article</span><span class="p">.</span>
+    <span class="s">&quot;&quot;&quot;</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">title</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">category</span><span class="err">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>以上情况下肯定会报一个<code>related Field has invalid lookup: icontains</code>错误   </p>
+<h5>2. 你在其他地方写了查询语句，如以下函数：</h5>
+<div class="highlight"><pre><span class="err">@</span><span class="n">classmethod</span>
+    <span class="n">def</span> <span class="n">get_articles</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">CATEGORY</span><span class="o">=</span><span class="n">None</span><span class="p">,</span> <span class="n">TAG</span><span class="o">=</span><span class="n">None</span><span class="p">,</span> <span class="n">NUM</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span><span class="o">:</span>
+        <span class="s">&quot;&quot;&quot;</span>
+        <span class="n">A</span> <span class="n">simple</span> <span class="n">classmethod</span><span class="p">.</span>
+        <span class="n">Use</span> <span class="n">Article</span><span class="p">.</span><span class="n">get_articles</span><span class="p">(</span><span class="n">CATEGORY</span><span class="o">=</span><span class="n">None</span><span class="p">,</span> <span class="n">TAG</span><span class="o">=</span><span class="n">None</span><span class="p">,</span> <span class="n">NUM ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/related-field-has-invalid-lookup-icontains-jie-jue-fang-fa.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/django-fen-ye.html">django 分页</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>我个人使用gmail的邮件服务器，不过经常会被墙，因此下面讲解使用qq邮箱服务器。</p>
+<ol>
+<li>首先看看django-pagination</li>
+</ol>
+<hr />
+<h4>settings.py</h4>
+<div class="highlight"><pre><span class="n">TEMPLATE_CONTEXT_PROCESSORS</span> <span class="o">=</span> <span class="p">(</span>
+<span class="s">&quot;django.contrib.auth.context_processors.auth&quot;</span><span class="p">,</span>
+<span class="s">&quot;django.core.context_processors.debug&quot;</span><span class="p">,</span>
+<span class="s">&quot;django.core.context_processors.i18n&quot;</span><span class="p">,</span>
+<span class="s">&quot;django.core.context_processors.media&quot;</span><span class="p">,</span>
+<span class="s">&quot;django.core.context_processors.static&quot;</span><span class="p">,</span>
+<span class="s">&quot;django.core.context_processors.tz&quot;</span><span class="p">,</span>
+<span class="s">&quot;django.core.context_processors.request&quot;</span><span class="p">,)</span>
+
+<span class="n">MIDDLEWARE_CLASSES</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">middleware</span><span class="p">.</span><span class="n">common</span><span class="p">.</span><span class="n">CommonMiddleware</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">sessions</span><span class="p">.</span><span class="n">middleware</span><span class="p">.</span><span class="n">SessionMiddleware</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">middleware</span><span class="p">.</span><span class="n">csrf</span><span class="p">.</span><span class="n">CsrfViewMiddleware ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-fen-ye.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/django-shi-yong-you-jian-fu-wu.html">Django 使用邮件服务</a>
       </h1>
       <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
@@ -243,91 +332,6 @@ models   </p>
     <a rel="full-article" href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Xadmin List_display中显示缩略图</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>需求如图：</h3>
-<p><img alt="Xadmin环境中" src="http://tulparblog.qiniudn.com/%E7%BC%A9%E7%95%A5%E5%9B%BE.png" /></p>
-<h3>方法：</h3>
-<p><code>models.py</code>   </p>
-<div class="highlight"><pre><span class="cp">#-*- coding: UTF-8 -*- </span>
-<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">db</span> <span class="n">import</span> <span class="n">models</span>
-<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">auth</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">User</span>
-<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">translation</span> <span class="n">import</span> <span class="n">ugettext</span> <span class="n">as</span> <span class="n">_</span>
-<span class="n">from</span> <span class="n">userena</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">UserenaBaseProfile</span>
-
-<span class="n">class</span> <span class="n">MyProfile</span><span class="p">(</span><span class="n">UserenaBaseProfile</span><span class="p">)</span><span class="o">:</span>
-    <span class="n">user</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">User</span><span class="p">,</span><span class="n">unique</span><span class="o">=</span><span class="n">True</span><span class="p">,</span><span class="n">verbose_name</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">user</span><span class="err">&#39;</span><span class="p">),</span><span class="n">related_name</span><span class="o">=</span><span class="err">&#39;</span><span class="n">my_profile</span><span class="err">&#39;</span><span class="p">)</span>
-    <span class="n">one_card</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">FileField</span><span class="p">(</span><span class="n">u</span><span class="err">&#39;一卡通 ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Xadmin中自动预填某个字段</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-16T00:00:00" pubdate>一 16 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>需求：</h3>
-<p>今天写一个model时写了个字段<code>create_by=models.ForeignKey(User)</code>。 <br />
-想给它预填入当前的已登录用户。需求类似如下（当然不可能那样写）： <br />
-<code>created_by = models.ForeignKey(User, default=request.user)</code><br />
-如果以上需求在<code>View</code>里，很好解决的。可现在在AdminModel里，而且在Xadmin环境下。<br />
-于是，Google,得<a href="http://stackoverflow.com/questions/937954/how-do-you-specify-a-default-for-a-django-foreignkey-model-or-adminmodel-field">StackOverFlow</a>，找到了<a href="http://www.b-list.org/weblog/2008/dec/24/admin/">参考资料1</a>。感谢Google，感谢StackOverFlowx，感谢<a href="http://www.b-list.org/weblog/2008/dec/24/admin/">参考资料1</a>。<a href="https://github.com/sshwsfc/django-xadmin/issues/96">参考资料2</a></p>
-<h3>解决方案</h3>
-<h4>在默认的django admin环境下</h4>
-<h5><code>models.py</code></h5>
-<div class="highlight"><pre><span class="cp">#-*- coding: UTF-8 -*- </span>
-<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">db</span> <span class="n">import</span> <span class="n">models</span>
-<span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">auth</span><span class="p">.</span><span class="n">models ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/ueditorzai-djangozhong-de-shi-yong.html">Ueditor在Django中的使用</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-14T00:00:00" pubdate>六 14 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><p>以前写过Ueditor在Django中的使用方法（虽然跟着上一个博客一起丢了），在此不赘述了。想学可以看看这位朋友的分享：
-<a href="https://github.com/zhangfisher/DjangoUeditor">Django中使用Ueditor</a></p>
-<p><a href="http://mushapi.sinaapp.com/using-ueditor-in-django-with-xadmin.html">http://mushapi.sinaapp.com/using-ueditor-in-django-with-xadmin.html</a></p>
-<h3>1.安装</h3>
-<p><code>pip install DjangoUeditor</code></p>
-<h3>2.启用</h3>
-<h5>在<code>INSTALL_APPS</code>里面增加DjangoUeditor app，如下：</h5>
-<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="err">#</span><span class="p">........</span>
-            <span class="err">&#39;</span><span class="n">DjangoUeditor</span><span class="err">&#39;</span><span class="p">,</span>
-        <span class="p">)</span>
-</pre></div>
-
-
-<h5>在urls.py中增加：</h5>
-<div class="highlight"><pre>    <span class="n">url</span><span class="p">(</span><span class="n">r</span><span class="err">&#39;</span><span class="o">^</span><span class="n">ueditor</span><span class="o">/</span><span class="err">&#39;</span><span class="p">,</span><span class="n">include</span><span class="p">(</span><span class="err">&#39;</span><span class="n">DjangoUeditor</span><span class="p">.</span><span class="n">urls</span><span class="err">&#39;</span> <span class="p">)),</span>
-</pre></div>
-
-
-<h3>3.使用</h3>
-<h5>在<code>models</code>中这样使用：</h5>
-<div class="highlight"><pre><span class="n">from</span> <span class="n">DjangoUeditor</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">UEditorField</span>
-    <span class="n">class</span> <span class="n">Blog</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
-        <span class="n">Name</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">CharField ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/ueditorzai-djangozhong-de-shi-yong.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/tag/django2.html">&larr; Older</a>
 
@@ -350,7 +354,7 @@ models   </p>
           <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
       </li>
       <li class="post">
-          <a href="/django-shi-yong-you-jian-fu-wu.html">Django 使用邮件服务</a>
+          <a href="/django-validators.html">Django Validators</a>
       </li>
     </ul>
   </section>

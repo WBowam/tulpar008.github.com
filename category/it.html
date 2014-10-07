@@ -172,6 +172,64 @@ models   </p>
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/django-validators.html">Django Validators</a>
+      </h1>
+      <p class="meta"><time datetime="2014-09-07T00:00:00" pubdate>日 07 九月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>之前没用过Validators <br />
+这回入了门，用了一下，很爽～～    </p>
+<hr />
+<p><a href="https://docs.djangoproject.com/en/dev/ref/validators/">Django Validators</a>   </p>
+<h5>正如django文档所说：我们可以自己新建各种Validators，如：</h5>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">core</span><span class="p">.</span><span class="n">exceptions</span> <span class="n">import</span> <span class="n">ValidationError</span>
+
+<span class="n">def</span> <span class="n">validate_even</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">:</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">:</span>
+        <span class="n">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="err">&#39;</span><span class="o">%</span><span class="n">s</span> <span class="n">is</span> <span class="n">not</span> <span class="n">an</span> <span class="n">even</span> <span class="n">number</span><span class="err">&#39;</span> <span class="o">%</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+
+
+<p>You can add this to a model field via the field’s validators argument:   </p>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">db</span> <span class="n">import</span> <span class="n">models ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-validators.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/related-field-has-invalid-lookup-icontains-jie-jue-fang-fa.html">related Field has invalid lookup: icontains 解决方法</a>
+      </h1>
+      <p class="meta"><time datetime="2014-09-07T00:00:00" pubdate>日 07 九月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>这种错误常见于：    </p>
+<h5>1. 后台查询部分，如：</h5>
+<div class="highlight"><pre><span class="cp"># 有一个表Category是表Article的category外键，Category有属性叫name，</span>
+<span class="n">class</span> <span class="n">ArticleAdmin</span><span class="p">(</span><span class="n">admin</span><span class="p">.</span><span class="n">ModelAdmin</span><span class="p">)</span><span class="o">:</span>
+
+    <span class="s">&quot;&quot;&quot;</span>
+    <span class="n">A</span> <span class="n">simple</span> <span class="n">AdminModel</span> <span class="k">for</span> <span class="n">Article</span><span class="p">.</span>
+    <span class="s">&quot;&quot;&quot;</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">title</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">category</span><span class="err">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>以上情况下肯定会报一个<code>related Field has invalid lookup: icontains</code>错误   </p>
+<h5>2. 你在其他地方写了查询语句，如以下函数：</h5>
+<div class="highlight"><pre><span class="err">@</span><span class="n">classmethod</span>
+    <span class="n">def</span> <span class="n">get_articles</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">CATEGORY</span><span class="o">=</span><span class="n">None</span><span class="p">,</span> <span class="n">TAG</span><span class="o">=</span><span class="n">None</span><span class="p">,</span> <span class="n">NUM</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span><span class="o">:</span>
+        <span class="s">&quot;&quot;&quot;</span>
+        <span class="n">A</span> <span class="n">simple</span> <span class="n">classmethod</span><span class="p">.</span>
+        <span class="n">Use</span> <span class="n">Article</span><span class="p">.</span><span class="n">get_articles</span><span class="p">(</span><span class="n">CATEGORY</span><span class="o">=</span><span class="n">None</span><span class="p">,</span> <span class="n">TAG</span><span class="o">=</span><span class="n">None</span><span class="p">,</span> <span class="n">NUM ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/related-field-has-invalid-lookup-icontains-jie-jue-fang-fa.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/ubuntu-1204zhong-wen-shu-ru-fa-de-an-zhuang.html">Ubuntu 12.04中文输入法的安装</a>
       </h1>
       <p class="meta"><time datetime="2014-08-21T00:00:00" pubdate>四 21 八月 2014</time></p>
@@ -288,69 +346,6 @@ IBus拼音：<code>sudo apt-get ...</code></p></div>
     <a rel="full-article" href="/pythonzhong-raw_inputhe-inputde-yi-tong-dian.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/django-shi-yong-you-jian-fu-wu.html">Django 使用邮件服务</a>
-      </h1>
-      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
-</header>
-
-  <div class="entry-content"><p>我个人使用gmail的邮件服务器，不过经常会被墙，因此下面讲解使用qq邮箱服务器。</p>
-<hr />
-<h3>django settings.py</h3>
-<div class="highlight"><pre><span class="n">DEFAULT_FROM_EMAIL</span><span class="o">=</span><span class="err">&#39;</span><span class="mi">49244564</span><span class="err">@</span><span class="n">qq</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span>
-<span class="cp">#django 要求这里的“发送者”邮箱必须和超级管理员的邮箱一致，而且不能为空</span>
-<span class="n">EMAIL_USE_TLS</span> <span class="o">=</span> <span class="n">True</span>
-<span class="n">EMAIL_HOST</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">smtp</span><span class="p">.</span><span class="n">qq</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span>
-<span class="n">EMAIL_PORT</span> <span class="o">=</span> <span class="mi">587</span>
-<span class="cp">##此处用的是SMTP的SSL加密方式，所以使用587或465端口号，不然可以用25端口。</span>
-<span class="n">EMAIL_HOST_USER</span> <span class="o">=</span> <span class="err">&#39;</span><span class="mi">49244564</span><span class="err">@</span><span class="n">qq</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span>
-<span class="n">EMAIL_HOST_PASSWORD</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">wodeqqyouxiangmima</span><span class="err">&#39;</span>
-</pre></div>
-
-
-<h3>开启qq邮箱SMTP服务</h3>
-<p>设置——账户——开启服务————打勾“POP3/SMTP服务和IMAP/SMTP服务“  </p></div>
-  <footer>
-    <a rel="full-article" href="/django-shi-yong-you-jian-fu-wu.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/init__fang-fa.html">init__()方法</a>
-      </h1>
-      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>首先复习一下,<a href="http://tulpar008.github.io/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">__（双下划线）的作用</a></h3>
-<ul>
-<li>
-<p>Python中默认的成员函数，成员变量都是公开的(public),而且python中没有类似public,private等关键词来修饰成员函数，成员变量。   </p>
-</li>
-<li>
-<p>可有时候需要用到私有变量，因此诞生了__。    </p>
-</li>
-<li>
-<p>变量名或函数名前加上 ”__“两个下划线，那么这个函数或变量就会为私有的了。</p>
-</li>
-<li>
-<p>私有意味着只有内部能使用，对外部隐藏。       </p>
-</li>
-<li>
-<p>在内部，python使用一种 name mangling 技术，将 __membername替换成 _classname__membername来使用。  <br />
-在外部，使用原来的私有成员的名字时，会提示找不到。（达到了隐藏的效果）    </p>
-</li>
-</ul>
-<hr />
-<p>很显然，__init__是个私有函数</p>
-<h5>__init__方法在类的一个对象被建立时，马上运行。这个方法可以用来对你的对象做一些你希望的 初始化 。</h5>
-<h6>注意，这个名称的开始和结尾都是双下划线。</h6></div>
-  <footer>
-    <a rel="full-article" href="/init__fang-fa.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it2.html">&larr; Older</a>
 
@@ -373,7 +368,7 @@ IBus拼音：<code>sudo apt-get ...</code></p></div>
           <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
       </li>
       <li class="post">
-          <a href="/ubuntu-1204zhong-wen-shu-ru-fa-de-an-zhuang.html">Ubuntu 12.04中文输入法的安装</a>
+          <a href="/django-validators.html">Django Validators</a>
       </li>
     </ul>
   </section>
