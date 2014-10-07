@@ -51,6 +51,34 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/fan-qiang-zhi-dian-nao-pian.html">翻墙之电脑篇</a>
+      </h1>
+      <p class="meta"><time datetime="2014-03-08T00:00:00" pubdate>六 08 三月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>之前用过Goagent代理翻墙，很好用，再次感叹Google是个伟大的公司，，，
+相比用Goagent，下面的成Chrome插件更加简便。</p>
+<hr />
+<h3>1. <a href="https://chrome.google.com/webstore/search/%E7%BF%BB%E5%A2%99?hl=zh-CN">红杏</a></h3>
+<p>到google应用商店，装上即可，不过非VIP只能翻有限的网站。。。。。</p>
+<h3>2. sshuttle</h3>
+<p>闲逛github时看到基于 python 的 sshuttle</p>
+<p>sshuttle被称为穷人的VPN.就是说它是免费的.</p>
+<p>仅仅免费其实不够诱人,让我动心的是它的简单,而且可以在纯命令行下使用.</p>
+<p>理论上vpn也是可以在纯命令行下使用的,我先后按照几个教程,都未成功.当然图形界面配置vpn很简单.</p>
+<p>可问题是我必须在远程服务器上使用vpn(当然是用ssh登陆), 更新部署代码 , 需要连接国外服务器.</p>
+<h5>如何使用</h5>
+<p>(ubuntu下)首先安装它: 
+<code>sudo apt-get install sshuttle</code><br />
+<code>sshuttle -r action@apne1.nitrousbox.com:22411 0.0.0.0/0 -vv</code>  </p>
+<p>搞定 ...</p></div>
+  <footer>
+    <a rel="full-article" href="/fan-qiang-zhi-dian-nao-pian.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/shi-yong-ngrokjiang-nei-wang-duan-kou-ying-she-dao-wai-wang.html">使用ngrok将内网端口映射到外网</a>
       </h1>
       <p class="meta"><time datetime="2014-03-08T00:00:00" pubdate>六 08 三月 2014</time></p>
@@ -286,39 +314,6 @@ SSH登录整个过程是这样的：<br />
     <a rel="full-article" href="/sshyuan-li.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/tmux-ru-men.html">Tmux 入门</a>
-      </h1>
-      <p class="meta"><time datetime="2013-12-08T00:00:00" pubdate>日 08 十二月 2013</time></p>
-</header>
-
-  <div class="entry-content"><h3>tmux快捷键</h3>
-<p>tmux在会话中使用大量的快捷键来控制多个窗口、多个会话等。</p>
-<div class="highlight"><pre><span class="n">Ctrl</span><span class="o">+</span><span class="n">b</span>  <span class="c1">// 激活控制台；此时以下按键生效   </span>
-<span class="err">系统操作</span>   
-    <span class="o">?</span>   <span class="c1">// 列出所有快捷键；按q返回   </span>
-    <span class="n">d</span>   <span class="c1">// 脱离当前会话；这样可以暂时返回Shell界面，输入tmux attach能够重新进入之前的会话   </span>
-    <span class="n">D</span>   <span class="c1">// 选择要脱离的会话；在同时开启了多个会话时使用   </span>
-    <span class="n">Ctrl</span><span class="o">+</span><span class="n">z</span>  <span class="c1">// 挂起当前会话   </span>
-    <span class="n">r</span>   <span class="c1">// 强制重绘未脱离的会话   </span>
-    <span class="n">s</span>   <span class="c1">// 选择并切换会话；在同时开启了多个会话时使用   </span>
-    <span class="o">:</span>   <span class="c1">// 进入命令行模式；此时可以输入支持的命令，例如kill-server可以关闭服务器   </span>
-    <span class="p">[</span>   <span class="c1">// 进入复制模式；此时的操作与vi/emacs相同，按q/Esc退出   </span>
-    <span class="o">~</span>   <span class="c1">// 列出提示信息缓存；其中包含了之前tmux返回的各种提示信息   </span>
-<span class="err">窗口操作</span>   
-    <span class="n">c</span>   <span class="c1">// 创建新窗口   </span>
-    <span class="o">&amp;</span>   <span class="c1">// 关闭当前窗口   </span>
-    <span class="err">数字键</span> <span class="c1">// 切换至指定窗口   </span>
-    <span class="n">p</span>   <span class="c1">// 切换至上一窗口   </span>
-    <span class="n">n</span>   <span class="c1">// 切换至下一窗口   </span>
-    <span class="n">l</span>   <span class="c1">// 在前后两个窗口间互相切换   </span>
-    <span class="n">w</span>   <span class="c1">// 通过窗口列表切换窗口 ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/tmux-ru-men.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it5.html">&larr; Older</a>
 
@@ -358,7 +353,7 @@ SSH登录整个过程是这样的：<br />
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>  </section>
+    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/djangopython.html">Django，python</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>  </section>
 
 
     <section>

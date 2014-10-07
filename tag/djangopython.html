@@ -5,7 +5,7 @@
 <head>
 <link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
   <meta charset="utf-8">
-  <title>Dreaming - ssh</title>
+  <title>Dreaming - Django，python</title>
   <meta name="author" content="tulpar">
 
 
@@ -51,50 +51,25 @@
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="/sshd_configpei-zhi.html">sshd_config配置</a>
+        <a href="/pep8-zong-jie.html">PEP8 总结</a>
       </h1>
-      <p class="meta"><time datetime="2013-12-08T00:00:00" pubdate>日 08 十二月 2013</time></p>
+      <p class="meta"><time datetime="2014-05-14T00:00:00" pubdate>三 14 五月 2014</time></p>
 </header>
 
-  <div class="entry-content"><p>基本上，在您的系统中，『除非有必要，否则请不要更改 /etc/ssh/sshd_config 这个档案的设定值！』因为预设的情况下通常都是最严密的 SSH 保护了，因此，可以不需要更动他！上面的说明仅是在让大家了解每个细项的一些基本内容而已！需要注意的是最后一项，如果您不愿意开放 SFTP 的话，将最后一行批注掉即可！  </p>
+  <div class="entry-content"><p>pep8除了是一个标准，也是一个软件包的名字。 <br />
+提供一个pep8检测器。<br />
+运行很简单：pep8 INPUT_FILES ...<br />
+查看帮助：pep8 --help   </p>
+<p>一般来说，如果要检查代码，pylint和pep8最好都运行一下。pep8只能检测格式，pylint不仅检测格式，还检测语意。  </p>
+<p>下文参考总结bobo的日记，感谢前辈分享～～～</p>
 <hr />
-<div class="highlight"><pre><span class="cp">### 1. 关于 SSH Server 的整体设定，包含使用的 port 啦，以及使用的密码演算方式</span>
-<span class="n">Port</span> <span class="mi">22</span><span class="err">　　　　　　　　　　#</span> <span class="n">SSH</span> <span class="err">预设使用</span> <span class="mi">22</span> <span class="err">这个</span> <span class="n">port</span><span class="err">，您也可以使用多的</span> <span class="n">port</span> <span class="err">！</span>
-<span class="err">　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">亦即重复使用</span> <span class="n">port</span> <span class="err">这个设定项目即可！</span>
-<span class="n">Protocol</span> <span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="err">　　　　　　　</span> <span class="err">#</span> <span class="err">选择的</span> <span class="n">SSH</span> <span class="err">协议版本，可以是</span> <span class="mi">1</span> <span class="err">也可以是</span> <span class="mi">2 ...</span></pre></div></div>
+<h2>一 代码编排</h2>
+<p>1 缩进。4个空格的缩进（编辑器都可以完成此功能），不使用Tap，更不能混合使用Tap和空格。python3 已经不允许空格和Tab混用了。   <br />
+2 每行最大长度79，换行可以使用反斜杠。换行点要在操作符的后边敲回车。  </p>
+<div class="highlight"><pre><span class="n">with</span> <span class="n">open</span><span class="p">(</span><span class="err">&#39;</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">some</span><span class="o">/</span><span class="n">file</span><span class="o">/</span><span class="n">you</span><span class="o">/</span><span class="n">want</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">read</span><span class="err">&#39;</span><span class="p">)</span> <span class="n">as</span> <span class="n">file_1</span><span class="p">,</span> \
+        <span class="n">open</span><span class="p">(</span><span class="err">&#39;</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">some</span><span class="o">/</span><span class="n">file</span><span class="o">/</span><span class="n">being</span><span class="o">/</span><span class="n">written ...</span></pre></div></div>
   <footer>
-    <a rel="full-article" href="/sshd_configpei-zhi.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/sshyuan-li.html">SSH原理</a>
-      </h1>
-      <p class="meta"><time datetime="2013-12-08T00:00:00" pubdate>日 08 十二月 2013</time></p>
-</header>
-
-  <div class="entry-content"><p>简单说，SSH是一种网络协议，用于计算机之间的加密登录。</p>
-<hr />
-<h3>一 最基本的用法</h3>
-<p>SSH主要用于远程登录。假定你要以用户名user，登录远程主机host，只要一条简单命令就可以了。
-<code>$ ssh user@host</code>
-如果本地用户名与远程用户名一致，登录时可以省略用户名。
-<code>$ ssh host</code>
-SSH的默认端口是22，也就是说，你的登录请求会送进远程主机的22端口。使用p参数，可以修改这个端口。
-<code>$ ssh -p 2222 user@host</code>
-上面这条命令表示，ssh直接连接远程主机的2222端口。</p>
-<h3>二 SSH原理</h3>
-<p>SSH之所以能够保证安全，原因在于它采用了公钥加密。<br />
-原理如图<img alt="ssh原理图" src="http://tulparblog.qiniudn.com/ssh.jpg" />
-SSH登录整个过程是这样的：<br />
-（1）远程主机收到用户的登录请求，把自己的公钥发给用户。<br />
-（2）用户使用这个公钥，将登录密码加密后，发送回来。<br />
-（3）远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</p>
-<h3>三 密码登录过程</h3>
-<p>如果你是第一次登录对方主机，系统会出现下面的提示 ...</p></div>
-  <footer>
-    <a rel="full-article" href="/sshyuan-li.html">Read On &crarr;</a>
+    <a rel="full-article" href="/pep8-zong-jie.html">Read On &crarr;</a>
   </footer>
   		</article>
 <div class="pagination">
@@ -106,10 +81,7 @@ SSH登录整个过程是这样的：<br />
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="/sshd_configpei-zhi.html">sshd_config配置</a>
-      </li>
-      <li class="post">
-          <a href="/sshyuan-li.html">SSH原理</a>
+          <a href="/pep8-zong-jie.html">PEP8 总结</a>
       </li>
     </ul>
   </section>
@@ -148,7 +120,7 @@ SSH登录整个过程是这样的：<br />
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2013  - tulpar -
+    Copyright &copy;  2014  - tulpar -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
 </body>

@@ -224,6 +224,30 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/pep8-zong-jie.html">PEP8 总结</a>
+      </h1>
+      <p class="meta"><time datetime="2014-05-14T00:00:00" pubdate>三 14 五月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>pep8除了是一个标准，也是一个软件包的名字。 <br />
+提供一个pep8检测器。<br />
+运行很简单：pep8 INPUT_FILES ...<br />
+查看帮助：pep8 --help   </p>
+<p>一般来说，如果要检查代码，pylint和pep8最好都运行一下。pep8只能检测格式，pylint不仅检测格式，还检测语意。  </p>
+<p>下文参考总结bobo的日记，感谢前辈分享～～～</p>
+<hr />
+<h2>一 代码编排</h2>
+<p>1 缩进。4个空格的缩进（编辑器都可以完成此功能），不使用Tap，更不能混合使用Tap和空格。python3 已经不允许空格和Tab混用了。   <br />
+2 每行最大长度79，换行可以使用反斜杠。换行点要在操作符的后边敲回车。  </p>
+<div class="highlight"><pre><span class="n">with</span> <span class="n">open</span><span class="p">(</span><span class="err">&#39;</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">some</span><span class="o">/</span><span class="n">file</span><span class="o">/</span><span class="n">you</span><span class="o">/</span><span class="n">want</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">read</span><span class="err">&#39;</span><span class="p">)</span> <span class="n">as</span> <span class="n">file_1</span><span class="p">,</span> \
+        <span class="n">open</span><span class="p">(</span><span class="err">&#39;</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">some</span><span class="o">/</span><span class="n">file</span><span class="o">/</span><span class="n">being</span><span class="o">/</span><span class="n">written ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/pep8-zong-jie.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/yong-django-mptthou-tai-zhong-sheng-cheng-shu-zhuang-shu-ju-jie-gou.html">用Django mptt后台中生成树状数据结构</a>
       </h1>
       <p class="meta"><time datetime="2014-04-16T00:00:00" pubdate>三 16 四月 2014</time></p>
@@ -303,34 +327,6 @@
     <a rel="full-article" href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/fan-qiang-zhi-dian-nao-pian.html">翻墙之电脑篇</a>
-      </h1>
-      <p class="meta"><time datetime="2014-03-08T00:00:00" pubdate>六 08 三月 2014</time></p>
-</header>
-
-  <div class="entry-content"><p>之前用过Goagent代理翻墙，很好用，再次感叹Google是个伟大的公司，，，
-相比用Goagent，下面的成Chrome插件更加简便。</p>
-<hr />
-<h3>1. <a href="https://chrome.google.com/webstore/search/%E7%BF%BB%E5%A2%99?hl=zh-CN">红杏</a></h3>
-<p>到google应用商店，装上即可，不过非VIP只能翻有限的网站。。。。。</p>
-<h3>2. sshuttle</h3>
-<p>闲逛github时看到基于 python 的 sshuttle</p>
-<p>sshuttle被称为穷人的VPN.就是说它是免费的.</p>
-<p>仅仅免费其实不够诱人,让我动心的是它的简单,而且可以在纯命令行下使用.</p>
-<p>理论上vpn也是可以在纯命令行下使用的,我先后按照几个教程,都未成功.当然图形界面配置vpn很简单.</p>
-<p>可问题是我必须在远程服务器上使用vpn(当然是用ssh登陆), 更新部署代码 , 需要连接国外服务器.</p>
-<h5>如何使用</h5>
-<p>(ubuntu下)首先安装它: 
-<code>sudo apt-get install sshuttle</code><br />
-<code>sshuttle -r action@apne1.nitrousbox.com:22411 0.0.0.0/0 -vv</code>  </p>
-<p>搞定 ...</p></div>
-  <footer>
-    <a rel="full-article" href="/fan-qiang-zhi-dian-nao-pian.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it4.html">&larr; Older</a>
 
@@ -370,7 +366,7 @@
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>  </section>
+    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/djangopython.html">Django，python</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>  </section>
 
 
     <section>

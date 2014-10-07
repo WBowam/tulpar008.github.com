@@ -51,6 +51,30 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/pep8-zong-jie.html">PEP8 总结</a>
+      </h1>
+      <p class="meta"><time datetime="2014-05-14T00:00:00" pubdate>三 14 五月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>pep8除了是一个标准，也是一个软件包的名字。 <br />
+提供一个pep8检测器。<br />
+运行很简单：pep8 INPUT_FILES ...<br />
+查看帮助：pep8 --help   </p>
+<p>一般来说，如果要检查代码，pylint和pep8最好都运行一下。pep8只能检测格式，pylint不仅检测格式，还检测语意。  </p>
+<p>下文参考总结bobo的日记，感谢前辈分享～～～</p>
+<hr />
+<h2>一 代码编排</h2>
+<p>1 缩进。4个空格的缩进（编辑器都可以完成此功能），不使用Tap，更不能混合使用Tap和空格。python3 已经不允许空格和Tab混用了。   <br />
+2 每行最大长度79，换行可以使用反斜杠。换行点要在操作符的后边敲回车。  </p>
+<div class="highlight"><pre><span class="n">with</span> <span class="n">open</span><span class="p">(</span><span class="err">&#39;</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">some</span><span class="o">/</span><span class="n">file</span><span class="o">/</span><span class="n">you</span><span class="o">/</span><span class="n">want</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">read</span><span class="err">&#39;</span><span class="p">)</span> <span class="n">as</span> <span class="n">file_1</span><span class="p">,</span> \
+        <span class="n">open</span><span class="p">(</span><span class="err">&#39;</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">some</span><span class="o">/</span><span class="n">file</span><span class="o">/</span><span class="n">being</span><span class="o">/</span><span class="n">written ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/pep8-zong-jie.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/yong-django-mptthou-tai-zhong-sheng-cheng-shu-zhuang-shu-ju-jie-gou.html">用Django mptt后台中生成树状数据结构</a>
       </h1>
       <p class="meta"><time datetime="2014-04-16T00:00:00" pubdate>三 16 四月 2014</time></p>
@@ -283,39 +307,6 @@ virtualenv 1.11.4  </p>
     <a rel="full-article" href="/shi-yong-edx-platform.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/ming-ling-xing-xia-shi-yong-virtualbox.html">命令行下使用VirtualBox</a>
-      </h1>
-      <p class="meta"><time datetime="2014-01-08T00:00:00" pubdate>三 08 一月 2014</time></p>
-</header>
-
-  <div class="entry-content"><p>有个小小的需求：ssh登录的远程服务器上，开启poweroff状态的VirtualBox虚拟机.......</p>
-<p>需要学会在命令行下管理及使用VirtualBox， <br />
-下面只是一些基本的用法，只供入门。当然，如果你执意，也可以去看<a href="http://www.virtualbox.org/manual/ch08.html#idp6268864">VirtualBox文档</a></p>
-<h3>走起</h3>
-<hr />
-<h5>一个命令可以满足我的需求，即VBoxManage</h5>
-<h3>1. VBoxManage startvm子命令可以开启一台状态为关闭或者保存的虚拟机。该命令的语法为:</h3>
-<div class="highlight"><pre><span class="n">VBoxManage</span> <span class="n">startvm</span>  <span class="n">uuid</span><span class="o">&gt;|</span><span class="n">name</span><span class="p">...</span> <span class="p">[</span><span class="o">--</span><span class="n">type</span> <span class="n">gui</span><span class="o">|</span><span class="n">sdl</span><span class="o">|</span><span class="n">headless</span><span class="p">]</span>
-</pre></div>
-
-
-<h3>2. 可以通过虚拟机的uuid或者name来指定某台虚拟机，可以通过另外一个子命令list列出系统已有的虚拟机：</h3>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">VBoxManage</span> <span class="n">list</span> <span class="n">vms</span>
-<span class="s">&quot;XP&quot;</span> <span class="p">{</span><span class="mi">8842</span><span class="n">d793</span><span class="o">-</span><span class="mi">228</span><span class="n">c</span><span class="o">-</span><span class="mi">458</span><span class="n">e</span><span class="o">-</span><span class="n">a880</span><span class="o">-</span><span class="mf">8051193f</span><span class="n">d2db</span><span class="p">}</span>
-</pre></div>
-
-
-<p>我系统上已经安装了一台名为XP的虚拟机，后面括号内部的是它的UUID。</p>
-<h3>3.VBoxManage startvm子命令可以通过--type参数指定启动的方式</h3>
-<h4>gui:图形化界面</h4>
-<h4>sdl也是图形化界面，但是少掉了部分功能 ...</h4></div>
-  <footer>
-    <a rel="full-article" href="/ming-ling-xing-xia-shi-yong-virtualbox.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/index5.html">&larr; Older</a>
 
@@ -355,7 +346,7 @@ virtualenv 1.11.4  </p>
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/ngrok.html">ngrok</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>  </section>
+    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/djangopython.html">Django，python</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>  </section>
 
 
     <section>
