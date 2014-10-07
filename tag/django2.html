@@ -51,6 +51,43 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/django-dir-pei-zhi-fang-fa-yi.html">Django Dir 配置（方法一）</a>
+      </h1>
+      <p class="meta"><time datetime="2014-05-14T00:00:00" pubdate>三 14 五月 2014</time></p>
+</header>
+
+  <div class="entry-content"><h5>Env:</h5>
+<ul>
+<li>django==1.4.5</li>
+<li>python==2.7</li>
+<li>ubuntu==13.04</li>
+</ul>
+<hr />
+<h3>公用部分</h3>
+<p>settings.py</p>
+<div class="highlight"><pre><span class="cp">##added by Tulpar,20140514</span>
+<span class="n">import</span> <span class="n">os</span>
+<span class="n">settings_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
+<span class="n">PROJECT_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">settings_dir</span><span class="p">))</span>
+</pre></div>
+
+
+<h3>MEDIA</h3>
+<p>settings.py</p>
+<div class="highlight"><pre><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span>
+</pre></div>
+
+
+<p>urls.py</p>
+<div class="highlight"><pre><span class="err">#</span><span class="vi">#added</span> <span class="k">by</span> <span class="nx">Tulpar</span><span class="p">,</span><span class="mi">20140514 ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/django-dir-pei-zhi-fang-fa-yi.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/yong-django-mptthou-tai-zhong-sheng-cheng-shu-zhuang-shu-ju-jie-gou.html">用Django mptt后台中生成树状数据结构</a>
       </h1>
       <p class="meta"><time datetime="2014-04-16T00:00:00" pubdate>三 16 四月 2014</time></p>
@@ -161,6 +198,9 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
+      </li>
+      <li class="post">
           <a href="/django-17shi-yong.html">Django 1.7试用</a>
       </li>
       <li class="post">
@@ -171,9 +211,6 @@
       </li>
       <li class="post">
           <a href="/django-shi-yong-you-jian-fu-wu.html">Django 使用邮件服务</a>
-      </li>
-      <li class="post">
-          <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
       </li>
     </ul>
   </section>

@@ -51,6 +51,31 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
+      </h1>
+      <p class="meta"><time datetime="2014-10-07T00:00:00" pubdate>二 07 十月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>以下内容来自Django文档</p>
+<div class="highlight"><pre><span class="n">Changed</span> <span class="n">in</span> <span class="n">Django</span> <span class="mf">1.6</span><span class="o">:</span>
+<span class="n">In</span> <span class="n">previous</span> <span class="n">versions</span><span class="p">,</span> <span class="n">the</span> <span class="n">sites</span> <span class="n">framework</span> <span class="n">was</span> <span class="n">enabled</span> <span class="n">by</span> <span class="k">default</span><span class="p">.</span>
+
+<span class="n">To</span> <span class="n">enable</span> <span class="n">the</span> <span class="n">sites</span> <span class="n">framework</span><span class="p">,</span> <span class="n">follow</span> <span class="n">these</span> <span class="n">steps</span><span class="o">:</span>
+
+<span class="n">Add</span> <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">sites</span><span class="err">&#39;</span> <span class="n">to</span> <span class="n">your</span> <span class="n">INSTALLED_APPS</span> <span class="n">setting</span><span class="p">.</span>
+
+<span class="n">Define</span> <span class="n">a</span> <span class="n">SITE_ID</span> <span class="n">setting</span><span class="o">:</span>
+
+<span class="n">SITE_ID</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Run</span> <span class="n">migrate</span><span class="p">.</span>
+</pre></div></div>
+  <footer>
+    <a rel="full-article" href="/djangokai-qi-the-sites-framework.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/django-17shi-yong.html">Django 1.7试用</a>
       </h1>
       <p class="meta"><time datetime="2014-09-07T00:00:00" pubdate>日 07 九月 2014</time></p>
@@ -314,41 +339,6 @@ IBus拼音：<code>sudo apt-get ...</code></p></div>
     <a rel="full-article" href="/django-shi-yong-you-jian-fu-wu.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/init__fang-fa.html">init__()方法</a>
-      </h1>
-      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>首先复习一下,<a href="http://tulpar008.github.io/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">__（双下划线）的作用</a></h3>
-<ul>
-<li>
-<p>Python中默认的成员函数，成员变量都是公开的(public),而且python中没有类似public,private等关键词来修饰成员函数，成员变量。   </p>
-</li>
-<li>
-<p>可有时候需要用到私有变量，因此诞生了__。    </p>
-</li>
-<li>
-<p>变量名或函数名前加上 ”__“两个下划线，那么这个函数或变量就会为私有的了。</p>
-</li>
-<li>
-<p>私有意味着只有内部能使用，对外部隐藏。       </p>
-</li>
-<li>
-<p>在内部，python使用一种 name mangling 技术，将 __membername替换成 _classname__membername来使用。  <br />
-在外部，使用原来的私有成员的名字时，会提示找不到。（达到了隐藏的效果）    </p>
-</li>
-</ul>
-<hr />
-<p>很显然，__init__是个私有函数</p>
-<h5>__init__方法在类的一个对象被建立时，马上运行。这个方法可以用来对你的对象做一些你希望的 初始化 。</h5>
-<h6>注意，这个名称的开始和结尾都是双下划线。</h6></div>
-  <footer>
-    <a rel="full-article" href="/init__fang-fa.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/index2.html">&larr; Older</a>
 
@@ -358,6 +348,9 @@ IBus拼音：<code>sudo apt-get ...</code></p></div>
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
+      <li class="post">
+          <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
+      </li>
       <li class="post">
           <a href="/django-17shi-yong.html">Django 1.7试用</a>
       </li>
@@ -369,9 +362,6 @@ IBus拼音：<code>sudo apt-get ...</code></p></div>
       </li>
       <li class="post">
           <a href="/ubuntu-1204zhong-wen-shu-ru-fa-de-an-zhuang.html">Ubuntu 12.04中文输入法的安装</a>
-      </li>
-      <li class="post">
-          <a href="/hui-jia-lu.html">回家路</a>
       </li>
     </ul>
   </section>

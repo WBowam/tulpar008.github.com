@@ -51,6 +51,31 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
+      </h1>
+      <p class="meta"><time datetime="2014-10-07T00:00:00" pubdate>二 07 十月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>以下内容来自Django文档</p>
+<div class="highlight"><pre><span class="n">Changed</span> <span class="n">in</span> <span class="n">Django</span> <span class="mf">1.6</span><span class="o">:</span>
+<span class="n">In</span> <span class="n">previous</span> <span class="n">versions</span><span class="p">,</span> <span class="n">the</span> <span class="n">sites</span> <span class="n">framework</span> <span class="n">was</span> <span class="n">enabled</span> <span class="n">by</span> <span class="k">default</span><span class="p">.</span>
+
+<span class="n">To</span> <span class="n">enable</span> <span class="n">the</span> <span class="n">sites</span> <span class="n">framework</span><span class="p">,</span> <span class="n">follow</span> <span class="n">these</span> <span class="n">steps</span><span class="o">:</span>
+
+<span class="n">Add</span> <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">sites</span><span class="err">&#39;</span> <span class="n">to</span> <span class="n">your</span> <span class="n">INSTALLED_APPS</span> <span class="n">setting</span><span class="p">.</span>
+
+<span class="n">Define</span> <span class="n">a</span> <span class="n">SITE_ID</span> <span class="n">setting</span><span class="o">:</span>
+
+<span class="n">SITE_ID</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Run</span> <span class="n">migrate</span><span class="p">.</span>
+</pre></div></div>
+  <footer>
+    <a rel="full-article" href="/djangokai-qi-the-sites-framework.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/django-17shi-yong.html">Django 1.7试用</a>
       </h1>
       <p class="meta"><time datetime="2014-09-07T00:00:00" pubdate>日 07 九月 2014</time></p>
@@ -303,43 +328,6 @@ models   </p>
     <a rel="full-article" href="/ueditorzai-djangozhong-de-shi-yong.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/django-dir-pei-zhi-fang-fa-yi.html">Django Dir 配置（方法一）</a>
-      </h1>
-      <p class="meta"><time datetime="2014-05-14T00:00:00" pubdate>三 14 五月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h5>Env:</h5>
-<ul>
-<li>django==1.4.5</li>
-<li>python==2.7</li>
-<li>ubuntu==13.04</li>
-</ul>
-<hr />
-<h3>公用部分</h3>
-<p>settings.py</p>
-<div class="highlight"><pre><span class="cp">##added by Tulpar,20140514</span>
-<span class="n">import</span> <span class="n">os</span>
-<span class="n">settings_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
-<span class="n">PROJECT_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">settings_dir</span><span class="p">))</span>
-</pre></div>
-
-
-<h3>MEDIA</h3>
-<p>settings.py</p>
-<div class="highlight"><pre><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span><span class="p">)</span>
-<span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span>
-</pre></div>
-
-
-<p>urls.py</p>
-<div class="highlight"><pre><span class="err">#</span><span class="vi">#added</span> <span class="k">by</span> <span class="nx">Tulpar</span><span class="p">,</span><span class="mi">20140514 ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/django-dir-pei-zhi-fang-fa-yi.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/tag/django2.html">&larr; Older</a>
 
@@ -349,6 +337,9 @@ models   </p>
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
+      <li class="post">
+          <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
+      </li>
       <li class="post">
           <a href="/django-17shi-yong.html">Django 1.7试用</a>
       </li>
@@ -360,9 +351,6 @@ models   </p>
       </li>
       <li class="post">
           <a href="/django-shi-yong-you-jian-fu-wu.html">Django 使用邮件服务</a>
-      </li>
-      <li class="post">
-          <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
       </li>
     </ul>
   </section>
