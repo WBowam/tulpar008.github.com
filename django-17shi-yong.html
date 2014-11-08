@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
+  <meta charset="utf-8">
+  <title>Django 1.7试用</title>
+  <meta name="author" content="tulpar">
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link href="/favicon.png" rel="icon"> -->
+  <link href="/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="/theme/js/modernizr-2.0.js"></script>
+  <script src="/theme/js/ender.js"></script>
+  <script src="/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dreaming</a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+
+<ul class="main-navigation">
+    <li class="active">
+    <a href="/category/it.html">It</a>
+    </li>
+    <li >
+    <a href="/category/life.html">Life</a>
+    </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Django 1.7试用</h1>
+      <p class="meta"><time datetime="2014-09-07T00:00:00+08:00" pubdate>Sun 07 September 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>首先感谢django团队，在这一版本里django自身提供了数据迁移功能——migration</p>
+<h3>数据迁移</h3>
+<p>修改Model后可以在不影响现有数据的前提下重建表结构。   </p>
+<h6>以往的解决方案是South（于是South成为了django必备的，最受欢迎的应用。）</h6>
+<h4>原理</h4>
+<p>django的migration功能，类似与South的migration功能。    </p>
+<h5>开始一个新的项目</h5>
+<div class="highlight"><pre><span class="n">django</span><span class="o">-</span><span class="n">admin</span><span class="p">.</span><span class="n">py</span> <span class="n">startproject</span> <span class="n">mysite</span>
+<span class="cp">## Create the tables in the database before we can use them.</span>
+<span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">migrate</span>
+<span class="cp">## Create superuser.</span>
+<span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">createsuperuser</span>
+</pre></div>
+
+
+<h5>创建app:</h5>
+<div class="highlight"><pre><span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">startapp</span> <span class="n">myblog</span>
+<span class="cp">##1.7版django这一步时会创建一个migrations/目录</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="cp">##settings.py</span>
+<span class="n">INSTALLED_APPS</span> <span class="o">=</span><span class="p">(</span>
+    <span class="err">####</span>
+    <span class="err">&#39;</span><span class="n">myblog</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="p">)</span>  
+</pre></div>
+
+
+<div class="highlight"><pre><span class="cp">##models.py</span>
+<span class="n">class</span> <span class="n">Article</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="n">True</span><span class="p">)</span>
+</pre></div>
+
+
+<h5>生成数据表</h5>
+<p>（覆盖了syncdb功能，不过别担心，syncdb仍然还有～）    </p>
+<div class="highlight"><pre><span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">makemigrations</span> <span class="n">myblog</span>
+</pre></div>
+
+
+<p>运行结果如下</p>
+<div class="highlight"><pre><span class="n">Migrations</span> <span class="k">for</span> <span class="err">‘</span><span class="n">myblog</span><span class="err">’</span><span class="o">:</span>
+  <span class="mo">0001</span><span class="n">_initial</span><span class="p">.</span><span class="n">py</span><span class="o">:</span>
+    <span class="o">-</span> <span class="n">Create</span> <span class="n">model</span> <span class="n">Article</span>
+</pre></div>
+
+
+<p>看看生成了哪些文件</p>
+<div class="highlight"><pre><span class="n">ls</span> <span class="n">myblog</span><span class="o">/</span><span class="n">migrations</span><span class="o">/</span>
+<span class="n">__init__</span><span class="p">.</span><span class="n">py</span> <span class="mo">0001</span><span class="n">_initial</span><span class="p">.</span><span class="n">py</span>
+</pre></div>
+
+
+<h4>修改models，添加一个author属性</h4>
+<div class="highlight"><pre><span class="n">class</span> <span class="n">Article</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="n">True</span><span class="p">)</span>
+    <span class="n">author</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="n">True</span><span class="p">)</span>
+</pre></div>
+
+
+<h5>生成数据表（修改后）</h5>
+<div class="highlight"><pre><span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">makemigrations</span> <span class="n">myblog</span>
+<span class="cp">##运行结果</span>
+<span class="n">Migrations</span> <span class="k">for</span> <span class="err">‘</span><span class="n">myblog</span><span class="err">’</span><span class="o">:</span>
+  <span class="mo">0002</span><span class="n">_article_author</span><span class="p">.</span><span class="n">py</span><span class="o">:</span>
+    <span class="o">-</span> <span class="n">Add</span> <span class="n">field</span> <span class="n">author</span> <span class="n">to</span> <span class="n">article</span>
+</pre></div>
+
+
+<p>我们来看看他重新生成数据表时干了些什么
+<em> 从上一个migration中获取之前的Model列表，写到set中.
+</em> 获取现有的model列表，写入set中。
+* 遍历这两个set的差集，获取差集Model中所有的field，如果field的定义相同，就询问用户是否是一个rename的model，否则视为创建。</p>
+<h4>数据迁移（migrate）</h4>
+<p><code>python manage.py migrate myblog</code>    </p>
+<hr />
+<p>That's all
+以上是个人对migration的理解，求纠错和指点～～</p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">tulpar</span>
+  </span>
+<time datetime="2014-09-07T00:00:00+08:00" pubdate>Sun 07 September 2014</time>  <span class="categories">
+    <a class="category" href="/tag/django.html">Django</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+
+
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tlbog"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = 'http://static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+|| document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- Duoshuo Comment END -->
+
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
+      </li>
+      <li class="post">
+          <a href="/django-17shi-yong.html">Django 1.7试用</a>
+      </li>
+      <li class="post">
+          <a href="/django-guo-ji-hua.html">django 国际化</a>
+      </li>
+      <li class="post">
+          <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
+      </li>
+      <li class="post">
+          <a href="/django-validators.html">Django Validators</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="/category/it.html">It</a></li>
+        <li><a href="/category/life.html">Life</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/djangopython.html">Django，python</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://izda.com" target="_blank">ئىزدە</a></li>
+            <li><a href="http://www.google.com" target="_blank">Google</a></li>
+            <li><a href="http://www.zhihu.com/" target="_blank">知乎</a></li>
+            <li><a href="http://www.douban.com/" target="_blank">豆瓣</a></li>
+        </ul>
+    </section>
+    <section>
+        <h1>Blogroll</h1>
+        <ul>
+            <li><a href="https://github.com/tulpar008" target="_blank">My Github</a></li>
+            <li><a href="#" target="_blank">tulpar008@gmail.com</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2013-2014  - tulpar -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+</body>
+</html>

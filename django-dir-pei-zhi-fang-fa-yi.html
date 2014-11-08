@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
+  <meta charset="utf-8">
+  <title>Django Dir 配置（方法一）</title>
+  <meta name="author" content="tulpar">
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link href="/favicon.png" rel="icon"> -->
+  <link href="/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="/theme/js/modernizr-2.0.js"></script>
+  <script src="/theme/js/ender.js"></script>
+  <script src="/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dreaming</a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+
+<ul class="main-navigation">
+    <li class="active">
+    <a href="/category/it.html">It</a>
+    </li>
+    <li >
+    <a href="/category/life.html">Life</a>
+    </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Django Dir 配置（方法一）</h1>
+      <p class="meta"><time datetime="2014-05-14T00:00:00+08:00" pubdate>Wed 14 May 2014</time></p>
+</header>
+
+  <div class="entry-content"><h5>Env:</h5>
+<ul>
+<li>django==1.4.5</li>
+<li>python==2.7</li>
+<li>ubuntu==13.04</li>
+</ul>
+<hr />
+<h3>公用部分</h3>
+<p>settings.py</p>
+<div class="highlight"><pre><span class="cp">##added by Tulpar,20140514</span>
+<span class="n">import</span> <span class="n">os</span>
+<span class="n">settings_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
+<span class="n">PROJECT_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">settings_dir</span><span class="p">))</span>
+</pre></div>
+
+
+<h3>MEDIA</h3>
+<p>settings.py</p>
+<div class="highlight"><pre><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span>
+</pre></div>
+
+
+<p>urls.py</p>
+<div class="highlight"><pre><span class="err">#</span><span class="vi">#added</span> <span class="k">by</span> <span class="nx">Tulpar</span><span class="p">,</span><span class="mi">20140514</span>
+<span class="nb">from</span> <span class="nx">django.conf</span> <span class="k">import</span> <span class="nx">settings</span>
+
+<span class="nx">urlpatterns</span> <span class="o">+=</span> <span class="nx">patterns</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nb">url</span><span class="p">(</span><span class="nb">r</span><span class="s2">&quot;^media/(?P&lt;path&gt;.*)$&quot;</span><span class="p">,</span><span class="s2">&quot;django.views.static.serve&quot;</span><span class="p">,{</span><span class="s2">&quot;document_root&quot;</span><span class="p">:</span> <span class="nx">settings.MEDIA_ROOT</span><span class="p">,}),</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<h3>STATIC</h3>
+<p>Settings.py</p>
+<div class="highlight"><pre><span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="k">static</span><span class="o">/</span><span class="err">&#39;</span><span class="p">)</span>
+
+<span class="n">STATIC_URL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="o">/</span><span class="k">static</span><span class="o">/</span><span class="err">&#39;</span>
+
+<span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="err">#</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="k">static</span><span class="o">/</span><span class="err">&#39;</span><span class="p">),</span>
+    <span class="p">)</span>
+</pre></div>
+
+
+<p>url.py</p>
+<div class="highlight"><pre><span class="nb">from</span> <span class="nx">django.conf</span> <span class="k">import</span> <span class="nx">settings</span>
+<span class="nx">urlpatterns</span> <span class="o">+=</span> <span class="nx">patterns</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nb">url</span><span class="p">(</span><span class="nb">r</span><span class="s2">&quot;^static/(?P&lt;path&gt;.*)$&quot;</span><span class="p">,</span><span class="s2">&quot;django.views.static.serve&quot;</span><span class="p">,{</span><span class="s2">&quot;document_root&quot;</span><span class="p">:</span> <span class="nx">settings.STATIC_ROOT</span><span class="p">,}),</span>
+    <span class="p">)</span>
+</pre></div>
+
+
+<h3>TEMPLATE</h3>
+<p>settings.py   </p>
+<div class="highlight"><pre><span class="n">TEMPLATE_DIRS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">templates</span><span class="o">/</span><span class="err">&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">tulpar</span>
+  </span>
+<time datetime="2014-05-14T00:00:00+08:00" pubdate>Wed 14 May 2014</time>  <span class="categories">
+    <a class="category" href="/tag/django.html">Django</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+
+
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tlbog"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = 'http://static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+|| document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- Duoshuo Comment END -->
+
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
+      </li>
+      <li class="post">
+          <a href="/django-17shi-yong.html">Django 1.7试用</a>
+      </li>
+      <li class="post">
+          <a href="/django-guo-ji-hua.html">django 国际化</a>
+      </li>
+      <li class="post">
+          <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
+      </li>
+      <li class="post">
+          <a href="/django-validators.html">Django Validators</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="/category/it.html">It</a></li>
+        <li><a href="/category/life.html">Life</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/djangopython.html">Django，python</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://izda.com" target="_blank">ئىزدە</a></li>
+            <li><a href="http://www.google.com" target="_blank">Google</a></li>
+            <li><a href="http://www.zhihu.com/" target="_blank">知乎</a></li>
+            <li><a href="http://www.douban.com/" target="_blank">豆瓣</a></li>
+        </ul>
+    </section>
+    <section>
+        <h1>Blogroll</h1>
+        <ul>
+            <li><a href="https://github.com/tulpar008" target="_blank">My Github</a></li>
+            <li><a href="#" target="_blank">tulpar008@gmail.com</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2013-2014  - tulpar -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+</body>
+</html>

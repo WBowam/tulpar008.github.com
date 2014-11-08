@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
+  <meta charset="utf-8">
+  <title>Ueditor在Django中的使用</title>
+  <meta name="author" content="tulpar">
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link href="/favicon.png" rel="icon"> -->
+  <link href="/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="/theme/js/modernizr-2.0.js"></script>
+  <script src="/theme/js/ender.js"></script>
+  <script src="/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dreaming</a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+
+<ul class="main-navigation">
+    <li class="active">
+    <a href="/category/it.html">It</a>
+    </li>
+    <li >
+    <a href="/category/life.html">Life</a>
+    </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Ueditor在Django中的使用</h1>
+      <p class="meta"><time datetime="2014-06-14T00:00:00+08:00" pubdate>Sat 14 June 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>以前写过Ueditor在Django中的使用方法（虽然跟着上一个博客一起丢了），在此不赘述了。想学可以看看这位朋友的分享：
+<a href="https://github.com/zhangfisher/DjangoUeditor">Django中使用Ueditor</a></p>
+<p><a href="http://mushapi.sinaapp.com/using-ueditor-in-django-with-xadmin.html">http://mushapi.sinaapp.com/using-ueditor-in-django-with-xadmin.html</a></p>
+<h3>1.安装</h3>
+<p><code>pip install DjangoUeditor</code></p>
+<h3>2.启用</h3>
+<h5>在<code>INSTALL_APPS</code>里面增加DjangoUeditor app，如下：</h5>
+<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="err">#</span><span class="p">........</span>
+            <span class="err">&#39;</span><span class="n">DjangoUeditor</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+</pre></div>
+
+
+<h5>在urls.py中增加：</h5>
+<div class="highlight"><pre>    <span class="n">url</span><span class="p">(</span><span class="n">r</span><span class="err">&#39;</span><span class="o">^</span><span class="n">ueditor</span><span class="o">/</span><span class="err">&#39;</span><span class="p">,</span><span class="n">include</span><span class="p">(</span><span class="err">&#39;</span><span class="n">DjangoUeditor</span><span class="p">.</span><span class="n">urls</span><span class="err">&#39;</span> <span class="p">)),</span>
+</pre></div>
+
+
+<h3>3.使用</h3>
+<h5>在<code>models</code>中这样使用：</h5>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">DjangoUeditor</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">UEditorField</span>
+    <span class="n">class</span> <span class="n">Blog</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">Name</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(,</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">blank</span><span class="o">=</span><span class="n">True</span><span class="p">)</span>
+        <span class="n">Content</span><span class="o">=</span><span class="n">UEditorField</span><span class="p">(</span><span class="n">u</span><span class="err">&#39;内容</span>   <span class="err">&#39;</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span><span class="k">default</span><span class="o">=</span><span class="err">&#39;</span><span class="n">test</span><span class="err">&#39;</span><span class="p">,</span><span class="n">imagePath</span><span class="o">=</span><span class="s">&quot;uploadimg/&quot;</span><span class="p">,</span><span class="n">imageManagerPath</span><span class="o">=</span><span class="s">&quot;imglib&quot;</span><span class="p">,</span><span class="n">toolbars</span><span class="o">=</span><span class="err">&#39;</span><span class="n">mini</span><span class="err">&#39;</span><span class="p">,</span><span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;elementPathEnabled&quot;</span><span class="o">:</span><span class="n">True</span><span class="p">},</span><span class="n">filePath</span><span class="o">=</span><span class="err">&#39;</span><span class="n">upload</span><span class="err">&#39;</span><span class="p">,</span><span class="n">blank</span><span class="o">=</span><span class="n">True</span><span class="p">)</span>
+
+<span class="err">&#39;&#39;&#39;</span>
+<span class="err">说明：</span>
+    <span class="n">UEditorField</span><span class="err">继承自</span><span class="n">models</span><span class="p">.</span><span class="n">TextField</span><span class="p">,</span><span class="err">因此你可以直接将</span><span class="n">model</span><span class="err">里面定义的</span><span class="n">models</span><span class="p">.</span><span class="n">TextField</span><span class="err">直接改成</span><span class="n">UEditorField</span><span class="err">即可。</span>
+    <span class="n">UEditorField</span><span class="err">提供了额外的参数：</span>
+        <span class="nl">toolbars:</span><span class="err">配置你想显示的工具栏，取值为</span><span class="n">mini</span><span class="p">,</span><span class="n">normal</span><span class="p">,</span><span class="n">full</span><span class="err">，代表小，一般，全部。如果默认的工具栏不符合您的要求，您可以在</span><span class="n">settings</span><span class="err">里面配置自己的显示按钮。参见后面介绍。</span>
+        <span class="nl">imagePath:</span><span class="err">图片上传的路径</span><span class="p">,</span><span class="err">如</span><span class="s">&quot;images/&quot;</span><span class="p">,</span><span class="err">实现上传到</span><span class="s">&quot;{{MEDIA_ROOT}}/images&quot;</span><span class="err">文件夹</span>
+        <span class="nl">filePath:</span><span class="err">附件上传的路径</span><span class="p">,</span><span class="err">如</span><span class="s">&quot;files/&quot;</span><span class="p">,</span><span class="err">实现上传到</span><span class="s">&quot;{{MEDIA_ROOT}}/files&quot;</span><span class="err">文件夹</span>
+        <span class="nl">scrawlPath:</span><span class="err">涂鸦文件上传的路径</span><span class="p">,</span><span class="err">如</span><span class="s">&quot;scrawls/&quot;</span><span class="p">,</span><span class="err">实现上传到</span><span class="s">&quot;{{MEDIA_ROOT}}/scrawls&quot;</span><span class="err">文件夹</span><span class="p">,</span><span class="err">如果不指定则默认</span><span class="o">=</span><span class="n">imagepath</span>
+        <span class="nl">imageManagerPath:</span><span class="err">图片管理器显示的路径，如</span><span class="s">&quot;imglib/&quot;</span><span class="p">,</span><span class="err">实现上传到</span><span class="s">&quot;{{MEDIA_ROOT}}/imglib&quot;</span><span class="p">,</span><span class="err">如果不指定则默认</span><span class="o">=</span><span class="n">imagepath</span><span class="err">。</span>
+        <span class="n">options</span><span class="err">：其他</span><span class="n">UEditor</span><span class="err">参数，字典类型。参见</span><span class="n">Ueditor</span><span class="err">的文档`</span><span class="n">ueditor_config</span><span class="p">.</span><span class="n">js</span><span class="err">`里面的说明。</span>
+        <span class="nl">css:</span><span class="err">编辑器</span><span class="n">textarea</span><span class="err">的</span><span class="n">CSS</span><span class="err">样式</span>
+        <span class="n">width</span><span class="err">，</span><span class="n">height</span><span class="o">:</span><span class="err">编辑器的宽度和高度，以像素为单位。</span>
+<span class="err">&#39;&#39;&#39;</span>
+</pre></div>
+
+
+<h5>在表单中使用,如下：(使用表单时注意{% csrf_token %})</h5>
+<p>在ModelForm中：（Ueditor的配置来自Model，所以在此不需import）</p>
+<div class="highlight"><pre><span class="n">class</span> <span class="n">TestUeditorModelForm</span><span class="p">(</span><span class="n">forms</span><span class="p">.</span><span class="n">ModelForm</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">class</span> <span class="n">Meta</span><span class="o">:</span>
+            <span class="n">model</span><span class="o">=</span><span class="n">Blog</span>
+</pre></div>
+
+
+<p>在普通Form中：</p>
+<div class="highlight"><pre><span class="n">from</span>  <span class="n">DjangoUeditor</span><span class="p">.</span><span class="n">forms</span> <span class="n">import</span> <span class="n">UEditorField</span>
+    <span class="n">class</span> <span class="n">TestUEditorForm</span><span class="p">(</span><span class="n">forms</span><span class="p">.</span><span class="n">Form</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">Description</span><span class="o">=</span><span class="n">UEditorField</span><span class="p">(</span><span class="s">&quot;描述&quot;</span><span class="p">,</span><span class="n">initial</span><span class="o">=</span><span class="s">&quot;abc&quot;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+</pre></div>
+
+
+<h5>在模板里面使用：</h5>
+<div class="highlight"><pre><span class="nt">&lt;head&gt;</span>
+        ......
+        {{ form.media }}        #这一句会将所需要的CSS和JS加进来。
+        ......
+    <span class="nt">&lt;/head&gt;</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="o">**</span><span class="err">注：运行</span><span class="n">collectstatic</span><span class="err">命令，将所依赖的</span><span class="n">css</span><span class="p">,</span><span class="n">js</span><span class="err">之类的文件复制到</span><span class="p">{{</span><span class="n">STATIC_ROOT</span><span class="p">}}</span><span class="err">文件夹里面。</span><span class="o">**</span>
+</pre></div>
+
+
+<h3>4.定制</h3>
+<h5>在<code>setting.py</code>中配置:</h5>
+<div class="highlight"><pre><span class="n">UEDITOR_SETTINGS</span><span class="o">=</span><span class="p">{</span>
+                <span class="s">&quot;toolbars&quot;</span><span class="o">:</span><span class="p">{</span>           <span class="err">#定义多个工具栏显示的按钮，允行定义多个</span>
+                    <span class="s">&quot;name1&quot;</span><span class="o">:</span><span class="p">[[</span> <span class="err">&#39;</span><span class="n">source</span><span class="err">&#39;</span><span class="p">,</span> <span class="sc">&#39;|&#39;</span><span class="p">,</span><span class="err">&#39;</span><span class="n">bold</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">italic</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">underline</span><span class="err">&#39;</span><span class="p">]],</span>
+                    <span class="s">&quot;name2&quot;</span><span class="p">,[]</span>
+                <span class="p">},</span>
+                <span class="s">&quot;images_upload&quot;</span><span class="o">:</span><span class="p">{</span>
+                    <span class="s">&quot;allow_type&quot;</span><span class="o">:</span><span class="s">&quot;jpg,png&quot;</span><span class="p">,</span>    <span class="err">#定义允许的上传的图片类型</span>
+                    <span class="s">&quot;path&quot;</span><span class="o">:</span><span class="s">&quot;&quot;</span><span class="p">,</span>                   <span class="err">#定义默认的上传路径</span>
+                    <span class="s">&quot;max_size&quot;</span><span class="o">:</span><span class="s">&quot;2222kb&quot;</span>        <span class="err">#定义允许上传的图片大小，</span><span class="mi">0</span><span class="err">代表不限制</span>
+                <span class="p">},</span>
+                <span class="s">&quot;files_upload&quot;</span><span class="o">:</span><span class="p">{</span>
+                     <span class="s">&quot;allow_type&quot;</span><span class="o">:</span><span class="s">&quot;zip,rar&quot;</span><span class="p">,</span>   <span class="err">#定义允许的上传的文件类型</span>
+                     <span class="s">&quot;path&quot;</span><span class="o">:</span><span class="s">&quot;&quot;</span>                   <span class="err">#定义默认的上传路径</span>
+                     <span class="s">&quot;max_size&quot;</span><span class="o">:</span><span class="s">&quot;2222kb&quot;</span>       <span class="err">#定义允许上传的文件大小，</span><span class="mi">0</span><span class="err">代表不限制</span>
+                 <span class="p">},,</span>
+                <span class="s">&quot;image_manager&quot;</span><span class="o">:</span><span class="p">{</span>
+                     <span class="s">&quot;path&quot;</span><span class="o">:</span><span class="s">&quot;&quot;</span>         <span class="err">#图片管理器的位置</span><span class="p">,</span><span class="err">如果没有指定，默认跟图片路径上传一样</span>
+                <span class="p">},</span>
+                <span class="s">&quot;scrawl_upload&quot;</span><span class="o">:</span><span class="p">{</span>
+                    <span class="s">&quot;path&quot;</span><span class="o">:</span><span class="s">&quot;&quot;</span>           <span class="err">#涂鸦图片默认的上传路径</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+</pre></div></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">tulpar</span>
+  </span>
+<time datetime="2014-06-14T00:00:00+08:00" pubdate>Sat 14 June 2014</time>  <span class="categories">
+    <a class="category" href="/tag/ueditor.html">Ueditor</a>
+    <a class="category" href="/tag/django.html">Django</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+
+
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tlbog"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = 'http://static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+|| document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- Duoshuo Comment END -->
+
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
+      </li>
+      <li class="post">
+          <a href="/django-17shi-yong.html">Django 1.7试用</a>
+      </li>
+      <li class="post">
+          <a href="/django-guo-ji-hua.html">django 国际化</a>
+      </li>
+      <li class="post">
+          <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
+      </li>
+      <li class="post">
+          <a href="/django-validators.html">Django Validators</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="/category/it.html">It</a></li>
+        <li><a href="/category/life.html">Life</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/djangopython.html">Django，python</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://izda.com" target="_blank">ئىزدە</a></li>
+            <li><a href="http://www.google.com" target="_blank">Google</a></li>
+            <li><a href="http://www.zhihu.com/" target="_blank">知乎</a></li>
+            <li><a href="http://www.douban.com/" target="_blank">豆瓣</a></li>
+        </ul>
+    </section>
+    <section>
+        <h1>Blogroll</h1>
+        <ul>
+            <li><a href="https://github.com/tulpar008" target="_blank">My Github</a></li>
+            <li><a href="#" target="_blank">tulpar008@gmail.com</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2013-2014  - tulpar -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+</body>
+</html>

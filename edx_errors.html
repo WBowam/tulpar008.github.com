@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
+  <meta charset="utf-8">
+  <title>Edx_errors</title>
+  <meta name="author" content="tulpar">
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link href="/favicon.png" rel="icon"> -->
+  <link href="/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="/theme/js/modernizr-2.0.js"></script>
+  <script src="/theme/js/ender.js"></script>
+  <script src="/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dreaming</a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+
+<ul class="main-navigation">
+    <li class="active">
+    <a href="/category/it.html">It</a>
+    </li>
+    <li >
+    <a href="/category/life.html">Life</a>
+    </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Edx_errors</h1>
+      <p class="meta"><time datetime="2014-04-14T00:00:00+08:00" pubdate>Mon 14 April 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>1. 用Vagrant+Virtualbox+Ubuntu搭好Edx—paltform，执行启动命令：</h3>
+<p><code>vagrant up</code></p>
+<h4>错误：</h4>
+<div class="highlight"><pre><span class="s">&quot;The guest machine entered an invalid state while waiting for it to boot.  </span>
+<span class="n">Valid</span> <span class="n">states</span> <span class="n">are</span>   <span class="err">&#39;</span><span class="n">starting</span><span class="p">,</span> <span class="n">running</span><span class="err">&#39;</span><span class="p">.</span> <span class="n">The</span> <span class="n">machine</span> <span class="n">is</span> <span class="n">in</span> <span class="n">the</span> <span class="err">&#39;</span><span class="n">poweroff</span><span class="err">&#39;</span> <span class="n">state</span><span class="p">.</span>   
+ <span class="n">Please</span> <span class="n">verify</span> <span class="n">everything</span> <span class="n">is</span> <span class="n">configured</span> <span class="n">properly</span> <span class="n">and</span> <span class="n">try</span> <span class="n">again</span><span class="p">.</span><span class="s">&quot; </span>
+</pre></div>
+
+
+<h4>原因：</h4>
+<p><strong>这是因为CPU不支持VT-X技术或者VT-X技术被锁定。</strong>  </p>
+<p>如果不打开虚拟化支持，是不能在虚拟机装<strong>64位操作系统</strong>或者安装操作系统设置<strong>多个CPU</strong>，如果安装32位操作系统只设置一个CPU，则不会出现上述错误。  </p>
+<h4>解决方案一</h4>
+<p>VT-X是Intel CPU虚拟化技术，<strong>查看CPU是否支持VT-x技术：</strong>  </p>
+<div class="highlight"><pre><span class="n">cat</span> <span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">cpuinfo</span>  <span class="o">|</span>  <span class="n">grep</span> <span class="n">flags</span>
+</pre></div>
+
+
+<p>如果存在 vmx 选项，则说明支持。<br />
+设置CPU开启VT-x技术。</p>
+<p><strong>开机进入BIOS选项 ，依次选Config-&gt;CPU-&gt;Intel Virtualization Technology，里面有个Intel VT-d Feature ，改成Enabled ，保存退出，关机，然后启动机器。</strong></p>
+<h4>解决方案二</h4>
+<p>改虚拟机配置:<br />
+<code>vim Vagrantfile</code>
+即改CPU</p>
+<div class="highlight"><pre><span class="n">CPU_COUNT</span> <span class="o">=</span> <span class="mi">1</span> 
+</pre></div>
+
+
+<hr />
+<hr />
+<h3>2.用Vagrant+Virtualbox+Ubuntu搭好Edx—paltform，执行启动命令：<code>vagrant ssh</code></h3>
+<h4>错误：</h4>
+<p><code>ssh_exchange_identification: Connection closed by remote host</code></p>
+<h4>原因：</h4>
+<p>典型的tcp_wrapper配置了不允许你这个ip登录ssh</p>
+<h4>解决方案:</h4>
+<p><strong>让/etc/hosts.allow 和/etc/hosts.deny里面的所有信息都不生效,全部注销掉,重启SSH服务</strong></p>
+<p><a href="http://www.zhihu.com/question/20023544">参考</a></p>
+<h3>3. 阿里云上部署好Edx-platform后，vagrant up 报了一些错</h3>
+<h4>第一个错误：语法错误</h4>
+<h5>原因：vagrant 版本过低（因为阿里云的源只有1.0.1版）</h5>
+<h5>解决方案：</h5>
+<p>Go to the downloads page of Vagrant and check for the latest release. Once you are looking at the different versions of the latest release, right click over the one with the .deb extension and copy the link address. Then head back to your terminal and run the following command:</p>
+<div class="highlight"><pre><span class="n">wget</span> <span class="n">http</span><span class="o">:</span><span class="c1">//files.vagrantup.com/packages/0219bb87725aac28a97c0e924c310cc97831fd9d/vagrant_1.2.4_i686.deb</span>
+</pre></div>
+
+
+<p>Replace the URL you see above (following the wget command) with the one you just copied. This will download Vagrant to your system. Next, install the package with the following command:</p>
+<div class="highlight"><pre><span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">vagrant_1</span><span class="mf">.2.4</span><span class="n">_i686</span><span class="p">.</span><span class="n">deb</span> 
+</pre></div>
+
+
+<div class="highlight"><pre><span class="n">VirtualBox</span> <span class="n">is</span> <span class="n">complaining</span> <span class="n">that</span> <span class="n">the</span> <span class="n">installation</span> <span class="n">is</span> <span class="n">incomplete</span><span class="p">.</span> <span class="n">Please</span>
+<span class="n">run</span> <span class="err">`</span><span class="n">VBoxManage</span> <span class="o">--</span><span class="n">version</span><span class="err">`</span> <span class="n">to</span> <span class="n">see</span> <span class="n">the</span> <span class="n">error</span> <span class="n">message</span> <span class="n">which</span> <span class="n">should</span> <span class="n">contain</span>
+<span class="n">instructions</span> <span class="n">on</span> <span class="n">how</span> <span class="n">to</span> <span class="n">fix</span> <span class="n">this</span> <span class="n">error</span><span class="p">.</span>
+</pre></div>
+
+
+<hr />
+<h6># <em>下面问题的解决方案，被作者怀疑，准确性有待考察，请小伙伴们慎用！</em></h6>
+<hr />
+<h4>第二个错误：</h4>
+<div class="highlight"><pre><span class="n">VirtualBox</span> <span class="n">is</span> <span class="n">complaining</span> <span class="n">that</span> <span class="n">the</span> <span class="n">installation</span> <span class="n">is</span> <span class="n">incomplete</span><span class="p">.</span> <span class="n">Please</span>
+<span class="n">run</span> <span class="err">`</span><span class="n">VBoxManage</span> <span class="o">--</span><span class="n">version</span><span class="err">`</span> <span class="n">to</span> <span class="n">see</span> <span class="n">the</span> <span class="n">error</span> <span class="n">message</span> <span class="n">which</span> <span class="n">should</span> <span class="n">contain</span>
+<span class="n">instructions</span> <span class="n">on</span> <span class="n">how</span> <span class="n">to</span> <span class="n">fix</span> <span class="n">this</span> <span class="n">error</span><span class="p">.</span>
+</pre></div>
+
+
+<h5>解决方案</h5>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">dpkg</span><span class="o">-</span><span class="n">dev</span> <span class="n">virtualbox</span><span class="o">-</span><span class="n">dkms</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">linux</span><span class="o">-</span><span class="n">headers</span><span class="o">-</span><span class="err">$</span><span class="p">(</span><span class="n">uname</span> <span class="o">-</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+
+
+<p><code>sudo dpkg-reconfigure virtualbox-dkms</code></p>
+<hr />
+<h6># <em>上面问题的解决方案，被作者怀疑，准确性有待考察，请小伙伴们慎用！</em></h6>
+<hr />
+<h3>4.阿里云上部署好，vagrant up</h3>
+<div class="highlight"><pre><span class="n">wwj</span><span class="err">@</span><span class="n">AY14051916372845353bZ</span><span class="o">:~/</span><span class="n">fullstack</span><span class="err">$</span> <span class="n">vagrant</span> <span class="n">up</span>
+<span class="n">Bringing</span> <span class="n">machine</span> <span class="err">&#39;</span><span class="k">default</span><span class="err">&#39;</span> <span class="n">up</span> <span class="n">with</span> <span class="err">&#39;</span><span class="n">virtualbox</span><span class="err">&#39;</span> <span class="n">provider</span><span class="p">...</span>
+<span class="o">==&gt;</span> <span class="k">default</span><span class="o">:</span> <span class="n">Box</span> <span class="err">&#39;</span><span class="n">injera</span><span class="o">-</span><span class="n">fullstack</span><span class="err">&#39;</span> <span class="n">could</span> <span class="n">not</span> <span class="n">be</span> <span class="n">found</span><span class="p">.</span> <span class="n">Attempting</span> <span class="n">to</span> <span class="n">find</span> <span class="n">and</span> <span class="n">install</span><span class="p">...</span>
+    <span class="nl">default:</span> <span class="n">Box</span> <span class="n">Provider</span><span class="o">:</span> <span class="n">virtualbox</span>
+    <span class="nl">default:</span> <span class="n">Box</span> <span class="n">Version</span><span class="o">:</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+<span class="o">==&gt;</span> <span class="k">default</span><span class="o">:</span> <span class="n">Adding</span> <span class="n">box</span> <span class="err">&#39;</span><span class="n">injera</span><span class="o">-</span><span class="n">fullstack</span><span class="err">&#39;</span> <span class="p">(</span><span class="n">v0</span><span class="p">)</span> <span class="k">for</span> <span class="n">provider</span><span class="o">:</span> <span class="n">virtualbox</span>
+    <span class="nl">default:</span> <span class="n">Downloading</span><span class="o">:</span> <span class="n">file</span><span class="o">:</span><span class="c1">///home/wwj/fullstack/20140418-injera-fullstack.box</span>
+<span class="n">The</span> <span class="n">box</span> <span class="n">failed</span> <span class="n">to</span> <span class="n">unpackage</span> <span class="n">properly</span><span class="p">.</span> <span class="n">Please</span> <span class="n">verify</span> <span class="n">that</span> <span class="n">the</span> <span class="n">box</span>
+<span class="n">file</span> <span class="n">you</span><span class="err">&#39;</span><span class="n">re</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">add</span> <span class="n">is</span> <span class="n">not</span> <span class="n">corrupted</span> <span class="n">and</span> <span class="n">try</span> <span class="n">again</span><span class="p">.</span> <span class="n">The</span>
+<span class="n">output</span> <span class="n">from</span> <span class="n">attempting</span> <span class="n">to</span> <span class="n">unpackage</span> <span class="p">(</span><span class="k">if</span> <span class="n">any</span><span class="p">)</span><span class="o">:</span>
+
+<span class="nl">bsdtar:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">set</span> <span class="k">default</span> <span class="n">locale</span>
+<span class="n">x</span> <span class="p">.</span><span class="o">/</span><span class="n">Vagrantfile</span>
+<span class="n">x</span> <span class="p">.</span><span class="o">/</span><span class="n">box</span><span class="o">-</span><span class="n">disk1</span><span class="p">.</span><span class="n">vmdk</span><span class="o">:</span> <span class="n">Write</span> <span class="n">failed</span>
+<span class="n">x</span> <span class="p">.</span><span class="o">/</span><span class="n">box</span><span class="p">.</span><span class="n">ovf</span><span class="o">:</span> <span class="n">Write</span> <span class="n">failed</span>
+<span class="nl">bsdtar:</span> <span class="n">Error</span> <span class="n">exit</span> <span class="n">delayed</span> <span class="n">from</span> <span class="n">previous</span> <span class="n">errors</span><span class="p">.</span>
+</pre></div>
+
+
+<hr />
+<h3>5.阿里云上部署Edx-platform，vagrant up后，</h3>
+<div class="highlight"><pre><span class="n">An</span> <span class="n">error</span> <span class="n">occurred</span> <span class="k">while</span> <span class="n">downloading</span> <span class="n">the</span> <span class="n">remote</span> <span class="n">file</span><span class="p">.</span> <span class="n">The</span> <span class="n">error</span>
+<span class="n">message</span><span class="p">,</span> <span class="k">if</span> <span class="n">any</span><span class="p">,</span> <span class="n">is</span> <span class="n">reproduced</span> <span class="n">below</span><span class="p">.</span> <span class="n">Please</span> <span class="n">fix</span> <span class="n">this</span> <span class="n">error</span> <span class="n">and</span> <span class="n">try</span>
+<span class="n">again</span><span class="p">.</span>
+
+<span class="n">Failed</span> <span class="n">writing</span> <span class="n">body</span> <span class="p">(</span><span class="mi">488</span> <span class="o">!=</span> <span class="mi">16383</span><span class="p">)</span>
+</pre></div>
+
+
+<h5>原因：磁盘空间不足，阿里云服务器系统盘只有20G，已用16G，加载虚拟机，开始展开镜像，导致磁盘空间不足</h5>
+<h4>解决方案：</h4>
+<h5>第一步：买了个阿里云130G的数据盘</h5>
+<p>数据盘的挂载及使用，请参考<a href="http://help.aliyun.com/view/11108189_13435365.html?spm=5176.7224609.1997282825.4.ezRjvD">阿里云帮助文档——挂载数据盘</a></p>
+<h5>第二部：更改Vagrant的根目录（VAGRANT_HOME）</h5>
+<p>在<code>~/.bashrc</code>中加入：  </p>
+<div class="highlight"><pre><span class="n">export</span> <span class="n">VAGRANT_HOME</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">vagrant</span>
+</pre></div>
+
+
+<hr />
+<h3>6.阿里云上部署Edx-platform，vagrant up后，</h3>
+<div class="highlight"><pre><span class="n">vagrant</span> <span class="n">up</span>
+<span class="n">Bringing</span> <span class="n">machine</span> <span class="err">&#39;</span><span class="k">default</span><span class="err">&#39;</span> <span class="n">up</span> <span class="n">with</span> <span class="err">&#39;</span><span class="n">virtualbox</span><span class="err">&#39;</span> <span class="n">provider</span><span class="p">...</span>
+<span class="o">==&gt;</span> <span class="k">default</span><span class="o">:</span> <span class="n">Box</span> <span class="err">&#39;</span><span class="n">injera</span><span class="o">-</span><span class="n">fullstack</span><span class="err">&#39;</span> <span class="n">could</span> <span class="n">not</span> <span class="n">be</span> <span class="n">found</span><span class="p">.</span> <span class="n">Attempting</span> <span class="n">to</span> <span class="n">find</span> <span class="n">and</span> <span class="n">install</span><span class="p">...</span>
+    <span class="nl">default:</span> <span class="n">Box</span> <span class="n">Provider</span><span class="o">:</span> <span class="n">virtualbox</span>
+    <span class="nl">default:</span> <span class="n">Box</span> <span class="n">Version</span><span class="o">:</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+<span class="o">==&gt;</span> <span class="k">default</span><span class="o">:</span> <span class="n">Adding</span> <span class="n">box</span> <span class="err">&#39;</span><span class="n">injera</span><span class="o">-</span><span class="n">fullstack</span><span class="err">&#39;</span> <span class="p">(</span><span class="n">v0</span><span class="p">)</span> <span class="k">for</span> <span class="n">provider</span><span class="o">:</span> <span class="n">virtualbox</span>
+    <span class="nl">default:</span> <span class="n">Downloading</span><span class="o">:</span> <span class="n">file</span><span class="o">:</span><span class="c1">///home/wwj/fullstack/20140418-injera-fullstack.box.1</span>
+<span class="o">==&gt;</span> <span class="k">default</span><span class="o">:</span> <span class="n">Successfully</span> <span class="n">added</span> <span class="n">box</span> <span class="err">&#39;</span><span class="n">injera</span><span class="o">-</span><span class="n">fullstack</span><span class="err">&#39;</span> <span class="p">(</span><span class="n">v0</span><span class="p">)</span> <span class="k">for</span> <span class="err">&#39;</span><span class="n">virtualbox</span><span class="err">&#39;</span><span class="o">!</span>
+<span class="n">There</span> <span class="n">are</span> <span class="n">errors</span> <span class="n">in</span> <span class="n">the</span> <span class="n">configuration</span> <span class="n">of</span> <span class="n">this</span> <span class="n">machine</span><span class="p">.</span> <span class="n">Please</span> <span class="n">fix</span>
+<span class="n">the</span> <span class="n">following</span> <span class="n">errors</span> <span class="n">and</span> <span class="n">try</span> <span class="n">again</span><span class="o">:</span>
+
+<span class="nl">Vagrant:</span>
+<span class="o">*</span> <span class="n">Unknown</span> <span class="n">configuration</span> <span class="n">section</span> <span class="err">&#39;</span><span class="n">hostsupdater</span><span class="err">&#39;</span><span class="p">.</span>
+</pre></div>
+
+
+<h4>原因：</h4>
+<p><code>vagrant plugin list</code>发现 plugin <code>hostsupdater</code>没了， <br />
+还记得问题5里，我们改了VAGRANT_HOME，但是没copy <code>～/.vagrant.d/</code>因此得重新装一下<code>hostsupdater</code>:<br />
+<code>vagrant plugin install vagrant-hostsupdater</code></p>
+<h3>7.vagrant</h3>
+<div class="highlight"><pre><span class="n">vagrant</span> <span class="o">-</span><span class="n">v</span>
+<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">vagrant</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">vagrant</span><span class="o">:</span> <span class="n">line</span> <span class="mi">64</span><span class="o">:</span>   
+<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">vagrant</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="n">embedded</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">ruby</span><span class="o">:</span> <span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="n">or</span> <span class="n">directory</span>
+</pre></div>
+
+
+<h4>原因：装错包了</h4>
+<p><code>i686.deb</code>不是<code>64位的意思</code></p>
+<h4>解决方案：装vagrant_x86_64.deb而不是vagrant_i686.deb</h4>
+<p><a href="https://github.com/mitchellh/vagrant/issues/1559">参考</a></p>
+<h3>8.</h3>
+<div class="highlight"><pre><span class="n">WARNING</span><span class="o">:</span> <span class="n">The</span> <span class="n">vboxdrv</span> <span class="n">kernel</span> <span class="n">module</span> <span class="k">is</span> <span class="n">not</span> <span class="n">loaded</span><span class="o">.</span> <span class="n">Either</span> <span class="n">there</span> <span class="k">is</span> <span class="n">no</span> <span class="n">module</span>
+         <span class="n">available</span> <span class="k">for</span> <span class="n">the</span> <span class="n">current</span> <span class="n">kernel</span> <span class="o">(</span><span class="mf">3.2</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mi">29</span><span class="o">-</span><span class="n">generic</span><span class="o">)</span> <span class="n">or</span> <span class="n">it</span> <span class="n">failed</span> <span class="n">to</span>
+         <span class="n">load</span><span class="o">.</span> <span class="n">Please</span> <span class="n">recompile</span> <span class="n">the</span> <span class="n">kernel</span> <span class="n">module</span> <span class="n">and</span> <span class="n">install</span> <span class="n">it</span> <span class="n">by</span>
+
+           <span class="n">sudo</span> <span class="sr">/etc/init.d/</span><span class="n">vboxdrv</span> <span class="n">setup</span>
+
+         <span class="n">You</span> <span class="n">will</span> <span class="n">not</span> <span class="n">be</span> <span class="n">able</span> <span class="n">to</span> <span class="n">start</span> <span class="n">VMs</span> <span class="n">until</span> <span class="k">this</span> <span class="n">problem</span> <span class="k">is</span> <span class="n">fixed</span><span class="o">.</span>
+<span class="mf">4.3</span><span class="o">.</span><span class="mi">12</span><span class="n">r93733</span>
+</pre></div>
+
+
+<h4>原因：</h4>
+<div class="highlight"><pre><span class="n">he</span> <span class="n">vboxdrv</span> <span class="n">kernel</span> <span class="n">module</span> <span class="n">is</span> <span class="n">not</span> <span class="n">loaded</span><span class="p">.</span> <span class="n">Either</span> <span class="n">there</span> <span class="n">is</span> <span class="n">no</span> <span class="n">module</span>
+         <span class="n">available</span> <span class="k">for</span> <span class="n">the</span> <span class="n">current</span> <span class="n">kernel</span> <span class="p">(</span><span class="mf">3.2.0</span><span class="o">-</span><span class="mi">29</span><span class="o">-</span><span class="n">generic</span><span class="p">)</span> <span class="n">or</span> <span class="n">it</span> <span class="n">failed</span> <span class="n">to</span>
+         <span class="n">load</span><span class="p">.</span> <span class="n">Please</span> <span class="n">recompile</span> <span class="n">the</span> <span class="n">kernel</span> <span class="n">module</span> <span class="n">and</span> <span class="n">install</span> <span class="n">it</span> <span class="n">by</span>
+</pre></div>
+
+
+<h4>解决方案：</h4>
+<p>make sure: setup vboxdrv, and it is successful</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">sudo</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">rc</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">vboxdrv</span> <span class="n">setup</span>
+<span class="o">::</span> <span class="n">Unloading</span> <span class="n">VirtualBox</span> <span class="n">kernel</span> <span class="n">modules</span>                                   <span class="p">[</span><span class="n">DONE</span><span class="p">]</span> 
+<span class="o">::</span> <span class="n">Removing</span> <span class="n">old</span> <span class="n">VirtualBox</span> <span class="n">netadp</span> <span class="n">kernel</span> <span class="n">module</span>                          <span class="p">[</span><span class="n">DONE</span><span class="p">]</span> 
+<span class="o">::</span> <span class="n">Removing</span> <span class="n">old</span> <span class="n">VirtualBox</span> <span class="n">netflt</span> <span class="n">kernel</span> <span class="n">module</span>                          <span class="p">[</span><span class="n">DONE</span><span class="p">]</span> 
+<span class="o">::</span> <span class="n">Removing</span> <span class="n">old</span> <span class="n">VirtualBox</span> <span class="n">kernel</span> <span class="n">module</span>                                 <span class="p">[</span><span class="n">DONE</span><span class="p">]</span> 
+<span class="o">::</span> <span class="n">Recompiling</span> <span class="n">VirtualBox</span> <span class="n">kernel</span> <span class="n">modules</span>                                 <span class="p">[</span><span class="n">DONE</span><span class="p">]</span> 
+<span class="o">::</span> <span class="n">Reloading</span> <span class="n">VirtualBox</span> <span class="n">kernel</span> <span class="n">modules</span>                                   <span class="p">[</span><span class="n">DONE</span><span class="p">]</span> 
+</pre></div>
+
+
+<h5>If the warning is still given, go ahead! Else GoodBye!</h5>
+<p>you need to either manually load the module or add it in the MODULES array in rc.conf   </p>
+<p>to auto load the module at boot add <code>vboxdrv</code> to modules array in <code>/etc/rc.conf</code>,by the command:
+<code>sudo modprobe vboxdrv</code></p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">tulpar</span>
+  </span>
+<time datetime="2014-04-14T00:00:00+08:00" pubdate>Mon 14 April 2014</time>  <span class="categories">
+    <a class="category" href="/tag/edx.html">Edx</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+
+
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tlbog"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = 'http://static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+|| document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- Duoshuo Comment END -->
+
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
+      </li>
+      <li class="post">
+          <a href="/django-17shi-yong.html">Django 1.7试用</a>
+      </li>
+      <li class="post">
+          <a href="/django-guo-ji-hua.html">django 国际化</a>
+      </li>
+      <li class="post">
+          <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
+      </li>
+      <li class="post">
+          <a href="/django-validators.html">Django Validators</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="/category/it.html">It</a></li>
+        <li><a href="/category/life.html">Life</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/djangopython.html">Django，python</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://izda.com" target="_blank">ئىزدە</a></li>
+            <li><a href="http://www.google.com" target="_blank">Google</a></li>
+            <li><a href="http://www.zhihu.com/" target="_blank">知乎</a></li>
+            <li><a href="http://www.douban.com/" target="_blank">豆瓣</a></li>
+        </ul>
+    </section>
+    <section>
+        <h1>Blogroll</h1>
+        <ul>
+            <li><a href="https://github.com/tulpar008" target="_blank">My Github</a></li>
+            <li><a href="#" target="_blank">tulpar008@gmail.com</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2013-2014  - tulpar -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+</body>
+</html>

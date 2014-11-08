@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
+  <meta charset="utf-8">
+  <title>django 国际化</title>
+  <meta name="author" content="tulpar">
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link href="/favicon.png" rel="icon"> -->
+  <link href="/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="/theme/js/modernizr-2.0.js"></script>
+  <script src="/theme/js/ender.js"></script>
+  <script src="/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dreaming</a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+
+<ul class="main-navigation">
+    <li class="active">
+    <a href="/category/it.html">It</a>
+    </li>
+    <li >
+    <a href="/category/life.html">Life</a>
+    </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">django 国际化</h1>
+      <p class="meta"><time datetime="2014-09-07T00:00:00+08:00" pubdate>Sun 07 September 2014</time></p>
+</header>
+
+  <div class="entry-content"><h2>第一步：在你的Python代码和模板中嵌入待翻译的字符串。</h2>
+<p>我选择用如下方式：  <br />
+models   </p>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">translation</span> <span class="n">import</span> <span class="n">ugettext_lazy</span> <span class="n">as</span> <span class="n">_</span>
+
+<span class="n">class</span> <span class="n">MyThing</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">name</span><span class="err">&#39;</span><span class="p">),</span> <span class="n">help_text</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">This</span> <span class="n">is</span> <span class="n">the</span> <span class="n">help</span> <span class="n">text</span><span class="err">&#39;</span><span class="p">))</span>
+    <span class="n">class</span> <span class="n">Meta</span><span class="o">:</span>
+        <span class="n">verbose_name</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">my</span> <span class="n">thing</span><span class="err">&#39;</span><span class="p">)</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">mythings</span><span class="err">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>template   </p>
+<div class="highlight"><pre><span class="cp">{%</span> <span class="k">load</span> <span class="nv">i18n</span> <span class="cp">%}</span> 放在模板最前面。  
+###翻译一个常量字符串 (括以单或双引号) 或 可变内容：
+<span class="nt">&lt;title&gt;</span><span class="cp">{%</span> <span class="k">trans</span> <span class="s2">&quot;This is the title.&quot;</span> <span class="cp">%}</span><span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;title&gt;</span><span class="cp">{%</span> <span class="k">trans</span> <span class="nv">myvar</span> <span class="cp">%}</span><span class="nt">&lt;/title&gt;</span>
+### 如果你的译文要求字符串带有变量(占位符placeholders)，请使用 <span class="cp">{%</span> <span class="k">blocktrans</span> <span class="cp">%}</span> ：
+<span class="cp">{%</span> <span class="k">blocktrans</span> <span class="cp">%}</span>This string will have <span class="cp">{{</span> <span class="nv">value</span> <span class="cp">}}</span> inside.<span class="cp">{%</span> <span class="k">endblocktrans</span> <span class="cp">%}</span>
+</pre></div>
+
+
+<h2>第二步：把那些字符串翻译成你要支持的语言。</h2>
+<h4>为一种语言创建一个信息文件：</h4>
+<p>在三处之一运行如下命令：   </p>
+<ul>
+<li>
+<p>Django项目根目录。（首选）</p>
+</li>
+<li>
+<p>您Django应用的根目录。</p>
+</li>
+<li>
+<p>django 根目录（不是Subversion检出目录，而是通过 $PYTHONPATH 链接或位于该路径的某处）。 这仅和你为Django自己创建一个翻译时有关  <br />
+<code>django-admin.py makemessages -l zh</code></p>
+</li>
+</ul>
+<h4>在po文件里进行翻译并保存</h4>
+<h4>编译信息文件</h4>
+<p>在你运行<code>django-admin.py makemessages</code>的目录下运行: <br />
+<code>django-admin.py compilemessages</code></p>
+<h2>第三步：在你的Django settings文件中激活本地中间件。</h2>
+<p>在 MIDDLEWARE_CLASSES 设置中增加 'django.middleware.locale.LocaleMiddleware' 。 <br />
+ 中间件的顺序是有影响的，最好按照依照以下要求：   </p>
+<ul>
+<li>
+<p>保证它是第一批安装的中间件类。   </p>
+</li>
+<li>
+<p>因为 LocalMiddleware 要用到session数据，所以需要放在 SessionMiddleware 之后。</p>
+</li>
+<li>
+<p>如果你使用CacheMiddleware,把LocaleMiddleware放在它后面。
+如下：</p>
+</li>
+</ul>
+<div class="highlight"><pre><span class="n">MIDDLEWARE_CLASSES</span> <span class="o">=</span> <span class="p">(</span>
+   <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">sessions</span><span class="p">.</span><span class="n">middleware</span><span class="p">.</span><span class="n">SessionMiddleware</span><span class="err">&#39;</span><span class="p">,</span>
+   <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">middleware</span><span class="p">.</span><span class="n">locale</span><span class="p">.</span><span class="n">LocaleMiddleware</span><span class="err">&#39;</span><span class="p">,</span>
+   <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">middleware</span><span class="p">.</span><span class="n">common</span><span class="p">.</span><span class="n">CommonMiddleware</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">tulpar</span>
+  </span>
+<time datetime="2014-09-07T00:00:00+08:00" pubdate>Sun 07 September 2014</time>  <span class="categories">
+    <a class="category" href="/tag/django.html">Django</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+
+
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tlbog"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = 'http://static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+|| document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- Duoshuo Comment END -->
+
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
+      </li>
+      <li class="post">
+          <a href="/django-17shi-yong.html">Django 1.7试用</a>
+      </li>
+      <li class="post">
+          <a href="/django-guo-ji-hua.html">django 国际化</a>
+      </li>
+      <li class="post">
+          <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
+      </li>
+      <li class="post">
+          <a href="/django-validators.html">Django Validators</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="/category/it.html">It</a></li>
+        <li><a href="/category/life.html">Life</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/djangopython.html">Django，python</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://izda.com" target="_blank">ئىزدە</a></li>
+            <li><a href="http://www.google.com" target="_blank">Google</a></li>
+            <li><a href="http://www.zhihu.com/" target="_blank">知乎</a></li>
+            <li><a href="http://www.douban.com/" target="_blank">豆瓣</a></li>
+        </ul>
+    </section>
+    <section>
+        <h1>Blogroll</h1>
+        <ul>
+            <li><a href="https://github.com/tulpar008" target="_blank">My Github</a></li>
+            <li><a href="#" target="_blank">tulpar008@gmail.com</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2013-2014  - tulpar -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+</body>
+</html>

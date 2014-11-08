@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
+  <meta charset="utf-8">
+  <title>Mysql语句入门（1）</title>
+  <meta name="author" content="tulpar">
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link href="/favicon.png" rel="icon"> -->
+  <link href="/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="/theme/js/modernizr-2.0.js"></script>
+  <script src="/theme/js/ender.js"></script>
+  <script src="/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dreaming</a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+
+<ul class="main-navigation">
+    <li class="active">
+    <a href="/category/it.html">It</a>
+    </li>
+    <li >
+    <a href="/category/life.html">Life</a>
+    </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Mysql语句入门（1）</h1>
+      <p class="meta"><time datetime="2014-06-19T00:00:00+08:00" pubdate>Thu 19 June 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>进入退出</h3>
+<div class="highlight"><pre><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span>
+<span class="n">Enter</span> <span class="n">password</span><span class="o">:</span> 
+
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">quit</span>
+</pre></div>
+
+
+<h3>创建数据库</h3>
+<div class="highlight"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">tulpar_db</span> <span class="n">CHARACTER</span> <span class="n">SET</span> <span class="n">utf8</span> <span class="n">COLLATE</span> <span class="n">utf8_general_ci</span><span class="p">;</span>
+
+
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">GRANT</span> <span class="n">ALL</span> <span class="n">ON</span> <span class="n">tulpar_db</span><span class="p">.</span><span class="o">*</span> <span class="n">TO</span> <span class="err">&#39;</span><span class="n">tulpar</span><span class="sc">&#39;@&#39;</span><span class="n">localhost</span><span class="err">&#39;</span> <span class="n">IDENTIFIED</span> <span class="n">BY</span> <span class="err">&#39;</span><span class="n">mypassword</span><span class="err">&#39;</span><span class="p">;</span>
+</pre></div>
+
+
+<h3>导入数据库</h3>
+<h5>常用source 命令</h5>
+<div class="highlight"><pre><span class="n">mysql</span><span class="o">&gt;</span><span class="n">use</span> <span class="n">tulpar_db</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="n">source</span> <span class="p">..</span><span class="o">/</span><span class="n">wcnc_db</span><span class="p">.</span><span class="n">sql</span>
+</pre></div>
+
+
+<h3>导出整个数据库</h3>
+<p>mysqldump -u 用户名 -p 数据库名 &gt; 导出的文件名</p>
+<div class="highlight"><pre><span class="n">mysqldump</span> <span class="o">-</span><span class="n">u</span> <span class="n">tulpar</span> <span class="o">-</span><span class="n">p</span> <span class="n">tulpar_db</span> <span class="o">&gt;</span> <span class="n">tulpar_db</span><span class="p">.</span><span class="n">sql</span>
+</pre></div>
+
+
+<h3>删除数据库</h3>
+<div class="highlight"><pre><span class="nx">show</span> <span class="nx">databases</span><span class="p">;</span>
+<span class="nx">DROP</span> <span class="nx">DATABASE</span> <span class="o">&lt;</span><span class="nb">databasename</span><span class="o">&gt;</span><span class="p">;</span>
+</pre></div>
+
+
+<h3>删除数据表</h3>
+<div class="highlight"><pre><span class="nx">use</span> <span class="nx">tulpar_db</span><span class="p">;</span>
+<span class="nx">show</span> <span class="nb">tables</span><span class="p">;</span>
+<span class="nx">DROP</span> <span class="nb">TABLE</span> <span class="o">&lt;</span><span class="nb">tablename</span><span class="o">&gt;</span><span class="p">;</span>
+</pre></div>
+
+
+<h3>Ubuntu中配置Mysql编码</h3>
+<h5>找到配置文件</h5>
+<p>我是通过<code>sudo apt-get install mysql</code>来安装的。mysql的配置文件在/etc/mysql/my.cnf
+如果找不到这个文件，可以运行<code>sudo find / -iname ‘*.cnf’</code>查找所有的cnf文件</p>
+<h5>改配置文件</h5>
+<p>在[mysqld]下添加
+<code>default-character-set=utf8</code>
+在[client]下添加
+<code>default-character-set=utf8</code></p>
+<h5>重启mysql</h5>
+<p><code>sudo service mysql restart</code></p>
+<h5>登录mysql查看是否成功</h5>
+<div class="highlight"><pre><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">SHOW</span> <span class="n">VARIABLES</span> <span class="n">LIKE</span> <span class="err">&#39;</span><span class="kt">char</span><span class="o">%</span><span class="err">&#39;</span><span class="p">;</span>
+<span class="o">+--------------------------+----------------------------+</span>
+<span class="o">|</span> <span class="n">Variable_name</span>            <span class="o">|</span> <span class="n">VALUE</span>                      <span class="o">|</span>
+<span class="o">+--------------------------+----------------------------+</span>
+<span class="o">|</span> <span class="n">character_set_client</span>     <span class="o">|</span> <span class="n">utf8</span>                       <span class="o">|</span>
+<span class="o">|</span> <span class="n">character_set_connection</span> <span class="o">|</span> <span class="n">utf8</span>                       <span class="o">|</span>
+<span class="o">|</span> <span class="n">character_set_database</span>   <span class="o">|</span> <span class="n">utf8</span>                       <span class="o">|</span>
+<span class="o">|</span> <span class="n">character_set_filesystem</span> <span class="o">|</span> <span class="n">BINARY</span>                     <span class="o">|</span>
+<span class="o">|</span> <span class="n">character_set_results</span>    <span class="o">|</span> <span class="n">utf8</span>                       <span class="o">|</span>
+<span class="o">|</span> <span class="n">character_set_server</span>     <span class="o">|</span> <span class="n">utf8</span>                       <span class="o">|</span>
+<span class="o">|</span> <span class="n">character_set_system</span>     <span class="o">|</span> <span class="n">utf8</span>                       <span class="o">|</span>
+<span class="o">|</span> <span class="n">character_sets_dir</span>       <span class="o">|</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">mysql</span><span class="o">/</span><span class="n">charsets</span><span class="o">/</span> <span class="o">|</span>
+<span class="o">+--------------------------+----------------------------+</span>
+<span class="mi">8</span> <span class="n">ROWS</span> <span class="n">IN</span> <span class="n">SET</span> <span class="p">(</span><span class="mf">0.00</span> <span class="n">sec</span><span class="p">)</span>
+</pre></div>
+
+
+<h5>修改已经部署的数据库编码</h5>
+<p>感觉还是挺麻烦的，注意要修改数据库、表、字段的编码。</p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">tulpar</span>
+  </span>
+<time datetime="2014-06-19T00:00:00+08:00" pubdate>Thu 19 June 2014</time>  <span class="categories">
+    <a class="category" href="/tag/mysql.html">Mysql</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+
+
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tlbog"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = 'http://static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+|| document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- Duoshuo Comment END -->
+
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
+      </li>
+      <li class="post">
+          <a href="/django-17shi-yong.html">Django 1.7试用</a>
+      </li>
+      <li class="post">
+          <a href="/django-guo-ji-hua.html">django 国际化</a>
+      </li>
+      <li class="post">
+          <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
+      </li>
+      <li class="post">
+          <a href="/django-validators.html">Django Validators</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="/category/it.html">It</a></li>
+        <li><a href="/category/life.html">Life</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/djangopython.html">Django，python</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://izda.com" target="_blank">ئىزدە</a></li>
+            <li><a href="http://www.google.com" target="_blank">Google</a></li>
+            <li><a href="http://www.zhihu.com/" target="_blank">知乎</a></li>
+            <li><a href="http://www.douban.com/" target="_blank">豆瓣</a></li>
+        </ul>
+    </section>
+    <section>
+        <h1>Blogroll</h1>
+        <ul>
+            <li><a href="https://github.com/tulpar008" target="_blank">My Github</a></li>
+            <li><a href="#" target="_blank">tulpar008@gmail.com</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2013-2014  - tulpar -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+</body>
+</html>

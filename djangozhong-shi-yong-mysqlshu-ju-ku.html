@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
+  <meta charset="utf-8">
+  <title>Django中使用mysql数据库</title>
+  <meta name="author" content="tulpar">
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link href="/favicon.png" rel="icon"> -->
+  <link href="/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="/theme/js/modernizr-2.0.js"></script>
+  <script src="/theme/js/ender.js"></script>
+  <script src="/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dreaming</a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+
+<ul class="main-navigation">
+    <li class="active">
+    <a href="/category/it.html">It</a>
+    </li>
+    <li >
+    <a href="/category/life.html">Life</a>
+    </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Django中使用mysql数据库</h1>
+      <p class="meta"><time datetime="2014-06-18T00:00:00+08:00" pubdate>Wed 18 June 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>安装Mysql</h3>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">mysql</span><span class="o">-</span><span class="n">server</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">mysqldb</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libmysqlclient</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+
+
+<h3>安装<code>mysql-python</code>模块</h3>
+<p><code>pip install mysql-python</code>   </p>
+<h3>创建并设置Database</h3>
+<div class="highlight"><pre><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span>
+<span class="n">Enter</span> <span class="n">password</span><span class="o">:</span> 
+
+<span class="cp">###mysql&gt; CREATE DATABASE tulpar_db;(最好用下面的方法，创建数据库时指定编码，免得不识别汉字</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">tulpar_db</span> <span class="n">CHARACTER</span> <span class="n">SET</span> <span class="n">utf8</span> <span class="n">COLLATE</span> <span class="n">utf8_general_ci</span><span class="p">;</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">GRANT</span> <span class="n">ALL</span> <span class="n">ON</span> <span class="n">tulpar_db</span><span class="p">.</span><span class="o">*</span> <span class="n">TO</span> <span class="err">&#39;</span><span class="n">tulpar</span><span class="sc">&#39;@&#39;</span><span class="n">localhost</span><span class="err">&#39;</span> <span class="n">IDENTIFIED</span> <span class="n">BY</span> <span class="err">&#39;</span><span class="n">mypassword</span><span class="err">&#39;</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="n">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mf">0.03</span> <span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">quit</span>
+<span class="n">Bye</span>
+</pre></div>
+
+
+<h3>设置django settings</h3>
+<p><code>settings.py</code>  </p>
+<div class="highlight"><pre><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="err">&#39;</span><span class="k">default</span><span class="err">&#39;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="err">&#39;</span><span class="n">ENGINE</span><span class="err">&#39;</span><span class="o">:</span> <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">db</span><span class="p">.</span><span class="n">backends</span><span class="p">.</span><span class="n">mysql</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="err">&#39;</span><span class="n">NAME</span><span class="sc">&#39;:&#39;</span><span class="n">tulpar_db</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="err">&#39;</span><span class="n">USER</span><span class="err">&#39;</span> <span class="o">:</span><span class="err">&#39;</span><span class="n">tulpar</span><span class="err">&#39;</span><span class="p">,</span>      <span class="err">#</span> <span class="n">Not</span> <span class="n">used</span> <span class="n">with</span> <span class="n">sqlite3</span><span class="p">.,</span>
+        <span class="err">&#39;</span><span class="n">PASSWORD</span><span class="err">&#39;</span> <span class="o">:</span> <span class="err">&#39;</span><span class="n">mypassword</span><span class="err">&#39;</span><span class="p">,</span>         <span class="err">#</span> <span class="n">Not</span> <span class="n">used</span> <span class="n">with</span> <span class="n">sqlite3</span><span class="p">.</span>
+        <span class="err">&#39;</span><span class="n">HOST</span><span class="err">&#39;</span> <span class="o">:</span> <span class="err">&#39;&#39;</span><span class="p">,</span>           <span class="err">#</span> <span class="n">Set</span> <span class="n">to</span> <span class="n">empty</span> <span class="n">string</span> <span class="k">for</span> <span class="n">localhost</span><span class="p">.</span> <span class="n">Not</span> <span class="n">used</span> <span class="n">with</span> <span class="n">sqlite3</span><span class="p">.</span>
+        <span class="err">&#39;</span><span class="n">PORT</span><span class="err">&#39;</span> <span class="o">:</span> <span class="err">&#39;&#39;</span><span class="p">,</span>            <span class="err">#</span> <span class="n">Set</span> <span class="n">to</span> <span class="n">empty</span> <span class="n">string</span> <span class="k">for</span> <span class="k">default</span><span class="p">.</span> <span class="n">Not</span> <span class="n">used</span> <span class="n">with</span> <span class="n">sqlite3</span><span class="p">.</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3>生成数据</h3>
+<p><code>python manage.py syncdb</code><br />
+<code>python manage.py runserver</code>  </p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">tulpar</span>
+  </span>
+<time datetime="2014-06-18T00:00:00+08:00" pubdate>Wed 18 June 2014</time>  <span class="categories">
+    <a class="category" href="/tag/django.html">Django</a>
+    <a class="category" href="/tag/mysql.html">Mysql</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+
+
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tlbog"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = 'http://static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+|| document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- Duoshuo Comment END -->
+
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
+      </li>
+      <li class="post">
+          <a href="/django-17shi-yong.html">Django 1.7试用</a>
+      </li>
+      <li class="post">
+          <a href="/django-guo-ji-hua.html">django 国际化</a>
+      </li>
+      <li class="post">
+          <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
+      </li>
+      <li class="post">
+          <a href="/django-validators.html">Django Validators</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="/category/it.html">It</a></li>
+        <li><a href="/category/life.html">Life</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/djangopython.html">Django，python</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://izda.com" target="_blank">ئىزدە</a></li>
+            <li><a href="http://www.google.com" target="_blank">Google</a></li>
+            <li><a href="http://www.zhihu.com/" target="_blank">知乎</a></li>
+            <li><a href="http://www.douban.com/" target="_blank">豆瓣</a></li>
+        </ul>
+    </section>
+    <section>
+        <h1>Blogroll</h1>
+        <ul>
+            <li><a href="https://github.com/tulpar008" target="_blank">My Github</a></li>
+            <li><a href="#" target="_blank">tulpar008@gmail.com</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2013-2014  - tulpar -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+</body>
+</html>

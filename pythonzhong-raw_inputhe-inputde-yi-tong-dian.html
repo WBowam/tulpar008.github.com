@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
+  <meta charset="utf-8">
+  <title>Python中raw_input和input的异同点</title>
+  <meta name="author" content="tulpar">
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link href="/favicon.png" rel="icon"> -->
+  <link href="/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="/theme/js/modernizr-2.0.js"></script>
+  <script src="/theme/js/ender.js"></script>
+  <script src="/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dreaming</a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+
+<ul class="main-navigation">
+    <li class="active">
+    <a href="/category/it.html">It</a>
+    </li>
+    <li >
+    <a href="/category/life.html">Life</a>
+    </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Python中raw_input和input的异同点</h1>
+      <p class="meta"><time datetime="2014-07-08T00:00:00+08:00" pubdate>Tue 08 July 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>一般软件做的事情主要就是下面几条：<br />
+· 接受人的输入。 <br />
+· 改变输入。 <br />
+· 打印出改变了的输入  <br />
+                  ———来自&lt;<a href="http://tulpar008.github.io/ben-ban-fa-xue-python.html">笨办法学Python</a>&gt;</p>
+<hr />
+<h3>相同点</h3>
+<p>这两个函数均用来接收输入，上述真理已足以说明它们的重要性，我不赘述了。</p>
+<h3>不同点</h3>
+<p><strong>1. raw_input() 直接读取控制台的输入（任何类型的输入它都可以接收）。而对于 input() ，它希望能够读取一个合法的 python 表达式，即你输入字符串的时候必须使用引号将它括起来，否则它会引发一个 SyntaxError 。</strong></p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span><span class="n">a</span><span class="o">=</span><span class="nx">raw_input</span><span class="p">(</span><span class="s2">&quot;请输入字符串，不用写引号：&quot;</span><span class="p">)</span>
+<span class="err">请输入字符串，不用写引号：</span><span class="nx">guoshu</span>
+
+<span class="o">&gt;&gt;&gt;</span><span class="n">b</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入字符串，不写引号试试：&quot;</span><span class="p">)</span>
+<span class="err">请输入字符串，不写引号试试：</span><span class="nx">guoshu</span>
+
+<span class="nx">Traceback</span> <span class="p">(</span><span class="nx">most</span> <span class="nx">recent</span> <span class="nb">call</span> <span class="nb">last</span><span class="p">):</span>
+ <span class="nb">File</span> <span class="s2">&quot;&lt;pyshell#1&gt;&quot;</span><span class="p">,</span> <span class="nb">line</span> <span class="mi">1</span><span class="p">,</span> <span class="k">in</span> <span class="o">&lt;</span><span class="nx">module</span><span class="o">&gt;</span>
+ <span class="n">input_A</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Input: &quot;</span><span class="p">)</span>
+ <span class="nb">File</span> <span class="s2">&quot;&lt;string&gt;&quot;</span><span class="p">,</span> <span class="nb">line</span> <span class="mi">1</span><span class="p">,</span> <span class="k">in</span> <span class="o">&lt;</span><span class="nx">module</span><span class="o">&gt;</span>
+<span class="nx">NameError</span><span class="p">:</span> <span class="nb">name</span> <span class="s1">&#39;guoshu&#39;</span> <span class="nx">is</span> <span class="ow">not</span> <span class="nx">defined</span>
+
+<span class="o">&gt;&gt;&gt;</span><span class="n">c</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入字符串，必须写引号：&quot;</span><span class="p">)</span>
+<span class="err">请输入字符串，必须写引号：</span><span class="nx">guoshu</span>
+</pre></div>
+
+
+<p><strong>2. raw_input() 将所有输入作为字符串看待，返回字符串类型。而input() 可接受合法的 python 表达式，包括数字，字符串（有引号才算合法的字符串表达式），其他（如1+2）。</strong></p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span><span class="n">d1</span><span class="o">=</span><span class="n">raw_input</span><span class="p">(</span><span class="s">&quot;raw_input输入数字时：&quot;</span>
+<span class="n">raw_input</span><span class="err">输入数字时：</span><span class="mi">123</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">type</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">type</span> <span class="err">&#39;</span><span class="n">str</span><span class="err">&#39;</span><span class="o">&gt;</span>
+
+<span class="o">&gt;&gt;&gt;</span><span class="n">d2</span><span class="o">=</span><span class="n">input</span><span class="p">(</span><span class="s">&quot;input输入数字时：&quot;</span><span class="p">)</span>
+<span class="n">input</span><span class="err">输入数字时：</span><span class="mi">123</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">type</span><span class="p">(</span><span class="n">d2</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">type</span> <span class="err">&#39;</span><span class="kt">int</span><span class="err">&#39;</span><span class="o">&gt;</span>
+
+<span class="o">&gt;&gt;&gt;</span><span class="n">e1</span><span class="o">=</span><span class="n">raw_input</span><span class="p">(</span><span class="s">&quot;raw_input输入表达式时：&quot;</span>
+<span class="n">raw_input</span><span class="err">输入表达式时：</span><span class="mi">3</span><span class="o">+</span><span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">type</span><span class="p">(</span><span class="n">e1</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">type</span> <span class="err">&#39;</span><span class="n">str</span><span class="err">&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">e1</span>
+<span class="err">&#39;</span><span class="mi">3</span><span class="o">+</span><span class="mi">2</span><span class="err">&#39;</span>
+
+<span class="o">&gt;&gt;&gt;</span><span class="n">e2</span><span class="o">=</span><span class="n">input</span><span class="p">(</span><span class="s">&quot;input输入表达式时：&quot;</span>
+<span class="n">input</span><span class="err">输入表达式时：</span><span class="mi">3</span><span class="o">+</span><span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">type</span><span class="p">(</span><span class="n">e2</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">type</span> <span class="err">&#39;</span><span class="kt">int</span><span class="err">&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">e2</span>
+<span class="mi">5</span>
+</pre></div>
+
+
+<h3>看看文档时怎么说滴：</h3>
+<div class="highlight"><pre><span class="nx">input</span><span class="p">(</span><span class="cp">[</span><span class="nx">prompt</span><span class="cp">]</span><span class="p">)</span>
+<span class="o">*</span> <span class="nx">Equivalent</span> <span class="nx">to</span> <span class="nb">eval</span><span class="p">(</span><span class="nx">raw_input</span><span class="p">(</span><span class="nx">prompt</span><span class="p">)).</span>
+
+<span class="o">*</span> <span class="nx">This</span> <span class="kd">function</span> <span class="nx">does</span> <span class="nx">not</span> <span class="k">catch</span> <span class="nx">user</span> <span class="nx">errors</span><span class="p">.</span> <span class="nx">If</span> <span class="nx">the</span> <span class="nx">input</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">syntactically</span> <span class="nx">valid</span><span class="p">,</span> <span class="nx">a</span> <span class="nx">SyntaxError</span> <span class="nx">will</span> <span class="nx">be</span>          <span class="nx">raised</span><span class="p">.</span> <span class="nx">Other</span> <span class="nx">exceptions</span> <span class="nx">may</span> <span class="nx">be</span> <span class="nx">raised</span> <span class="k">if</span> <span class="nx">there</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">error</span> <span class="nx">during</span> <span class="nx">evaluation</span><span class="p">.</span>
+
+<span class="o">*</span> <span class="nx">If</span> <span class="nx">the</span> <span class="nx">readline</span> <span class="nx">module</span> <span class="nx">was</span> <span class="nx">loaded</span><span class="p">,</span> <span class="nx">then</span> <span class="nx">input</span><span class="p">()</span> <span class="nx">will</span> <span class="nx">use</span> <span class="nx">it</span> <span class="nx">to</span> <span class="nx">provide</span> <span class="nx">elaborate</span> <span class="nx">line</span> <span class="nx">editing</span> <span class="nx">and</span> <span class="nx">history</span> <span class="nx">features</span><span class="p">.</span>
+
+<span class="o">*</span> <span class="nx">Consider</span> <span class="nx">using</span> <span class="nx">the</span> <span class="nx">raw_input</span><span class="p">()</span> <span class="kd">function</span> <span class="k">for</span> <span class="nx">general</span> <span class="nx">input</span> <span class="nx">from</span> <span class="nx">users</span><span class="p">.</span>
+</pre></div>
+
+
+<h5>第一点</h5>
+<p>input() 本质上还是使用 raw_input() 来实现的，只是调用完 raw_input() 之后再调用 <a href="http://tulpar008.github.io/python-exeche-evalyu-ju.html">eval() 函数</a>。</p>
+<h5>第四点</h5>
+<p>除非对 input() 有特别需要，否则一般情况下我们都是推荐使用 raw_input() 来与用户交互。</p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">tulpar</span>
+  </span>
+<time datetime="2014-07-08T00:00:00+08:00" pubdate>Tue 08 July 2014</time>  <span class="categories">
+    <a class="category" href="/tag/python.html">Python</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+
+
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tlbog"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = 'http://static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+|| document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- Duoshuo Comment END -->
+
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
+      </li>
+      <li class="post">
+          <a href="/django-17shi-yong.html">Django 1.7试用</a>
+      </li>
+      <li class="post">
+          <a href="/django-guo-ji-hua.html">django 国际化</a>
+      </li>
+      <li class="post">
+          <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
+      </li>
+      <li class="post">
+          <a href="/django-validators.html">Django Validators</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="/category/it.html">It</a></li>
+        <li><a href="/category/life.html">Life</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/djangopython.html">Django，python</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://izda.com" target="_blank">ئىزدە</a></li>
+            <li><a href="http://www.google.com" target="_blank">Google</a></li>
+            <li><a href="http://www.zhihu.com/" target="_blank">知乎</a></li>
+            <li><a href="http://www.douban.com/" target="_blank">豆瓣</a></li>
+        </ul>
+    </section>
+    <section>
+        <h1>Blogroll</h1>
+        <ul>
+            <li><a href="https://github.com/tulpar008" target="_blank">My Github</a></li>
+            <li><a href="#" target="_blank">tulpar008@gmail.com</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2013-2014  - tulpar -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
+  <meta charset="utf-8">
+  <title>Xadmin入门</title>
+  <meta name="author" content="tulpar">
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link href="/favicon.png" rel="icon"> -->
+  <link href="/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="/theme/js/modernizr-2.0.js"></script>
+  <script src="/theme/js/ender.js"></script>
+  <script src="/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dreaming</a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+
+<ul class="main-navigation">
+    <li class="active">
+    <a href="/category/it.html">It</a>
+    </li>
+    <li >
+    <a href="/category/life.html">Life</a>
+    </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Xadmin入门</h1>
+      <p class="meta"><time datetime="2014-03-05T00:00:00+08:00" pubdate>Wed 05 March 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>之前用过一次Xadmin，很好。这一次又想用，竟然忘了怎么用，又得重头入门。之前写过印象笔记，如今翻来翻去，很杂，很乱，想当初真该写个博文的。这一次一定!     </p>
+<p>ENV:<br />
+python 2.7.3<br />
+Django 1.4.5<br />
+virtualenv 1.11.4  </p>
+<hr />
+<h2>.安装配置</h2>
+<h4>1. install xadmin</h4>
+<div class="highlight"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">django</span><span class="o">-</span><span class="n">xadmin</span>
+</pre></div>
+
+
+<h4>2.检查下列依赖包有没有都被安装</h4>
+<div class="highlight"><pre><span class="n">django</span> <span class="o">&gt;=</span><span class="mf">1.4</span>
+<span class="n">django</span><span class="o">-</span><span class="n">crispy</span><span class="o">-</span><span class="n">forms</span> <span class="o">&gt;=</span><span class="mf">1.2.3</span> <span class="p">(</span><span class="n">For</span> <span class="n">xadmin</span> <span class="n">crispy</span> <span class="n">forms</span><span class="p">)</span>
+<span class="n">django</span><span class="o">-</span><span class="n">reversion</span> <span class="p">([</span><span class="n">OPTION</span><span class="p">]</span> <span class="n">For</span> <span class="n">object</span> <span class="n">history</span> <span class="n">and</span> <span class="n">reversion</span> <span class="n">feature</span><span class="p">,</span> <span class="n">please</span> <span class="n">select</span> <span class="n">right</span> <span class="n">version</span> <span class="n">by</span> <span class="n">your</span> <span class="n">django</span><span class="p">,</span> <span class="n">see</span> <span class="n">changelog</span> <span class="p">)</span>
+<span class="n">xlwt</span> <span class="p">([</span><span class="n">OPTION</span><span class="p">]</span> <span class="n">For</span> <span class="n">export</span> <span class="n">xls</span> <span class="n">files</span><span class="p">)</span>
+<span class="n">xlsxwriter</span> <span class="p">([</span><span class="n">OPTION</span><span class="p">]</span> <span class="n">For</span> <span class="n">export</span> <span class="n">xlsx</span> <span class="n">files</span><span class="p">)</span>
+</pre></div>
+
+
+<h4>3. Xadmin 作为 Django 的模块,</h4>
+<p>首先编辑 settings.py 添加 Xadmin 的模块到 INSTALLED_APPS 中 (注意, 安装 Django admin 所需要的 APP 也要安装, 但是 django.admin 可以不安装):  </p>
+<p>INSTALL_APPS</p>
+<div class="highlight"><pre><span class="cp">#-*- coding: UTF-8 -*- </span>
+
+<span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">auth</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">contenttypes</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">sessions</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">sites</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">messages</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">staticfiles</span><span class="err">&#39;</span><span class="p">,</span>
+
+    <span class="err">#&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">admin</span><span class="err">&#39;</span><span class="p">,</span>  <span class="err">#</span> <span class="err">这个可以去掉</span>
+
+<span class="cp">##添加模块</span>
+    <span class="err">&#39;</span><span class="n">xadmin</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="err">&#39;</span><span class="n">crispy_forms</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="err">#</span> <span class="err">&#39;</span><span class="n">reversion</span><span class="err">&#39;</span><span class="p">,</span>  <span class="err">#</span>  <span class="err">需要</span><span class="n">pip</span> <span class="n">install</span> <span class="n">django</span><span class="o">-</span><span class="n">reversion</span>
+
+<span class="p">)</span>
+</pre></div>
+
+
+<p>其中<code>xadmin</code>依赖<code>crispy_forms</code>默认安装，依赖<code>reversion</code>可选</p>
+<h4>4. 然后添加 URL-patterns 以及 autodiscover 操作:</h4>
+<p>urls.py 添加</p>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">xadmin</span>
+<span class="n">xadmin</span><span class="p">.</span><span class="n">autodiscover</span><span class="p">()</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="err">&#39;&#39;</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">(</span><span class="n">r</span><span class="err">&#39;</span><span class="o">^</span><span class="err">$&#39;</span><span class="p">,</span> <span class="n">IndexView</span><span class="p">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="err">&#39;</span><span class="n">home</span><span class="err">&#39;</span><span class="p">),</span>
+
+    <span class="n">url</span><span class="p">(</span><span class="n">r</span><span class="err">&#39;</span><span class="o">^</span><span class="n">xadmin</span><span class="o">/</span><span class="err">&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="n">xadmin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">urls</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="err">&#39;</span><span class="n">xadmin</span><span class="err">&#39;</span><span class="p">),</span>
+
+    <span class="err">#</span><span class="p">...</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<p>当然得注释admin相关配置</p>
+<h4>5. 收集 media 文件:</h4>
+<p><code>python manage.py collectstatic</code></p>
+<h4>6.注册数据：app内写一个adminx.py</h4>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">xadmin</span>
+<span class="n">from</span> <span class="n">models</span> <span class="n">import</span> <span class="n">New</span>
+
+<span class="n">xadmin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="k">register</span><span class="p">(</span><span class="n">New</span><span class="p">)</span>
+</pre></div>
+
+
+<h4>7. 配置后台界面，主题，图标什么的</h4>
+<hr />
+<p>效果图 <br />
+<img alt="test" src="http://tulparblog.qiniudn.com/xadmin1.png" /></p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">tulpar</span>
+  </span>
+<time datetime="2014-03-05T00:00:00+08:00" pubdate>Wed 05 March 2014</time>  <span class="categories">
+    <a class="category" href="/tag/xadmin.html">Xadmin</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+
+
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tlbog"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = 'http://static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+|| document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- Duoshuo Comment END -->
+
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
+      </li>
+      <li class="post">
+          <a href="/django-17shi-yong.html">Django 1.7试用</a>
+      </li>
+      <li class="post">
+          <a href="/django-guo-ji-hua.html">django 国际化</a>
+      </li>
+      <li class="post">
+          <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
+      </li>
+      <li class="post">
+          <a href="/django-validators.html">Django Validators</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="/category/it.html">It</a></li>
+        <li><a href="/category/life.html">Life</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/djangopython.html">Django，python</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://izda.com" target="_blank">ئىزدە</a></li>
+            <li><a href="http://www.google.com" target="_blank">Google</a></li>
+            <li><a href="http://www.zhihu.com/" target="_blank">知乎</a></li>
+            <li><a href="http://www.douban.com/" target="_blank">豆瓣</a></li>
+        </ul>
+    </section>
+    <section>
+        <h1>Blogroll</h1>
+        <ul>
+            <li><a href="https://github.com/tulpar008" target="_blank">My Github</a></li>
+            <li><a href="#" target="_blank">tulpar008@gmail.com</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2013-2014  - tulpar -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+</body>
+</html>

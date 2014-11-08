@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
+  <meta charset="utf-8">
+  <title>Tmux 入门</title>
+  <meta name="author" content="tulpar">
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link href="/favicon.png" rel="icon"> -->
+  <link href="/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="/theme/js/modernizr-2.0.js"></script>
+  <script src="/theme/js/ender.js"></script>
+  <script src="/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dreaming</a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+
+<ul class="main-navigation">
+    <li class="active">
+    <a href="/category/it.html">It</a>
+    </li>
+    <li >
+    <a href="/category/life.html">Life</a>
+    </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Tmux 入门</h1>
+      <p class="meta"><time datetime="2013-12-08T00:00:00+08:00" pubdate>Sun 08 December 2013</time></p>
+</header>
+
+  <div class="entry-content"><h3>tmux快捷键</h3>
+<p>tmux在会话中使用大量的快捷键来控制多个窗口、多个会话等。</p>
+<div class="highlight"><pre><span class="n">Ctrl</span><span class="o">+</span><span class="n">b</span>  <span class="c1">// 激活控制台；此时以下按键生效   </span>
+<span class="err">系统操作</span>   
+    <span class="o">?</span>   <span class="c1">// 列出所有快捷键；按q返回   </span>
+    <span class="n">d</span>   <span class="c1">// 脱离当前会话；这样可以暂时返回Shell界面，输入tmux attach能够重新进入之前的会话   </span>
+    <span class="n">D</span>   <span class="c1">// 选择要脱离的会话；在同时开启了多个会话时使用   </span>
+    <span class="n">Ctrl</span><span class="o">+</span><span class="n">z</span>  <span class="c1">// 挂起当前会话   </span>
+    <span class="n">r</span>   <span class="c1">// 强制重绘未脱离的会话   </span>
+    <span class="n">s</span>   <span class="c1">// 选择并切换会话；在同时开启了多个会话时使用   </span>
+    <span class="o">:</span>   <span class="c1">// 进入命令行模式；此时可以输入支持的命令，例如kill-server可以关闭服务器   </span>
+    <span class="p">[</span>   <span class="c1">// 进入复制模式；此时的操作与vi/emacs相同，按q/Esc退出   </span>
+    <span class="o">~</span>   <span class="c1">// 列出提示信息缓存；其中包含了之前tmux返回的各种提示信息   </span>
+<span class="err">窗口操作</span>   
+    <span class="n">c</span>   <span class="c1">// 创建新窗口   </span>
+    <span class="o">&amp;</span>   <span class="c1">// 关闭当前窗口   </span>
+    <span class="err">数字键</span> <span class="c1">// 切换至指定窗口   </span>
+    <span class="n">p</span>   <span class="c1">// 切换至上一窗口   </span>
+    <span class="n">n</span>   <span class="c1">// 切换至下一窗口   </span>
+    <span class="n">l</span>   <span class="c1">// 在前后两个窗口间互相切换   </span>
+    <span class="n">w</span>   <span class="c1">// 通过窗口列表切换窗口   </span>
+    <span class="p">,</span>   <span class="c1">// 重命名当前窗口；这样便于识别   </span>
+    <span class="p">.</span>   <span class="c1">// 修改当前窗口编号；相当于窗口重新排序   </span>
+    <span class="n">f</span>   <span class="c1">// 在所有窗口中查找指定文本   </span>
+<span class="err">面板操作</span>   
+    <span class="err">”</span>   <span class="c1">// 将当前面板平分为上下两块   </span>
+    <span class="o">%</span>   <span class="c1">// 将当前面板平分为左右两块   </span>
+    <span class="n">x</span>   <span class="c1">// 关闭当前面板   </span>
+    <span class="o">!</span>   <span class="c1">// 将当前面板置于新窗口；即新建一个窗口，其中仅包含当前面板   </span>
+    <span class="n">Ctrl</span><span class="o">+</span><span class="err">方向键</span>    <span class="c1">// 以1个单元格为单位移动边缘以调整当前面板大小   </span>
+    <span class="n">Alt</span><span class="o">+</span><span class="err">方向键</span> <span class="c1">// 以5个单元格为单位移动边缘以调整当前面板大小   </span>
+    <span class="n">Space</span>   <span class="c1">// 在预置的面板布局中循环切换；依次包括even-horizontal、even-vertical、main-horizontal、main-vertical、tiled   </span>
+    <span class="n">q</span>   <span class="c1">// 显示面板编号   </span>
+    <span class="n">o</span>   <span class="c1">// 在当前窗口中选择下一面板   </span>
+    <span class="err">方向键</span> <span class="c1">// 移动光标以选择面板   </span>
+    <span class="p">{</span>   <span class="c1">// 向前置换当前面板   </span>
+    <span class="p">}</span>   <span class="c1">// 向后置换当前面板   </span>
+    <span class="n">Alt</span><span class="o">+</span><span class="n">o</span>   <span class="c1">// 逆时针旋转当前窗口的面板   </span>
+    <span class="n">Ctrl</span><span class="o">+</span><span class="n">o</span>  <span class="c1">// 顺时针旋转当前窗口的面板  </span>
+</pre></div>
+
+
+<h3>主要快捷键</h3>
+<p>-- 基本使用</p>
+<div class="highlight"><pre><span class="n">tmux</span>   <span class="c1">//运行C-b d   //返回主 shell ， tmux 依旧在后台运行，里面的命令也保持运行状态tmux attach  //恢复tmux</span>
+<span class="o">--</span> <span class="err">快捷键</span>
+<span class="n">tmux</span> <span class="err">的使用主要就是依靠快捷键，通过</span> <span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="err">来调用。</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="o">?</span>  <span class="c1">// 显示快捷键帮助</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="n">C</span><span class="o">-</span><span class="n">o</span>  <span class="c1">//调换窗口位置</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="err">空格键</span>  <span class="c1">//采用下一个内置布局</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="o">!</span> <span class="c1">// 把当前窗口变为新窗口</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span>  <span class="s">&quot;  // 模向分隔窗口</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="o">%</span> <span class="c1">// 纵向分隔窗口</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="n">q</span> <span class="c1">// 显示分隔窗口的编号</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="n">o</span> <span class="c1">// 跳到下一个分隔窗口</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="err">上下键</span> <span class="c1">// 上一个及下一个分隔窗口</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="n">C</span><span class="o">-</span><span class="err">方向键</span> <span class="c1">//调整分隔窗口大小</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="o">&amp;</span> <span class="c1">// 确认后退出 tmux</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="n">c</span> <span class="c1">// 创建新窗口</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="err">，</span><span class="c1">//修改当前窗口名称</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="mi">0</span><span class="o">~</span><span class="mi">9</span> <span class="c1">//选择几号窗口</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="n">c</span> <span class="c1">// 创建新窗口</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="n">n</span> <span class="c1">// 选择下一个窗口</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="n">l</span> <span class="c1">// 最后使用的窗口</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="n">p</span> <span class="c1">// 选择前一个窗口</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="n">w</span> <span class="c1">// 以菜单方式显示及选择窗口</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="n">s</span> <span class="c1">// 以菜单方式显示和选择会话</span>
+<span class="n">C</span><span class="o">-</span><span class="n">b</span> <span class="n">t</span> <span class="c1">//显示时钟</span>
+</pre></div>
+
+
+<h3>配置文件</h3>
+<p>tmux配置文件在~/.tmux.conf和/etc/tmux.conf中，配置文件中可以修改默认绑定的快捷键</p>
+<p>配置文件示例：</p>
+<div class="highlight"><pre><span class="c1">// 此类配置可以在命令行模式中输入show-options -g查询   </span>
+<span class="n">set</span><span class="o">-</span><span class="n">option</span> <span class="o">-</span><span class="n">g</span> <span class="n">base</span><span class="o">-</span><span class="n">index</span> <span class="mh">1</span>                        <span class="c1">// 窗口的初始序号；默认为0，这里设置为1   </span>
+<span class="n">set</span><span class="o">-</span><span class="n">option</span> <span class="o">-</span><span class="n">g</span> <span class="n">display</span><span class="o">-</span><span class="k">time</span> <span class="mh">5000</span>                   <span class="c1">// 提示信息的持续时间；设置足够的时间以避免看不清提示，单位为毫秒   </span>
+<span class="n">set</span><span class="o">-</span><span class="n">option</span> <span class="o">-</span><span class="n">g</span> <span class="k">repeat</span><span class="o">-</span><span class="k">time</span> <span class="mh">1000</span>                    <span class="c1">// 控制台激活后的持续时间；设置合适的时间以避免每次操作都要先激活控制台，单位为毫秒   </span>
+<span class="n">set</span><span class="o">-</span><span class="n">option</span> <span class="o">-</span><span class="n">g</span> <span class="n">status</span><span class="o">-</span><span class="n">keys</span> <span class="n">vi</span>                      <span class="c1">// 操作状态栏时的默认键盘布局；可以设置为vi或emacs   </span>
+<span class="n">set</span><span class="o">-</span><span class="n">option</span> <span class="o">-</span><span class="n">g</span> <span class="n">status</span><span class="o">-</span><span class="n">right</span> <span class="s">&quot;#(date +%H:%M&#39; &#39;)&quot;</span>    <span class="c1">// 状态栏右方的内容；这里的设置将得到类似23:59的显示   </span>
+<span class="n">set</span><span class="o">-</span><span class="n">option</span> <span class="o">-</span><span class="n">g</span> <span class="n">status</span><span class="o">-</span><span class="n">right</span><span class="o">-</span><span class="n">length</span> <span class="mh">10</span>              <span class="c1">// 状态栏右方的内容长度；建议把更多的空间留给状态栏左方（用于列出当前窗口）   </span>
+<span class="n">set</span><span class="o">-</span><span class="n">option</span> <span class="o">-</span><span class="n">g</span> <span class="n">status</span><span class="o">-</span><span class="n">utf8</span> <span class="n">on</span>                      <span class="c1">// 开启状态栏的UTF-8支持   </span>
+
+<span class="c1">// 此类设置可以在命令行模式中输入show-window-options -g查询   </span>
+<span class="n">set</span><span class="o">-</span><span class="n">window</span><span class="o">-</span><span class="n">option</span> <span class="o">-</span><span class="n">g</span> <span class="n">mode</span><span class="o">-</span><span class="n">keys</span> <span class="n">vi</span>    <span class="c1">// 复制模式中的默认键盘布局；可以设置为vi或emacs   </span>
+<span class="n">set</span><span class="o">-</span><span class="n">window</span><span class="o">-</span><span class="n">option</span> <span class="o">-</span><span class="n">g</span> <span class="n">utf8</span> <span class="n">on</span>         <span class="c1">// 开启窗口的UTF-8支持   </span>
+
+<span class="c1">// 将激活控制台的快捷键由Ctrl+b修改为Ctrl+a，Ctrl+a是Screen的快捷键</span>
+<span class="n">set</span><span class="o">-</span><span class="n">option</span> <span class="o">-</span><span class="n">g</span> <span class="n">prefix</span> <span class="no">C</span><span class="o">-</span><span class="n">a</span>   
+<span class="n">unbind</span><span class="o">-</span><span class="n">key</span> <span class="no">C</span><span class="o">-</span><span class="n">b</span>   
+<span class="k">bind</span><span class="o">-</span><span class="n">key</span> <span class="no">C</span><span class="o">-</span><span class="n">a</span> <span class="n">send</span><span class="o">-</span><span class="n">prefix</span>   
+
+<span class="c1">// 添加自定义快捷键   </span>
+<span class="k">bind</span><span class="o">-</span><span class="n">key</span> <span class="n">z</span> <span class="n">kill</span><span class="o">-</span><span class="n">session</span>                     <span class="c1">// 按z结束当前会话；相当于进入命令行模式后输入kill-session   </span>
+<span class="k">bind</span><span class="o">-</span><span class="n">key</span> <span class="n">h</span> <span class="n">select</span><span class="o">-</span><span class="n">layout</span> <span class="n">even</span><span class="o">-</span><span class="n">horizontal</span>    <span class="c1">// 按h将当前面板布局切换为even-horizontal；相当于进入命令行模式后输入select-layout even-horizontal   </span>
+<span class="k">bind</span><span class="o">-</span><span class="n">key</span> <span class="n">v</span> <span class="n">select</span><span class="o">-</span><span class="n">layout</span> <span class="n">even</span><span class="o">-</span><span class="n">vertical</span>      <span class="c1">// 按v将当前面板布局切换为even-vertical；相当于进入命令行模式后输入select-layout even-vertical   </span>
+</pre></div></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">tulpar</span>
+  </span>
+<time datetime="2013-12-08T00:00:00+08:00" pubdate>Sun 08 December 2013</time>  <span class="categories">
+    <a class="category" href="/tag/tmux.html">Tmux</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+
+
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tlbog"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = 'http://static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+|| document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- Duoshuo Comment END -->
+
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
+      </li>
+      <li class="post">
+          <a href="/django-17shi-yong.html">Django 1.7试用</a>
+      </li>
+      <li class="post">
+          <a href="/django-guo-ji-hua.html">django 国际化</a>
+      </li>
+      <li class="post">
+          <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
+      </li>
+      <li class="post">
+          <a href="/django-validators.html">Django Validators</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="/category/it.html">It</a></li>
+        <li><a href="/category/life.html">Life</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/djangopython.html">Django，python</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://izda.com" target="_blank">ئىزدە</a></li>
+            <li><a href="http://www.google.com" target="_blank">Google</a></li>
+            <li><a href="http://www.zhihu.com/" target="_blank">知乎</a></li>
+            <li><a href="http://www.douban.com/" target="_blank">豆瓣</a></li>
+        </ul>
+    </section>
+    <section>
+        <h1>Blogroll</h1>
+        <ul>
+            <li><a href="https://github.com/tulpar008" target="_blank">My Github</a></li>
+            <li><a href="#" target="_blank">tulpar008@gmail.com</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2013-2014  - tulpar -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+</body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
+  <meta charset="utf-8">
+  <title>Django 数据查询</title>
+  <meta name="author" content="tulpar">
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link href="/favicon.png" rel="icon"> -->
+  <link href="/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="/theme/js/modernizr-2.0.js"></script>
+  <script src="/theme/js/ender.js"></script>
+  <script src="/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dreaming</a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+
+<ul class="main-navigation">
+    <li class="active">
+    <a href="/category/it.html">It</a>
+    </li>
+    <li >
+    <a href="/category/life.html">Life</a>
+    </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Django 数据查询</h1>
+      <p class="meta"><time datetime="2014-09-07T00:00:00+08:00" pubdate>Sun 07 September 2014</time></p>
+</header>
+
+  <div class="entry-content"><div class="highlight"><pre><span class="n">class</span> <span class="n">Poll</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">slug</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">SlugField</span><span class="p">(</span><span class="n">unique_for_month</span><span class="o">=</span><span class="err">&#39;</span><span class="n">pub_date</span><span class="err">&#39;</span><span class="p">)</span>
+    <span class="n">question</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">maxlength</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+    <span class="n">pub_date</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">DateTimeField</span><span class="p">()</span>
+    <span class="n">expire_date</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">DateTimeField</span><span class="p">()</span>
+
+    <span class="n">def</span> <span class="n">__repr__</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">question</span>
+
+    <span class="n">class</span> <span class="n">Meta</span><span class="o">:</span>
+    <span class="n">get_latest_by</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">pub_date</span><span class="err">&#39;</span>
+
+
+
+
+
+<span class="n">class</span> <span class="n">Choice</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">poll</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Poll</span><span class="p">,</span> <span class="n">edit_inline</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">TABULAR</span><span class="p">,</span>
+    <span class="n">num_in_admin</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">min_num_in_admin</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">choice</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">maxlength</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="n">True</span><span class="p">)</span>
+    <span class="n">votes</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">editable</span><span class="o">=</span><span class="n">False</span><span class="p">,</span> <span class="k">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">def</span> <span class="n">__repr__</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+    <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">choice</span>
+</pre></div>
+
+
+<h3>获得一个数据对象p1</h3>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">datetime</span> <span class="n">import</span> <span class="n">datetime</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Poll</span><span class="p">(</span><span class="n">slug</span><span class="o">=</span><span class="err">&#39;</span><span class="n">whatsup</span><span class="err">&#39;</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="s">&quot;What&#39;s up?&quot;</span><span class="p">,</span>\
+    <span class="n">pub_date</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">expire_date</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">p1</span><span class="p">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+
+
+<ul>
+<li>数据对象有一个初始方法save()</li>
+</ul>
+<h3>获取结果集对象</h3>
+<h4>无限制获取对象集p2</h4>
+<div class="highlight"><pre><span class="n">p2</span><span class="o">=</span><span class="n">Poll</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">all</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">p2</span>
+<span class="p">[</span><span class="n">What</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">up</span><span class="o">?</span><span class="p">,</span> <span class="n">What</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">your</span> <span class="n">name</span><span class="o">?</span><span class="p">]</span>
+</pre></div>
+
+
+<h6>注意：在这里p2是个对象集，自身也是个对象。</h6>
+<h4>增加一些限制条件直到描述的子集满足你的需要。</h4>
+<p>最常用的两个定制结果集的方法是:</p>
+<div class="highlight"><pre><span class="n">filter</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="err">返回一个匹配查询参数的新的结果集</span><span class="p">.</span>
+<span class="n">exclude</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="err">返回一个不匹配查询参数的新的结果集</span><span class="p">.</span>
+</pre></div>
+
+
+<p>这两个方法的返回值都是结果集对象,因此结果集可以进行链式处理:</p>
+<div class="highlight"><pre><span class="n">Poll</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">question__startswith</span><span class="o">=</span><span class="s">&quot;What&quot;</span><span class="p">)</span>\
+    <span class="p">.</span><span class="n">exclude</span><span class="p">(</span><span class="n">pub_date__gte</span><span class="o">=</span><span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>\
+    <span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__gte</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+
+<p>以一个初始结果集作为参数, 然后进行过滤, 再进行排除, 再进行另一个过滤. <br />
+这样得到的最终结果就一个问题开头单词是 "What", 发布日期在 2005年1月1日至今的所有民意测验的集合.   </p>
+<p>每个结果集都是一个独一无二的对象. 以上操作的每一步都生成了一个新的结果集:   </p>
+<div class="highlight"><pre><span class="n">q1</span> <span class="o">=</span> <span class="n">Poll</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">question__startswith</span><span class="o">=</span><span class="s">&quot;What&quot;</span><span class="p">)</span>
+<span class="n">q2</span> <span class="o">=</span> <span class="n">q1</span><span class="p">.</span><span class="n">exclude</span><span class="p">(</span><span class="n">pub_date__gte</span><span class="o">=</span><span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
+<span class="n">q3</span> <span class="o">=</span> <span class="n">q1</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__gte</span><span class="o">=</span><span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
+</pre></div>
+
+
+<p>这三步生成了三个结果集; 一个初始结果集包含所有的以"What"开头的民意测验, 两个初始结果集的子集(一个排除条件,一个过滤条件). <br />
+对原始结果集的改进过程并没有影响到原始的结果集.</p>
+<h6>值得注意的是结果集的创建根本没有访问数据库.只有当对结果集取值时才会访问数据库.</h6>
+<h3>字段查询</h3>
+<p>以 field__lookuptype (注意是双下线)形式进行基本的字段查询,举例来说:</p>
+<div class="highlight"><pre><span class="n">polls</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__lte</span><span class="o">=</span><span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">())</span>
+</pre></div>
+
+
+<p>该查询翻译成SQL就是:</p>
+<div class="highlight"><pre><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">polls_polls</span> <span class="n">WHERE</span> <span class="n">pub_date</span> <span class="o">&lt;=</span> <span class="n">NOW</span><span class="p">();</span>
+</pre></div>
+
+
+<h3>DB API 支持下列查找类型:</h3>
+<div class="highlight"><pre><span class="err">类型</span> <span class="err">描述</span>
+<span class="n">exact</span> <span class="err">精确匹配</span><span class="o">:</span> <span class="n">polls</span><span class="p">.</span><span class="n">get_object</span><span class="p">(</span><span class="n">id__exact</span><span class="o">=</span><span class="mi">14</span><span class="p">).</span>
+<span class="n">iexact</span> <span class="err">忽略大小写的精确匹配</span><span class="o">:</span> <span class="n">polls</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">slug__iexact</span><span class="o">=</span><span class="s">&quot;foo&quot;</span><span class="p">)</span> <span class="err">匹配</span> <span class="n">foo</span><span class="p">,</span> <span class="n">FOO</span><span class="p">,</span> <span class="n">fOo</span><span class="p">,</span> <span class="err">等等</span><span class="p">.</span>
+<span class="n">contains</span> <span class="err">大小写敏感的内容包含测试</span><span class="o">:</span> <span class="n">polls</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">question__contains</span><span class="o">=</span><span class="s">&quot;spam&quot;</span><span class="p">)</span> <span class="err">返回</span><span class="n">question</span> <span class="err">中包含</span> <span class="s">&quot;spam&quot;</span> <span class="err">的所有民意测验</span><span class="p">.(</span><span class="err">仅</span><span class="n">PostgreSQL</span> <span class="err">和</span> <span class="n">MySQL</span><span class="err">支持</span><span class="p">.</span> <span class="n">SQLite</span> <span class="err">的</span><span class="n">LIKE</span> <span class="err">语句不支持大小写敏感特性</span><span class="p">.</span> <span class="err">对</span><span class="n">Sqlite</span> <span class="err">来说</span><span class="p">,</span> <span class="n">contains</span> <span class="err">等于</span> <span class="n">icontains</span><span class="p">.)</span>
+<span class="n">icontains</span> <span class="err">大小写不敏感的内容包含测试</span><span class="o">:</span>
+<span class="n">gt</span> <span class="err">大于</span><span class="o">:</span> <span class="n">polls</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">id__gt</span><span class="o">=</span><span class="mi">4</span><span class="p">).</span>
+<span class="n">gte</span> <span class="err">大于等于</span><span class="p">.</span>
+<span class="n">lt</span> <span class="err">小于</span><span class="p">.</span>
+<span class="n">lte</span> <span class="err">小于等于</span><span class="p">.</span>
+<span class="n">ne</span> <span class="err">不等于</span><span class="p">.</span>
+<span class="n">in</span> <span class="err">位于给定列表中</span><span class="o">:</span> <span class="n">polls</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">id__in</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> <span class="err">返回一个</span> <span class="n">polls</span> <span class="err">列表</span><span class="p">(</span><span class="n">ID</span> <span class="err">值分别是</span> <span class="mi">1</span><span class="err">或</span><span class="mi">3</span><span class="err">或</span><span class="mi">4</span><span class="p">).</span>
+<span class="n">startswith</span> <span class="err">大小写敏感的</span> <span class="n">starts</span><span class="o">-</span><span class="n">with</span><span class="o">:</span> <span class="n">polls</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">question__startswith</span><span class="o">=</span><span class="s">&quot;Would&quot;</span><span class="p">).(</span><span class="err">仅</span><span class="n">PostgreSQL</span> <span class="err">和</span><span class="n">MySQL</span><span class="err">支持</span><span class="p">.</span> <span class="n">SQLite</span> <span class="err">的</span><span class="n">LIKE</span> <span class="err">语句不支持大小写敏感特性</span><span class="p">.</span> <span class="err">对</span><span class="n">Sqlite</span> <span class="err">来说</span><span class="p">,</span><span class="err">``</span><span class="n">startswith</span><span class="err">``</span> <span class="err">等于</span> <span class="n">istartswith</span><span class="p">)</span>
+<span class="n">endswith</span> <span class="err">大小写敏感的</span> <span class="n">ends</span><span class="o">-</span><span class="n">with</span><span class="p">.</span> <span class="p">(</span><span class="err">仅</span><span class="n">PostgreSQL</span> <span class="err">和</span> <span class="n">MySQL</span><span class="p">)</span>
+<span class="n">istartswith</span> <span class="err">大小写不敏感的</span> <span class="n">starts</span><span class="o">-</span><span class="n">with</span><span class="p">.</span>
+<span class="n">iendswith</span> <span class="err">大小写不敏感的</span> <span class="n">ends</span><span class="o">-</span><span class="n">with</span><span class="p">.</span>
+<span class="n">range</span> <span class="err">范围测试</span><span class="o">:</span> <span class="n">polls</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__range</span><span class="o">=</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">))</span> <span class="err">返回</span> <span class="n">pub_date</span> <span class="err">位于</span> <span class="n">start_date</span> <span class="err">和</span> <span class="n">end_date</span> <span class="p">(</span><span class="err">包括</span><span class="p">)</span><span class="err">之间的所有民意测验</span>
+<span class="n">year</span> <span class="err">对</span> <span class="n">date</span><span class="o">/</span><span class="n">datetime</span> <span class="err">字段</span><span class="p">,</span> <span class="err">进行精确的</span> <span class="err">年</span> <span class="err">匹配</span><span class="o">:</span> <span class="n">polls</span><span class="p">.</span><span class="n">get_count</span><span class="p">(</span><span class="n">pub_date__year</span><span class="o">=</span><span class="mi">2005</span><span class="p">).</span>
+<span class="n">month</span> <span class="err">对</span> <span class="n">date</span><span class="o">/</span><span class="n">datetime</span> <span class="err">字段</span><span class="p">,</span> <span class="err">进行精确的</span> <span class="err">月</span> <span class="err">匹配</span><span class="o">:</span>
+<span class="n">day</span> <span class="err">对</span> <span class="n">date</span><span class="o">/</span><span class="n">datetime</span> <span class="err">字段</span><span class="p">,</span> <span class="err">进行精确的</span> <span class="err">日</span> <span class="err">匹配</span><span class="o">:</span>
+<span class="n">isnull</span> <span class="n">True</span><span class="o">/</span><span class="n">False</span><span class="p">;</span> <span class="err">做</span> <span class="n">IF</span> <span class="nb">NULL</span><span class="o">/</span><span class="n">IF</span> <span class="n">NOT</span> <span class="nb">NULL</span> <span class="err">查询</span><span class="o">:</span> <span class="n">polls</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">expire_date__isnull</span><span class="o">=</span><span class="n">True</span><span class="p">).</span>
+</pre></div>
+
+
+<h6>如果未提供查找类型, 系统就认为查找类型是 exact . 下面两个语句是等价的:</h6>
+<div class="highlight"><pre><span class="n">Poll</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">id</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">Poll</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">id__exact</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+</pre></div>
+
+
+<h5>查询允许多个条件参数, 逗号分隔的多个条件参数会被 "AND" 起来使用:</h5>
+<div class="highlight"><pre><span class="n">polls</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span>
+    <span class="n">pub_date__year</span><span class="o">=</span><span class="mi">2005</span><span class="p">,</span>
+    <span class="n">pub_date__month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">question__startswith</span><span class="o">=</span><span class="s">&quot;Would&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<p>得到2005年1月公布的带有一个"Would"开头的问题的所有民意测验.</p>
+<h5>为了使用更加方便, 还提供有一个 pk 查找类型, 可以翻译成 (primary_key)__exact.</h5>
+<p>在这个民意测试的例子里, 下面两个语句是等价的.:</p>
+<div class="highlight"><pre><span class="n">polls</span><span class="p">.</span><span class="n">get_object</span><span class="p">(</span><span class="n">id__exact</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">polls</span><span class="p">.</span><span class="n">get_object</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+
+<h5>pk 也可以通过连接进行查询.</h5>
+<p>在这个民意测试的例子里, 下面两个语句是等价的:</p>
+<div class="highlight"><pre><span class="n">choices</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">poll__id__exact</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">choices</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">poll__pk</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+
+<p>如果传递的关键字参数非法, 将引发 TypeError 异常.</p>
+<h4>OR 查询</h4>
+<p>关键字参数查询的各个条件都是 "AND" 关系. 如果你需要一个复杂的查询(举例来说,你需要一个 OR 语句), 你需要使用 Q 对象.    <br />
+Q 对象是 django.core.meta.Q 的实例, 用来装载一系列关键字参数. 这些关键字参数就象指定给 get() 和 filter() 函数的关键字参数一样. 举例来说:</p>
+<div class="highlight"><pre><span class="n">Q</span><span class="p">(</span><span class="n">question__startswith</span><span class="o">=</span><span class="err">&#39;</span><span class="n">What</span><span class="err">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Q 对象可以使用 &amp; 和 | 运算符进行组合. 当两个Q对象进行 &amp; 或 | 运算时,会生成一个新的Q对象.举例来说语句:</p>
+<div class="highlight"><pre><span class="n">Q</span><span class="p">(</span><span class="n">question__startswith</span><span class="o">=</span><span class="err">&#39;</span><span class="n">Who</span><span class="err">&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">question__startswith</span><span class="o">=</span><span class="err">&#39;</span><span class="n">What</span><span class="err">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>生成一个新的 Q 对象表示这两个 "question__startswith" 查询条件的 "OR" 关系. 等同于下面的 SQL WHERE 子句:</p>
+<div class="highlight"><pre> <span class="n">WHERE</span> <span class="n">question</span> <span class="n">LIKE</span> <span class="err">&#39;</span><span class="n">Who</span><span class="o">%</span><span class="err">&#39;</span> <span class="n">OR</span> <span class="n">question</span> <span class="n">LIKE</span> <span class="err">&#39;</span><span class="n">What</span><span class="o">%</span><span class="err">&#39;</span>
+</pre></div>
+
+
+<p>查询函数可以接受一个或多个 Q 对象作为参数.如果提供有多个 Q 对象参数, 它们将被 "AND" 到一起. 举例来说:</p>
+<div class="highlight"><pre><span class="n">polls</span><span class="p">.</span><span class="n">get_object</span><span class="p">(</span>
+<span class="n">Q</span><span class="p">(</span><span class="n">question__startswith</span><span class="o">=</span><span class="err">&#39;</span><span class="n">Who</span><span class="err">&#39;</span><span class="p">),</span>
+<span class="n">Q</span><span class="p">(</span><span class="n">pub_date__exact</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">pub_date__exact</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<p>翻译成 SQL 就是这样:</p>
+<div class="highlight"><pre><span class="n">SELECT</span> <span class="o">*</span> <span class="n">from</span> <span class="n">polls</span> <span class="n">WHERE</span> <span class="n">question</span> <span class="n">LIKE</span> <span class="err">&#39;</span><span class="n">Who</span><span class="o">%</span><span class="err">&#39;</span>
+<span class="n">AND</span> <span class="p">(</span><span class="n">pub_date</span> <span class="o">=</span> <span class="err">&#39;</span><span class="mi">2005</span><span class="o">-</span><span class="mo">05</span><span class="o">-</span><span class="mo">02</span><span class="err">&#39;</span> <span class="n">OR</span> <span class="n">pub_date</span> <span class="o">=</span> <span class="err">&#39;</span><span class="mi">2005</span><span class="o">-</span><span class="mo">05</span><span class="o">-</span><span class="mo">06</span><span class="err">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3>从结果集中取值</h3>
+<p>只有通过取值操作才能得到结果集包含的对象.取值操作可以通过迭代,切片,或其它专门的函数来实现.   </p>
+<h5>一个结果集就是一个可迭代对象.</h5>
+<p>因此,可以通过一个循环来取出它的值:</p>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">p</span> <span class="n">in</span> <span class="n">Poll</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">all</span><span class="p">()</span><span class="o">:</span>
+<span class="n">print</span> <span class="n">p</span>
+</pre></div>
+
+
+<p>将使用 Poll 对象的 <strong>repr</strong>() 方法打印出所有的 Poll 对象.</p>
+<h5>一个结果集也可以被切片, 使用数组符号操作:</h5>
+<div class="highlight"><pre><span class="n">fifth_poll</span> <span class="o">=</span> <span class="n">Poll</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">all</span><span class="p">()[</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">all_polls_but_the_first_two</span> <span class="o">=</span> <span class="n">Poll</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">all</span><span class="p">()[</span><span class="mi">2</span><span class="o">:</span><span class="p">]</span>
+<span class="n">every_second_poll</span> <span class="o">=</span> <span class="n">Poll</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">all</span><span class="p">()[</span><span class="o">::</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+
+<h6>结果集对象是惰性对象 - 也就是说,他们不是 真正的 包含他们表示对象的集合 (或列表).</h6>
+<h6>Python 的协议魔法让结果集看起来是一个可迭代,可切片的对象. 事实上在幕后, Django 使用了缓存技术..</h6>
+<p>如果你真的需要一个列表, 你可以强制对一个惰性对象取值:</p>
+<div class="highlight"><pre><span class="n">querylist</span> <span class="o">=</span> <span class="n">list</span><span class="p">(</span><span class="n">Poll</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">all</span><span class="p">())</span>
+</pre></div>
+
+
+<p>不过,最好不要这么做,尤其当一个结果集相当大时. 由于 Django 要创建每一个对象的内存表示,这将占用相当大的内存.</p>
+<h3>结果集及其缓存行为</h3>
+<p>每个结果集都包含一个 cache. 对一个新创建的结果集来说, 缓存区是空的.当一个结果集第一次被取值, Django 会进行一次数据库查询,并将查询结果放入缓存中, 之后返回用户需要的数据. 后面的取值操作会使用缓存中的数据而不用再次访问数据库.</p>
+<p>必须时刻记住:结果集具有缓存行为. 下面两行语句生成了两个临时的结果集,并进行了取值,之后舍弃:</p>
+<div class="highlight"><pre><span class="n">print</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="n">in</span> <span class="n">Poll</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">all</span><span class="p">()]</span> <span class="err">#</span> <span class="n">Evaluate</span> <span class="n">the</span> <span class="n">Query</span> <span class="n">Set</span>
+<span class="n">print</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="n">in</span> <span class="n">Poll</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">all</span><span class="p">()]</span> <span class="err">#</span> <span class="n">Evaluate</span> <span class="n">the</span> <span class="n">Query</span> <span class="n">Set</span> <span class="n">again</span>
+</pre></div>
+
+
+<p>对一个小型的,低流量的站点来说,这不会造成严重问题. <br />
+不过,对一个高访问量的站点来说,它双倍增加了数据库服务器的负担. <br />
+另外,由于在两次操作之间可能有其它的用户增加或删除了投票,因此这两次操作得到结果可能并不相同.</p>
+<h5>要避免这个问题, 保存这个结果集并在后面重用该结果集:</h5>
+<div class="highlight"><pre><span class="n">queryset</span> <span class="o">=</span> <span class="n">Poll</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">all</span><span class="p">()</span>
+<span class="n">print</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="n">in</span> <span class="n">queryset</span><span class="p">]</span> <span class="err">#</span> <span class="n">Evaluate</span> <span class="n">the</span> <span class="n">query</span> <span class="n">set</span>
+<span class="n">print</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="n">in</span> <span class="n">queryset</span><span class="p">]</span> <span class="err">#</span> <span class="n">Re</span><span class="o">-</span><span class="n">use</span> <span class="n">the</span> <span class="n">cache</span> <span class="n">from</span> <span class="n">the</span> <span class="n">evaluation</span>
+</pre></div>
+
+
+<h3>关系 (连接)</h3>
+<p>当你在 model 中定义了一个关系字段(也就是,一个ForeignKey, OneToOneField, 或 ManyToManyField).<br />
+Django 使用关系字段的名字为 model 的每个实例添加一个 描述符. <br />
+在访问对象或关联对象时, 这个描述符就象一个常规属性. <br />
+举例来说, mychoice.poll 会返回 Choice 实例对象关联的 Poll 对象.</p>
+<p>通过下面的关系,连接可以以非显式的方式进行: <br />
+<code>choices.objects.filter(poll__slug="eggs")</code>  <br />
+得到一个 Choice 对象列表, 这些对象关联的 Poll 对象的 slug 字段值为 eggs. 允许多级连接.   </p>
+<p>通过一个对象实例的便利函数(convenience functions)就可直接查询该对象的关联对象. 举例来说, 如果 p 是一个 Poll 实例, p.choice_set() 将返回所有关联的 Choice 对象列表. 聪明的读者会注意到它等价于 choices.objects.filter(poll__id=p.id), 只是更加清晰.</p>
+<h4>One-to-one relations</h4>
+<h5>one-to-one 关系中的每个对象拥有一个 get_relatedobjectname() 方法.</h5>
+<p>举例来说:</p>
+<div class="highlight"><pre><span class="n">class</span> <span class="n">Place</span><span class="p">(</span><span class="n">meta</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+<span class="cp"># ...</span>
+
+<span class="n">class</span> <span class="n">Restaurant</span><span class="p">(</span><span class="n">meta</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+<span class="cp"># ...</span>
+    <span class="n">the_place</span> <span class="o">=</span> <span class="n">meta</span><span class="p">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">places</span><span class="p">.</span><span class="n">Place</span><span class="p">)</span>
+</pre></div>
+
+
+<p>在上面的例子里, 每个 Place 会自动拥有一个 get_restaurant() 方法, <br />
+且每个 Restaurant 会自动拥有一个 get_the_place() 方法.</p>
+<h4>Many-to-one relations</h4>
+<p>在 many-to-one 关系中, 关联对象(Many)会自动拥有一个 get_relatedobject() 方法.  <br />
+被关联的对象(one)会自动拥有 get_relatedobject(), get_relatedobject_list(), 和 get_relatedobject_count() 方法 (功能与模块级的 get_object(), filter(), 和 get_count() 相同).</p>
+<p>在上面的民意测试例子里, 一个 Poll 对象 p 自动拥有下列方法:</p>
+<div class="highlight"><pre><span class="n">p</span><span class="p">.</span><span class="n">get_choice</span><span class="p">()</span>
+<span class="n">p</span><span class="p">.</span><span class="n">get_choice_list</span><span class="p">()</span>
+<span class="n">p</span><span class="p">.</span><span class="n">get_choice_count</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Choice 对象 c 则自动拥有下面的方法:
+<code>c.get_poll()</code>   </p>
+<h4>Many-to-many 关系</h4>
+<p>Many-to-many 关系类似<code>Many-to-one relations</code>_, 它生成同样的方法集.例外的是关联对象的 get_relatedobject_list() 方法返回一个实例的列表而不是一个仅一个实例.因此,若 Poll 和 Choice 是 many-to-many 关系, choice.get_poll_list() 将返回一个列表.   </p>
+<h5>专门的结果集</h5>
+<p>除 filter 和 exclude() 之外, Django 提供了一系列结果集处理方法, 修改结果的类型, 或修改 sql 查询在数据库执行的方式.</p>
+<div class="highlight"><pre><span class="n">order_by</span><span class="p">(</span><span class="o">*</span><span class="n">fields</span><span class="p">)</span>
+</pre></div>
+
+
+<p>根据 model 中提供 ordering tuple, 结果集会被自动排序. 不过, 排序也可以通过 order_by 方法显式的进行:</p>
+<div class="highlight"><pre><span class="n">Poll</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pub_date__year</span><span class="o">=</span><span class="mi">2005</span><span class="p">,</span>
+<span class="n">pub_date__month</span><span class="o">=</span><span class="mi">1</span><span class="p">).</span><span class="n">order_by</span><span class="p">(</span><span class="err">&#39;</span><span class="o">-</span><span class="n">pub_date</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">question</span><span class="err">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>结果集将按降序排列 pub_date, 然后按升序排列 question."-pub_date" 中的负号表示降序(递减).要取随机序,使用"?", 象下面这样:</p>
+<div class="highlight"><pre><span class="n">Poll</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">order_by</span><span class="o">=</span><span class="p">(</span><span class="sc">&#39;?&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>要按另一个表中的字段排序, 添加另一个表的名字和一个句点,象下面这样:</p>
+<div class="highlight"><pre><span class="n">Choice</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">order_by</span><span class="o">=</span><span class="p">(</span><span class="err">&#39;</span><span class="n">Poll</span><span class="p">.</span><span class="n">pub_date</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">choice</span><span class="err">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3>values(*fields)</h3>
+<p>类似 filter(), 不过它返回一个字典的列表而不是 model 实例对象的列表.   </p>
+<p>它接受一个可选参数: fields, 这是一个字段名列表或tuple.如果你没有指定 fields, 每个字段都会返回. <br />
+否则就只返回你指定的字段名和值.这里有一个例子,使用上面定义的 Poll model</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">from</span> <span class="n">datetime</span> <span class="n">import</span> <span class="n">datetime</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">Poll</span><span class="p">(</span><span class="n">slug</span><span class="o">=</span><span class="err">&#39;</span><span class="n">whatsup</span><span class="err">&#39;</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="s">&quot;What&#39;s up?&quot;</span><span class="p">,</span>
+<span class="p">...</span> <span class="n">pub_date</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">expire_date</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">save</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">Poll</span><span class="p">(</span><span class="n">slug</span><span class="o">=</span><span class="err">&#39;</span><span class="n">name</span><span class="err">&#39;</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="s">&quot;What&#39;s your name?&quot;</span><span class="p">,</span>
+<span class="p">...</span> <span class="n">pub_date</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">expire_date</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p2</span><span class="p">.</span><span class="n">save</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Poll</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">all</span><span class="p">()</span>
+<span class="p">[</span><span class="n">What</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">up</span><span class="o">?</span><span class="p">,</span> <span class="n">What</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">your</span> <span class="n">name</span><span class="o">?</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Poll</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">values</span><span class="p">()</span>
+<span class="p">[{</span><span class="err">&#39;</span><span class="n">id</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">slug</span><span class="err">&#39;</span><span class="o">:</span> <span class="err">&#39;</span><span class="n">whatsup</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">question</span><span class="err">&#39;</span><span class="o">:</span> <span class="s">&quot;What&#39;s up?&quot;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">pub_date</span><span class="err">&#39;</span><span class="o">:</span> <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="err">&#39;</span><span class="n">expire_date</span><span class="err">&#39;</span><span class="o">:</span> <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">)},</span>
+<span class="p">{</span><span class="err">&#39;</span><span class="n">id</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">slug</span><span class="err">&#39;</span><span class="o">:</span> <span class="err">&#39;</span><span class="n">name</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">question</span><span class="err">&#39;</span><span class="o">:</span> <span class="s">&quot;What&#39;s your name?&quot;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">pub_date</span><span class="err">&#39;</span><span class="o">:</span> <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="err">&#39;</span><span class="n">expire_date</span><span class="err">&#39;</span><span class="o">:</span> <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">)}]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Poll</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">values</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="err">&#39;</span><span class="n">id</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">slug</span><span class="err">&#39;</span><span class="p">])</span>
+<span class="p">[{</span><span class="err">&#39;</span><span class="n">id</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">slug</span><span class="err">&#39;</span><span class="o">:</span> <span class="err">&#39;</span><span class="n">whatsup</span><span class="err">&#39;</span><span class="p">},</span> <span class="p">{</span><span class="err">&#39;</span><span class="n">id</span><span class="err">&#39;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">slug</span><span class="err">&#39;</span><span class="o">:</span> <span class="err">&#39;</span><span class="n">name</span><span class="err">&#39;</span><span class="p">}]</span>
+</pre></div>
+
+
+<h4>当你知道你要取得哪些字段的值时并且你不需要那些 model实例对象的功能时,使用 values() 函数.</h4></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">tulpar</span>
+  </span>
+<time datetime="2014-09-07T00:00:00+08:00" pubdate>Sun 07 September 2014</time>  <span class="categories">
+    <a class="category" href="/tag/django.html">Django</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+
+
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tlbog"};
+(function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = 'http://static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+|| document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- Duoshuo Comment END -->
+
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
+      </li>
+      <li class="post">
+          <a href="/django-17shi-yong.html">Django 1.7试用</a>
+      </li>
+      <li class="post">
+          <a href="/django-guo-ji-hua.html">django 国际化</a>
+      </li>
+      <li class="post">
+          <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
+      </li>
+      <li class="post">
+          <a href="/django-validators.html">Django Validators</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="/category/it.html">It</a></li>
+        <li><a href="/category/life.html">Life</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/linux.html">linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/djangopython.html">Django，python</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://izda.com" target="_blank">ئىزدە</a></li>
+            <li><a href="http://www.google.com" target="_blank">Google</a></li>
+            <li><a href="http://www.zhihu.com/" target="_blank">知乎</a></li>
+            <li><a href="http://www.douban.com/" target="_blank">豆瓣</a></li>
+        </ul>
+    </section>
+    <section>
+        <h1>Blogroll</h1>
+        <ul>
+            <li><a href="https://github.com/tulpar008" target="_blank">My Github</a></li>
+            <li><a href="#" target="_blank">tulpar008@gmail.com</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2013-2014  - tulpar -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+</body>
+</html>
