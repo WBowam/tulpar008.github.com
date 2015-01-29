@@ -51,6 +51,29 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/hui-jia-lu.html">回家路</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-16T00:00:00+08:00" pubdate>Wed 16 July 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>就这么又一次开始了回家的旅途</h3>
+<p><img alt="就这样开始" src="http://tulparblog.qiniudn.com/lifeIMG_20140711_110306.jpg" /></p>
+<h3>在北京转车，得等3个小时，吃了吨开心午餐</h3>
+<p><img alt="开心午餐，磨的是时间" src="http://tulparblog.qiniudn.com/lifeIMG_20140711_130640.jpg" /></p>
+<h3>两天后的驴友，醒醒吧，还有两天</h3>
+<p><img alt="是的，的确很累！！！" src="http://tulparblog.qiniudn.com/lifeIMG_20140713_095127.jpg" /></p>
+<h3>吐鲁番，转车，很累，吃到家乡的拉面，很开心</h3>
+<p><img alt="虽然，做的不怎么好吃" src="http://tulparblog.qiniudn.com/lifeIMG_20140713_073856.jpg" /></p>
+<h3>终于，到家了</h3>
+<p><img alt="我家后面" src="http://tulparblog.qiniudn.com/lifeIMG_20140717_135705.jpg" />
+<img alt="嗯，就是的" src="http://tulparblog.qiniudn.com/lifeIMG_20140717_135934.jpg" /></p></div>
+  <footer>
+    <a rel="full-article" href="/hui-jia-lu.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/ge-shi-hua-zi-fu-chuan-shi-jian.html">格式化字符串——时间</a>
       </h1>
       <p class="meta"><time datetime="2014-07-08T00:00:00+08:00" pubdate>Tue 08 July 2014</time></p>
@@ -343,40 +366,6 @@
     <a rel="full-article" href="/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/python-withyu-ju.html">Python with语句</a>
-      </h1>
-      <p class="meta"><time datetime="2014-07-03T00:00:00+08:00" pubdate>Thu 03 July 2014</time></p>
-</header>
-
-  <div class="entry-content"><p>感谢<a href="http://sdqali.in/blog/2012/07/09/understanding-pythons-with/">Sadique Ali</a>的总结分享</p>
-<h3>With语句是什么？</h3>
-<p>有一些任务，可能事先需要设置，事后做清理工作。对于这种场景，Python的with语句提供了一种非常方便的处理方式。  <br />
-一个很好的例子是文件处理，你需要获取一个文件句柄，从文件中读取数据，然后关闭文件句柄。</p>
-<p>如果不用with语句，代码如下：</p>
-<div class="highlight"><pre><span class="n">file</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">&quot;/tmp/foo.txt&quot;</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-
-
-<p>这里有两个问题。一是可能忘记关闭文件句柄；二是文件读取数据发生异常，没有进行任何处理。下面是处理异常的加强版本：</p>
-<div class="highlight"><pre><span class="n">file</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">&quot;/tmp/foo.txt&quot;</span><span class="p">)</span>
-<span class="nl">try:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
-<span class="nl">finally:</span>
-    <span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-
-
-<p>虽然这段代码运行良好，但是太冗长了。这时候就是with一展身手的时候了。除了有更优雅的语法，with还可以很好的处理上下文环境产生的异常。下面是with版本的代码：</p>
-<div class="highlight"><pre><span class="n">with ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/python-withyu-ju.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/index3.html">&larr; Older</a>
 
@@ -388,6 +377,9 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/xie-bo-ke-jiao-ben.html">写博客脚本</a>
+      </li>
+      <li class="post">
           <a href="/gong-zuo-shi-de-sui-bi.html">工作时的随笔</a>
       </li>
       <li class="post">
@@ -398,9 +390,6 @@
       </li>
       <li class="post">
           <a href="/django-17shi-yong.html">Django 1.7试用</a>
-      </li>
-      <li class="post">
-          <a href="/django-guo-ji-hua.html">django 国际化</a>
       </li>
     </ul>
   </section>

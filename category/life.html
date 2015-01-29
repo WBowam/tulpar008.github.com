@@ -51,6 +51,36 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/xie-bo-ke-jiao-ben.html">写博客脚本</a>
+      </h1>
+      <p class="meta"><time datetime="2015-01-29T00:00:00+08:00" pubdate>Thu 29 January 2015</time></p>
+</header>
+
+  <div class="entry-content"><blockquote>
+<p>用<code>pelican</code>,<code>github</code>,<code>markdown</code>写博客，好处:免费。 <br />
+不便：
+<em> <code>make html</code>,
+</em> 实时备份content,output
+* 蛋疼的环境迁移问题</p>
+</blockquote>
+<p>于是，我写了此脚本解决上述问题</p>
+<hr />
+<h4><code>go.py</code></h4>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">sh</span>
+<span class="n">import</span> <span class="n">os</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Starting...&quot;</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;switched to following dir &quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="p">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">&quot;/home/tulpar/workplace/blog/content/&quot;</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">system</span><span class="p">(</span><span class="s">&quot;pwd&quot;</span><span class="p">))</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;pulling content from remote origin master....&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="p">.</span><span class="n">system</span><span class="p">(</span><span class="s">&quot;git pull ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/xie-bo-ke-jiao-ben.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/hui-jia-lu.html">回家路</a>
       </h1>
       <p class="meta"><time datetime="2014-07-16T00:00:00+08:00" pubdate>Wed 16 July 2014</time></p>
@@ -173,6 +203,9 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/xie-bo-ke-jiao-ben.html">写博客脚本</a>
+      </li>
+      <li class="post">
           <a href="/hui-jia-lu.html">回家路</a>
       </li>
       <li class="post">
@@ -183,9 +216,6 @@
       </li>
       <li class="post">
           <a href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-2.html">把时间当作朋友读后感（2）</a>
-      </li>
-      <li class="post">
-          <a href="/githubshang-da-bo-ke.html">Github上搭博客</a>
       </li>
     </ul>
   </section>
@@ -224,7 +254,7 @@
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2013-2014  - tulpar -
+    Copyright &copy;  2013-2015  - tulpar -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
 </body>

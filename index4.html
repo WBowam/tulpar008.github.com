@@ -51,6 +51,42 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/ueditorzai-djangozhong-de-shi-yong.html">Ueditor在Django中的使用</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-14T00:00:00+08:00" pubdate>Sat 14 June 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>以前写过Ueditor在Django中的使用方法（虽然跟着上一个博客一起丢了），在此不赘述了。想学可以看看这位朋友的分享：
+<a href="https://github.com/zhangfisher/DjangoUeditor">Django中使用Ueditor</a></p>
+<p><a href="http://mushapi.sinaapp.com/using-ueditor-in-django-with-xadmin.html">http://mushapi.sinaapp.com/using-ueditor-in-django-with-xadmin.html</a></p>
+<h3>1.安装</h3>
+<p><code>pip install DjangoUeditor</code></p>
+<h3>2.启用</h3>
+<h5>在<code>INSTALL_APPS</code>里面增加DjangoUeditor app，如下：</h5>
+<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="err">#</span><span class="p">........</span>
+            <span class="err">&#39;</span><span class="n">DjangoUeditor</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+</pre></div>
+
+
+<h5>在urls.py中增加：</h5>
+<div class="highlight"><pre>    <span class="n">url</span><span class="p">(</span><span class="n">r</span><span class="err">&#39;</span><span class="o">^</span><span class="n">ueditor</span><span class="o">/</span><span class="err">&#39;</span><span class="p">,</span><span class="n">include</span><span class="p">(</span><span class="err">&#39;</span><span class="n">DjangoUeditor</span><span class="p">.</span><span class="n">urls</span><span class="err">&#39;</span> <span class="p">)),</span>
+</pre></div>
+
+
+<h3>3.使用</h3>
+<h5>在<code>models</code>中这样使用：</h5>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">DjangoUeditor</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">UEditorField</span>
+    <span class="n">class</span> <span class="n">Blog</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">Name</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">CharField ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/ueditorzai-djangozhong-de-shi-yong.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/xadminru-men-2.html">Xadmin入门（2）</a>
       </h1>
       <p class="meta"><time datetime="2014-06-13T00:00:00+08:00" pubdate>Fri 13 June 2014</time></p>
@@ -271,30 +307,6 @@
     <a rel="full-article" href="/yong-django-mptthou-tai-zhong-sheng-cheng-shu-zhuang-shu-ju-jie-gou.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/edx_errors.html">Edx_errors</a>
-      </h1>
-      <p class="meta"><time datetime="2014-04-14T00:00:00+08:00" pubdate>Mon 14 April 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>1. 用Vagrant+Virtualbox+Ubuntu搭好Edx—paltform，执行启动命令：</h3>
-<p><code>vagrant up</code></p>
-<h4>错误：</h4>
-<div class="highlight"><pre><span class="s">&quot;The guest machine entered an invalid state while waiting for it to boot.  </span>
-<span class="n">Valid</span> <span class="n">states</span> <span class="n">are</span>   <span class="err">&#39;</span><span class="n">starting</span><span class="p">,</span> <span class="n">running</span><span class="err">&#39;</span><span class="p">.</span> <span class="n">The</span> <span class="n">machine</span> <span class="n">is</span> <span class="n">in</span> <span class="n">the</span> <span class="err">&#39;</span><span class="n">poweroff</span><span class="err">&#39;</span> <span class="n">state</span><span class="p">.</span>   
- <span class="n">Please</span> <span class="n">verify</span> <span class="n">everything</span> <span class="n">is</span> <span class="n">configured</span> <span class="n">properly</span> <span class="n">and</span> <span class="n">try</span> <span class="n">again</span><span class="p">.</span><span class="s">&quot; </span>
-</pre></div>
-
-
-<h4>原因：</h4>
-<p><strong>这是因为CPU不支持VT-X技术或者VT-X技术被锁定。</strong>  </p>
-<p>如果不打开虚拟化支持，是不能在虚拟机装<strong>64位操作系统</strong>或者安装操作系统设置<strong>多个CPU ...</strong></p></div>
-  <footer>
-    <a rel="full-article" href="/edx_errors.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/index5.html">&larr; Older</a>
 
@@ -306,6 +318,9 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/xie-bo-ke-jiao-ben.html">写博客脚本</a>
+      </li>
+      <li class="post">
           <a href="/gong-zuo-shi-de-sui-bi.html">工作时的随笔</a>
       </li>
       <li class="post">
@@ -316,9 +331,6 @@
       </li>
       <li class="post">
           <a href="/django-17shi-yong.html">Django 1.7试用</a>
-      </li>
-      <li class="post">
-          <a href="/django-guo-ji-hua.html">django 国际化</a>
       </li>
     </ul>
   </section>

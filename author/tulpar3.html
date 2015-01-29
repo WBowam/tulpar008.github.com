@@ -51,6 +51,40 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/python-withyu-ju.html">Python with语句</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-03T00:00:00+08:00" pubdate>Thu 03 July 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>感谢<a href="http://sdqali.in/blog/2012/07/09/understanding-pythons-with/">Sadique Ali</a>的总结分享</p>
+<h3>With语句是什么？</h3>
+<p>有一些任务，可能事先需要设置，事后做清理工作。对于这种场景，Python的with语句提供了一种非常方便的处理方式。  <br />
+一个很好的例子是文件处理，你需要获取一个文件句柄，从文件中读取数据，然后关闭文件句柄。</p>
+<p>如果不用with语句，代码如下：</p>
+<div class="highlight"><pre><span class="n">file</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">&quot;/tmp/foo.txt&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<p>这里有两个问题。一是可能忘记关闭文件句柄；二是文件读取数据发生异常，没有进行任何处理。下面是处理异常的加强版本：</p>
+<div class="highlight"><pre><span class="n">file</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">&quot;/tmp/foo.txt&quot;</span><span class="p">)</span>
+<span class="nl">try:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nl">finally:</span>
+    <span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<p>虽然这段代码运行良好，但是太冗长了。这时候就是with一展身手的时候了。除了有更优雅的语法，with还可以很好的处理上下文环境产生的异常。下面是with版本的代码：</p>
+<div class="highlight"><pre><span class="n">with ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/python-withyu-ju.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/python-exeche-evalyu-ju.html">python exec和eval语句</a>
       </h1>
       <p class="meta"><time datetime="2014-07-02T00:00:00+08:00" pubdate>Wed 02 July 2014</time></p>
@@ -294,42 +328,6 @@
     <a rel="full-article" href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/ueditorzai-djangozhong-de-shi-yong.html">Ueditor在Django中的使用</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-14T00:00:00+08:00" pubdate>Sat 14 June 2014</time></p>
-</header>
-
-  <div class="entry-content"><p>以前写过Ueditor在Django中的使用方法（虽然跟着上一个博客一起丢了），在此不赘述了。想学可以看看这位朋友的分享：
-<a href="https://github.com/zhangfisher/DjangoUeditor">Django中使用Ueditor</a></p>
-<p><a href="http://mushapi.sinaapp.com/using-ueditor-in-django-with-xadmin.html">http://mushapi.sinaapp.com/using-ueditor-in-django-with-xadmin.html</a></p>
-<h3>1.安装</h3>
-<p><code>pip install DjangoUeditor</code></p>
-<h3>2.启用</h3>
-<h5>在<code>INSTALL_APPS</code>里面增加DjangoUeditor app，如下：</h5>
-<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="err">#</span><span class="p">........</span>
-            <span class="err">&#39;</span><span class="n">DjangoUeditor</span><span class="err">&#39;</span><span class="p">,</span>
-        <span class="p">)</span>
-</pre></div>
-
-
-<h5>在urls.py中增加：</h5>
-<div class="highlight"><pre>    <span class="n">url</span><span class="p">(</span><span class="n">r</span><span class="err">&#39;</span><span class="o">^</span><span class="n">ueditor</span><span class="o">/</span><span class="err">&#39;</span><span class="p">,</span><span class="n">include</span><span class="p">(</span><span class="err">&#39;</span><span class="n">DjangoUeditor</span><span class="p">.</span><span class="n">urls</span><span class="err">&#39;</span> <span class="p">)),</span>
-</pre></div>
-
-
-<h3>3.使用</h3>
-<h5>在<code>models</code>中这样使用：</h5>
-<div class="highlight"><pre><span class="n">from</span> <span class="n">DjangoUeditor</span><span class="p">.</span><span class="n">models</span> <span class="n">import</span> <span class="n">UEditorField</span>
-    <span class="n">class</span> <span class="n">Blog</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
-        <span class="n">Name</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">CharField ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/ueditorzai-djangozhong-de-shi-yong.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/author/tulpar4.html">&larr; Older</a>
 
@@ -341,6 +339,9 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/xie-bo-ke-jiao-ben.html">写博客脚本</a>
+      </li>
+      <li class="post">
           <a href="/gong-zuo-shi-de-sui-bi.html">工作时的随笔</a>
       </li>
       <li class="post">
@@ -351,9 +352,6 @@
       </li>
       <li class="post">
           <a href="/django-17shi-yong.html">Django 1.7试用</a>
-      </li>
-      <li class="post">
-          <a href="/django-guo-ji-hua.html">django 国际化</a>
       </li>
     </ul>
   </section>

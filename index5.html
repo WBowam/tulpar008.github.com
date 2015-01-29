@@ -51,6 +51,30 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/edx_errors.html">Edx_errors</a>
+      </h1>
+      <p class="meta"><time datetime="2014-04-14T00:00:00+08:00" pubdate>Mon 14 April 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>1. 用Vagrant+Virtualbox+Ubuntu搭好Edx—paltform，执行启动命令：</h3>
+<p><code>vagrant up</code></p>
+<h4>错误：</h4>
+<div class="highlight"><pre><span class="s">&quot;The guest machine entered an invalid state while waiting for it to boot.  </span>
+<span class="n">Valid</span> <span class="n">states</span> <span class="n">are</span>   <span class="err">&#39;</span><span class="n">starting</span><span class="p">,</span> <span class="n">running</span><span class="err">&#39;</span><span class="p">.</span> <span class="n">The</span> <span class="n">machine</span> <span class="n">is</span> <span class="n">in</span> <span class="n">the</span> <span class="err">&#39;</span><span class="n">poweroff</span><span class="err">&#39;</span> <span class="n">state</span><span class="p">.</span>   
+ <span class="n">Please</span> <span class="n">verify</span> <span class="n">everything</span> <span class="n">is</span> <span class="n">configured</span> <span class="n">properly</span> <span class="n">and</span> <span class="n">try</span> <span class="n">again</span><span class="p">.</span><span class="s">&quot; </span>
+</pre></div>
+
+
+<h4>原因：</h4>
+<p><strong>这是因为CPU不支持VT-X技术或者VT-X技术被锁定。</strong>  </p>
+<p>如果不打开虚拟化支持，是不能在虚拟机装<strong>64位操作系统</strong>或者安装操作系统设置<strong>多个CPU ...</strong></p></div>
+  <footer>
+    <a rel="full-article" href="/edx_errors.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">在真机上部署Edx（在中国）</a>
       </h1>
       <p class="meta"><time datetime="2014-04-08T00:00:00+08:00" pubdate>Tue 08 April 2014</time></p>
@@ -287,37 +311,6 @@ virtualenv 1.11.4  </p>
     <a rel="full-article" href="/ming-ling-xing-xia-shi-yong-virtualbox.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/ubuntu-yong-hu-yong-ming-ling-an-zhuang-virtualbox-438.html">Ubuntu 用户用命令安装 VirtualBox 4.3.8</a>
-      </h1>
-      <p class="meta"><time datetime="2014-01-08T00:00:00+08:00" pubdate>Wed 08 January 2014</time></p>
-</header>
-
-  <div class="entry-content"><p>今天在阿里云上安装virtualbox,发现阿里的源里只有4.1版本，可我需要4.3。 <br />
-换了国内其他的源发现太慢了，，，，于是，，，，， <br />
-wget deb 包本地安装，发现依赖很多东西，，，，<br />
-于是，，，，，，</p>
-<hr />
-<h3>1.添加源</h3>
-<p><code>vim /etc/apt/sources.list</code><br />
-添加：  </p>
-<div class="highlight"><pre><span class="k">deb</span> <span class="s">http://download.virtualbox.org/virtualbox/debian</span> <span class="kp">precise</span> <span class="kp">contrib</span>
-</pre></div>
-
-
-<h3>2.添加钥匙：(这一步很关键)</h3>
-<div class="highlight"><pre><span class="n">wget</span> <span class="o">-</span><span class="n">q</span> <span class="n">http</span><span class="o">:</span><span class="c1">//download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -</span>
-</pre></div>
-
-
-<h3>3.更新源列表：</h3>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/ubuntu-yong-hu-yong-ming-ling-an-zhuang-virtualbox-438.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/index6.html">&larr; Older</a>
 
@@ -329,6 +322,9 @@ wget deb 包本地安装，发现依赖很多东西，，，，<br />
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/xie-bo-ke-jiao-ben.html">写博客脚本</a>
+      </li>
+      <li class="post">
           <a href="/gong-zuo-shi-de-sui-bi.html">工作时的随笔</a>
       </li>
       <li class="post">
@@ -339,9 +335,6 @@ wget deb 包本地安装，发现依赖很多东西，，，，<br />
       </li>
       <li class="post">
           <a href="/django-17shi-yong.html">Django 1.7试用</a>
-      </li>
-      <li class="post">
-          <a href="/django-guo-ji-hua.html">django 国际化</a>
       </li>
     </ul>
   </section>
