@@ -51,6 +51,39 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/stryu-reprde-qu-bie.html">str()与repr()的区别</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-01T00:00:00+08:00" pubdate>Tue 01 July 2014</time></p>
+</header>
+
+  <div class="entry-content"><h5>一</h5>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">word</span><span class="o">=</span><span class="s">&quot;hello</span><span class="se">\t</span><span class="s"> world!</span><span class="se">\n</span><span class="s">hello motto!&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">str</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="err">&#39;</span><span class="n">hello</span><span class="err">\</span><span class="n">t</span> <span class="n">world</span><span class="o">!</span><span class="err">\</span><span class="n">nhello</span> <span class="n">motto</span><span class="o">!</span><span class="err">&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">repr</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="s">&quot;&#39;hello</span><span class="se">\\</span><span class="s">t world!</span><span class="se">\\</span><span class="s">nhello motto!&#39;&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">str</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="n">hello</span>    <span class="n">world</span><span class="o">!</span>
+<span class="n">hello</span> <span class="n">motto</span><span class="o">!</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">repr</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="err">&#39;</span><span class="n">hello</span><span class="err">\</span><span class="n">t</span> <span class="n">world</span><span class="o">!</span><span class="err">\</span><span class="n">nhello</span> <span class="n">motto</span><span class="o">!</span><span class="err">&#39;</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+
+
+<h5>二</h5>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">str</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="err">&#39;</span><span class="mf">0.1</span><span class="err">&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">repr</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="err">&#39;</span><span class="mf">0.10000000000000001</span><span class="err">&#39;</span>
+</pre></div></div>
+  <footer>
+    <a rel="full-article" href="/stryu-reprde-qu-bie.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/mysqlyu-ju-ru-men-1.html">Mysql语句入门（1）</a>
       </h1>
       <p class="meta"><time datetime="2014-06-19T00:00:00+08:00" pubdate>Thu 19 June 2014</time></p>
@@ -293,43 +326,6 @@
     <a rel="full-article" href="/linux-xiao-ji-qiao-1.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/django-dir-pei-zhi-fang-fa-yi.html">Django Dir 配置（方法一）</a>
-      </h1>
-      <p class="meta"><time datetime="2014-05-14T00:00:00+08:00" pubdate>Wed 14 May 2014</time></p>
-</header>
-
-  <div class="entry-content"><h5>Env:</h5>
-<ul>
-<li>django==1.4.5</li>
-<li>python==2.7</li>
-<li>ubuntu==13.04</li>
-</ul>
-<hr />
-<h3>公用部分</h3>
-<p>settings.py</p>
-<div class="highlight"><pre><span class="cp">##added by Tulpar,20140514</span>
-<span class="n">import</span> <span class="n">os</span>
-<span class="n">settings_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
-<span class="n">PROJECT_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">settings_dir</span><span class="p">))</span>
-</pre></div>
-
-
-<h3>MEDIA</h3>
-<p>settings.py</p>
-<div class="highlight"><pre><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span><span class="p">)</span>
-<span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="err">&#39;</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="err">&#39;</span>
-</pre></div>
-
-
-<p>urls.py</p>
-<div class="highlight"><pre><span class="err">#</span><span class="vi">#added</span> <span class="k">by</span> <span class="nx">Tulpar</span><span class="p">,</span><span class="mi">20140514 ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/django-dir-pei-zhi-fang-fa-yi.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it4.html">&larr; Older</a>
 
@@ -344,6 +340,9 @@
           <a href="/gong-zuo-shi-de-sui-bi.html">工作时的随笔</a>
       </li>
       <li class="post">
+          <a href="/ce-shi-wen-zhang.html">测试文章</a>
+      </li>
+      <li class="post">
           <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
       </li>
       <li class="post">
@@ -351,9 +350,6 @@
       </li>
       <li class="post">
           <a href="/django-guo-ji-hua.html">django 国际化</a>
-      </li>
-      <li class="post">
-          <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
       </li>
     </ul>
   </section>
@@ -369,7 +365,7 @@
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/djangopython.html">Django，python</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>  </section>
+    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/djangopython.html">Django，python</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>  </section>
 
 
     <section>
