@@ -51,6 +51,59 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">在真机上部署Edx（在中国）</a>
+      </h1>
+      <p class="meta"><time datetime="2014-04-08T00:00:00+08:00" pubdate>Tue 08 April 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>1. Update your Ubuntu package sources</h3>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">upgrade</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">reboot</span>
+</pre></div>
+
+
+<h3>2.用sshuttle翻墙</h3>
+<p>(ubuntu下)首先安装它: <br />
+<code>sudo apt-get install sshuttle</code> <br />
+<code>sshuttle -r action@apne1.nitrousbox.com:22411 0.0.0.0/0 -vv</code>  <br />
+搞定 , 就这么简单 注意action@apne1.nitrousbox.com:22411是我的ssh,你可以用你自己的,格式为username@sshserver,
+我把sshserver理解为跳板机 ...</p></div>
+  <footer>
+    <a rel="full-article" href="/zai-zhen-ji-shang-bu-shu-edxzai-zhong-guo.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/fan-qiang-zhi-dian-nao-pian.html">翻墙之电脑篇</a>
+      </h1>
+      <p class="meta"><time datetime="2014-03-08T00:00:00+08:00" pubdate>Sat 08 March 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>之前用过Goagent代理翻墙，很好用，再次感叹Google是个伟大的公司，，，
+相比用Goagent，下面的成Chrome插件更加简便。</p>
+<hr />
+<h3>1. <a href="https://chrome.google.com/webstore/search/%E7%BF%BB%E5%A2%99?hl=zh-CN">红杏</a></h3>
+<p>到google应用商店，装上即可，不过非VIP只能翻有限的网站。。。。。</p>
+<h3>2. sshuttle</h3>
+<p>闲逛github时看到基于 python 的 sshuttle</p>
+<p>sshuttle被称为穷人的VPN.就是说它是免费的.</p>
+<p>仅仅免费其实不够诱人,让我动心的是它的简单,而且可以在纯命令行下使用.</p>
+<p>理论上vpn也是可以在纯命令行下使用的,我先后按照几个教程,都未成功.当然图形界面配置vpn很简单.</p>
+<p>可问题是我必须在远程服务器上使用vpn(当然是用ssh登陆), 更新部署代码 , 需要连接国外服务器.</p>
+<h5>如何使用</h5>
+<p>(ubuntu下)首先安装它: 
+<code>sudo apt-get install sshuttle</code><br />
+<code>sshuttle -r action@apne1.nitrousbox.com:22411 0.0.0.0/0 -vv</code>  </p>
+<p>搞定 ...</p></div>
+  <footer>
+    <a rel="full-article" href="/fan-qiang-zhi-dian-nao-pian.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/shi-yong-ngrokjiang-nei-wang-duan-kou-ying-she-dao-wai-wang.html">使用ngrok将内网端口映射到外网</a>
       </h1>
       <p class="meta"><time datetime="2014-03-08T00:00:00+08:00" pubdate>Sat 08 March 2014</time></p>
@@ -265,55 +318,6 @@ wget deb 包本地安装，发现依赖很多东西，，，，<br />
     <a rel="full-article" href="/ubuntu-yong-hu-yong-ming-ling-an-zhuang-virtualbox-438.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/sshd_configpei-zhi.html">sshd_config配置</a>
-      </h1>
-      <p class="meta"><time datetime="2013-12-08T00:00:00+08:00" pubdate>Sun 08 December 2013</time></p>
-</header>
-
-  <div class="entry-content"><p>基本上，在您的系统中，『除非有必要，否则请不要更改 /etc/ssh/sshd_config 这个档案的设定值！』因为预设的情况下通常都是最严密的 SSH 保护了，因此，可以不需要更动他！上面的说明仅是在让大家了解每个细项的一些基本内容而已！需要注意的是最后一项，如果您不愿意开放 SFTP 的话，将最后一行批注掉即可！  </p>
-<hr />
-<div class="highlight"><pre><span class="cp">### 1. 关于 SSH Server 的整体设定，包含使用的 port 啦，以及使用的密码演算方式</span>
-<span class="n">Port</span> <span class="mi">22</span><span class="err">　　　　　　　　　　#</span> <span class="n">SSH</span> <span class="err">预设使用</span> <span class="mi">22</span> <span class="err">这个</span> <span class="n">port</span><span class="err">，您也可以使用多的</span> <span class="n">port</span> <span class="err">！</span>
-<span class="err">　　　　　　　　　　　　　</span> <span class="err">#</span> <span class="err">亦即重复使用</span> <span class="n">port</span> <span class="err">这个设定项目即可！</span>
-<span class="n">Protocol</span> <span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="err">　　　　　　　</span> <span class="err">#</span> <span class="err">选择的</span> <span class="n">SSH</span> <span class="err">协议版本，可以是</span> <span class="mi">1</span> <span class="err">也可以是</span> <span class="mi">2 ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/sshd_configpei-zhi.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/sshyuan-li.html">SSH原理</a>
-      </h1>
-      <p class="meta"><time datetime="2013-12-08T00:00:00+08:00" pubdate>Sun 08 December 2013</time></p>
-</header>
-
-  <div class="entry-content"><p>简单说，SSH是一种网络协议，用于计算机之间的加密登录。</p>
-<hr />
-<h3>一 最基本的用法</h3>
-<p>SSH主要用于远程登录。假定你要以用户名user，登录远程主机host，只要一条简单命令就可以了。
-<code>$ ssh user@host</code>
-如果本地用户名与远程用户名一致，登录时可以省略用户名。
-<code>$ ssh host</code>
-SSH的默认端口是22，也就是说，你的登录请求会送进远程主机的22端口。使用p参数，可以修改这个端口。
-<code>$ ssh -p 2222 user@host</code>
-上面这条命令表示，ssh直接连接远程主机的2222端口。</p>
-<h3>二 SSH原理</h3>
-<p>SSH之所以能够保证安全，原因在于它采用了公钥加密。<br />
-原理如图<img alt="ssh原理图" src="http://tulparblog.qiniudn.com/ssh.jpg" />
-SSH登录整个过程是这样的：<br />
-（1）远程主机收到用户的登录请求，把自己的公钥发给用户。<br />
-（2）用户使用这个公钥，将登录密码加密后，发送回来。<br />
-（3）远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</p>
-<h3>三 密码登录过程</h3>
-<p>如果你是第一次登录对方主机，系统会出现下面的提示 ...</p></div>
-  <footer>
-    <a rel="full-article" href="/sshyuan-li.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/index6.html">&larr; Older</a>
 
@@ -353,7 +357,7 @@ SSH登录整个过程是这样的：<br />
 
   <section>
   <h1>Tags</h1>
-    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/djangopython.html">Django，python</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>  </section>
+    <a href="/tag/mysql.html">Mysql</a>,    <a href="/tag/tmux.html">Tmux</a>,    <a href="/tag/fan-qiang.html">翻墙</a>,    <a href="/tag/linux.html">Linux</a>,    <a href="/tag/edx.html">Edx</a>,    <a href="/tag/virtualbox.html">VirtualBox</a>,    <a href="/tag/wo-ai-wo-jia.html">我爱我家</a>,    <a href="/tag/userena.html">userena</a>,    <a href="/tag/xadmin.html">Xadmin</a>,    <a href="/tag/shell.html">Shell</a>,    <a href="/tag/python.html">Python</a>,    <a href="/tag/djangopython.html">Django，python</a>,    <a href="/tag/ssh.html">ssh</a>,    <a href="/tag/ubuntu.html">Ubuntu</a>,    <a href="/tag/git.html">Git</a>,    <a href="/tag/ce-shi.html">测试</a>,    <a href="/tag/ueditor.html">Ueditor</a>,    <a href="/tag/github.html">Github</a>,    <a href="/tag/socketio.html">Socket.io</a>,    <a href="/tag/django.html">Django</a>,    <a href="/tag/du-shu.html">读书</a>,    <a href="/tag/bo-ke.html">博客</a>,    <a href="/tag/ngrok.html">ngrok</a>  </section>
 
 
     <section>

@@ -5,7 +5,7 @@
 <head>
 <link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
   <meta charset="utf-8">
-  <title>Xadmin入门</title>
+  <title>Xadmin二次入门</title>
   <meta name="author" content="tulpar">
 
 
@@ -50,7 +50,7 @@
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">Xadmin入门</h1>
+      <h1 class="entry-title">Xadmin二次入门</h1>
       <p class="meta"><time datetime="2014-03-05T00:00:00+08:00" pubdate>Wed 05 March 2014</time></p>
 </header>
 
@@ -78,7 +78,9 @@ virtualenv 1.11.4  </p>
 <h4>3. Xadmin 作为 Django 的模块,</h4>
 <p>首先编辑 settings.py 添加 Xadmin 的模块到 INSTALLED_APPS 中 (注意, 安装 Django admin 所需要的 APP 也要安装, 但是 django.admin 可以不安装):  </p>
 <p>INSTALL_APPS</p>
-<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+<div class="highlight"><pre><span class="cp">#-*- coding: UTF-8 -*- </span>
+
+<span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
     <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">auth</span><span class="err">&#39;</span><span class="p">,</span>
     <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">contenttypes</span><span class="err">&#39;</span><span class="p">,</span>
     <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">sessions</span><span class="err">&#39;</span><span class="p">,</span>
@@ -124,13 +126,19 @@ virtualenv 1.11.4  </p>
 </pre></div>
 
 
-<h4>7. 配置后台界面，主题，图标什么的</h4></div>
+<h4>7. 配置后台界面，主题，图标什么的</h4>
+<hr />
+<p>效果图 <br />
+<img alt="test" src="http://tulparblog.qiniudn.com/xadmin1.png" /></p></div>
     <footer>
 <p class="meta">
   <span class="byline author vcard">
     Posted by <span class="fn">tulpar</span>
   </span>
-<time datetime="2014-03-05T00:00:00+08:00" pubdate>Wed 05 March 2014</time></p><div class="sharing">
+<time datetime="2014-03-05T00:00:00+08:00" pubdate>Wed 05 March 2014</time>  <span class="categories">
+    <a class="category" href="/tag/xadmin.html">Xadmin</a>
+  </span>
+</p><div class="sharing">
 </div>    </footer>
   </article>
 

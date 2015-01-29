@@ -5,7 +5,7 @@
 <head>
 <link rel="short icon" href="http://softing.qiniudn.com/20140603011448867_easyicon_net_128.ico" type="image/x-ico">
   <meta charset="utf-8">
-  <title>python exec和eval语句</title>
+  <title>Dreaming - 测试</title>
   <meta name="author" content="tulpar">
 
 
@@ -38,7 +38,7 @@
 
 
 <ul class="main-navigation">
-    <li class="active">
+    <li >
     <a href="/category/it.html">It</a>
     </li>
     <li >
@@ -47,71 +47,46 @@
 </ul></nav>
   <div id="main">
     <div id="content">
-<div>
-  <article class="hentry" role="article">
+<div class="blog-index">
+  		<article>
 <header>
-      <h1 class="entry-title">python exec和eval语句</h1>
-      <p class="meta"><time datetime="2014-07-02T00:00:00+08:00" pubdate>Wed 02 July 2014</time></p>
+      <h1 class="entry-title">
+        <a href="/ce-shi-wen-zhang-3.html">测试文章3</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-18T00:00:00+08:00" pubdate>Wed 18 June 2014</time></p>
 </header>
 
-  <div class="entry-content"><h5>exec语句用来执行储存在字符串或文件中的Python语句。例如，我们可以在运行时生成一个包含Python代码的字符串，然后使用exec语句执行这些语句。下面是一个简单的例子。</h5>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">exec</span> <span class="err">&#39;</span><span class="n">print</span> <span class="s">&quot;Hello World&quot;</span><span class="err">&#39;</span>
-<span class="n">Hello</span> <span class="n">World</span>
+  <div class="entry-content"><h3>安装Mysql</h3>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">mysql</span><span class="o">-</span><span class="n">server</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">mysqldb</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libmysqlclient</span><span class="o">-</span><span class="n">dev</span>
 </pre></div>
 
 
-<h6>eval语句用来计算存储在字符串中的有效Python表达式。下面是一个简单的例子。</h6>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">eval</span><span class="p">(</span><span class="err">&#39;</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="err">&#39;</span><span class="p">)</span>
-<span class="mi">6</span>
-</pre></div></div>
-    <footer>
-<p class="meta">
-  <span class="byline author vcard">
-    Posted by <span class="fn">tulpar</span>
-  </span>
-<time datetime="2014-07-02T00:00:00+08:00" pubdate>Wed 02 July 2014</time>  <span class="categories">
-    <a class="category" href="/tag/python.html">Python</a>
-  </span>
-</p><div class="sharing">
-</div>    </footer>
-  </article>
+<h3>安装<code>mysql-python</code>模块</h3>
+<p><code>pip install mysql-python</code>   </p>
+<h3>创建并设置Database</h3>
+<div class="highlight"><pre><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span>
+<span class="n">Enter</span> <span class="n">password</span><span class="o">:</span> 
 
+<span class="cp">###mysql&gt; CREATE DATABASE tulpar_db;(最好用下面的方法，创建数据库时指定编码，免得不识别汉字</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">tulpar_db</span> <span class="n">CHARACTER</span> <span class="n">SET</span> <span class="n">utf8</span> <span class="n">COLLATE</span> <span class="n">utf8_general_ci</span><span class="p">;</span>
 
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">GRANT ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/ce-shi-wen-zhang-3.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+<div class="pagination">
 
-<!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"tlbog"};
-(function() {
-var ds = document.createElement('script');
-ds.type = 'text/javascript';ds.async = true;
-ds.src = 'http://static.duoshuo.com/embed.js';
-ds.charset = 'UTF-8';
-(document.getElementsByTagName('head')[0] 
-|| document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-<!-- Duoshuo Comment END -->
-
-</div>
+  <br />
+</div></div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="/gong-zuo-shi-de-sui-bi.html">工作时的随笔</a>
-      </li>
-      <li class="post">
-          <a href="/ce-shi-wen-zhang.html">测试文章</a>
-      </li>
-      <li class="post">
-          <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
-      </li>
-      <li class="post">
-          <a href="/django-17shi-yong.html">Django 1.7试用</a>
-      </li>
-      <li class="post">
-          <a href="/django-guo-ji-hua.html">django 国际化</a>
+          <a href="/ce-shi-wen-zhang-3.html">测试文章3</a>
       </li>
     </ul>
   </section>
@@ -150,7 +125,7 @@ ds.charset = 'UTF-8';
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2013-2015  - tulpar -
+    Copyright &copy;  2014  - tulpar -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
 </body>
