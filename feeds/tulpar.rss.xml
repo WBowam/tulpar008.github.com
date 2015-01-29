@@ -1,5 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dreaming</title><link>/</link><description></description><atom:link href="/feeds/tulpar.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 07 Oct 2014 00:00:00 +0800</lastBuildDate><item><title>Django开启 the sites framework</title><link>/djangokai-qi-the-sites-framework.html</link><description>&lt;p&gt;以下内容来自Django文档&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dreaming</title><link>/</link><description></description><atom:link href="/feeds/tulpar.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 28 Jan 2015 00:00:00 +0800</lastBuildDate><item><title>工作时的随笔</title><link>/gong-zuo-shi-de-sui-bi.html</link><description>&lt;h3&gt;mySql&lt;/h3&gt;
+&lt;p&gt;mysql add boolean column with default value&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;alter&lt;/span&gt; &lt;span class="n"&gt;table&lt;/span&gt; &lt;span class="n"&gt;notification_notification&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="n"&gt;column&lt;/span&gt; &lt;span class="n"&gt;can_be_disabled&lt;/span&gt; &lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;vim&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;set paste&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;听力测试页面    &lt;/p&gt;
+&lt;h3&gt;Less&lt;/h3&gt;
+&lt;p&gt;参考 &lt;a href="http://www.bootcss.com/p/lesscss/"&gt;bootcss教程&lt;/a&gt;   &lt;/p&gt;
+&lt;h3&gt;backbone.js&lt;/h3&gt;
+&lt;p&gt;参考 &lt;a href="http://backbonetutorials.com/what-is-a-model/"&gt;backbone.js英文torials&lt;/a&gt; &lt;br /&gt;
+参考&lt;a href="http://www.csser.com/tools/backbone/backbone.js.html"&gt;中文文档&lt;/a&gt;&lt;br /&gt;
+参考 &lt;a href="http://yuedu.baidu.com/ebook/b7f0eaa44afe04a1b171de01?
+pn=1&amp;amp;click_type=10010002&amp;amp;rf=http%3A%2F%2Fwww.the5fire.com%2F"&gt;5fire中文教程&lt;/a&gt;   &lt;br /&gt;
+参考 &lt;a href="http://feliving.github.io/developing-backbone-applications/"&gt;Developing Backbone.js Applications(中文版)&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;domain server&lt;/h3&gt;
+&lt;p&gt;csrf cookie vi shanbay/server_info.py&lt;/p&gt;
+&lt;h3&gt;tmux&lt;/h3&gt;
+&lt;h3&gt;翻译&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;./makemessages_app.sh weekly/&lt;/code&gt;  &lt;br /&gt;
+翻译   &lt;br /&gt;
+｀weekly/locale/zh_CN/LC_MESSAGES/django.po｀　　　　　　
+｀ ./makemessages_app.sh weekly/｀&lt;/p&gt;
+&lt;h3&gt;git&lt;/h3&gt;
+&lt;h5&gt;git tag&lt;/h5&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;fetch&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;tag&lt;/span&gt; &lt;span class="c1"&gt;//先把线上的拉下来&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;tag&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="mf"&gt;7.1.46&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;added&lt;/span&gt; &lt;span class="n"&gt;notification&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;weekly&lt;/span&gt; &lt;span class="n"&gt;comment&lt;/span&gt; &lt;span class="n"&gt;reply&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;　／／打一个新ｔａｇ&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="mf"&gt;7.1.46&lt;/span&gt;   &lt;span class="err"&gt;／／传上去&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;还可以删除ｔａｇ&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;git&lt;/span&gt; &lt;span class="kt"&gt;tag&lt;/span&gt; &lt;span class="na"&gt;-d&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;tag_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h5&gt;查看commit信息 it commit -a&lt;/h5&gt;
+&lt;h5&gt;找你当前工作目录和上次提交与本地索引间的差异。 git diff&lt;/h5&gt;
+&lt;p&gt;后面可以跟具体文件 如： git diff urls.py&lt;/p&gt;
+&lt;h5&gt;git log&lt;/h5&gt;
+&lt;h5&gt;删除线上分支 git push origin :frea  (冒号之后跟分支名字)&lt;/h5&gt;
+&lt;h5&gt;删除所有的改动（恢复到最近的pull状态） &lt;code&gt;git cjeckout -f&lt;/code&gt;&lt;/h5&gt;
+&lt;h5&gt;合一下主分支 &lt;code&gt;git merge master&lt;/code&gt;&lt;/h5&gt;
+&lt;h5&gt;要新建并切换到该分支，运行 git checkout 并加上 -b 参数：&lt;code&gt;$ git checkout -b iss53&lt;/code&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;code&gt;git rm file1.txt&lt;/code&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;code&gt;git fetch&lt;/code&gt;&lt;/h5&gt;
+&lt;h5&gt;更改commit ： git commit --amend&lt;/h5&gt;
+&lt;p&gt;这一步其实是执行了两个关键操作: &lt;br /&gt;
+- 创建并更新所有远程分支的本地远程分支. &lt;br /&gt;
+- 设定当前分支的FETCH_HEAD为远程服务器的master分支 (上面说的第一种情况)   &lt;/p&gt;
+&lt;h3&gt;开启服务器&lt;/h3&gt;
+&lt;h5&gt;redis-server &amp;amp;&lt;/h5&gt;
+&lt;h5&gt;mongod&amp;amp;&lt;/h5&gt;
+&lt;h5&gt;rm /data/db/mongod.lock&lt;/h5&gt;
+&lt;h5&gt;runserver&lt;/h5&gt;
+&lt;h3&gt;ps查看在跑程序&lt;/h3&gt;
+&lt;p&gt;ps -aux | grep -i manage   &lt;/p&gt;
+&lt;h3&gt;数据库错误，如其他分支的数据库有改动，然后本地会报错column不存在，解决方法如下：&lt;/h3&gt;
+&lt;p&gt;找到那个表所在的sql文件，在数据库里执行一遍即可，如报错在‘people_contact’表里缺字段，  &lt;br /&gt;
+找到最近的变动：
+&lt;code&gt;grep -r 'people_contact' database/*.sql&lt;/code&gt;  &lt;br /&gt;
+结果如下： &lt;br /&gt;
+&lt;code&gt;`database/2014_11_10.camp.sql:ALTER TABLE `people_contact` ADD COLUMN `score` integer NOT NULL default 0;&lt;/code&gt;
+是说10号增加了一个字段，&lt;code&gt;database/2014_11_10.camp.sql&lt;/code&gt;内容如下:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt; &lt;span class="n"&gt;ALTER&lt;/span&gt; &lt;span class="n"&gt;TABLE&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;people_contact&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt; &lt;span class="n"&gt;ADD&lt;/span&gt; &lt;span class="n"&gt;COLUMN&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;score&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt; &lt;span class="n"&gt;integer&lt;/span&gt; &lt;span class="n"&gt;NOT&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+ &lt;span class="n"&gt;ALTER&lt;/span&gt; &lt;span class="n"&gt;TABLE&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;camp_camp&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt; &lt;span class="n"&gt;ADD&lt;/span&gt; &lt;span class="n"&gt;COLUMN&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;price&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt; &lt;span class="n"&gt;integer&lt;/span&gt; &lt;span class="n"&gt;NOT&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+ &lt;span class="n"&gt;ALTER&lt;/span&gt; &lt;span class="n"&gt;TABLE&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;camp_campmember&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt; &lt;span class="n"&gt;ADD&lt;/span&gt; &lt;span class="n"&gt;COLUMN&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;create_at&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt; &lt;span class="n"&gt;NOT&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;将上面的几句在&lt;code&gt;./manage.py dbshell&lt;/code&gt;里执行一下即可（快捷方法是直接source sql文件）&lt;/p&gt;
+&lt;h3&gt;强制kill&lt;/h3&gt;
+&lt;p&gt;kill -9&lt;/p&gt;
+&lt;h3&gt;python 调试工具&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;import pdb;pdb.set_trace()&lt;/code&gt;    &lt;/p&gt;
+&lt;h3&gt;翻译&lt;/h3&gt;
+&lt;h5&gt;先编译一下&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;./makemessages_app.sh checkin&lt;/code&gt;&lt;/p&gt;
+&lt;h5&gt;更改po&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;vim checkin/locale/zh_CN/LC_MESSAGES/django.po&lt;/code&gt; &lt;br /&gt;
+(fuzzy)&lt;/p&gt;
+&lt;h4&gt;再编译一下即可&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;./makemessages_app.sh checkin&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;加入css文件,js类似&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;在app/static/css/文件夹里放入css文件    &lt;/li&gt;
+&lt;li&gt;在shanbay/setting_conf/compress.py里加入对应的编译，如：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;listen_share_css&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;static_dir&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;listen&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;static&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;source_filenames&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;listen_share&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,),&lt;/span&gt;
+    &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;output_filename&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;listen_share&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compress&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;在template里引用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;                                                                                                
+    {% compressed_css &amp;#39;listen_share_css&amp;#39; %}                                                           
+&lt;span class="nt"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;20141024 18:35&lt;/h4&gt;
+&lt;p&gt;音频只能播放一次
+&lt;em&gt; result页面放不了音频
+&lt;/em&gt; result 页面Nan
+&lt;em&gt; 第二个空填正确了，回去填完第一个，自动跳转应该不是第二个
+&lt;/em&gt; 空格跳转没有用
+&lt;em&gt; 输入一个正确单词blur之后样式错误
+&lt;/em&gt; 提示框全都一起显示&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;横线长度太不准了，看能否计算一下&lt;/li&gt;
+&lt;li&gt;完成后自动跳走，刷到分数页面这个太快了，以为页面坏掉了&lt;/li&gt;
+&lt;li&gt;没有听力下载啊， 我们就是来玩的吗&lt;/li&gt;
+&lt;li&gt;完成那个能不要动画么， 我觉得分数那个刷出来超级奇怪的&lt;/li&gt;
+&lt;li&gt;有个background&lt;/li&gt;
+&lt;li&gt;好多提示同时显示&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;空格跳转：&lt;/span&gt;
+&lt;span class="err"&gt;判断有没有后一个空&lt;/span&gt;
+    &lt;span class="err"&gt;有：判断后一个空有没有填对&lt;/span&gt;
+          &lt;span class="err"&gt;填对了：判断有没有后一个空（循环）&lt;/span&gt;
+          &lt;span class="err"&gt;没有填对：跳到下一个空&lt;/span&gt;
+    &lt;span class="err"&gt;没有：自己是最后一个空——跳到第一个错误的空&lt;/span&gt;
+          &lt;span class="err"&gt;判断自己属不属于错误的空&lt;/span&gt;
+               &lt;span class="err"&gt;属于：应该跳到除了自己的第一个错误的空&lt;/span&gt;
+               &lt;span class="err"&gt;不属于：（也就是说自己天对了）跳到第一个错误的空&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;get_next&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+        &lt;span class="c1"&gt;// console.log(&amp;quot;element:&amp;quot;, element)&lt;/span&gt;
+        &lt;span class="c1"&gt;// console.log(&amp;quot;element:&amp;quot;, $(element).next())&lt;/span&gt;
+        &lt;span class="c1"&gt;// if has next input&lt;/span&gt;
+        &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;log&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;if has next input&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;().&lt;/span&gt;&lt;span class="n"&gt;hasClass&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sentence-word-input&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)){&lt;/span&gt;
+            &lt;span class="c1"&gt;// if next input is correct&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(!(&lt;/span&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;().&lt;/span&gt;&lt;span class="n"&gt;hasClass&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;.correct-answer&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;))){&lt;/span&gt;
+                &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;get_next&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;())&lt;/span&gt;
+            &lt;span class="o"&gt;}&lt;/span&gt;   
+            &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+                &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+            &lt;span class="o"&gt;};&lt;/span&gt;  
+        &lt;span class="o"&gt;}&lt;/span&gt;   
+        &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(!(&lt;/span&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="n"&gt;hasClass&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;correct-answer&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;))){&lt;/span&gt;
+                &lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;current_order&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;.sentence-word-input:not(&amp;quot;.correct-answer&amp;quot;)&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
+                &lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;.sentence-word-input:not(&amp;quot;.correct-answer&amp;quot;)&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="n"&gt;eq&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;current_order&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="n"&gt;remove&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+                &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;eq&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+            &lt;span class="o"&gt;}&lt;/span&gt;   
+            &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+                &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;.sentence-word-input:not(&amp;quot;.correct-answer&amp;quot;)&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="n"&gt;eq&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+            &lt;span class="o"&gt;}&lt;/span&gt;   
+        &lt;span class="o"&gt;}&lt;/span&gt;   
+    &lt;span class="o"&gt;},&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="err"&gt;脚本&lt;/span&gt;
+&lt;span class="err"&gt;脚本接受两个参数，输入文件／文件夹&lt;/span&gt;
+
+&lt;span class="n"&gt;ffmpeg&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;Desktop&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;mp3&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;strict&lt;/span&gt; &lt;span class="n"&gt;experimental&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;vn&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;Desktop&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;mp4&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">tulpar</dc:creator><pubDate>Wed, 28 Jan 2015 00:00:00 +0800</pubDate><guid>tag:,2015-01-28:gong-zuo-shi-de-sui-bi.html</guid><category>Django</category></item><item><title>Django开启 the sites framework</title><link>/djangokai-qi-the-sites-framework.html</link><description>&lt;p&gt;以下内容来自Django文档&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Changed&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;Django&lt;/span&gt; &lt;span class="mf"&gt;1.6&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
 &lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="n"&gt;previous&lt;/span&gt; &lt;span class="n"&gt;versions&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;sites&lt;/span&gt; &lt;span class="n"&gt;framework&lt;/span&gt; &lt;span class="n"&gt;was&lt;/span&gt; &lt;span class="n"&gt;enabled&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
 
@@ -1681,7 +1848,12 @@ Sun拼音输入法：&lt;code&gt;sudo apt-get install ibus-sunpinyin&lt;/code&gt
 
 &lt;h6&gt;日如果报错误说，缺某某moudle，就一个个安装那些插件即可，如：&lt;/h6&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="n"&gt;express&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">tulpar</dc:creator><pubDate>Wed, 11 Jun 2014 00:00:00 +0800</pubDate><guid>tag:,2014-06-11:bu-shu-socketio-de-demo.html</guid><category>Socket.io</category></item><item><title>Django Dir 配置（方法一）</title><link>/django-dir-pei-zhi-fang-fa-yi.html</link><description>&lt;h5&gt;Env:&lt;/h5&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">tulpar</dc:creator><pubDate>Wed, 11 Jun 2014 00:00:00 +0800</pubDate><guid>tag:,2014-06-11:bu-shu-socketio-de-demo.html</guid><category>Socket.io</category></item><item><title>linux 小技巧（1）</title><link>/linux-xiao-ji-qiao-1.html</link><description>&lt;h3&gt;1.install local deb packages:&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;dpkg -i file.deb&lt;/code&gt;&lt;/p&gt;
+&lt;h5&gt;uninstall packages installed with dpkg:&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;``dpkg -r appname&lt;/code&gt;&lt;/p&gt;
+&lt;h5&gt;list packages installed with dpkg:&lt;/h5&gt;
+&lt;p&gt;&lt;code&gt;dpkg --get-selections | grep -v deinstall&lt;/code&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">tulpar</dc:creator><pubDate>Wed, 28 May 2014 00:00:00 +0800</pubDate><guid>tag:,2014-05-28:linux-xiao-ji-qiao-1.html</guid><category>Linux</category></item><item><title>Django Dir 配置（方法一）</title><link>/django-dir-pei-zhi-fang-fa-yi.html</link><description>&lt;h5&gt;Env:&lt;/h5&gt;
 &lt;ul&gt;
 &lt;li&gt;django==1.4.5&lt;/li&gt;
 &lt;li&gt;python==2.7&lt;/li&gt;
@@ -2330,6 +2502,76 @@ Sun拼音输入法：&lt;code&gt;sudo apt-get install ibus-sunpinyin&lt;/code&gt
 生成后可以取消&lt;/p&gt;
 &lt;h5&gt;如下命令：映射80端口，使用二级域名：http://tulpar.ngrok.com&lt;/h5&gt;
 &lt;p&gt;&lt;code&gt;./ngrok --subdomain tulpar 80&lt;/code&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">tulpar</dc:creator><pubDate>Sat, 08 Mar 2014 00:00:00 +0800</pubDate><guid>tag:,2014-03-08:shi-yong-ngrokjiang-nei-wang-duan-kou-ying-she-dao-wai-wang.html</guid><category>ngrok</category></item><item><title>Xadmin入门</title><link>/xadminru-men.html</link><description>&lt;p&gt;之前用过一次Xadmin，很好。这一次又想用，竟然忘了怎么用，又得重头入门。之前写过印象笔记，如今翻来翻去，很杂，很乱，想当初真该写个博文的。这一次一定!     &lt;/p&gt;
+&lt;p&gt;ENV:&lt;br /&gt;
+python 2.7.3&lt;br /&gt;
+Django 1.4.5&lt;br /&gt;
+virtualenv 1.11.4  &lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;.安装配置&lt;/h2&gt;
+&lt;h4&gt;1. install xadmin&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;xadmin&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;2.检查下列依赖包有没有都被安装&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;django&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt;&lt;span class="mf"&gt;1.4&lt;/span&gt;
+&lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;crispy&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;forms&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt;&lt;span class="mf"&gt;1.2.3&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;For&lt;/span&gt; &lt;span class="n"&gt;xadmin&lt;/span&gt; &lt;span class="n"&gt;crispy&lt;/span&gt; &lt;span class="n"&gt;forms&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;reversion&lt;/span&gt; &lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;OPTION&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;For&lt;/span&gt; &lt;span class="n"&gt;object&lt;/span&gt; &lt;span class="n"&gt;history&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;reversion&lt;/span&gt; &lt;span class="n"&gt;feature&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;please&lt;/span&gt; &lt;span class="n"&gt;select&lt;/span&gt; &lt;span class="n"&gt;right&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;see&lt;/span&gt; &lt;span class="n"&gt;changelog&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;xlwt&lt;/span&gt; &lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;OPTION&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;For&lt;/span&gt; &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;xls&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;xlsxwriter&lt;/span&gt; &lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;OPTION&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;For&lt;/span&gt; &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;xlsx&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;3. Xadmin 作为 Django 的模块,&lt;/h4&gt;
+&lt;p&gt;首先编辑 settings.py 添加 Xadmin 的模块到 INSTALLED_APPS 中 (注意, 安装 Django admin 所需要的 APP 也要安装, 但是 django.admin 可以不安装):  &lt;/p&gt;
+&lt;p&gt;INSTALL_APPS&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;INSTALLED_APPS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;contrib&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;auth&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;contrib&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;contenttypes&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;contrib&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sessions&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;contrib&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sites&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;contrib&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;messages&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;contrib&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;staticfiles&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+
+    &lt;span class="err"&gt;#&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;contrib&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;admin&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;这个可以去掉&lt;/span&gt;
+
+&lt;span class="cp"&gt;##添加模块&lt;/span&gt;
+    &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;xadmin&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;crispy_forms&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;reversion&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  &lt;span class="err"&gt;#&lt;/span&gt;  &lt;span class="err"&gt;需要&lt;/span&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;reversion&lt;/span&gt;
+
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;其中&lt;code&gt;xadmin&lt;/code&gt;依赖&lt;code&gt;crispy_forms&lt;/code&gt;默认安装，依赖&lt;code&gt;reversion&lt;/code&gt;可选&lt;/p&gt;
+&lt;h4&gt;4. 然后添加 URL-patterns 以及 autodiscover 操作:&lt;/h4&gt;
+&lt;p&gt;urls.py 添加&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;xadmin&lt;/span&gt;
+&lt;span class="n"&gt;xadmin&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;autodiscover&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="n"&gt;urlpatterns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;patterns&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="err"&gt;$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;IndexView&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;as_view&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+
+    &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="n"&gt;xadmin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;include&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;xadmin&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urls&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;xadmin&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+
+    &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;当然得注释admin相关配置&lt;/p&gt;
+&lt;h4&gt;5. 收集 media 文件:&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;python manage.py collectstatic&lt;/code&gt;&lt;/p&gt;
+&lt;h4&gt;6.注册数据：app内写一个adminx.py&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;xadmin&lt;/span&gt;
+&lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt; &lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;New&lt;/span&gt;
+
+&lt;span class="n"&gt;xadmin&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;register&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;New&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;7. 配置后台界面，主题，图标什么的&lt;/h4&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">tulpar</dc:creator><pubDate>Wed, 05 Mar 2014 00:00:00 +0800</pubDate><guid>tag:,2014-03-05:xadminru-men.html</guid></item><item><title>Xadmin入门</title><link>/xadminru-men.html</link><description>&lt;p&gt;之前用过一次Xadmin，很好。这一次又想用，竟然忘了怎么用，又得重头入门。之前写过印象笔记，如今翻来翻去，很杂，很乱，想当初真该写个博文的。这一次一定!     &lt;/p&gt;
 &lt;p&gt;ENV:&lt;br /&gt;
 python 2.7.3&lt;br /&gt;
 Django 1.4.5&lt;br /&gt;
