@@ -51,9 +51,75 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/pythonzhong-raw_inputhe-inputde-yi-tong-dian.html">Python中raw_input和input的异同点</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-08T00:00:00+08:00" pubdate>Tue 08 July 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>一般软件做的事情主要就是下面几条：<br />
+· 接受人的输入。 <br />
+· 改变输入。 <br />
+· 打印出改变了的输入  <br />
+                  ———来自&lt;<a href="http://tulpar008.github.io/ben-ban-fa-xue-python.html">笨办法学Python</a>&gt;</p>
+<hr />
+<h3>相同点</h3>
+<p>这两个函数均用来接收输入，上述真理已足以说明它们的重要性，我不赘述了。</p>
+<h3>不同点</h3>
+<p><strong>1. raw_input() 直接读取控制台的输入（任何类型的输入它都可以接收）。而对于 input() ，它希望能够读取一个合法的 python 表达式，即你输入字符串的时候必须使用引号将它括起来，否则它会引发一个 SyntaxError 。</strong></p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span><span class="n">a</span><span class="o">=</span><span class="nx">raw_input</span><span class="p">(</span><span class="s2">&quot;请输入字符串，不用写引号：&quot;</span><span class="p">)</span>
+<span class="err">请输入字符串，不用写引号：</span><span class="nx">guoshu</span>
+
+<span class="o">&gt;&gt;&gt;</span><span class="n">b</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入字符串，不写引号试试：&quot;</span><span class="p">)</span>
+<span class="err">请输入字符串，不写引号试试：</span><span class="nx">guoshu</span>
+
+<span class="nx">Traceback</span> <span class="p">(</span><span class="nx">most</span> <span class="nx">recent</span> <span class="nb">call</span> <span class="nb">last</span><span class="p">):</span>
+ <span class="nb">File</span> <span class="s2">&quot;&lt;pyshell#1&gt;&quot;</span><span class="p">,</span> <span class="nb">line</span> <span class="mi">1</span><span class="p">,</span> <span class="k">in</span> <span class="o">&lt;</span><span class="nx">module</span><span class="o">&gt;</span>
+ <span class="n">input_A ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/pythonzhong-raw_inputhe-inputde-yi-tong-dian.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/__init__fang-fa.html">__init__()方法</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-07T00:00:00+08:00" pubdate>Mon 07 July 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>首先复习一下,<a href="http://tulpar008.github.io/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">__（双下划线）的作用</a></h3>
+<ul>
+<li>
+<p>Python中默认的成员函数，成员变量都是公开的(public),而且python中没有类似public,private等关键词来修饰成员函数，成员变量。   </p>
+</li>
+<li>
+<p>可有时候需要用到私有变量，因此诞生了__。    </p>
+</li>
+<li>
+<p>变量名或函数名前加上 ”__“两个下划线，那么这个函数或变量就会为私有的了。</p>
+</li>
+<li>
+<p>私有意味着只有内部能使用，对外部隐藏。       </p>
+</li>
+<li>
+<p>在内部，python使用一种 name mangling 技术，将 __membername替换成 _classname__membername来使用。  <br />
+在外部，使用原来的私有成员的名字时，会提示找不到。（达到了隐藏的效果）    </p>
+</li>
+</ul>
+<hr />
+<p>很显然，__init__是个私有函数</p>
+<h5>__init__方法在类的一个对象被建立时，马上运行。这个方法可以用来对你的对象做一些你希望的 初始化 。</h5>
+<h6>注意，这个名称的开始和结尾都是双下划线。</h6></div>
+  <footer>
+    <a rel="full-article" href="/__init__fang-fa.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/django-fen-ye.html">django 分页</a>
       </h1>
-      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
+      <p class="meta"><time datetime="2014-07-07T00:00:00+08:00" pubdate>Mon 07 July 2014</time></p>
 </header>
 
   <div class="entry-content"><p>我个人使用gmail的邮件服务器，不过经常会被墙，因此下面讲解使用qq邮箱服务器。</p>
@@ -84,7 +150,7 @@
       <h1 class="entry-title">
         <a href="/django-shi-yong-you-jian-fu-wu.html">Django 使用邮件服务</a>
       </h1>
-      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
+      <p class="meta"><time datetime="2014-07-07T00:00:00+08:00" pubdate>Mon 07 July 2014</time></p>
 </header>
 
   <div class="entry-content"><p>我个人使用gmail的邮件服务器，不过经常会被墙，因此下面讲解使用qq邮箱服务器。</p>
@@ -112,7 +178,7 @@
       <h1 class="entry-title">
         <a href="/init__fang-fa.html">init__()方法</a>
       </h1>
-      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
+      <p class="meta"><time datetime="2014-07-07T00:00:00+08:00" pubdate>Mon 07 July 2014</time></p>
 </header>
 
   <div class="entry-content"><h3>首先复习一下,<a href="http://tulpar008.github.io/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">__（双下划线）的作用</a></h3>
@@ -147,7 +213,7 @@
       <h1 class="entry-title">
         <a href="/python-shi-li-fang-fa-jing-tai-fang-fa-lei-fang-fa.html">python 实例方法，静态方法，类方法</a>
       </h1>
-      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
+      <p class="meta"><time datetime="2014-07-07T00:00:00+08:00" pubdate>Mon 07 July 2014</time></p>
 </header>
 
   <div class="entry-content"><h3>实例方法（@郭叔）</h3>
@@ -178,7 +244,7 @@
       <h1 class="entry-title">
         <a href="/pythonzhong-__shuang-xia-hua-xian-de-zuo-yong.html">python中 __（双下划线）的作用</a>
       </h1>
-      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>一 07 七月 2014</time></p>
+      <p class="meta"><time datetime="2014-07-07T00:00:00+08:00" pubdate>Mon 07 July 2014</time></p>
 </header>
 
   <div class="entry-content"><ul>
@@ -226,7 +292,7 @@
       <h1 class="entry-title">
         <a href="/python-withyu-ju.html">Python with语句</a>
       </h1>
-      <p class="meta"><time datetime="2014-07-03T00:00:00" pubdate>四 03 七月 2014</time></p>
+      <p class="meta"><time datetime="2014-07-03T00:00:00+08:00" pubdate>Thu 03 July 2014</time></p>
 </header>
 
   <div class="entry-content"><p>感谢<a href="http://sdqali.in/blog/2012/07/09/understanding-pythons-with/">Sadique Ali</a>的总结分享</p>
@@ -260,7 +326,7 @@
       <h1 class="entry-title">
         <a href="/python-exeche-evalyu-ju.html">python exec和eval语句</a>
       </h1>
-      <p class="meta"><time datetime="2014-07-02T00:00:00" pubdate>三 02 七月 2014</time></p>
+      <p class="meta"><time datetime="2014-07-02T00:00:00+08:00" pubdate>Wed 02 July 2014</time></p>
 </header>
 
   <div class="entry-content"><h5>exec语句用来执行储存在字符串或文件中的Python语句。例如，我们可以在运行时生成一个包含Python代码的字符串，然后使用exec语句执行这些语句。下面是一个简单的例子。</h5>
@@ -282,7 +348,7 @@
       <h1 class="entry-title">
         <a href="/stryu-reprde-qu-bie.html">str()与repr()的区别</a>
       </h1>
-      <p class="meta"><time datetime="2014-07-01T00:00:00" pubdate>二 01 七月 2014</time></p>
+      <p class="meta"><time datetime="2014-07-01T00:00:00+08:00" pubdate>Tue 01 July 2014</time></p>
 </header>
 
   <div class="entry-content"><h5>一</h5>
@@ -310,82 +376,6 @@
     <a rel="full-article" href="/stryu-reprde-qu-bie.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/ben-ban-fa-xue-python.html">笨办法学python</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-30T00:00:00" pubdate>一 30 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>总有一天你会听到有程序员建议你使用 Mac OSX 或者 Linux。如果他喜欢字体美观，他会告诉你让你弄台 Mac OSX 计算机，如果他们喜欢操作控制而且留了一部大胡子，他会让你安装 Linux。这里再次向你说明，只要是一台手上能用的电脑就可以了。</h3>
-<h3>01 print</h3>
-<h5>字符串涉及换行时，行尾得用'\'</h5>
-<div class="highlight"><pre><span class="n">s1</span><span class="o">=</span><span class="s">&quot;some very long string.....\   </span>
-<span class="p">...</span>\
-<span class="p">....</span><span class="s">&quot;</span>
-<span class="n">print</span> <span class="n">s1</span>
-</pre></div>
-
-
-<h5>记得加<code>#-*- coding: UTF-8 -*-</code></h5>
-<div class="highlight"><pre><span class="cp">#-*- coding: UTF-8 -*- </span>
-<span class="n">print</span> <span class="err">&#39;</span><span class="n">hello</span><span class="err">&#39;</span>
-
-<span class="cp">#print hello ##wrong </span>
-
-
-<span class="n">a</span><span class="o">=</span><span class="err">&#39;</span><span class="n">hello</span> <span class="n">a</span><span class="err">&#39;</span>
-<span class="n">print</span> <span class="n">a</span>
-
-<span class="n">print</span> <span class="s">&quot;I like typing this&quot;</span>
-
-
-
-
-<span class="n">print</span> <span class="s">&quot;iacoding: utf-8 --这样你就在脚本中使用aap ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/ben-ban-fa-xue-python.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/mysqlyu-ju-ru-men-1.html">Mysql语句入门（1）</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-19T00:00:00" pubdate>四 19 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>进入退出</h3>
-<div class="highlight"><pre><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span>
-<span class="n">Enter</span> <span class="n">password</span><span class="o">:</span> 
-
-<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">quit</span>
-</pre></div>
-
-
-<h3>创建数据库</h3>
-<div class="highlight"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">tulpar_db</span> <span class="n">CHARACTER</span> <span class="n">SET</span> <span class="n">utf8</span> <span class="n">COLLATE</span> <span class="n">utf8_general_ci</span><span class="p">;</span>
-
-
-<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">GRANT</span> <span class="n">ALL</span> <span class="n">ON</span> <span class="n">tulpar_db</span><span class="p">.</span><span class="o">*</span> <span class="n">TO</span> <span class="err">&#39;</span><span class="n">tulpar</span><span class="sc">&#39;@&#39;</span><span class="n">localhost</span><span class="err">&#39;</span> <span class="n">IDENTIFIED</span> <span class="n">BY</span> <span class="err">&#39;</span><span class="n">mypassword</span><span class="err">&#39;</span><span class="p">;</span>
-</pre></div>
-
-
-<h3>导入数据库</h3>
-<h5>常用source 命令</h5>
-<div class="highlight"><pre><span class="n">mysql</span><span class="o">&gt;</span><span class="n">use</span> <span class="n">tulpar_db</span>
-<span class="n">mysql</span><span class="o">&gt;</span><span class="n">source</span> <span class="p">..</span><span class="o">/</span><span class="n">wcnc_db</span><span class="p">.</span><span class="n">sql</span>
-</pre></div>
-
-
-<h3>导出整个数据库</h3>
-<p>mysqldump -u 用户名 -p 数据库名 &gt; 导出的文件名</p>
-<div class="highlight"><pre><span class="n">mysqldump</span> <span class="o">-</span><span class="n">u</span> <span class="n">tulpar ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/mysqlyu-ju-ru-men-1.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it3.html">&larr; Older</a>
 
@@ -397,6 +387,9 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/gong-zuo-shi-de-sui-bi.html">工作时的随笔</a>
+      </li>
+      <li class="post">
           <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
       </li>
       <li class="post">
@@ -407,9 +400,6 @@
       </li>
       <li class="post">
           <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
-      </li>
-      <li class="post">
-          <a href="/django-validators.html">Django Validators</a>
       </li>
     </ul>
   </section>
@@ -448,7 +438,7 @@
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2013-2014  - tulpar -
+    Copyright &copy;  2013-2015  - tulpar -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
 </body>

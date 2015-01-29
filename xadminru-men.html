@@ -51,7 +51,7 @@
   <article class="hentry" role="article">
 <header>
       <h1 class="entry-title">Xadmin入门</h1>
-      <p class="meta"><time datetime="2014-03-05T00:00:00" pubdate>三 05 三月 2014</time></p>
+      <p class="meta"><time datetime="2014-03-05T00:00:00+08:00" pubdate>Wed 05 March 2014</time></p>
 </header>
 
   <div class="entry-content"><p>之前用过一次Xadmin，很好。这一次又想用，竟然忘了怎么用，又得重头入门。之前写过印象笔记，如今翻来翻去，很杂，很乱，想当初真该写个博文的。这一次一定!     </p>
@@ -78,9 +78,7 @@ virtualenv 1.11.4  </p>
 <h4>3. Xadmin 作为 Django 的模块,</h4>
 <p>首先编辑 settings.py 添加 Xadmin 的模块到 INSTALLED_APPS 中 (注意, 安装 Django admin 所需要的 APP 也要安装, 但是 django.admin 可以不安装):  </p>
 <p>INSTALL_APPS</p>
-<div class="highlight"><pre><span class="cp">#-*- coding: UTF-8 -*- </span>
-
-<span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
     <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">auth</span><span class="err">&#39;</span><span class="p">,</span>
     <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">contenttypes</span><span class="err">&#39;</span><span class="p">,</span>
     <span class="err">&#39;</span><span class="n">django</span><span class="p">.</span><span class="n">contrib</span><span class="p">.</span><span class="n">sessions</span><span class="err">&#39;</span><span class="p">,</span>
@@ -126,19 +124,13 @@ virtualenv 1.11.4  </p>
 </pre></div>
 
 
-<h4>7. 配置后台界面，主题，图标什么的</h4>
-<hr />
-<p>效果图 <br />
-<img alt="test" src="http://tulparblog.qiniudn.com/xadmin1.png" /></p></div>
+<h4>7. 配置后台界面，主题，图标什么的</h4></div>
     <footer>
 <p class="meta">
   <span class="byline author vcard">
     Posted by <span class="fn">tulpar</span>
   </span>
-<time datetime="2014-03-05T00:00:00" pubdate>三 05 三月 2014</time>  <span class="categories">
-    <a class="category" href="/tag/xadmin.html">Xadmin</a>
-  </span>
-</p><div class="sharing">
+<time datetime="2014-03-05T00:00:00+08:00" pubdate>Wed 05 March 2014</time></p><div class="sharing">
 </div>    </footer>
   </article>
 
@@ -165,6 +157,9 @@ ds.charset = 'UTF-8';
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/gong-zuo-shi-de-sui-bi.html">工作时的随笔</a>
+      </li>
+      <li class="post">
           <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
       </li>
       <li class="post">
@@ -175,9 +170,6 @@ ds.charset = 'UTF-8';
       </li>
       <li class="post">
           <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
-      </li>
-      <li class="post">
-          <a href="/django-validators.html">Django Validators</a>
       </li>
     </ul>
   </section>
@@ -216,7 +208,7 @@ ds.charset = 'UTF-8';
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2013-2014  - tulpar -
+    Copyright &copy;  2013-2015  - tulpar -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
 </body>

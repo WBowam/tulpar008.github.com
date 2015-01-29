@@ -51,9 +51,92 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/githubshang-da-bo-ke.html">Github上搭博客</a>
+      </h1>
+      <p class="meta"><time datetime="2013-11-08T00:00:00+08:00" pubdate>Fri 08 November 2013</time></p>
+</header>
+
+  <div class="entry-content"><p>Github上搭博客</p>
+<hr />
+<h3>1.过程概要</h3>
+<ul>
+<li>在Github上创建工程</li>
+<li>安装配置pelican和git，以及准备工作</li>
+<li>开始写博客</li>
+</ul>
+<h3>2.详细步骤</h3>
+<h3>在GitHub上创建工程</h3>
+<p>注册，配置github的过程略过</p>
+<h5>创建一个tulpar008.github.com的库（tulpar008是用户名必须是用户名）</h5>
+<h5>安装配置pelican，以及准备工作</h5>
+<h4>pelican的安装</h4>
+<p><code>sudo pip install pelican</code>  </p>
+<h4>电脑上创建一个blog目录，用来存放你的博客文件(我这里目录名直接用的“blog”)</h4>
+<div class="highlight"><pre><span class="n">mkdir</span> <span class="n">blog</span>
+<span class="n">cd</span> <span class="n">blog</span>
+<span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
+</pre></div>
+
+
+<p>这个时候你会看到blog目录下多了几个Pelican生成的文件，其中的pelicanconf.py就是配置文件</p>
+<h3>开始写博客</h3>
+<p>现在，就可以用Pelican开始写博客了，具体怎么写可参看Pelican的文档，这里我用Markdown举例。</p>
+<h4>进入content目录，用编辑器创建一个文件，写入博客内容并保存为md文件：</h4>
+<div class="highlight"><pre><span class="n">Date</span><span class="o">:</span> <span class="mi">2013</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">06</span> <span class="err">#日期</span>
+<span class="n">Title ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/githubshang-da-bo-ke.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="/shelljiao-ben-bian-cheng-30fen-zhong-ru-men.html">Shell脚本编程30分钟入门</a>
+      </h1>
+      <p class="meta"><time datetime="2013-11-08T00:00:00+08:00" pubdate>Fri 08 November 2013</time></p>
+</header>
+
+  <div class="entry-content"><p>====================</p>
+<h3>什么是Shell脚本</h3>
+<h4>示例</h4>
+<p>看个例子吧：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/sh</span>
+<span class="nb">cd</span> ~
+mkdir shell_tut
+<span class="nb">cd </span>shell_tut
+
+<span class="k">for</span> <span class="o">((</span><span class="nv">i</span><span class="o">=</span>0; i&lt;10; i++<span class="o">))</span>; <span class="k">do</span>
+<span class="k">    </span>touch test_<span class="nv">$i</span>.txt
+<span class="k">done</span>
+</pre></div>
+</td></tr></table>
+
+<h4>示例解释</h4>
+<ul>
+<li>第1行：指定脚本解释器，这里是用/bin/sh做解释器的</li>
+<li>第2行：切换到当前用户的home目录</li>
+<li>第3行：创建一个目录shell_tut</li>
+<li>第4行：切换到shell_tut目录</li>
+<li>第5行：循环条件，一共循环10次</li>
+<li>第6行：创建一个test_1…10.txt文件</li>
+<li>第7行 ...</li></ul></div>
+  <footer>
+    <a rel="full-article" href="/shelljiao-ben-bian-cheng-30fen-zhong-ru-men.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/django-media-pei-zhi-fang-fa-yi.html">Django Media 配置（方法一）</a>
       </h1>
-      <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
+      <p class="meta"><time datetime="2013-09-14T00:00:00+08:00" pubdate>Sat 14 September 2013</time></p>
 </header>
 
   <div class="entry-content"><h5>Env:</h5>
@@ -86,7 +169,7 @@
       <h1 class="entry-title">
         <a href="/django-userena-de-shi-yong.html">Django-userena 的使用</a>
       </h1>
-      <p class="meta"><time datetime="2013-09-14T00:00:00" pubdate>六 14 九月 2013</time></p>
+      <p class="meta"><time datetime="2013-09-14T00:00:00+08:00" pubdate>Sat 14 September 2013</time></p>
 </header>
 
   <div class="entry-content"><hr />
@@ -123,7 +206,7 @@
       <h1 class="entry-title">
         <a href="/git-ru-men.html">Git 入门</a>
       </h1>
-      <p class="meta"><time datetime="2013-09-08T00:00:00" pubdate>日 08 九月 2013</time></p>
+      <p class="meta"><time datetime="2013-09-08T00:00:00+08:00" pubdate>Sun 08 September 2013</time></p>
 </header>
 
   <div class="entry-content"><p>之前入门过git，只是入门，不明白原理，不会用建分支，没法完成一些稍有难度的工作。因此，一直想再学学，一直是想，直到......<br />
@@ -159,7 +242,7 @@ Or <br />
       <h1 class="entry-title">
         <a href="/git-qu-xiao-cuo-wu-de-shang-chuan.html">git 取消错误的上传</a>
       </h1>
-      <p class="meta"><time datetime="2013-07-23T00:00:00" pubdate>二 23 七月 2013</time></p>
+      <p class="meta"><time datetime="2013-07-23T00:00:00+08:00" pubdate>Tue 23 July 2013</time></p>
 </header>
 
   <div class="entry-content"><h5>参考<a href="http://stackoverflow.com/questions/448919/how-can-i-remove-a-commit-on-github">Stackoverflow</a></h5>
@@ -186,7 +269,7 @@ Or <br />
       <h1 class="entry-title">
         <a href="/linux-xiao-ji-qiao-2.html">linux 小技巧（2）</a>
       </h1>
-      <p class="meta"><time datetime="2013-05-29T00:00:00" pubdate>三 29 五月 2013</time></p>
+      <p class="meta"><time datetime="2013-05-29T00:00:00+08:00" pubdate>Wed 29 May 2013</time></p>
 </header>
 
   <div class="entry-content"><h3>1.纯命令行下用鼠标</h3>
@@ -209,6 +292,9 @@ Or <br />
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/gong-zuo-shi-de-sui-bi.html">工作时的随笔</a>
+      </li>
+      <li class="post">
           <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
       </li>
       <li class="post">
@@ -219,9 +305,6 @@ Or <br />
       </li>
       <li class="post">
           <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
-      </li>
-      <li class="post">
-          <a href="/django-validators.html">Django Validators</a>
       </li>
     </ul>
   </section>
@@ -260,7 +343,7 @@ Or <br />
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2013-2014  - tulpar -
+    Copyright &copy;  2013-2015  - tulpar -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
 </body>

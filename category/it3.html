@@ -51,9 +51,47 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/mysqlyu-ju-ru-men-1.html">Mysql语句入门（1）</a>
+      </h1>
+      <p class="meta"><time datetime="2014-06-19T00:00:00+08:00" pubdate>Thu 19 June 2014</time></p>
+</header>
+
+  <div class="entry-content"><h3>进入退出</h3>
+<div class="highlight"><pre><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span>
+<span class="n">Enter</span> <span class="n">password</span><span class="o">:</span> 
+
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">quit</span>
+</pre></div>
+
+
+<h3>创建数据库</h3>
+<div class="highlight"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">tulpar_db</span> <span class="n">CHARACTER</span> <span class="n">SET</span> <span class="n">utf8</span> <span class="n">COLLATE</span> <span class="n">utf8_general_ci</span><span class="p">;</span>
+
+
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">GRANT</span> <span class="n">ALL</span> <span class="n">ON</span> <span class="n">tulpar_db</span><span class="p">.</span><span class="o">*</span> <span class="n">TO</span> <span class="err">&#39;</span><span class="n">tulpar</span><span class="sc">&#39;@&#39;</span><span class="n">localhost</span><span class="err">&#39;</span> <span class="n">IDENTIFIED</span> <span class="n">BY</span> <span class="err">&#39;</span><span class="n">mypassword</span><span class="err">&#39;</span><span class="p">;</span>
+</pre></div>
+
+
+<h3>导入数据库</h3>
+<h5>常用source 命令</h5>
+<div class="highlight"><pre><span class="n">mysql</span><span class="o">&gt;</span><span class="n">use</span> <span class="n">tulpar_db</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="n">source</span> <span class="p">..</span><span class="o">/</span><span class="n">wcnc_db</span><span class="p">.</span><span class="n">sql</span>
+</pre></div>
+
+
+<h3>导出整个数据库</h3>
+<p>mysqldump -u 用户名 -p 数据库名 &gt; 导出的文件名</p>
+<div class="highlight"><pre><span class="n">mysqldump</span> <span class="o">-</span><span class="n">u</span> <span class="n">tulpar ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="/mysqlyu-ju-ru-men-1.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
       </h1>
-      <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
+      <p class="meta"><time datetime="2014-06-18T00:00:00+08:00" pubdate>Wed 18 June 2014</time></p>
 </header>
 
   <div class="entry-content"><h3>如下方法：</h3>
@@ -70,7 +108,7 @@
       <h1 class="entry-title">
         <a href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Django中使用mysql数据库</a>
       </h1>
-      <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
+      <p class="meta"><time datetime="2014-06-18T00:00:00+08:00" pubdate>Wed 18 June 2014</time></p>
 </header>
 
   <div class="entry-content"><h3>安装Mysql</h3>
@@ -99,7 +137,7 @@
       <h1 class="entry-title">
         <a href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Xadmin List_display中显示缩略图</a>
       </h1>
-      <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
+      <p class="meta"><time datetime="2014-06-18T00:00:00+08:00" pubdate>Wed 18 June 2014</time></p>
 </header>
 
   <div class="entry-content"><h3>需求如图：</h3>
@@ -124,7 +162,7 @@
       <h1 class="entry-title">
         <a href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Xadmin中自动预填某个字段</a>
       </h1>
-      <p class="meta"><time datetime="2014-06-16T00:00:00" pubdate>一 16 六月 2014</time></p>
+      <p class="meta"><time datetime="2014-06-16T00:00:00+08:00" pubdate>Mon 16 June 2014</time></p>
 </header>
 
   <div class="entry-content"><h3>需求：</h3>
@@ -148,7 +186,7 @@
       <h1 class="entry-title">
         <a href="/ueditorzai-djangozhong-de-shi-yong.html">Ueditor在Django中的使用</a>
       </h1>
-      <p class="meta"><time datetime="2014-06-14T00:00:00" pubdate>六 14 六月 2014</time></p>
+      <p class="meta"><time datetime="2014-06-14T00:00:00+08:00" pubdate>Sat 14 June 2014</time></p>
 </header>
 
   <div class="entry-content"><p>以前写过Ueditor在Django中的使用方法（虽然跟着上一个博客一起丢了），在此不赘述了。想学可以看看这位朋友的分享：
@@ -184,7 +222,7 @@
       <h1 class="entry-title">
         <a href="/xadminru-men-2.html">Xadmin入门（2）</a>
       </h1>
-      <p class="meta"><time datetime="2014-06-13T00:00:00" pubdate>五 13 六月 2014</time></p>
+      <p class="meta"><time datetime="2014-06-13T00:00:00+08:00" pubdate>Fri 13 June 2014</time></p>
 </header>
 
   <div class="entry-content"><h2>Xadmin 的插件介绍</h2>
@@ -207,7 +245,7 @@
       <h1 class="entry-title">
         <a href="/bu-shu-socketio-de-demo.html">部署Socket.io 的demo</a>
       </h1>
-      <p class="meta"><time datetime="2014-06-11T00:00:00" pubdate>三 11 六月 2014</time></p>
+      <p class="meta"><time datetime="2014-06-11T00:00:00+08:00" pubdate>Wed 11 June 2014</time></p>
 </header>
 
   <div class="entry-content"><h1>1.安装nvm</h1>
@@ -242,7 +280,7 @@
       <h1 class="entry-title">
         <a href="/linux-xiao-ji-qiao-1.html">linux 小技巧（1）</a>
       </h1>
-      <p class="meta"><time datetime="2014-05-28T00:00:00" pubdate>三 28 五月 2014</time></p>
+      <p class="meta"><time datetime="2014-05-28T00:00:00+08:00" pubdate>Wed 28 May 2014</time></p>
 </header>
 
   <div class="entry-content"><h3>1.install local deb packages:</h3>
@@ -260,7 +298,7 @@
       <h1 class="entry-title">
         <a href="/django-dir-pei-zhi-fang-fa-yi.html">Django Dir 配置（方法一）</a>
       </h1>
-      <p class="meta"><time datetime="2014-05-14T00:00:00" pubdate>三 14 五月 2014</time></p>
+      <p class="meta"><time datetime="2014-05-14T00:00:00+08:00" pubdate>Wed 14 May 2014</time></p>
 </header>
 
   <div class="entry-content"><h5>Env:</h5>
@@ -292,30 +330,6 @@
     <a rel="full-article" href="/django-dir-pei-zhi-fang-fa-yi.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/pep8-zong-jie.html">PEP8 总结</a>
-      </h1>
-      <p class="meta"><time datetime="2014-05-14T00:00:00" pubdate>三 14 五月 2014</time></p>
-</header>
-
-  <div class="entry-content"><p>pep8除了是一个标准，也是一个软件包的名字。 <br />
-提供一个pep8检测器。<br />
-运行很简单：pep8 INPUT_FILES ...<br />
-查看帮助：pep8 --help   </p>
-<p>一般来说，如果要检查代码，pylint和pep8最好都运行一下。pep8只能检测格式，pylint不仅检测格式，还检测语意。  </p>
-<p>下文参考总结bobo的日记，感谢前辈分享～～～</p>
-<hr />
-<h2>一 代码编排</h2>
-<p>1 缩进。4个空格的缩进（编辑器都可以完成此功能），不使用Tap，更不能混合使用Tap和空格。python3 已经不允许空格和Tab混用了。   <br />
-2 每行最大长度79，换行可以使用反斜杠。换行点要在操作符的后边敲回车。  </p>
-<div class="highlight"><pre><span class="n">with</span> <span class="n">open</span><span class="p">(</span><span class="err">&#39;</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">some</span><span class="o">/</span><span class="n">file</span><span class="o">/</span><span class="n">you</span><span class="o">/</span><span class="n">want</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">read</span><span class="err">&#39;</span><span class="p">)</span> <span class="n">as</span> <span class="n">file_1</span><span class="p">,</span> \
-        <span class="n">open</span><span class="p">(</span><span class="err">&#39;</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">some</span><span class="o">/</span><span class="n">file</span><span class="o">/</span><span class="n">being</span><span class="o">/</span><span class="n">written ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="/pep8-zong-jie.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/category/it4.html">&larr; Older</a>
 
@@ -327,6 +341,9 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/gong-zuo-shi-de-sui-bi.html">工作时的随笔</a>
+      </li>
+      <li class="post">
           <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
       </li>
       <li class="post">
@@ -337,9 +354,6 @@
       </li>
       <li class="post">
           <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
-      </li>
-      <li class="post">
-          <a href="/django-validators.html">Django Validators</a>
       </li>
     </ul>
   </section>
@@ -378,7 +392,7 @@
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2013-2014  - tulpar -
+    Copyright &copy;  2013-2015  - tulpar -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
 </body>

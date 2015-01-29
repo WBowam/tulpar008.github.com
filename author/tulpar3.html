@@ -51,9 +51,42 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="/stryu-reprde-qu-bie.html">str()与repr()的区别</a>
+      </h1>
+      <p class="meta"><time datetime="2014-07-01T00:00:00+08:00" pubdate>Tue 01 July 2014</time></p>
+</header>
+
+  <div class="entry-content"><h5>一</h5>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">word</span><span class="o">=</span><span class="s">&quot;hello</span><span class="se">\t</span><span class="s"> world!</span><span class="se">\n</span><span class="s">hello motto!&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">str</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="err">&#39;</span><span class="n">hello</span><span class="err">\</span><span class="n">t</span> <span class="n">world</span><span class="o">!</span><span class="err">\</span><span class="n">nhello</span> <span class="n">motto</span><span class="o">!</span><span class="err">&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">repr</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="s">&quot;&#39;hello</span><span class="se">\\</span><span class="s">t world!</span><span class="se">\\</span><span class="s">nhello motto!&#39;&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">str</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="n">hello</span>    <span class="n">world</span><span class="o">!</span>
+<span class="n">hello</span> <span class="n">motto</span><span class="o">!</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">repr</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="err">&#39;</span><span class="n">hello</span><span class="err">\</span><span class="n">t</span> <span class="n">world</span><span class="o">!</span><span class="err">\</span><span class="n">nhello</span> <span class="n">motto</span><span class="o">!</span><span class="err">&#39;</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+
+
+<h5>二</h5>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">str</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="err">&#39;</span><span class="mf">0.1</span><span class="err">&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">repr</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="err">&#39;</span><span class="mf">0.10000000000000001</span><span class="err">&#39;</span>
+</pre></div></div>
+  <footer>
+    <a rel="full-article" href="/stryu-reprde-qu-bie.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="/mysqlyu-ju-ru-men-1.html">Mysql语句入门（1）</a>
       </h1>
-      <p class="meta"><time datetime="2014-06-19T00:00:00" pubdate>四 19 六月 2014</time></p>
+      <p class="meta"><time datetime="2014-06-19T00:00:00+08:00" pubdate>Thu 19 June 2014</time></p>
 </header>
 
   <div class="entry-content"><h3>进入退出</h3>
@@ -91,7 +124,7 @@
       <h1 class="entry-title">
         <a href="/django-bei-fen-shu-ju-fang-fa-1.html">Django 备份数据方法(1)</a>
       </h1>
-      <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
+      <p class="meta"><time datetime="2014-06-18T00:00:00+08:00" pubdate>Wed 18 June 2014</time></p>
 </header>
 
   <div class="entry-content"><h3>如下方法：</h3>
@@ -108,7 +141,7 @@
       <h1 class="entry-title">
         <a href="/djangozhong-shi-yong-mysqlshu-ju-ku.html">Django中使用mysql数据库</a>
       </h1>
-      <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
+      <p class="meta"><time datetime="2014-06-18T00:00:00+08:00" pubdate>Wed 18 June 2014</time></p>
 </header>
 
   <div class="entry-content"><h3>安装Mysql</h3>
@@ -137,7 +170,7 @@
       <h1 class="entry-title">
         <a href="/xadmin-list_displayzhong-xian-shi-suo-lue-tu.html">Xadmin List_display中显示缩略图</a>
       </h1>
-      <p class="meta"><time datetime="2014-06-18T00:00:00" pubdate>三 18 六月 2014</time></p>
+      <p class="meta"><time datetime="2014-06-18T00:00:00+08:00" pubdate>Wed 18 June 2014</time></p>
 </header>
 
   <div class="entry-content"><h3>需求如图：</h3>
@@ -162,7 +195,7 @@
       <h1 class="entry-title">
         <a href="/xadminzhong-zi-dong-yu-tian-mou-ge-zi-duan.html">Xadmin中自动预填某个字段</a>
       </h1>
-      <p class="meta"><time datetime="2014-06-16T00:00:00" pubdate>一 16 六月 2014</time></p>
+      <p class="meta"><time datetime="2014-06-16T00:00:00+08:00" pubdate>Mon 16 June 2014</time></p>
 </header>
 
   <div class="entry-content"><h3>需求：</h3>
@@ -186,7 +219,7 @@
       <h1 class="entry-title">
         <a href="/ueditorzai-djangozhong-de-shi-yong.html">Ueditor在Django中的使用</a>
       </h1>
-      <p class="meta"><time datetime="2014-06-14T00:00:00" pubdate>六 14 六月 2014</time></p>
+      <p class="meta"><time datetime="2014-06-14T00:00:00+08:00" pubdate>Sat 14 June 2014</time></p>
 </header>
 
   <div class="entry-content"><p>以前写过Ueditor在Django中的使用方法（虽然跟着上一个博客一起丢了），在此不赘述了。想学可以看看这位朋友的分享：
@@ -222,7 +255,7 @@
       <h1 class="entry-title">
         <a href="/xadminru-men-2.html">Xadmin入门（2）</a>
       </h1>
-      <p class="meta"><time datetime="2014-06-13T00:00:00" pubdate>五 13 六月 2014</time></p>
+      <p class="meta"><time datetime="2014-06-13T00:00:00+08:00" pubdate>Fri 13 June 2014</time></p>
 </header>
 
   <div class="entry-content"><h2>Xadmin 的插件介绍</h2>
@@ -245,7 +278,7 @@
       <h1 class="entry-title">
         <a href="/yu-men-de-fa-xian-yi-ge-shuang-bao-tai-shi-xiong.html">郁闷的发现一个双胞胎师兄</a>
       </h1>
-      <p class="meta"><time datetime="2014-06-13T00:00:00" pubdate>五 13 六月 2014</time></p>
+      <p class="meta"><time datetime="2014-06-13T00:00:00+08:00" pubdate>Fri 13 June 2014</time></p>
 </header>
 
   <div class="entry-content"><p>今天google markdown，进了一个博客。<br />
@@ -263,7 +296,7 @@
       <h1 class="entry-title">
         <a href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-1.html">把时间当作朋友读后感（1）</a>
       </h1>
-      <p class="meta"><time datetime="2014-06-12T00:00:00" pubdate>四 12 六月 2014</time></p>
+      <p class="meta"><time datetime="2014-06-12T00:00:00+08:00" pubdate>Thu 12 June 2014</time></p>
 </header>
 
   <div class="entry-content"><p>读书最大的快乐莫过于共鸣。</p>
@@ -277,22 +310,6 @@
     <a rel="full-article" href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-1.html">Read On &crarr;</a>
   </footer>
   		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-2.html">把时间当作朋友读后感（2）</a>
-      </h1>
-      <p class="meta"><time datetime="2014-06-12T00:00:00" pubdate>四 12 六月 2014</time></p>
-</header>
-
-  <div class="entry-content"><h3>用正确方式做正确的事情，时间无需管理。</h3>
-<h3>管理焦点不应该是时间，而是自己。</h3>
-<h4>时间只是个工具，它用于把我们的生命划分成无数个块。</h4>
-<p>生命就像一条高速公路，我们就像一辆不到终点不会停车的长途汽车，有时候看着路边的风景，有时候闭着眼睛养神，但无论何时我们一直在走。路标会告诉我们自己走在哪一路段，会走向哪里。而这路标就是时间</p></div>
-  <footer>
-    <a rel="full-article" href="/ba-shi-jian-dang-zuo-peng-you-du-hou-gan-2.html">Read On &crarr;</a>
-  </footer>
-  		</article>
 <div class="pagination">
     <a class="prev" href="/author/tulpar4.html">&larr; Older</a>
 
@@ -304,6 +321,9 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="/gong-zuo-shi-de-sui-bi.html">工作时的随笔</a>
+      </li>
+      <li class="post">
           <a href="/djangokai-qi-the-sites-framework.html">Django开启 the sites framework</a>
       </li>
       <li class="post">
@@ -314,9 +334,6 @@
       </li>
       <li class="post">
           <a href="/django-shu-ju-cha-xun.html">Django 数据查询</a>
-      </li>
-      <li class="post">
-          <a href="/django-validators.html">Django Validators</a>
       </li>
     </ul>
   </section>
@@ -355,7 +372,7 @@
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2013-2014  - tulpar -
+    Copyright &copy;  2013-2015  - tulpar -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
 </body>
