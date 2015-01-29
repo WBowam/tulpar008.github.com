@@ -41,7 +41,11 @@
 
 &lt;h4&gt;&lt;code&gt;.bashrc&lt;/code&gt;&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;alias&lt;/span&gt; &lt;span class="n"&gt;go&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tulpar&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;workplace&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;blog&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;work_dir&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;go&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">tulpar</dc:creator><pubDate>Thu, 29 Jan 2015 00:00:00 +0800</pubDate><guid>tag:,2015-01-29:xie-bo-ke-jiao-ben.html</guid><category>博客</category></item><item><title>工作时的随笔</title><link>/gong-zuo-shi-de-sui-bi.html</link><description>&lt;h3&gt;mySql&lt;/h3&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;效果图：&lt;/h4&gt;
+&lt;p&gt;&lt;img alt="博客脚本" src="http://tulparblog.qiniudn.com/Screenshot" title="from 2015-01-29 17:44:52.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">tulpar</dc:creator><pubDate>Thu, 29 Jan 2015 00:00:00 +0800</pubDate><guid>tag:,2015-01-29:xie-bo-ke-jiao-ben.html</guid><category>博客</category></item><item><title>工作时的随笔</title><link>/gong-zuo-shi-de-sui-bi.html</link><description>&lt;h3&gt;mySql&lt;/h3&gt;
 &lt;p&gt;mysql add boolean column with default value&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;alter&lt;/span&gt; &lt;span class="n"&gt;table&lt;/span&gt; &lt;span class="n"&gt;notification_notification&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="n"&gt;column&lt;/span&gt; &lt;span class="n"&gt;can_be_disabled&lt;/span&gt; &lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
